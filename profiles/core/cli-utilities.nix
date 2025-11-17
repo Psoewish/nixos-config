@@ -1,0 +1,38 @@
+{
+  pkgs,
+  username,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [
+    bat
+    bat-extras.batdiff
+    bat-extras.batman
+    bat-extras.prettybat
+    curl
+    eza
+    fd
+    fzf
+    jq
+    ripgrep
+    killall
+    socat
+    wget
+    unzip
+    zip
+    sops
+    bind
+  ];
+  home-manager.users.${username} = {
+    programs.eza = {
+      enable = true;
+      git = true;
+      icons = "auto";
+      colors = "always";
+      extraOptions = [
+        "--all"
+        "--group-directories-first"
+      ];
+    };
+  };
+}

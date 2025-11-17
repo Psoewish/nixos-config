@@ -1,0 +1,2 @@
+# Routing secrets (soft secrets - not in sops)
+lib/routing-secrets.nix
