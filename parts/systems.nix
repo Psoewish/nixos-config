@@ -2,7 +2,18 @@
 let
   lib = inputs.nixpkgs.lib;
   import-tree = inputs.import-tree;
-  mkRoute = import ../lib/mkRoute.nix { inherit lib; };
+
+  # Import soft secrets from local file
+  # NOTE: This file is gitignored but must be added to git index with:
+  #   git add -f secrets/soft-secrets.nix
+  # This makes it visible to Nix evaluation without committing it
+  softSecrets = import ../secrets/soft-secrets.nix;
+
+  # Create mkRoute with secrets baked in
+  mkRoute = import ../lib/mkRoute.nix {
+    inherit lib;
+    routingSecrets = softSecrets;
+  };
 
   # Desktop Host Configuration
   desktopHost = import-tree [ ../hosts/desktop ];
@@ -27,7 +38,7 @@ in
     desktop = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs lib;
+        inherit inputs lib softSecrets;
         hostname = "desktop";
         username = "psoewish";
         stateVersion = "25.05";
@@ -44,7 +55,12 @@ in
     homelab = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs lib mkRoute;
+        inherit
+          inputs
+          lib
+          mkRoute
+          softSecrets
+          ;
         hostname = "homelab";
         username = "psoewish";
         stateVersion = "25.11";

@@ -2,6 +2,7 @@
   config,
   lib,
   mkRoute,
+  softSecrets,
   ...
 }:
 lib.mkMerge [
@@ -26,7 +27,7 @@ lib.mkMerge [
 
         certificatesResolvers.cloudflare = {
           acme = {
-            email = (import ../../../secrets/soft-secrets.nix).email;
+            email = softSecrets.email;
             storage = "/var/lib/traefik/acme.json";
             dnsChallenge = {
               provider = "cloudflare";

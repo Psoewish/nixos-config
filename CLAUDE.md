@@ -130,9 +130,10 @@ sudo nixos-rebuild dry-build --flake .#desktop
     - `media-services/`: Media delivery (jellyfin, jellyseerr, bazarr)
     - `routing/`: Network services (traefik, cloudflared, blocky)
     - Top-level: Utility services (filebrowser - temporary)
-- **`secrets/`**: sops-nix encrypted secrets files
-  - `secrets.nix`: Defines secret paths and handling
+- **`secrets/`**: Secret management
+  - `secrets.nix`: Defines sops-nix secret paths and handling
   - `*.yaml`: Encrypted secret values (managed by sops-nix)
+  - `soft-secrets.nix`: Gitignored file for build-time secrets (domain, email, etc.) - must be created locally and added with `git add -f`
 
 ### Profile-Based Architecture
 
@@ -186,13 +187,47 @@ This decouples configuration logic from the main flake file and makes it easy to
 
 The key distinction: If it's about "what hardware is this" or "how is this specific machine configured," it goes in `hosts/`. If it's about "what features do I want," it goes in `profiles/`.
 
-### Secrets Management (sops-nix)
+### Secrets Management
+
+#### sops-nix (Runtime Secrets)
 
 - Encrypted secrets live in `secrets/` directory (`.yaml` files)
 - `secrets.nix` declares where secrets should be placed in `/run/secrets/`
 - Access decrypted secrets via `config.sops.secrets."<name>".path`
 - Example: Cloudflared credentials, Sonarr/Radarr API keys
 - Requires appropriate keys/credentials for decryption on target systems
+- **Important**: sops secrets are only decrypted at **activation time**, not build time
+  - During evaluation, only the **path** to the secret is known (e.g., `/run/secrets/cloudflare/api`)
+  - The actual secret content is only available when services run
+  - Cannot use `builtins.readFile` on sops secret paths during evaluation
+
+#### Soft Secrets (Build-time Secrets)
+
+For values that need to be known at **build time** (like domain names, email addresses, tunnel IDs):
+
+- `secrets/soft-secrets.nix`: Gitignored Nix file containing build-time secrets
+- These are "soft secrets" - not highly sensitive, but preferred not to be in git history
+- Analogy: Like locking your front door - not Fort Knox, but basic security hygiene
+
+**Setup process:**
+1. Create `secrets/soft-secrets.nix` with your values:
+   ```nix
+   {
+     domain = "example.com";
+     tunnelId = "your-tunnel-id";
+     email = "your@email.com";
+   }
+   ```
+2. Add to git index (but not commits): `git add -f secrets/soft-secrets.nix`
+3. The file is gitignored but visible to Nix evaluation
+
+**Usage:**
+- Imported once in `parts/systems.nix` as `softSecrets`
+- Passed to homelab via `specialArgs`
+- Available in all homelab modules as `softSecrets.domain`, `softSecrets.email`, etc.
+- Used by `mkRoute` to provide default domain/tunnelId values
+
+**Note**: On fresh clones, you must recreate this file and run `git add -f` again. This is documented in the code comments in `parts/systems.nix`.
 
 ### Configuration Entry Points
 
@@ -214,15 +249,16 @@ The key distinction: If it's about "what hardware is this" or "how is this speci
 
 ### System Arguments (specialArgs)
 
-Each system receives these special arguments:
+**All systems receive:**
 - `inputs`: All flake inputs (nixpkgs, home-manager, etc.)
 - `lib`: nixpkgs lib for module utilities
-- `system`: Architecture string (e.g., "x86_64-linux")
 - `hostname`: Machine identifier
 - `username`: Primary user
 - `stateVersion`: NixOS state version
-- `flakeRoot`: Path to config repo on target system
-- `mkRoute`: Function for route definitions (**homelab only**)
+
+**Homelab-specific:**
+- `mkRoute`: Function for route definitions (pre-configured with soft secrets)
+- `softSecrets`: Build-time secrets (domain, tunnelId, email, etc.)
 
 ### Important Inputs
 
@@ -247,11 +283,15 @@ These should generally be kept stable—only update if needed as changing state 
 
 1. **Hardware vs Config**: Keep hardware definitions separate from system configuration
 2. **Profile Composition**: Think about "what do I want to do" not "where will this run"
-3. **Path References**: Use `flakeRoot` or absolute paths; relative paths may not work when switching/building
-4. **Colmena Deployment**: Target is 192.168.1.100, user must be "psoewish" with passwordless sudo
+3. **Colmena Deployment**: Target is 192.168.1.100, user must be "psoewish" with passwordless sudo
+4. **Secrets Handling**: 
+   - Use **sops-nix** for runtime secrets (API keys, credentials)
+   - Use **soft-secrets.nix** for build-time values (domain, email)
+   - Remember: sops secrets are paths during evaluation, content only at runtime
 5. **Secrets Rotation**: Encrypted secrets require re-encryption when changing recipients or keys
 6. **import-tree paths**: In `parts/systems.nix`, use relative paths from the parts directory (`../hosts/`, `../profiles/`, etc.)
 7. **Profile organization**: Group by purpose/intent, not by technical category
+8. **Accessing soft secrets**: In homelab modules, add `softSecrets` to function args to access `softSecrets.domain`, `softSecrets.email`, etc.
 
 ## Debugging and Troubleshooting
 

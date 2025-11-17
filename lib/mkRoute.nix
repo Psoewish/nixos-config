@@ -1,7 +1,4 @@
-{ lib }:
-let
-  routingSecrets = import ../secrets/soft-secrets.nix;
-in
+{ lib, routingSecrets }:
 {
   service,
   subdomain,

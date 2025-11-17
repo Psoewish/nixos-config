@@ -4,10 +4,7 @@
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        ./parts/systems.nix
-        ./parts/colmena.nix
-      ];
+      imports = [ (inputs.import-tree ./parts) ];
     };
 
   inputs = {

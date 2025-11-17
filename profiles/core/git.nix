@@ -1,11 +1,11 @@
-{ username, ... }:
+{ username, softSecrets, ... }:
 {
   home-manager.users.${username} = {
     programs = {
       git = {
         enable = true;
         settings = {
-          user.email = (import ../../secrets/soft-secrets.nix).email;
+          user.email = softSecrets.email;
           user.name = "Psoewish";
         };
       };
