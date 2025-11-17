@@ -3,7 +3,6 @@
   hostname,
   username,
   stateVersion,
-  flakeRoot,
   ...
 }:
 {
@@ -16,7 +15,6 @@
         hostname
         username
         stateVersion
-        flakeRoot
         ;
     };
     backupFileExtension = "backup";

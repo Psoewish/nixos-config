@@ -1,7 +1,6 @@
 {
   inputs,
   username,
-  flakeRoot,
   ...
 }:
 {
@@ -117,7 +116,7 @@
           enabled = false;
         };
         general = {
-          avatarImage = "${flakeRoot}/assets/.face";
+          avatarImage = ../../../assets/.face;
           dimDesktop = false;
           enableShadows = false;
           animationDisabled = false;

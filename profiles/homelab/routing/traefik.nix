@@ -26,7 +26,7 @@ lib.mkMerge [
 
         certificatesResolvers.cloudflare = {
           acme = {
-            email = "psoewish@proton.me";
+            email = (import ../../../secrets/soft-secrets.nix).email;
             storage = "/var/lib/traefik/acme.json";
             dnsChallenge = {
               provider = "cloudflare";

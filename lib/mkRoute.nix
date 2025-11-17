@@ -1,7 +1,6 @@
 { lib }:
 let
-  # Read routing secrets from gitignored file
-  routingSecrets = import ./routing-secrets.nix;
+  routingSecrets = import ../secrets/soft-secrets.nix;
 in
 {
   service,

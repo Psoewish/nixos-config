@@ -1,7 +1,7 @@
-{ flakeRoot, ... }:
+{ ... }:
 {
   programs.nh = {
     enable = true;
-    flake = flakeRoot;
+    flake = "/home/psoewish/nixos-config";
   };
 }

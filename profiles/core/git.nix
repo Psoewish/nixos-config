@@ -5,7 +5,7 @@
       git = {
         enable = true;
         settings = {
-          user.email = "psoewish@proton.me";
+          user.email = (import ../../secrets/soft-secrets.nix).email;
           user.name = "Psoewish";
         };
       };

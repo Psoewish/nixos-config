@@ -31,7 +31,6 @@ in
         hostname = "desktop";
         username = "psoewish";
         stateVersion = "25.05";
-        flakeRoot = "/home/psoewish/nixos-config";
       };
       modules = [
         ../secrets/secrets.nix
@@ -49,7 +48,6 @@ in
         hostname = "homelab";
         username = "psoewish";
         stateVersion = "25.11";
-        flakeRoot = "/home/psoewish/nixos-config";
       };
       modules = [
         ../secrets/secrets.nix
