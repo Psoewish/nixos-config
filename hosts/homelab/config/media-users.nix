@@ -6,6 +6,7 @@ let
     "radarr"
     "bazarr"
     "sabnzbd"
+    "fileflows"
   ];
 in
 {
