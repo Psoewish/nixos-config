@@ -7,6 +7,7 @@ let
     "bazarr"
     "sabnzbd"
     "fileflows"
+    "tdarr-server"
   ];
 in
 {
