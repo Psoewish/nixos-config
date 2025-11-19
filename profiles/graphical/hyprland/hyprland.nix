@@ -59,20 +59,12 @@
           ];
 
           windowrule = [
-            "suppressevent maximize, class:.*"
-            "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
+            "monitor 0, float, center, size 75%, class:steam"
+            "monidor 0, float, center, size 50%, onworkspace:s[true]"
 
-            "idleinhibit fullscreen, class:^(*)$"
-            "idleinhibit fullscreen, title:^(*)$"
-            "idleinhibit fullscreen, fullscreen:1"
-
-            "workspace 1, float, class:steam"
-
-            "workspace 5, class:vesktop"
-            "workspace 5, class:discord"
-            "workspace 5, class:spotify"
-
-            "float, center, size 50%, onworkspace:s[true]"
+            "monitor 1', class:vesktop"
+            "monitor 1', class:discord"
+            "monitor 1', class:spotify"
           ];
           bind =
             let
