@@ -11,6 +11,7 @@
     bat-extras.prettybat
     curl
     eza
+    btop
     fd
     fzf
     jq

@@ -47,24 +47,26 @@
           ];
 
           workspace = [
-            "1, monitor:DP-1, default:true, persistent:true"
-            "2, monitor:DP-1, persistent:true"
-            "3, monitor:DP-1, persistent:true"
-            "4, monitor:DP-1, persistent:true"
-            "5, monitor:DP-2, default:true, persistent:true"
+            "1, monitor:0, default:true, persistent:true"
+            "2, monitor:0, persistent:true"
+            "3, monitor:0, persistent:true"
+            "4, monitor:0, persistent:true"
+            "5, monitor:1, default:true, persistent:true"
 
             "special:scratch.term, on-created-empty:${terminal}"
             "special:scratch.mixer, on-created-empty:${terminal} -e pulsemixer"
+            "special:scratch.btop, on-created-empty:${terminal} -e btop"
             "special:scratch.files, on-created-empty:${fileManager}"
           ];
 
           windowrule = [
             "monitor 0, float, center, size 75%, class:steam"
-            "monitor 0, float, center, size 50%, onworkspace:s[true]"
+            "float, center, size 50%, onworkspace:s[true]"
 
             "monitor 1', class:vesktop"
             "monitor 1', class:spotify"
           ];
+
           bind =
             let
               mod = "SUPER";
@@ -79,6 +81,7 @@
               "${shiftmod}, RETURN, togglespecialworkspace, scratch.term"
               "${shiftmod}, P, togglespecialworkspace, scratch.mixer"
               "${shiftmod}, E, togglespecialworkspace, scratch.files"
+              "${mod}, Escape, togglespecialworkspace, scratch.btop"
 
               ", PRINT, exec, ${screenshot} --freeze copysave area"
               "SHIFT, PRINT, exec, ${screenshot} copysave output"
@@ -127,6 +130,7 @@
               "${mod}, mouse:272, movewindow"
               "${mod}, mouse:273, resizewindow"
             ];
+
           general = {
             border_size = 1;
             gaps_in = 5;
