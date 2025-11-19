@@ -8,6 +8,7 @@ let
     "sabnzbd"
     "fileflows"
     "tdarr-server"
+    "tdarr-node"
   ];
 in
 {

@@ -10,12 +10,12 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "tdarr-server";
+  pname = "tdarr-node";
   version = "2.57.01";
 
   src = fetchzip {
-    url = "https://storage.tdarr.io/versions/${version}/linux_x64/Tdarr_Server.zip";
-    hash = "sha256-WKqqffwFNfhCQoxT1Q+FeyD5XWTGOlNIKY1UHF95kxQ=";
+    url = "https://storage.tdarr.io/versions/${version}/linux_x64/Tdarr_Node.zip";
+    hash = "sha256-faWwqFksxjb5ar5+EXeI3BQTOrs1B8qgA1Txzz492Pw=";
     stripRoot = false;
   };
 
@@ -37,23 +37,23 @@ stdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/lib/tdarr-server
-    cp -r . $out/lib/tdarr-server/
+    mkdir -p $out/lib/tdarr-node
+    cp -r . $out/lib/tdarr-node/
 
     # Remove GUI tray application (not needed for headless server)
-    rm -f $out/lib/tdarr-server/Tdarr_Server_Tray
+    rm -f $out/lib/tdarr-node/Tdarr_Node_Tray
 
     # Remove bundled ccextractor (requires older tesseract/leptonica versions)
-    rm -rf $out/lib/tdarr-server/assets/app/ccextractor
+    rm -rf $out/lib/tdarr-node/assets/app/ccextractor
 
     # Create placeholder directories for bind mounts
     # Tdarr looks for these as siblings to the tdarr-server directory
     mkdir -p $out/lib/configs
-    mkdir -p $out/lib/server
+    mkdir -p $out/lib/node
     mkdir -p $out/lib/logs
 
     mkdir -p $out/bin
-    makeWrapper $out/lib/tdarr-server/Tdarr_Server $out/bin/tdarr-server \
+    makeWrapper $out/lib/tdarr-node/Tdarr_Node $out/bin/tdarr-node \
       --prefix PATH : ${lib.makeBinPath pathDependencies}
 
     runHook postInstall
@@ -64,6 +64,6 @@ stdenv.mkDerivation rec {
     homepage = "https://tdarr.io";
     license = licenses.unfree;
     platforms = [ "x86_64-linux" ];
-    mainProgram = "tdarr-server";
+    mainProgram = "tdarr-node";
   };
 }
