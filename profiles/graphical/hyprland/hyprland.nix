@@ -60,10 +60,9 @@
 
           windowrule = [
             "monitor 0, float, center, size 75%, class:steam"
-            "monidor 0, float, center, size 50%, onworkspace:s[true]"
+            "monitor 0, float, center, size 50%, onworkspace:s[true]"
 
             "monitor 1', class:vesktop"
-            "monitor 1', class:discord"
             "monitor 1', class:spotify"
           ];
           bind =

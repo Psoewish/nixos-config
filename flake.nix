@@ -18,7 +18,6 @@
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    agenix.url = "github:ryantm/agenix";
 
     # Flake Parts
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -34,14 +33,10 @@
     # Hyprland
     hyprland.url = "github:hyprwm/hyprland";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    hyprland-plugins.inputs.hyprland.follows = "hyprland";
 
     # Noctalia
-    quickshell.url = "github:outfoxxed/quickshell";
-    quickshell.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia.inputs.quickshell.follows = "quickshell";
 
     # Spicetify wrapper for Spotify
     spicetify-nix.url = "github:gerg-l/spicetify-nix";
