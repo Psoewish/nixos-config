@@ -60,11 +60,12 @@
           ];
 
           windowrule = [
-            "monitor 0, float, center, size 75%, class:steam"
-            "float, center, size 50%, onworkspace:s[true]"
+            "match:class steam, monitor 0, float on, center on, size (monitor_w*0.75) (monitor_h*0.75)"
 
-            "monitor 1', class:vesktop"
-            "monitor 1', class:spotify"
+            "match:class vesktop, monitor 1"
+            "match:class spotify, monitor 1"
+
+            "match:workspace s[true], float on, center on, size (monitor_w*0.5) (monitor_h*0.5)"
           ];
 
           bind =
@@ -78,9 +79,13 @@
               "${mod}, E, exec, ${fileManager}"
               "${mod}, B, exec, ${browser}"
               "${mod}, Slash, exec, ${launcher}"
+              "${shiftmod}, RETURN, focusmonitor, 0"
               "${shiftmod}, RETURN, togglespecialworkspace, scratch.term"
+              "${shiftmod}, P, focusmonitor, 0"
               "${shiftmod}, P, togglespecialworkspace, scratch.mixer"
+              "${shiftmod}, E, focusmonitor, 0"
               "${shiftmod}, E, togglespecialworkspace, scratch.files"
+              "${mod}, Escape, focusmonitor, 0"
               "${mod}, Escape, togglespecialworkspace, scratch.btop"
 
               ", PRINT, exec, ${screenshot} --freeze copysave area"
