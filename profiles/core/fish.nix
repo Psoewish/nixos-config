@@ -33,6 +33,8 @@
             ll = "eza -l";
             lt = "eza -T -L=3 --git-ignore";
             ff = "fastfetch";
+            lg = "lazygit";
+            cc = "claude";
           };
           functions = {
             copycat = "cat $argv | wl-copy";
