@@ -1,13 +1,13 @@
-{
-  username,
-  ...
-}:
+{ username, ... }:
 {
   home-manager.users.${username} = {
     programs.ghostty = {
       enable = true;
       settings = {
         command = "fish";
+        font-family = "CaskaydiaCove Nerd Font";
+        font-size = 12;
+        theme = "Soft Server";
         clipboard-read = "allow";
         clipboard-write = "allow";
         copy-on-select = true;
@@ -17,5 +17,6 @@
         quit-after-last-window-closed = true;
       };
     };
+    stylix.targets.ghostty.enable = false;
   };
 }

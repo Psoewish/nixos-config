@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   ...
 }:
@@ -41,10 +42,7 @@ in
         package = pkgs.nerd-fonts.caskaydia-cove;
         name = "CaskaydiaCove Nerd Font";
       };
-      emoji = {
-        package = pkgs.nerd-fonts.symbols-only;
-        name = "SymbolsOnly Nerd Font";
-      };
+      emoji = config.stylix.fonts.monospace;
       sizes = {
         applications = 12;
         desktop = 12;
