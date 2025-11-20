@@ -1,5 +1,7 @@
 { username, ... }:
 {
+  # Run command to enable ghostty terminfo on remote host
+  # infocmp -x xterm-ghostty | ssh psoewish@192.168.1.100 -- tic -x -
   home-manager.users.${username} = {
     programs.ghostty = {
       enable = true;
