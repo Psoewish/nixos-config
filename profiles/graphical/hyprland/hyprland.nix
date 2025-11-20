@@ -21,7 +21,7 @@
   home-manager.users.${username} =
     { pkgs, ... }:
     let
-      terminal = "uwsm app -- foot";
+      terminal = "uwsm app -- ghostty";
       launcher = "uwsm app -- fuzzel";
       fileManager = "uwsm app -- nautilus --new-window";
       browser = "uwsm app -- zen";
