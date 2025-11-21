@@ -47,11 +47,11 @@
           ];
 
           workspace = [
-            "1, monitor:0, default:true, persistent:true"
-            "2, monitor:0, persistent:true"
-            "3, monitor:0, persistent:true"
-            "4, monitor:0, persistent:true"
-            "5, monitor:1, default:true, persistent:true"
+            "1, monitor:DP-1, default:true, persistent:true"
+            "2, monitor:DP-1, persistent:true"
+            "3, monitor:DP-1, persistent:true"
+            "4, monitor:DP-1, persistent:true"
+            "5, monitor:DP-2, default:true, persistent:true"
 
             "special:scratch.term, on-created-empty:${terminal}"
             "special:scratch.mixer, on-created-empty:${terminal} -e pulsemixer"
