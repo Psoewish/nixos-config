@@ -35,6 +35,7 @@
             ff = "fastfetch";
             lg = "lazygit";
             cc = "claude";
+            zdev = "zellij -l ~/.config/zellij/layouts/dev.kdl";
           };
           functions = {
             copycat = "cat $argv | wl-copy";
