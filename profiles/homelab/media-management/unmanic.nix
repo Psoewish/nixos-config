@@ -5,7 +5,9 @@
 }:
 lib.mkMerge [
   {
-    services.unmanic.enable = true;
+    services.unmanic = {
+      enable = true;
+    };
   }
   (mkRoute {
     service = "unmanic";
