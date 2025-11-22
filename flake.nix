@@ -49,6 +49,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # Unmanic
+    # Temporary local flake as I get it working properly
     unmanic-nix.url = "path:/home/psoewish/Projects/flakes/unmanic-nix";
     unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
