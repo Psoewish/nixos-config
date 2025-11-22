@@ -6,9 +6,7 @@ let
     "radarr"
     "bazarr"
     "sabnzbd"
-    "fileflows"
-    "tdarr-server"
-    "tdarr-node"
+    "unmanic"
   ];
 in
 {
@@ -29,7 +27,8 @@ in
   systemd.tmpfiles.rules = [
     "d /data/media 0775 root media -"
     "Z /data/media - - - - -"
+    "d /var/lib/sabnzbd 0755 sabnzbd sabnzbd -"
     "d /var/lib/sabnzbd/Downloads 0775 root media -"
-    "d /var/lib/sabnzbd/Downloads - - - - -"
+    "Z /var/lib/sabnzbd/Downloads - - - - -"
   ];
 }

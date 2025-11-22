@@ -51,5 +51,9 @@
 
     # Chaotic nyx
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+    # Unmanic
+    unmanic-nix.url = "path:/home/psoewish/Projects/flakes/unmanic-nix";
+    unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
