@@ -1614,14 +1614,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1763850806,
-        "narHash": "sha256-6l/vYoh4aJcnbSJQPEuoTHLtkTN8oB9YUOvGq02PNEA=",
-        "path": "/home/psoewish/Projects/flakes/unmanic-nix",
-        "type": "path"
+        "lastModified": 1763880359,
+        "narHash": "sha256-FmMxSkXX8Qlk8bM/9D5nCD+guzGBJdHoF0+2UviNrXU=",
+        "owner": "psoewish",
+        "repo": "unmanic-nix",
+        "rev": "acc17ba40a9ab4576efee8551ab2793ad36c49dd",
+        "type": "github"
       },
       "original": {
-        "path": "/home/psoewish/Projects/flakes/unmanic-nix",
-        "type": "path"
+        "owner": "psoewish",
+        "repo": "unmanic-nix",
+        "type": "github"
       }
     },
     "xdph": {
