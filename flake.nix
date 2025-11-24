@@ -49,8 +49,11 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # Unmanic
-    # Temporary local flake as I get it working properly
     unmanic-nix.url = "github:psoewish/unmanic-nix";
     unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # FileFlows (private repo, unfortunately)
+    fileflows.url = "git+ssh://git@github.com/psoewish/fileflows-nix.git";
+    fileflows.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
