@@ -1,8 +1,9 @@
 keys:
+  - &psoewish age14x2efk2qu6gpmxausf9re2a9hpa4y9whrqz5xs2a9yp3esgrxq4qdqkdem
   - &desktop age1zsck57cts9relhsds39jd78kskcqrsjfjmr7uq3h9unecj8qts2qze2hvw
   - &homelab age19tcz2slthkcpe52wm2lmrzklaeg7q3tlkxccax6ck44pmvrm2ststvv67z
 
 creation_rules:
   - path_regex: secrets/.*\.yaml$
     key_groups:
-      - age: [*desktop, *homelab]
+      - age: [*desktop, *homelab, *psoewish]
