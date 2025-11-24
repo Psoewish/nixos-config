@@ -36,11 +36,6 @@
     fsType = "btrfs";
   };
 
-  fileSystems."/data" = {
-    device = "tank";
-    fsType = "zfs";
-  };
-
   swapDevices = [
     { device = "/dev/disk/by-uuid/55566de6-1ff4-4554-878d-07c371712fbf"; }
   ];
@@ -53,5 +48,6 @@
 
   networking.hostId = "f46ba50b";
   boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.extraPools = [ "tank" ];
   boot.zfs.forceImportRoot = false;
 }
