@@ -2,6 +2,6 @@
 {
   programs.nh = {
     enable = true;
-    flake = "/home/psoewish/flake/nixos-config";
+    flake = "/home/psoewish/flakes/nixos-config";
   };
 }

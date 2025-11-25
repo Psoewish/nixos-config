@@ -192,11 +192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764026201,
-        "narHash": "sha256-ykaMZRAg/h8TBBCxUP72FSl+/5WqIeF8sGlhYFChHRo=",
+        "lastModified": 1764029829,
+        "narHash": "sha256-Cp/cmwLivs4f265++vugpDL2fg7YAFfU3FH6U3K92mo=",
         "ref": "refs/heads/main",
-        "rev": "449321dd3628058039cca2dc1363ace6e2ecc994",
-        "revCount": 2,
+        "rev": "9ed401fa049bd6f63eb3dd1d36ae6a6d60b57d44",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/psoewish/fileflows-nix.git"
       },
