@@ -54,13 +54,14 @@
                                 pane = {
                                   size = "50%";
                                   name = "file-tree";
-                                  command = "broot";
+                                  command = "fish";
                                 };
                               }
                               {
                                 pane = {
                                   size = "50%";
                                   name = "git";
+                                  command = "fish";
                                 };
                               }
                             ];
