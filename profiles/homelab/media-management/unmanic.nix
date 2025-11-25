@@ -1,4 +1,4 @@
-{ mkRoute, lib, ... }:
+{ lib, mkRoute, ... }:
 lib.mkMerge [
   {
     services.unmanic = {

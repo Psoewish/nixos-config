@@ -192,11 +192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764029829,
-        "narHash": "sha256-Cp/cmwLivs4f265++vugpDL2fg7YAFfU3FH6U3K92mo=",
+        "lastModified": 1764030353,
+        "narHash": "sha256-LqwYblz3fUCd6RvwkJLc5YmLCvg+Zttd7xJZnB+QMic=",
         "ref": "refs/heads/main",
-        "rev": "9ed401fa049bd6f63eb3dd1d36ae6a6d60b57d44",
-        "revCount": 4,
+        "rev": "01816f54fe0ca6eccd0168839dc146b58fc48a14",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/psoewish/fileflows-nix.git"
       },
@@ -617,11 +617,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1764015075,
-        "narHash": "sha256-PLBlz4G6cMSXjx5aTCxs5y/Sre7Lnh/S3WVjNk6YEF0=",
+        "lastModified": 1764028098,
+        "narHash": "sha256-/uZMnSl/i/Qle0IvYvwwE5gnpqFXPprTe6c97wKOCdM=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "3d7ea9c02face0d6c5d9963030a06705268979ba",
+        "rev": "fe6a855bbbef1f9f38b0f2c316a920c7e75bea10",
         "type": "github"
       },
       "original": {
@@ -1275,11 +1275,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764027559,
-        "narHash": "sha256-pWz6IWgG614EoVxPY6tlEsurZMznBvbyliI3go1BAuY=",
+        "lastModified": 1764029921,
+        "narHash": "sha256-Bo673jRyJ3EYDhcM0PXA5YrDau2naXfr5/QMnm17n24=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "5983ba2fd1626c04293f72e56963bdb35b30f036",
+        "rev": "71455e4af935b50170c7e8da3d35e32b590f0e37",
         "type": "github"
       },
       "original": {

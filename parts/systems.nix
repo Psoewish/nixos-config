@@ -72,6 +72,7 @@ in
         inputs.home-manager.nixosModules.home-manager
         inputs.sops-nix.nixosModules.default
         inputs.unmanic-nix.nixosModules.default
+        inputs.fileflows.nixosModules.default
       ];
     };
   };
