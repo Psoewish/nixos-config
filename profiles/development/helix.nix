@@ -74,6 +74,10 @@
               name = "nix";
               auto-format = true;
             }
+            {
+              name = "lua";
+              auto-format = true;
+            }
           ];
           language-server.nixd = {
             command = "nixd";

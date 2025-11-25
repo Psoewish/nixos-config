@@ -11,7 +11,9 @@
     hyprls
     ruff
     rust-analyzer
+    lldb
     tombi
     yaml-language-server
+    lua-language-server
   ];
 }
