@@ -35,10 +35,14 @@
             ff = "fastfetch";
             lg = "lazygit";
             cc = "claude";
-            zdev = "zellij -l ~/.config/zellij/layouts/dev.kdl";
+            zdev = "zellij -l dev";
           };
           functions = {
             copycat = "cat $argv | wl-copy";
+            sysdev = ''
+              cd ~/flakes/nixos-config
+              zellij -l dev
+            '';
           };
           plugins = pluginList [
             "async-prompt"

@@ -3,13 +3,17 @@
   home-manager.users.${username} = {
     programs.zellij = {
       enable = true;
+      extraConfig = /* kdl */ ''
+        default_shell "fish";
+        copy_command "wl-copy";
+        ui.pane_frames.rounded_corners true;
+      '';
       layouts = {
         dev = {
           layout._children = [
             {
               default_tab_template = {
                 _children = [
-                  # Tab bar at top
                   {
                     pane = {
                       size = 1;
@@ -44,17 +48,18 @@
                     pane = {
                       split_direction = "vertical";
                       _children = [
-                        # Left column: file tree + git
                         {
                           pane = {
-                            size = 35;
+                            size = 50;
                             split_direction = "horizontal";
                             _children = [
                               {
                                 pane = {
                                   size = "50%";
                                   name = "file-tree";
-                                  command = "fish";
+                                  plugin = {
+                                    location = "zellij:strider";
+                                  };
                                 };
                               }
                               {
@@ -68,7 +73,6 @@
                           };
                         }
 
-                        # Center area: editor + terminal
                         {
                           pane = {
                             split_direction = "vertical";
@@ -98,8 +102,6 @@
                             ];
                           };
                         }
-
-                        # Right column: Claude
                         {
                           pane = {
                             size = 50;
@@ -119,11 +121,12 @@
             _children = [
               {
                 pane = {
-                  name = "floating-terminal";
+                  name = "lazygit";
                   x = "10%";
                   y = "10%";
                   width = "80%";
                   height = "80%";
+                  command = "lazygit";
                 };
               }
             ];
