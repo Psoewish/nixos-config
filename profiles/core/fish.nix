@@ -36,6 +36,7 @@
             lg = "lazygit";
             cc = "claude";
             zdev = "zellij -l dev";
+            nh-deploy-lab = "nh os switch --target-host psoewish@192.168.1.100 --hostname homelab";
           };
           functions = {
             copycat = "cat $argv | wl-copy";
