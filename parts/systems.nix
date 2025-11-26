@@ -22,6 +22,7 @@ let
     ../profiles/graphical
     ../profiles/development
     ../profiles/gaming
+    ../secrets/secrets.nix
   ];
 
   # Homelab Host Configuration
@@ -29,6 +30,7 @@ let
   homelabProfiles = import-tree [
     ../profiles/core
     ../profiles/homelab
+    ../secrets/secrets.nix
   ];
 in
 {
@@ -44,12 +46,9 @@ in
         stateVersion = "25.05";
       };
       modules = [
-        ../secrets/secrets.nix
         desktopHost
         desktopProfiles
-        inputs.home-manager.nixosModules.home-manager
         inputs.chaotic.nixosModules.default
-        inputs.sops-nix.nixosModules.default
       ];
     };
     homelab = inputs.nixpkgs.lib.nixosSystem {
@@ -66,13 +65,8 @@ in
         stateVersion = "25.11";
       };
       modules = [
-        ../secrets/secrets.nix
         homelabHost
         homelabProfiles
-        inputs.home-manager.nixosModules.home-manager
-        inputs.sops-nix.nixosModules.default
-        inputs.unmanic-nix.nixosModules.default
-        inputs.fileflows.nixosModules.default
       ];
     };
   };

@@ -1,6 +1,12 @@
-{ lib, mkRoute, ... }:
+{
+  inputs,
+  lib,
+  mkRoute,
+  ...
+}:
 lib.mkMerge [
   {
+    imports = [ inputs.unmanic-nix.nixosModules.default ];
     services.unmanic = {
       enable = true;
     };

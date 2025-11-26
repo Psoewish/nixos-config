@@ -1,5 +1,6 @@
-{ ... }:
+{ inputs, ... }:
 {
+  imports = [ inputs.sops-nix.nixosModules.default ];
   sops.secrets = {
     "cloudflare/credentials" = {
       sopsFile = ./cloudflare.yaml;
