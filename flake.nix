@@ -51,9 +51,5 @@
     # Unmanic
     unmanic-nix.url = "github:psoewish/unmanic-nix";
     unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    # FileFlows (private repo, unfortunately)
-    fileflows.url = "git+ssh://git@github.com/psoewish/fileflows-nix.git";
-    fileflows.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
