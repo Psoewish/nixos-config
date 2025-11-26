@@ -6,7 +6,7 @@
 }:
 let
   # rose-pine, rose-pine-moon, soft-server, ayu-mirage
-  theme = "soft-server";
+  theme = "rose-pine";
 in
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
