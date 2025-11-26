@@ -1614,11 +1614,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763880359,
-        "narHash": "sha256-FmMxSkXX8Qlk8bM/9D5nCD+guzGBJdHoF0+2UviNrXU=",
+        "lastModified": 1764126673,
+        "narHash": "sha256-zl375cr3uH8c3fF/6Q3/Ulkb2wvKqAPetIoaTcz3MAU=",
         "owner": "psoewish",
         "repo": "unmanic-nix",
-        "rev": "acc17ba40a9ab4576efee8551ab2793ad36c49dd",
+        "rev": "c8740378be73719432e75a71424470ab81712b00",
         "type": "github"
       },
       "original": {
