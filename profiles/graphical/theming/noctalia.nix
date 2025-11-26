@@ -9,6 +9,7 @@
 
     programs.noctalia-shell = {
       enable = true;
+      systemd.enable = true;
       settings = {
         applauncher = {
           customLaunchPrefix = "uwsm app --";
@@ -19,6 +20,7 @@
           sortByMostUsed = true;
           terminalCommand = "uwsm app -- ghostty -e";
           useApp2Unit = false;
+          viewMode = "grid";
         };
         audio = {
           cavaFrameRate = 60;
@@ -117,7 +119,7 @@
         };
         general = {
           avatarImage = ../../../assets/.face;
-          dimDesktop = false;
+          dimmerOpacity = 0.2;
           enableShadows = false;
           animationDisabled = false;
           animationSpeed = 1;

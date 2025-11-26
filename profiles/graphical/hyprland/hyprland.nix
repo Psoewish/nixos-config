@@ -22,7 +22,7 @@
     { pkgs, ... }:
     let
       terminal = "uwsm app -- ghostty";
-      launcher = "uwsm app -- fuzzel";
+      launcher = "noctalia-shell ipc call launcher toggle";
       fileManager = "uwsm app -- nautilus --new-window";
       browser = "uwsm app -- zen";
       screenshot = "uwsm app -- grimblast --notify";
@@ -39,7 +39,6 @@
             "uwsm app -- vesktop"
             "uwsm app -- spotify"
             "uwsm app -- wl-paste --watch cliphist store &"
-            "uwsm app -- noctalia-shell -d"
           ];
           monitor = [
             "DP-1, preferred, auto, auto"
