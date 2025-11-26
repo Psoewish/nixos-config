@@ -7,7 +7,6 @@ let
     "bazarr"
     "sabnzbd"
     "unmanic"
-    "fileflows"
   ];
 in
 {

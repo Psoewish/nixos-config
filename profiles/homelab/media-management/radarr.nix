@@ -1,14 +1,18 @@
 { lib, mkRoute, ... }:
-lib.mkMerge [
-  {
+let
+  serviceConfig = {
     services.radarr = {
       enable = true;
     };
-  }
-  (mkRoute {
+  };
+  routeConfig = mkRoute {
     service = "radarr";
     subdomain = "radarr";
     port = 7878;
     public = false;
-  })
+  };
+in
+lib.mkMerge [
+  serviceConfig
+  routeConfig
 ]

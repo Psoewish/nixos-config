@@ -67,6 +67,7 @@ in
       modules = [
         homelabHost
         homelabProfiles
+        inputs.unmanic-nix.nixosModules.default
       ];
     };
   };

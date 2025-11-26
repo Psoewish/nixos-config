@@ -1,14 +1,19 @@
 { lib, mkRoute, ... }:
-lib.mkMerge [
-  {
+let
+  serviceConfig = {
     services.sabnzbd = {
       enable = true;
     };
-  }
-  (mkRoute {
+  };
+
+  routeConfig = mkRoute {
     service = "sabnzbd";
     subdomain = "sabnzbd";
     port = 8080;
     public = false;
-  })
+  };
+in
+lib.mkMerge [
+  serviceConfig
+  routeConfig
 ]

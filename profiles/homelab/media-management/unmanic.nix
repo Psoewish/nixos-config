@@ -1,20 +1,23 @@
 {
-  inputs,
   lib,
   mkRoute,
   ...
 }:
-lib.mkMerge [
-  {
-    imports = [ inputs.unmanic-nix.nixosModules.default ];
+let
+  serviceConfig = {
     services.unmanic = {
       enable = true;
     };
-  }
-  (mkRoute {
+  };
+
+  routeConfig = mkRoute {
     service = "unmanic";
     subdomain = "unmanic";
     port = 8888;
     public = false;
-  })
+  };
+in
+lib.mkMerge [
+  serviceConfig
+  routeConfig
 ]
