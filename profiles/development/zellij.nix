@@ -57,9 +57,7 @@
                                 pane = {
                                   size = "50%";
                                   name = "file-tree";
-                                  plugin = {
-                                    location = "zellij:strider";
-                                  };
+                                  command = "yazi";
                                 };
                               }
                               {

@@ -18,6 +18,7 @@
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    secrix.url = "github:platonic-systems/secrix";
 
     # Flake Parts
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -26,6 +27,10 @@
     # Home Manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Laio - Tmux layout management
+    laio.url = "github:ck3mp3r/laio-cli";
+    laio.inputs.nixpkgs.follows = "nixpkgs";
 
     # Stylix
     stylix.url = "github:nix-community/stylix";
