@@ -33,8 +33,8 @@
           density = "default";
           exclusive = true;
           floating = true;
-          marginHorizontal = 0.5;
-          marginVertical = 0.5;
+          marginHorizontal = 1.05;
+          marginVertical = 1.05;
           monitors = [ "DP-1" ];
           outerCorners = false;
           position = "top";
@@ -126,7 +126,7 @@
           compactLockScreen = false;
           showScreenCorners = false;
           lockOnSuspend = false;
-          radiusRatio = 0.5;
+          radiusRatio = 0;
         };
         hooks = {
           enabled = false;

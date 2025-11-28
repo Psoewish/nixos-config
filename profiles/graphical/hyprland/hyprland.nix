@@ -107,6 +107,8 @@
 
               "${mod}, bracketleft, layoutmsg, addmaster"
               "${mod}, bracketright, layoutmsg, removemaster"
+              "${shiftmod}, tab, layoutmsg, cyclenext"
+              "${mod}, tab, layoutmsg, cycleprev"
 
               "${mod}, 1, workspace, 1"
               "${mod}, 2, workspace, 2"
@@ -137,8 +139,8 @@
 
           general = {
             border_size = 1;
-            gaps_in = 5;
-            gaps_out = 10;
+            gaps_in = 10;
+            gaps_out = 20;
             layout = "master";
             resize_on_border = true;
             extend_border_grab_area = true;
@@ -146,16 +148,19 @@
           };
 
           decoration = {
-            rounding = 8;
+            rounding = 0;
             dim_inactive = false;
           };
 
           animations = {
-            enabled = true;
+            enabled = false;
             animation = [
-              "windows, 1, 1, default, popin"
-              "workspaces, 1, 5, default, fade"
-              "layers, 1, 5, default, fade"
+              "windows, 0"
+              "global, 0"
+              "fade, 1, 5, default"
+              "fadeIn, 1, 5, default"
+              "fadeOut, 1, 5, default"
+              "fadeDim, 1, 5, default"
             ];
           };
 
@@ -167,6 +172,7 @@
             mouse_move_focuses_monitor = true;
             close_special_on_empty = true;
             middle_click_paste = true;
+            on_focus_under_fullscreen = 1;
           };
 
           cursor = {
@@ -194,7 +200,6 @@
             new_status = "slave";
             new_on_top = false;
             new_on_active = "none";
-            inherit_fullscreen = false;
             slave_count_for_center_master = 0;
           };
         };
