@@ -17,6 +17,7 @@
         confirm-close-surface = false;
         window-inherit-working-directory = false;
         quit-after-last-window-closed = true;
+        keybind = "shift+enter=text:\\x1b\\r";
       };
     };
     stylix.targets.ghostty.enable = false;
