@@ -21,7 +21,6 @@
     wget
     unzip
     zip
-    sops
     bind
   ];
   home-manager.users.${username} = {
