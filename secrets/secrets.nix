@@ -2,10 +2,6 @@
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
   sops.secrets = {
-    "email" = {
-      sopsFile = ./personal.yaml;
-      mode = "0444";
-    };
     "cloudflare/domain" = {
       sopsFile = ./cloudflare.yaml;
       mode = "0444";
