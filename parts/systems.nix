@@ -3,18 +3,6 @@ let
   lib = inputs.nixpkgs.lib;
   import-tree = inputs.import-tree;
 
-  # Import soft secrets from local file
-  # NOTE: This file is gitignored but must be added to git index with:
-  #   git add -f secrets/soft-secrets.nix
-  # This makes it visible to Nix evaluation without committing it
-  softSecrets = import ../secrets/soft-secrets.nix;
-
-  # Create mkRoute with secrets baked in
-  mkRoute = import ../lib/mkRoute.nix {
-    inherit lib;
-    routingSecrets = softSecrets;
-  };
-
   # Desktop Host Configuration
   desktopHost = import-tree [ ../hosts/desktop ];
   desktopProfiles = import-tree [
@@ -22,7 +10,7 @@ let
     ../profiles/graphical
     ../profiles/development
     ../profiles/gaming
-    ../secrets/secrets.nix
+    ../secrets
   ];
 
   # Homelab Host Configuration
@@ -30,7 +18,7 @@ let
   homelabProfiles = import-tree [
     ../profiles/core
     ../profiles/homelab
-    ../secrets/secrets.nix
+    ../secrets
   ];
 in
 {
@@ -40,7 +28,7 @@ in
     desktop = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs lib softSecrets;
+        inherit inputs lib;
         hostname = "desktop";
         username = "psoewish";
         stateVersion = "25.05";
@@ -54,12 +42,7 @@ in
     homelab = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit
-          inputs
-          lib
-          mkRoute
-          softSecrets
-          ;
+        inherit inputs lib;
         hostname = "homelab";
         username = "psoewish";
         stateVersion = "25.11";
@@ -67,7 +50,6 @@ in
       modules = [
         homelabHost
         homelabProfiles
-        inputs.unmanic-nix.nixosModules.default
       ];
     };
   };

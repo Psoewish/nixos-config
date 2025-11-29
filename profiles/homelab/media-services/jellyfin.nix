@@ -1,19 +1,12 @@
-{ lib, mkRoute, ... }:
-let
-  serviceConfig = {
-    services.jellyfin = {
-      enable = true;
-    };
+{ ... }:
+{
+  services.jellyfin = {
+    enable = true;
   };
 
-  routeConfig = mkRoute {
-    service = "jellyfin";
+  homelab.routes.jellyfin = {
     subdomain = "jellyfin";
     port = 8096;
     public = true;
   };
-in
-lib.mkMerge [
-  serviceConfig
-  routeConfig
-]
+}

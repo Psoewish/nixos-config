@@ -1,23 +1,13 @@
+{ inputs, ... }:
 {
-  lib,
-  mkRoute,
-  ...
-}:
-let
-  serviceConfig = {
-    services.unmanic = {
-      enable = true;
-    };
+  imports = [ inputs.unmanic-nix.nixosModules.default ];
+  services.unmanic = {
+    enable = true;
   };
 
-  routeConfig = mkRoute {
-    service = "unmanic";
+  homelab.routes.unmanic = {
     subdomain = "unmanic";
     port = 8888;
     public = false;
   };
-in
-lib.mkMerge [
-  serviceConfig
-  routeConfig
-]
+}

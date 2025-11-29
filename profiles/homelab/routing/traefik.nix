@@ -1,69 +1,63 @@
+{ config, ... }:
 {
-  config,
-  lib,
-  mkRoute,
-  softSecrets,
-  ...
-}:
-lib.mkMerge [
-  {
-    services.traefik = {
-      enable = true;
+  services.traefik = {
+    enable = true;
 
-      staticConfigOptions = {
-        entryPoints = {
-          web = {
-            address = ":80";
-            http.redirections.entryPoint = {
-              to = "websecure";
-              scheme = "https";
-            };
-          };
-          websecure = {
-            address = ":443";
-            http.tls.certResolver = "cloudflare";
+    staticConfigOptions = {
+      entryPoints = {
+        web = {
+          address = ":80";
+          http.redirections.entryPoint = {
+            to = "websecure";
+            scheme = "https";
           };
         };
-
-        certificatesResolvers.cloudflare = {
-          acme = {
-            email = softSecrets.email;
-            storage = "/var/lib/traefik/acme.json";
-            dnsChallenge = {
-              provider = "cloudflare";
-              resolvers = [
-                "1.1.1.1:53"
-                "1.0.0.1:53"
-              ];
-            };
-          };
+        websecure = {
+          address = ":443";
+          http.tls.certResolver = "cloudflare";
         };
-
-        api = {
-          dashboard = true;
-          insecure = false;
-        };
-
-        log.level = "INFO";
-        accessLog = { };
       };
 
-      environmentFiles = [ config.sops.secrets."cloudflare/api".path ];
+      certificatesResolvers.cloudflare = {
+        acme = {
+          # email = "${config.sops.secrets."personal/email".path}";
+          email = "psoewish@proton.me";
+          storage = "/var/lib/traefik/acme.json";
+          dnsChallenge = {
+            provider = "cloudflare";
+            resolvers = [
+              "1.1.1.1:53"
+              "1.0.0.1:53"
+            ];
+          };
+        };
+      };
+
+      api = {
+        dashboard = true;
+        insecure = false;
+      };
+
+      log.level = "INFO";
+      accessLog = { };
     };
 
-    networking.firewall.allowedTCPPorts = [
-      80
-      443
-    ];
+    environmentFiles = [ config.sops.secrets."cloudflare/api".path ];
+  };
 
-    systemd.services.traefik.serviceConfig = {
-      StateDirectory = "traefik";
-    };
-  }
-  (mkRoute {
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
+
+  systemd.services.traefik.serviceConfig = {
+    StateDirectory = "traefik";
+  };
+
+  homelab.routes.traefik = {
     service = "api@internal";
     subdomain = "traefik";
     port = 80;
     public = false;
-  })
-]
+  };
+}

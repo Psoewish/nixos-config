@@ -1,19 +1,12 @@
-{ lib, mkRoute, ... }:
-let
-  serviceConfig = {
-    services.prowlarr = {
-      enable = true;
-    };
+{ ... }:
+{
+  services.prowlarr = {
+    enable = true;
   };
 
-  routeConfig = mkRoute {
-    service = "prowlarr";
+  homelab.routes.prowlarr = {
     subdomain = "prowlarr";
     port = 9696;
     public = false;
   };
-in
-lib.mkMerge [
-  serviceConfig
-  routeConfig
-]
+}
