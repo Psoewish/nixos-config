@@ -23,10 +23,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Laio - Tmux layout management
-    laio.url = "github:ck3mp3r/laio-cli";
-    laio.inputs.nixpkgs.follows = "nixpkgs";
-
     # Stylix
     stylix.url = "github:nix-community/stylix";
 
