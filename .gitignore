@@ -1,4 +1,6 @@
-# Routing secrets (soft secrets - not in sops)
-secrets/soft-secrets.nix
-CLAUDE.md
-secrets/secrets.json
+/CLAUDE.md
+/claude/
+/.claude
+/result/
+/secrets/secrets.json
+/.direnv/

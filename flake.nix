@@ -11,10 +11,6 @@
     # Nix Packages
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    # Colmena
-    colmena.url = "github:zhaofengli/colmena";
-    colmena.inputs.nixpkgs.follows = "nixpkgs";
-
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -55,9 +51,5 @@
     # Unmanic
     unmanic-nix.url = "github:psoewish/unmanic-nix";
     unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    # nix-direnv
-    nix-direnv.url = "github:nix-community/nix-direnv";
-    nix-direnv.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
