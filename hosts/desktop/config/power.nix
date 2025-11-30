@@ -1,4 +1,4 @@
 { ... }:
 {
-  services.power-profiles-daemon.enable = true;
+  services.power-modules-daemon.enable = true;
 }
