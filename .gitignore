@@ -4,3 +4,4 @@
 /result/
 /secrets/secrets.json
 /.direnv/
+/.envrc
