@@ -5,11 +5,6 @@
       enable = true;
       settings = {
         mgr = {
-          ratio = [
-            0
-            1
-            0
-          ];
           sort_by = "natural";
           sort_sensitive = false;
           sort_reverse = false;

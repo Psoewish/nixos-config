@@ -35,14 +35,20 @@
             ff = "fastfetch";
             lg = "lazygit";
             cc = "claude";
-            zdev = "zellij -l dev";
             nh-deploy-lab = "nh os switch --target-host psoewish@192.168.1.100 --hostname homelab";
           };
           functions = {
             copycat = "cat $argv | wl-copy";
-            sysdev = ''
-              cd ~/flakes/nixos-config
-              zellij -l dev
+            zdev = /* fish */ ''
+              set -l session_name $argv[1]
+              set -l layout $argv[2]
+              if test -z "$session_name"
+                set session_name (basename $PWD)
+              end
+              if test -z "$layout"
+                set layout "dev"
+              end
+              zellij --layout "$layout" attach -c "$session_name"
             '';
           };
           plugins = pluginList [

@@ -12,6 +12,7 @@ in
   imports = [ inputs.stylix.nixosModules.stylix ];
   stylix = {
     enable = true;
+    enableReleaseChecks = false;
     targets.qt.enable = false;
     overlays.enable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";

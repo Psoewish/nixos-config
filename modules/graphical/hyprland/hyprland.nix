@@ -21,7 +21,7 @@
   home-manager.users.${username} =
     { pkgs, ... }:
     let
-      terminal = "uwsm app -- ghostty";
+      terminal = "uwsm app -- foot";
       launcher = "noctalia-shell ipc call launcher toggle";
       fileManager = "uwsm app -- nautilus --new-window";
       browser = "uwsm app -- zen";
