@@ -7,6 +7,9 @@
     bash-language-server
     vscode-langservers-extracted
     marksman
+    markdown-oxide
+    prettier
+    mpls
     csharp-ls
     hyprls
     ruff
@@ -15,5 +18,6 @@
     tombi
     yaml-language-server
     lua-language-server
+    harper
   ];
 }

@@ -14,6 +14,25 @@
               name = "lua";
               auto-format = true;
             }
+            {
+              name = "markdown";
+              language-servers = [
+                "marksman"
+                "markdown-oxide"
+                "harper-ls"
+                "mpls"
+              ];
+              formatter = {
+                command = "prettier";
+                args = [
+                  "--parser"
+                  "--markdown"
+                  "--prose-wrap"
+                  "never"
+                ];
+              };
+              auto-format = true;
+            }
           ];
           language-server.nixd = {
             command = "nixd";
@@ -28,6 +47,18 @@
                 options.home-manager.expr = nixosOpts;
                 options.nixos.expr = "${nixosOpts}.home-manager.users.type.getSubOptions []";
               };
+          };
+          language-server.harper-ls = {
+            command = "harper-ls";
+            args = [ "--stdio" ];
+          };
+          language-server.mpls = {
+            command = "mpls";
+            args = [
+              "--dark-mode"
+              "--enable-emoji"
+              "--full-sync"
+            ];
           };
         };
       };
