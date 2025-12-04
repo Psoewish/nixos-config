@@ -6,17 +6,15 @@ let
   # Desktop Host Configuration
   desktopHost = import-tree [ ../hosts/desktop ];
   desktopProfiles = import-tree [
-    ../modules/core
-    ../modules/graphical
-    ../modules/development
-    ../modules/gaming
+    ../modules/shared
+    ../modules/desktop
     ../secrets
   ];
 
   # Homelab Host Configuration
   homelabHost = import-tree [ ../hosts/homelab ];
   homelabProfiles = import-tree [
-    ../modules/core
+    ../modules/shared
     ../modules/homelab
     ../secrets
   ];
