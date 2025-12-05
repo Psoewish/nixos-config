@@ -1,5 +1,9 @@
 { username, ... }:
 {
+  # System Config
+  programs.fish.enable = true;
+
+  # Home Config
   home-manager.users.${username} =
     { pkgs, ... }:
     {
@@ -15,27 +19,34 @@
         {
           enable = true;
           interactiveShellInit = ''
-            set -U fish_greeting
-            set -U fish_transient_prompt
-            set -U sponge_purge_only_on_exit true
-            set -U pure_show_jobs true
-            set -U pure_enable_k8s false
-            set -U pure_enable_nixdevshell true
-            set -U pure_show_prefix_root_prompt true
+            set -gx fish_greeting
+            set -gx sponge_purge_only_on_exit true
           '';
+          shellAbbrs = {
+            ff = "fastfetch";
+            lg = "lazygit";
+            cc = "claude";
+            "--help" = {
+              position = "anywhere";
+              expansion = "--help | bat -plhelp";
+            };
+            "-h" = {
+              position = "anywhere";
+              expansion = "-h | bat -plhelp";
+            };
+          };
           shellAliases = {
-            shx = "sudo hx";
             cat = "bat";
             man = "batman";
+            shx = "sudo hx";
             mkdir = "mkdir -pv";
+            grep = "batgrep --smart-case --color";
             cp = "rsync -ah --info=progress2";
             ls = "eza";
             ll = "eza -l";
             lt = "eza -T -L=3 --git-ignore";
-            ff = "fastfetch";
-            lg = "lazygit";
-            cc = "claude";
             nh-deploy-lab = "nh os switch --target-host psoewish@192.168.1.100 --hostname homelab";
+            fzf = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
           };
           functions = {
             copycat = "cat $argv | wl-copy";
@@ -52,12 +63,16 @@
             '';
           };
           plugins = pluginList [
-            "async-prompt"
             "autopair"
             "done"
             "puffer"
-            "pure"
+            "tide"
             "sponge"
+            "bass"
+            "fzf-fish"
+            "fish-bd"
+            "bang-bang"
+            "plugin-sudope"
           ];
         };
     };

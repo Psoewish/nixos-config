@@ -5,10 +5,6 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    bat
-    bat-extras.batdiff
-    bat-extras.batman
-    bat-extras.prettybat
     curl
     eza
     btop
@@ -22,17 +18,47 @@
     unzip
     zip
     bind
+    highlight
+    zoxide
+    delta
   ];
-  home-manager.users.${username} = {
-    programs.eza = {
-      enable = true;
-      git = true;
-      icons = "auto";
-      colors = "always";
-      extraOptions = [
-        "--all"
-        "--group-directories-first"
-      ];
+  home-manager.users.${username} =
+    { pkgs, ... }:
+    {
+      programs = {
+        eza = {
+          enable = true;
+          git = true;
+          icons = "auto";
+          colors = "always";
+          extraOptions = [
+            "--all"
+            "--group-directories-first"
+          ];
+        };
+        zoxide = {
+          enable = true;
+          options = [ "--cmd cd" ];
+        };
+        bat = {
+          enable = true;
+          extraPackages = with pkgs.bat-extras; [
+            batman
+            batgrep
+          ];
+        };
+        ripgrep = {
+          enable = true;
+          arguments = [
+            "--hidden"
+            "--smart-case"
+          ];
+        };
+        delta = {
+          enable = true;
+          enableGitIntegration = true;
+          enableJujutsuIntegration = true;
+        };
+      };
     };
-  };
 }
