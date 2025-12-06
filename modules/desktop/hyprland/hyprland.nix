@@ -22,7 +22,7 @@
     { pkgs, ... }:
     let
       terminal = "uwsm app -- foot";
-      launcher = "noctalia-shell ipc call launcher toggle";
+      launcher = "fuzzel";
       fileManager = "uwsm app -- nautilus --new-window";
       browser = "uwsm app -- zen";
       screenshot = "uwsm app -- grimblast --notify";
