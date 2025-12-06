@@ -4,10 +4,12 @@
     nautilus
     loupe
   ];
+
   programs.nautilus-open-any-terminal = {
     enable = true;
-    terminal = "ghostty";
+    terminal = "foot";
   };
+
   services = {
     gvfs.enable = true;
     tumbler.enable = true;
