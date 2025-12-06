@@ -179,6 +179,49 @@
         "type": "github"
       }
     },
+    "dgop": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762835999,
+        "narHash": "sha256-UykYGrGFOFTmDpKTLNxj1wvd1gbDG4TkqLNSbV0TYwk=",
+        "owner": "avengemedia",
+        "repo": "dgop",
+        "rev": "799301991cd5dcea9b64245f9d500dcc76615653",
+        "type": "github"
+      },
+      "original": {
+        "owner": "avengemedia",
+        "repo": "dgop",
+        "type": "github"
+      }
+    },
+    "dms": {
+      "inputs": {
+        "dgop": [
+          "dgop"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1765001413,
+        "narHash": "sha256-y5u9eN1qB/IWVqYhVm3qsH8FttoU40Ze3DPQLBXMRhg=",
+        "owner": "avengemedia",
+        "repo": "dankmaterialshell",
+        "rev": "8ce78e71343b1769b4c87cac9eae3a45510a4c03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "avengemedia",
+        "repo": "dankmaterialshell",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -1020,48 +1063,6 @@
         "type": "github"
       }
     },
-    "ignis": {
-      "inputs": {
-        "ignis-gvc": "ignis-gvc",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762970543,
-        "narHash": "sha256-7ipFVC9pvI564c22b1dIEzSQ8dZXK3cxh/tF/4tX38c=",
-        "owner": "ignis-sh",
-        "repo": "ignis",
-        "rev": "ba8b0e11c2462afc9fdc30ce6a72b4e94e8ee7c4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ignis-sh",
-        "repo": "ignis",
-        "type": "github"
-      }
-    },
-    "ignis-gvc": {
-      "inputs": {
-        "nixpkgs": [
-          "ignis",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1754064086,
-        "narHash": "sha256-ft5KvY2OYrWF+jEsfBL/Zx8Iuo2C10C6COk8wHwZw34=",
-        "owner": "ignis-sh",
-        "repo": "ignis-gvc",
-        "rev": "f2c9f10d8b49cc38106a2f07a51ea959c6aa4e63",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ignis-sh",
-        "repo": "ignis-gvc",
-        "type": "github"
-      }
-    },
     "import-tree": {
       "locked": {
         "lastModified": 1763762820,
@@ -1096,21 +1097,6 @@
       "original": {
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
-        "type": "github"
-      }
-    },
-    "nilla": {
-      "locked": {
-        "lastModified": 1762348715,
-        "narHash": "sha256-cPdYYXhCsDllVgq+gs5Wqhb41bFtKWHlkTvjOJv7its=",
-        "owner": "nilla-nix",
-        "repo": "cli",
-        "rev": "aa042dbd9152c99e5a8db51bcf87306737423b9e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nilla-nix",
-        "repo": "cli",
         "type": "github"
       }
     },
@@ -1247,26 +1233,6 @@
         "type": "github"
       }
     },
-    "noctalia": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1764517231,
-        "narHash": "sha256-eErU+DWRhZQuRvAQ4LgFiInfobW6fvV9N4kSeTYd7yY=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "rev": "a84525ea52b6cb41fc84c381eb2d82fb303f94e3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "type": "github"
-      }
-    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -1343,15 +1309,14 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "chaotic": "chaotic",
+        "dgop": "dgop",
+        "dms": "dms",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
-        "ignis": "ignis",
         "import-tree": "import-tree",
-        "nilla": "nilla",
         "nixpkgs": "nixpkgs_5",
-        "noctalia": "noctalia",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",

@@ -19,27 +19,23 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    nilla.url = "github:nilla-nix/cli";
-
     # Home Manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Themes
     catppuccin.url = "github:catppuccin/nix";
-    stylix.url = "github:nix-community/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland
     hyprland.url = "github:hyprwm/hyprland";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
 
-    # Noctalia
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
-
-    ignis.url = "github:ignis-sh/ignis";
-    ignis.inputs.nixpkgs.follows = "nixpkgs";
+    # Dank Material Shell
+    dgop.url = "github:avengemedia/dgop";
+    dgop.inputs.nixpkgs.follows = "nixpkgs";
+    dms.url = "github:avengemedia/dankmaterialshell";
+    dms.inputs.nixpkgs.follows = "nixpkgs";
+    dms.inputs.dgop.follows = "dgop";
 
     # Spicetify wrapper for Spotify
     spicetify-nix.url = "github:gerg-l/spicetify-nix";
