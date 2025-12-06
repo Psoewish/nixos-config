@@ -38,6 +38,9 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
+    ignis.url = "github:ignis-sh/ignis";
+    ignis.inputs.nixpkgs.follows = "nixpkgs";
+
     # Spicetify wrapper for Spotify
     spicetify-nix.url = "github:gerg-l/spicetify-nix";
 
