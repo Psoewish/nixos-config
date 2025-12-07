@@ -43,9 +43,8 @@
     # Zen Browser
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Chaotic nyx
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    zen-browser-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    zen-browser-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     # Unmanic
     unmanic-nix.url = "github:psoewish/unmanic-nix";

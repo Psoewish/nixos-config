@@ -34,7 +34,6 @@ in
       modules = [
         desktopHost
         desktopProfiles
-        inputs.chaotic.nixosModules.default
       ];
     };
     homelab = inputs.nixpkgs.lib.nixosSystem {

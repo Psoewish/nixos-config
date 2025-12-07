@@ -21,7 +21,7 @@
       ];
     };
     consoleLogLevel = 3;
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
   };
