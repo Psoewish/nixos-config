@@ -45,7 +45,6 @@
             ls = "eza";
             ll = "eza -l";
             lt = "eza -T -L=3 --git-ignore";
-            nh-deploy-lab = "nh os switch --target-host psoewish@192.168.1.100 --hostname homelab";
             fzf = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
           };
           functions = {
