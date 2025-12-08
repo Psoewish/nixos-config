@@ -8,10 +8,6 @@
         enable = true;
         systemd.enable = true;
         systemd.restartIfChanged = true;
-
-        default.settings = {
-          cornerRadius = 0;
-        };
       };
     };
 }
