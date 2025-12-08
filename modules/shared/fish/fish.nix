@@ -21,6 +21,9 @@
           interactiveShellInit = ''
             set -gx fish_greeting
             set -gx sponge_purge_only_on_exit true
+            set -gx tide_prompt_transient_enabled true
+            set -gx tide_left_prompt_items pwd git newline character
+            set -gx tide_right_prompt_items status cmd_duration context jobs direnv nix_shell go python rustc
           '';
           shellAbbrs = {
             ff = "fastfetch";
