@@ -29,14 +29,6 @@
             ff = "fastfetch";
             lg = "lazygit";
             cc = "claude";
-            "--help" = {
-              position = "anywhere";
-              expansion = "--help | bat -plhelp";
-            };
-            "-h" = {
-              position = "anywhere";
-              expansion = "-h | bat -plhelp";
-            };
           };
           shellAliases = {
             cat = "bat";
@@ -52,16 +44,18 @@
           };
           functions = {
             copycat = "cat $argv | wl-copy";
-            zdev = /* fish */ ''
+            k = /* fish */ ''
+              set -l session_dir "~/.config/kitty/sessions"
               set -l session_name $argv[1]
-              set -l layout $argv[2]
+
+              # Default session
               if test -z "$session_name"
-                set session_name (basename $PWD)
+                set session_name "dev"
+                set workdir "~/flakes/nixos-config"
               end
-              if test -z "$layout"
-                set layout "dev"
-              end
-              zellij --layout "$layout" attach -c "$session_name"
+
+              kitty --working-directory $workdir --session "$session_dir/$session_name.kitty-session" --detach &
+              exit
             '';
           };
           plugins = pluginList [

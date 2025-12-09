@@ -21,11 +21,17 @@
   home-manager.users.${username} =
     { pkgs, ... }:
     let
-      terminal = "uwsm app -- foot";
+      launch = "uwsm app -- ";
+      terminal = "kitty";
       launcher = "fuzzel";
-      fileManager = "uwsm app -- nautilus --new-window";
-      browser = "uwsm app -- zen";
-      screenshot = "uwsm app -- grimblast --notify";
+      guiFileManager = "nautilus --new-window";
+      browser = "zen";
+      screenshot = "grimblast --notify";
+
+      quickTerminal = "kitten quick-access-terminal --instance-group";
+      fileManager = "yazi";
+      audioMixer = "pulsemixer";
+      systemMonitor = "btop";
     in
     {
       wayland.windowManager.hyprland = {
@@ -35,10 +41,10 @@
         portalPackage = null;
         settings = {
           exec-once = [
-            "uwsm app -- steam -silent"
-            "uwsm app -- vesktop"
-            "uwsm app -- spotify"
-            "uwsm app -- wl-paste --watch cliphist store &"
+            "${launch} steam -silent"
+            "${launch} vesktop"
+            "${launch} spotify"
+            "${launch} wl-paste --watch cliphist store &"
           ];
           monitor = [
             "DP-1, preferred, auto, auto"
@@ -51,11 +57,6 @@
             "3, monitor:DP-1, persistent:true"
             "4, monitor:DP-1, persistent:true"
             "5, monitor:DP-2, default:true, persistent:true"
-
-            "special:scratch.term, on-created-empty:${terminal}"
-            "special:scratch.mixer, on-created-empty:${terminal} -e pulsemixer"
-            "special:scratch.btop, on-created-empty:${terminal} -e btop"
-            "special:scratch.files, on-created-empty:${fileManager}"
           ];
 
           windowrule = [
@@ -63,8 +64,6 @@
 
             "match:class vesktop, monitor 1"
             "match:class spotify, monitor 1"
-
-            "match:workspace s[true], float on, center on, size (monitor_w*0.5) (monitor_h*0.5)"
           ];
 
           bind =
@@ -74,18 +73,15 @@
               ctrlmod = "SUPER CTRL";
             in
             [
-              "${mod}, RETURN, exec, ${terminal}"
-              "${mod}, E, exec, ${fileManager}"
-              "${mod}, B, exec, ${browser}"
-              "${mod}, Slash, exec, ${launcher}"
-              "${shiftmod}, RETURN, focusmonitor, 0"
-              "${shiftmod}, RETURN, togglespecialworkspace, scratch.term"
-              "${shiftmod}, P, focusmonitor, 0"
-              "${shiftmod}, P, togglespecialworkspace, scratch.mixer"
-              "${shiftmod}, E, focusmonitor, 0"
-              "${shiftmod}, E, togglespecialworkspace, scratch.files"
-              "${mod}, Escape, focusmonitor, 0"
-              "${mod}, Escape, togglespecialworkspace, scratch.btop"
+              "${mod}, RETURN, exec, ${launch} ${terminal}"
+              "${mod}, E, exec, ${launch} ${guiFileManager}"
+              "${mod}, B, exec, ${launch} ${browser}"
+              "${mod}, Slash, exec, ${launch} ${launcher}"
+
+              "${shiftmod}, RETURN, exec, ${launch} ${quickTerminal} ${terminal}"
+              "${shiftmod}, P, exec, ${launch} ${quickTerminal} ${audioMixer} ${audioMixer}"
+              "${shiftmod}, E, exec, ${launch} ${quickTerminal} ${fileManager} ${fileManager}"
+              "${mod}, Escape, exec, ${launch} ${quickTerminal} ${systemMonitor} ${systemMonitor}"
 
               ", PRINT, exec, ${screenshot} --freeze copysave area"
               "SHIFT, PRINT, exec, ${screenshot} copysave output"
