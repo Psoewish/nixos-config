@@ -7,7 +7,6 @@
       programs.dankMaterialShell = {
         enable = true;
         systemd.enable = true;
-        systemd.restartIfChanged = true;
       };
     };
 }

@@ -21,6 +21,11 @@
           hostname = "desktop";
           user = username;
         };
+        "homelab" = {
+          hostname = "192.168.1.100";
+          user = username;
+
+        };
         "*" = {
           forwardAgent = false;
           addKeysToAgent = "yes";

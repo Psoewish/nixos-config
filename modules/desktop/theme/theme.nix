@@ -46,7 +46,7 @@
       fonts.fontconfig = {
         enable = true;
         defaultFonts = {
-          monospace = [ "FiraCode Nerd Font" ];
+          monospace = [ "CaskaydiaCove Nerd Font" ];
           sansSerif = [ "Roboto" ];
           serif = [ "Roboto Serif" ];
           emoji = [ "Noto Color Emoji" ];
