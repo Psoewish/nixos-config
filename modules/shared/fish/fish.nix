@@ -44,19 +44,6 @@
           };
           functions = {
             copycat = "cat $argv | wl-copy";
-            k = /* fish */ ''
-              set -l session_dir "~/.config/kitty/sessions"
-              set -l session_name $argv[1]
-
-              # Default session
-              if test -z "$session_name"
-                set session_name "dev"
-                set workdir "~/flakes/nixos-config"
-              end
-
-              kitty --working-directory $workdir --session "$session_dir/$session_name.kitty-session" --detach &
-              exit
-            '';
           };
           plugins = pluginList [
             "autopair"
