@@ -7,8 +7,7 @@
       ports.http = 4000;
 
       upstreams.groups.default = [
-        "https://1.1.1.1/dns-query"
-        "https://1.0.0.1/dns-query"
+        "https://dns.quad9.net/dns-query"
       ];
 
       blocking = {
