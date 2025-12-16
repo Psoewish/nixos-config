@@ -39,7 +39,23 @@
       };
 
       log.level = "INFO";
-      accessLog = { };
+      accessLog = {
+        filePath = "/var/lib/traefik/access.log";
+        format = "json";
+        fields = {
+          defaultMode = "keep";
+          names = {
+            ClientUsername = "drop";
+          };
+          headers = {
+            defaultMode = "keep";
+            names = {
+              Authorization = "drop";
+              Cookie = "drop";
+            };
+          };
+        };
+      };
     };
 
     environmentFiles = [ config.sops.secrets."cloudflare/api".path ];

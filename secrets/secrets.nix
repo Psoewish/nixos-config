@@ -30,5 +30,14 @@
       sopsFile = ./radarr.yaml;
       mode = "0400";
     };
+    "crowdsec/bouncer-api-key" = {
+      sopsFile = ./crowdsec.yaml;
+      mode = "0400";
+    };
+    "crowdsec/console-enrollment-key" = {
+      sopsFile = ./crowdsec.yaml;
+      mode = "0400";
+      owner = "crowdsec";
+    };
   };
 }
