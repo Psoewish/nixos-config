@@ -119,11 +119,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1765862233,
-        "narHash": "sha256-mXNIcEtW34wVSABL3kQ+E3aBSJfRtQP7ehfGraX9dAM=",
+        "lastModified": 1765865292,
+        "narHash": "sha256-BmL32FIn6YtjFG/5Z+BcApTc5Z8mKNLv9wnAU0aRYIE=",
         "owner": "avengemedia",
         "repo": "dankmaterialshell",
-        "rev": "b8fca108965c5577bf144c28337f09ff3a6f37f6",
+        "rev": "2947ff41313566c4eb77fbddf085176141eb337a",
         "type": "github"
       },
       "original": {
@@ -1390,11 +1390,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1765857815,
-        "narHash": "sha256-9cX1b78RXjuJ9aQLr609qs+j7UwZ5dSJpVG1y6q8o7U=",
+        "lastModified": 1765876616,
+        "narHash": "sha256-j9BnLfWdJrJrETfmfnlnpvRGKVp1MLRaw78oYDSnTRY=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "b067c9e0f45b9e2bf6050b99cfe2dc95cbbd9760",
+        "rev": "2843ec4d4793815111a1b99e170ec7b1842b7f9f",
         "type": "gitlab"
       },
       "original": {
