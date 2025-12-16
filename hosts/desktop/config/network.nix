@@ -4,6 +4,7 @@
     networkmanager = {
       enable = true;
     };
+    nftables.enable = true;
   };
   environment.etc = {
     "resolv.conf".text = ''

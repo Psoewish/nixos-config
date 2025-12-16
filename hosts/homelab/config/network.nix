@@ -10,5 +10,6 @@
     defaultGateway = "192.168.1.1";
     nameservers = [ "192.168.1.1" ];
     useDHCP = false;
+    nftables.enable = true;
   };
 }
