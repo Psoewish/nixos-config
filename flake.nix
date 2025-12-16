@@ -30,6 +30,10 @@
     hyprland.url = "github:hyprwm/hyprland";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
 
+    # MangoWC
+    mango.url = "github:dreammaomao/mango";
+    mango.inputs.nixpkgs.follows = "nixpkgs";
+
     # Dank Material Shell
     dgop.url = "github:avengemedia/dgop";
     dgop.inputs.nixpkgs.follows = "nixpkgs";
