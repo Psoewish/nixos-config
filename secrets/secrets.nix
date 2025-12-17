@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  config,
+  ...
+}:
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
   sops.secrets = {
@@ -37,7 +42,7 @@
     "crowdsec/console-enrollment-key" = {
       sopsFile = ./crowdsec.yaml;
       mode = "0400";
-      owner = "crowdsec";
+      owner = lib.mkIf (config.services.crowdsec.enable or false) "crowdsec";
     };
   };
 }
