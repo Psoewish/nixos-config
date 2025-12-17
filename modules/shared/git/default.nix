@@ -5,7 +5,7 @@
       git = {
         enable = true;
         settings = {
-          user.email = "psoewish@proton.me";
+          user.email = "personal@psoewish.com";
           user.name = "Psoewish";
         };
       };
