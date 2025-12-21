@@ -8,5 +8,6 @@
     subdomain = "bazarr";
     port = 6767;
     public = false;
+    forwardAuth = true;
   };
 }

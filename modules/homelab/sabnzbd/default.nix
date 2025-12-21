@@ -8,5 +8,6 @@
     subdomain = "sabnzbd";
     port = 8080;
     public = false;
+    forwardAuth = true;
   };
 }

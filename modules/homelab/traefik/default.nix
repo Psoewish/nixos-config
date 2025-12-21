@@ -58,6 +58,45 @@
       };
     };
 
+    dynamicConfigOptions.http = {
+      middlewares = {
+        authentik.forwardAuth = {
+          address = "http://localhost:9000/outpost.goauthentik.io/auth/traefik";
+          tls.insecureSkipVerify = true;
+          trustForwardHeader = true;
+          authResponseHeaders = [
+            "X-authentik-username"
+            "X-authentik-groups"
+            "X-authentik-email"
+            "X-authentik-name"
+            "X-authentik-uid"
+            "X-authentik-jwt"
+            "X-authentik-meta-jwks"
+            "X-authentik-meta-outpost"
+            "X-authentik-meta-provider"
+            "X-authentik-meta-app"
+            "X-authentik-meta-version"
+          ];
+        };
+        secure-headers.headers = {
+          customRequestHeaders = {
+            X-Forwarded-Proto = "https";
+          };
+          customResponseHeaders = {
+            Strict-Transport-Security = "max-age=31536000; includeSubDomains";
+            X-Frame-Options = "SAMEORIGIN";
+            X-Content-Type-Options = "nosniff";
+            X-XSS-Protection = "1; mode=block";
+            Referrer-Policy = "strict-origin-when-cross-origin";
+          };
+        };
+      };
+
+      services.authentik-outpost.loadBalancer.servers = [
+        { url = "http://localhost:9000"; }
+      ];
+    };
+
     environmentFiles = [ config.sops.secrets."cloudflare/api".path ];
   };
 
@@ -75,5 +114,6 @@
     subdomain = "traefik";
     port = 80;
     public = false;
+    forwardAuth = true;
   };
 }

@@ -15,6 +15,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Authentik
+    authentik.url = "github:nix-community/authentik-nix";
+    authentik.inputs.nixpkgs.follows = "nixpkgs";
+
     # Flake Parts
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";

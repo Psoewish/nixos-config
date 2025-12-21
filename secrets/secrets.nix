@@ -44,5 +44,9 @@
       mode = "0400";
       owner = lib.mkIf (config.services.crowdsec.enable or false) "crowdsec";
     };
+    "authentik/env" = {
+      sopsFile = ./authentik.yaml;
+      mode = "0400";
+    };
   };
 }

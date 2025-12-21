@@ -11,11 +11,23 @@
           "${fqdn}" = "192.168.1.100";
         };
         traefik.dynamicConfigOptions.http = {
-          routers.${route.service} = {
-            rule = "Host(`${fqdn}`)";
-            service = route.service;
-            entryPoints = [ "websecure" ];
-            tls.certResolver = "cloudflare";
+          routers = {
+            ${route.service} = {
+              rule = "Host(`${fqdn}`)";
+              service = route.service;
+              entryPoints = [ "websecure" ];
+              tls.certResolver = "cloudflare";
+              middlewares = lib.optional route.forwardAuth "authentik" ++ [ "secure-headers" ];
+            };
+          }
+          // lib.optionalAttrs route.forwardAuth {
+            "${route.service}-auth" = {
+              rule = "Host(`${fqdn}`) && PathPrefix(`/outpost.goauthentik.io/`)";
+              service = "authentik-outpost";
+              entryPoints = [ "websecure" ];
+              tls.certResolver = "cloudflare";
+              priority = 100;
+            };
           };
           services.${route.service}.loadBalancer.servers = [
             { url = "http://localhost:${toString route.port}"; }

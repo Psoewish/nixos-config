@@ -14,5 +14,6 @@
     subdomain = "files";
     port = 8181;
     public = false;
+    forwardAuth = true;
   };
 }

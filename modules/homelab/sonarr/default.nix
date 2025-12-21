@@ -8,5 +8,6 @@
     subdomain = "sonarr";
     port = 8989;
     public = false;
+    forwardAuth = true;
   };
 }

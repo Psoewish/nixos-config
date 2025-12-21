@@ -9,5 +9,6 @@
     subdomain = "unmanic";
     port = 8888;
     public = false;
+    forwardAuth = true;
   };
 }

@@ -8,5 +8,6 @@
     subdomain = "radarr";
     port = 7878;
     public = false;
+    forwardAuth = true;
   };
 }

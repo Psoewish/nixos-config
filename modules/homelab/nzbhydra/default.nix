@@ -8,5 +8,6 @@
     subdomain = "nzbhydra";
     port = 5076;
     public = false;
+    forwardAuth = true;
   };
 }

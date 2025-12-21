@@ -35,6 +35,11 @@
               default = "009088b8-cd7c-41fb-b25d-2d34cd98bc6e";
               description = "Cloudflare tunnel ID";
             };
+            forwardAuth = lib.mkOption {
+              type = lib.types.bool;
+              default = false;
+              description = "Enable Authentik forward authentication";
+            };
           };
         }
       )
