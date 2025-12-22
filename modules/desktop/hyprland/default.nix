@@ -22,16 +22,11 @@
     { pkgs, ... }:
     let
       launch = "uwsm app -- ";
-      terminal = "kitty";
+      terminal = "ghostty +new-window";
       launcher = "fuzzel";
       guiFileManager = "nautilus --new-window";
       browser = "zen";
       screenshot = "grimblast --notify";
-
-      quickTerminal = "kitten quick-access-terminal --instance-group";
-      fileManager = "yazi";
-      audioMixer = "pulsemixer";
-      systemMonitor = "btop";
     in
     {
       wayland.windowManager.hyprland = {
@@ -45,6 +40,7 @@
             "${launch} vesktop"
             "${launch} spotify"
             "${launch} wl-paste --watch cliphist store &"
+            "systemctl enable --user app-com.mitchellh.ghostty.service"
           ];
           monitor = [
             "DP-1, preferred, auto, auto"
@@ -77,11 +73,6 @@
               "${mod}, E, exec, ${launch} ${guiFileManager}"
               "${mod}, B, exec, ${launch} ${browser}"
               "${mod}, Slash, exec, ${launch} ${launcher}"
-
-              "${shiftmod}, RETURN, exec, ${launch} ${quickTerminal} ${terminal}"
-              "${shiftmod}, P, exec, ${launch} ${quickTerminal} ${audioMixer} ${audioMixer}"
-              "${shiftmod}, E, exec, ${launch} ${quickTerminal} ${fileManager} ${fileManager}"
-              "${mod}, Escape, exec, ${launch} ${quickTerminal} ${systemMonitor} ${systemMonitor}"
 
               ", PRINT, exec, ${screenshot} --freeze copysave area"
               "SHIFT, PRINT, exec, ${screenshot} copysave output"

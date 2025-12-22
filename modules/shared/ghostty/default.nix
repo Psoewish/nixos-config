@@ -4,10 +4,9 @@
     programs.ghostty = {
       enable = true;
       settings = {
-        command = "fish";
+        theme = "Rose Pine";
         font-family = "CaskaydiaCove Nerd Font";
         font-size = 12;
-        theme = "Soft Server";
         clipboard-read = "allow";
         clipboard-write = "allow";
         copy-on-select = true;
