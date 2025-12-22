@@ -3,6 +3,7 @@
   imports = [ inputs.unmanic-nix.nixosModules.default ];
   services.unmanic = {
     enable = true;
+    group = "media";
   };
 
   homelab.routes.unmanic = {

@@ -2,6 +2,7 @@
 {
   services.bazarr = {
     enable = true;
+    group = "media";
   };
 
   homelab.routes.bazarr = {

@@ -2,6 +2,7 @@
 {
   services.transmission = {
     enable = true;
+    group = "media";
     downloadDirPermissions = "770";
     webHome = pkgs.flood-for-transmission;
     settings = {

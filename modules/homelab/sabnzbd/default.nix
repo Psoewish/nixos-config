@@ -2,6 +2,7 @@
 {
   services.sabnzbd = {
     enable = true;
+    group = "media";
   };
 
   homelab.routes.sabnzbd = {
