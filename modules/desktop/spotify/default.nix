@@ -16,6 +16,8 @@
           enable = true;
           windowManagerPatch = true;
           wayland = true;
+          theme = spicePkgs.themes.comfy;
+          colorScheme = "rose-pine";
           enabledExtensions = with spicePkgs.extensions; [
             autoSkipVideo
             hidePodcasts

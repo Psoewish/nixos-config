@@ -4,6 +4,10 @@
     programs.zed-editor = {
       enable = true;
       userSettings = {
+        theme = {
+          dark = "Rosé Pine";
+          light = "Rosé Pine Dawn";
+        };
         lsp_document_colors = "background";
         disable_ai = false;
         telemetry = {
