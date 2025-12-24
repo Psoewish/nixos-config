@@ -10,7 +10,7 @@
           rev = "preview-OIDC";
           hash = "sha256-EJz1W7ewEczizNRs/X3esjQUwJiTHruo7nkAzyKZbjc=";
         };
-        pnpmDeps = prev.pnpm_9.fetchDeps {
+        pnpmDeps = prev.fetchPnpmDeps {
           inherit (old) pname;
           fetcherVersion = 1;
           src = prev.fetchFromGitHub {
