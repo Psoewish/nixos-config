@@ -43,6 +43,9 @@
     zen-browser-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     zen-browser-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Affinity
+    affinity.url = "github:mrshmllow/affinity-nix";
+
     # Unmanic
     unmanic-nix.url = "github:psoewish/unmanic-nix";
     unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
