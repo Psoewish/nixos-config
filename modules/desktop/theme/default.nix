@@ -2,10 +2,7 @@
 {
   fonts.packages = with pkgs; [
     roboto
-    roboto-serif
-    nerd-fonts.caskaydia-cove
-    nerd-fonts.fira-code
-    nerd-fonts.monaspace
+    maple-mono.NF
     noto-fonts-color-emoji
   ];
 
@@ -21,16 +18,16 @@
     gtk = {
       enable = true;
       font = {
-        name = "Roboto";
+        name = "Maple Mono NF";
         size = 12;
       };
     };
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "CaskaydiaCove Nerd Font Propo" ];
-        sansSerif = [ "Roboto" ];
-        serif = [ "Roboto Serif" ];
+        monospace = [ "Maple Mono NF" ];
+        sansSerif = [ "Maple Mono NF" ];
+        serif = [ "Maple Mono NF" ];
         emoji = [ "Noto Color Emoji" ];
       };
     };

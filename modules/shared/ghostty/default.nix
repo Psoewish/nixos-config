@@ -5,7 +5,7 @@
       enable = true;
       settings = {
         theme = "Rose Pine";
-        font-family = "CaskaydiaCove Nerd Font Propo";
+        font-family = "Maple Mono NF";
         font-size = 12;
         unfocused-split-opacity = 1;
         clipboard-read = "allow";
