@@ -36,6 +36,9 @@ in
       modules = [
         desktopHost
         desktopProfiles
+        inputs.self.nixosModules.overrides
+        inputs.self.nixosModules.overlays
+        inputs.lix-module.nixosModules.default
       ];
     };
     homelab = inputs.nixpkgs.lib.nixosSystem {
@@ -51,6 +54,7 @@ in
         homelabProfiles
         inputs.self.nixosModules.overrides
         inputs.self.nixosModules.overlays
+        inputs.lix-module.nixosModules.default
       ];
     };
   };

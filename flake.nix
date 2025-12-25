@@ -11,6 +11,12 @@
     # Nix Packages
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    # Lix
+    lix.url = "git+https://git.lix.systems/lix-project/lix?ref=main";
+    lix-module.url = "git+https://git.lix.systems/lix-project/nixos-module?ref=main";
+    lix-module.inputs.nixpkgs.follows = "nixpkgs";
+    lix-module.inputs.lix.follows = "lix";
+
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
