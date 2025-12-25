@@ -5,7 +5,6 @@
   ...
 }:
 let
-
   format = pkgs.formats.yaml { };
 
   rootDir = "/var/lib/crowdsec";

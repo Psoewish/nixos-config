@@ -49,6 +49,8 @@ in
       modules = [
         homelabHost
         homelabProfiles
+        inputs.self.nixosModules.overrides
+        inputs.self.nixosModules.overlays
       ];
     };
   };

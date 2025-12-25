@@ -1,9 +1,5 @@
 { config, ... }:
 {
-  # Fixes upstream bug, remove later
-  disabledModules = [ "services/security/crowdsec.nix" ];
-  imports = [ ../../overrides/crowdsec/default.nix ];
-
   services.crowdsec = {
     enable = true;
     autoUpdateService = true;
@@ -16,9 +12,6 @@
         "crowdsecurity/whitelist-good-actors"
       ];
     };
-    # settings.lapi.credentialsFile = "/run/crowdsec/lapi.yaml";
-    # settings.capi.credentialsFile = "/run/crowdsec/capi.yaml";
-    # settings.console.tokenFile = "/run/crowdsec/console_token.yaml";
     settings = {
       acquisitions = [
         {
