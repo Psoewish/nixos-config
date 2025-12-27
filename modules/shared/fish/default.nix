@@ -29,6 +29,9 @@
             ff = "fastfetch";
             lg = "lazygit";
             cc = "claude";
+            rb = "rebuild";
+            rbd = "rebuild desktop";
+            rbh = "rebuild homelab";
           };
           shellAliases = {
             cat = "bat";
@@ -44,6 +47,13 @@
           };
           functions = {
             copycat = "cat $argv | wl-copy";
+            rebuild = /* fish */ ''
+              if [ -z "$argv" ]; or [ "$argv[1]" = $hostname ];
+                nixos-rebuild switch --flake ~/flakes/nixos-config#$hostname --sudo
+              else;
+                nixos-rebuild switch --flake ~/flakes/nixos-config#$argv[1] --target-host $argv[1] --sudo
+              end
+            '';
           };
           plugins = pluginList [
             "autopair"
