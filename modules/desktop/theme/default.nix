@@ -2,7 +2,10 @@
 {
   fonts.packages = with pkgs; [
     roboto
+    source-han-sans
+    source-han-serif
     maple-mono.NF
+    nerd-fonts.sauce-code-pro
     noto-fonts-color-emoji
   ];
 
@@ -25,9 +28,15 @@
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Maple Mono NF" ];
-        sansSerif = [ "Maple Mono NF" ];
-        serif = [ "Maple Mono NF" ];
+        monospace = [ "SauceCodePro Nerd Font Propo" ];
+        sansSerif = [
+          "Roboto"
+          "Source Han Sans"
+        ];
+        serif = [
+          "Roboto"
+          "Source Han Serif"
+        ];
         emoji = [ "Noto Color Emoji" ];
       };
     };

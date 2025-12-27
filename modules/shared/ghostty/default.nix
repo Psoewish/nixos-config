@@ -5,7 +5,7 @@
       enable = true;
       settings = {
         theme = "Rose Pine";
-        font-family = "Maple Mono NF";
+        font-family = "SauceCodePro Nerd Font Propo";
         font-size = 12;
         unfocused-split-opacity = 1;
         clipboard-read = "allow";
