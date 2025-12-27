@@ -48,5 +48,10 @@
       sopsFile = ./authentik.yaml;
       mode = "0400";
     };
+    "matrix/registration_token" = {
+      sopsFile = ./matrix.yaml;
+      mode = "0400";
+      owner = lib.mkIf (config.services.matrix-tuwunel.enable or false) "tuwunel";
+    };
   };
 }
