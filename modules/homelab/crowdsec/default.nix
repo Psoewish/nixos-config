@@ -1,5 +1,8 @@
 { config, ... }:
 {
+  disabledModules = [ "services/security/crowdsec.nix" ];
+  imports = [ ./override.nix ];
+
   services.crowdsec = {
     enable = true;
     autoUpdateService = true;
