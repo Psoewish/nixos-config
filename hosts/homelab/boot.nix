@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  fractal.tags = [ "homelab" ];
   boot = {
     loader = {
       systemd-boot.enable = true;

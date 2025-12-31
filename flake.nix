@@ -4,7 +4,7 @@
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ (inputs.import-tree ./parts) ];
+      imports = [ ./hosts ];
     };
 
   inputs = {
@@ -27,7 +27,7 @@
 
     # Flake Parts
     flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:vic/import-tree";
+    easy-hosts.url = "github:tgirlcloud/easy-hosts";
 
     # Home Manager
     home-manager.url = "github:nix-community/home-manager";

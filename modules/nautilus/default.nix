@@ -1,0 +1,22 @@
+{ pkgs, ... }:
+{
+  fractal.tags = [ "desktop" ];
+  environment.systemPackages = with pkgs; [
+    nautilus
+    loupe
+  ];
+
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "ghostty";
+  };
+
+  services = {
+    gvfs.enable = true;
+    tumbler.enable = true;
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
+    };
+  };
+}

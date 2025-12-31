@@ -1,5 +1,6 @@
 { ... }:
 {
+  fractal.tags = [ "overlays" ];
   nixpkgs.overlays = [
     (final: prev: {
       jellyseerr = prev.jellyseerr.overrideAttrs (old: {

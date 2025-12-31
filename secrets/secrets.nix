@@ -1,11 +1,6 @@
+{ lib, config, ... }:
 {
-  inputs,
-  lib,
-  config,
-  ...
-}:
-{
-  imports = [ inputs.sops-nix.nixosModules.default ];
+  fractal.tags = [ "secrets" ];
   sops.secrets = {
     "cloudflare/domain" = {
       sopsFile = ./cloudflare.yaml;
