@@ -1,6 +1,5 @@
 { ... }:
 {
-  fractal.tags = [ "desktop" ];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

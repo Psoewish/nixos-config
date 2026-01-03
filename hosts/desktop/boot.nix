@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  fractal.tags = [ "desktop" ];
   boot = {
     loader = {
       systemd-boot.enable = true;

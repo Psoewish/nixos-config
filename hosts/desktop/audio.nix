@@ -1,6 +1,5 @@
 { ... }:
 {
-  fractal.tags = [ "desktop" ];
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

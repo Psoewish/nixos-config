@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  fractal.tags = [ "homelab" ];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

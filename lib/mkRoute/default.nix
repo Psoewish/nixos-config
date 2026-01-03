@@ -35,11 +35,6 @@
               default = "009088b8-cd7c-41fb-b25d-2d34cd98bc6e";
               description = "Cloudflare tunnel ID";
             };
-            forwardAuth = lib.mkOption {
-              type = lib.types.bool;
-              default = false;
-              description = "Enable Authentik forward authentication";
-            };
           };
         }
       )
@@ -65,16 +60,7 @@
               service = route.service;
               entryPoints = [ "websecure" ];
               tls.certResolver = "cloudflare";
-              middlewares = lib.optional route.forwardAuth "authentik" ++ [ "secure-headers" ];
-            };
-          }
-          // lib.optionalAttrs route.forwardAuth {
-            "${route.service}-auth" = {
-              rule = "Host(`${fqdn}`) && PathPrefix(`/outpost.goauthentik.io/`)";
-              service = "authentik-outpost";
-              entryPoints = [ "websecure" ];
-              tls.certResolver = "cloudflare";
-              priority = 100;
+              middlewares = [ "secure-headers" ];
             };
           };
           services.${route.service}.loadBalancer.servers = [

@@ -1,6 +1,5 @@
 { ... }:
 {
-  fractal.tags = [ "desktop" ];
   networking = {
     networkmanager = {
       enable = true;

@@ -1,6 +1,5 @@
 { modulesPath, ... }:
 {
-  fractal.tags = [ "desktop" ];
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];

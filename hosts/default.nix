@@ -1,68 +1,44 @@
 { inputs, ... }:
 let
   lib = inputs.nixpkgs.lib;
-  tagDiscovery = import ../lib/buildTagMap { inherit lib; };
-  tagMap = tagDiscovery.scanDirectory ../.;
+  import-tree = inputs.import-tree;
 
   globalArgs = {
     inherit inputs lib;
     username = "psoewish";
   };
-in
-{
-  imports = [ inputs.easy-hosts.flakeModule ];
-  systems = [ "x86_64-linux" ];
 
-  easy-hosts = {
-    shared.modules = [
-      ../lib/meta
-      ../lib/mkRoute
-    ]
-    ++ (with inputs; [
-      # self.nixosModules.overlays
+  globalModules =
+    (with inputs; [
       home-manager.nixosModules.home-manager
       sops-nix.nixosModules.default
-      lix-module.nixosModules.default
-      authentik.nixosModules.default
       unmanic-nix.nixosModules.default
-    ]);
-
-    hosts = {
-      desktop = {
-        arch = "x86_64";
-        class = "nixos";
-        path = ./desktop;
-        specialArgs = globalArgs;
-        tags = [
-          "core"
-          "secrets"
-          "overlays"
-          "desktop"
-        ];
-      };
-      homelab = {
-        arch = "x86_64";
-        class = "nixos";
-        path = ./homelab;
-        specialArgs = globalArgs;
-        tags = [
-          "core"
-          "secrets"
-          "overlays"
-          "homelab"
-        ];
-      };
+    ])
+    ++ (import-tree.filter (lib.hasSuffix "default.nix") [
+      ../modules/settings
+      ../modules/shared
+      ../lib
+      ../secrets
+    ]).imports;
+in
+{
+  systems = import inputs.systems;
+  flake.nixosConfigurations = {
+    desktop = lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = globalArgs;
+      modules =
+        (import-tree ./desktop).imports
+        ++ globalModules
+        ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop).imports;
     };
-    perTag = tag: {
-      modules = tagMap.${tag} or [ ];
+    homelab = lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = globalArgs;
+      modules =
+        (import-tree ./homelab).imports
+        ++ globalModules
+        ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/homelab).imports;
     };
   };
-
-  perSystem =
-    { pkgs, ... }:
-    {
-      devShells.default = pkgs.mkShell {
-        buildInputs = with pkgs; [ sops ];
-      };
-    };
 }

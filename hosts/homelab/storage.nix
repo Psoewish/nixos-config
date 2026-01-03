@@ -1,6 +1,5 @@
 { modulesPath, ... }:
 {
-  fractal.tags = [ "homelab" ];
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];

@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  fractal.tags = [ "desktop" ];
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [

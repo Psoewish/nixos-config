@@ -1,6 +1,5 @@
 { ... }:
 {
-  fractal.tags = [ "homelab" ];
   networking = {
     interfaces.enp94s0.ipv4.addresses = [
       {
