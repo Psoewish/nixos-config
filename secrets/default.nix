@@ -29,19 +29,6 @@
       sopsFile = ./radarr.yaml;
       mode = "0400";
     };
-    "crowdsec/bouncer-api-key" = {
-      sopsFile = ./crowdsec.yaml;
-      mode = "0400";
-    };
-    "crowdsec/console-enrollment-key" = {
-      sopsFile = ./crowdsec.yaml;
-      mode = "0400";
-      owner = lib.mkIf (config.services.crowdsec.enable or false) "crowdsec";
-    };
-    "authentik/env" = {
-      sopsFile = ./authentik.yaml;
-      mode = "0400";
-    };
     "matrix/registration_token" = {
       sopsFile = ./matrix.yaml;
       mode = "0400";
