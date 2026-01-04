@@ -1,7 +1,13 @@
-{ config, ... }:
+{ ... }:
 {
-  disabledModules = [ "services/security/crowdsec.nix" ];
-  imports = [ ./override.nix ];
+  disabledModules = [
+    "services/security/crowdsec.nix"
+    "services/security/crowdsec-firewall-bouncer.nix"
+  ];
+  imports = [
+    ./crowdsec.nix
+    ./crowdsec-firewall-bouncer.nix
+  ];
 
   services.crowdsec = {
     enable = true;
@@ -36,13 +42,11 @@
           online_client.credentials_path = "/var/lib/crowdsec/data/online_api_credentials.yaml";
         };
       };
-      console.tokenFile = config.sops.secrets."crowdsec/console-enrollment-key".path;
     };
   };
 
   services.crowdsec-firewall-bouncer = {
     enable = true;
-    registerBouncer.enable = false;
-    secrets.apiKeyPath = config.sops.secrets."crowdsec/bouncer-api-key".path;
+    registerBouncer.enable = true;
   };
 }
