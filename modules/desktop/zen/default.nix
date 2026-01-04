@@ -16,7 +16,6 @@
             lovely-forks
             no-pdf-download
             pronoundb
-            proton-pass
             protondb-for-steam
             privacy-badger
             return-youtube-dislikes
@@ -27,6 +26,7 @@
             refined-github
             sonarr-radarr-lidarr-search
             unpaywall
+            bitwarden
           ];
       };
     };
