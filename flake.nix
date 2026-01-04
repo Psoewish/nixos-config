@@ -17,6 +17,7 @@
   inputs = {
     # Nix Packages
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-25.11";
     systems.url = "github:nix-systems/default";
 
     # Secrets
