@@ -2,18 +2,22 @@
 {
   services.vaultwarden = {
     enable = true;
+    environmentFile = [
+      config.sops.secrets."vaultwarden/admin_token".path
+      config.sops.secrets."vaultwarden/smtp_password".path
+    ];
     config = {
-      domain = "vault.psoewish.com";
-      signupsAllowed = false;
-      rocketAddress = "127.0.0.1";
-      rocketPort = 8222;
-      adminToken = config.sops.secrets."vaultwarden/admin_token".path;
-      smtphost = "smtp.fastmail.com";
-      smtpPort = 465;
-      username = "psoewish@fastmail.com";
-      smtpPassword = config.sops.secrets."vaultwarden/smtp_password".path;
-      smtpFrom = "vault@psoewish.com";
-      smtpFromName = "Psoewish's Vaultwarden Service";
+      DOMAIN = "https://vault.psoewish.com";
+      SIGNUPS_ALLOWED = false;
+      WEB_VAULT_ENABLED = true;
+      WEBSOCKET_ENABLED = true;
+      ROCKET_ADDRESS = "0.0.0.0";
+      ROCKET_PORT = 8222;
+      SMTP_HOST = "smtp.fastmail.com";
+      SMTP_PORT = 587;
+      SMTP_USERNAME = "psoewish@fastmail.com";
+      SMTP_FROM = "vault@psoewish.com";
+      SMTP_FROM_NAME = "Psoewish's Vaultwarden Service";
     };
   };
 
