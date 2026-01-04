@@ -1,5 +1,9 @@
 { username, ... }:
 {
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
   home-manager.users.${username} =
     { pkgs, ... }:
     {
