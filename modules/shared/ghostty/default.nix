@@ -1,8 +1,9 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 {
   home-manager.users.${username} = {
     programs.ghostty = {
       enable = true;
+      package = pkgs.unstable.ghostty;
       settings = {
         theme = "Rose Pine";
         font-family = "SauceCodePro Nerd Font Propo";

@@ -1,8 +1,9 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 {
   home-manager.users.${username} = {
     programs.zed-editor = {
       enable = true;
+      package = pkgs.unstable.zed;
       userSettings = {
         theme = {
           dark = "Rosé Pine";

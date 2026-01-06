@@ -1,14 +1,8 @@
-{
-  username,
-  pkgs,
-  inputs,
-  ...
-}:
+{ username, ... }:
 {
   home-manager.users.${username} = {
     programs.vesktop = {
       enable = true;
-      package = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vesktop;
       vencord = {
         settings = {
           plugins = {

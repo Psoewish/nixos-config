@@ -1,7 +1,9 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 {
   programs.hyprland = {
     enable = true;
+    package = pkgs.unstable.hyprland;
+    portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
     withUWSM = true;
   };
   home-manager.users.${username} =
@@ -22,7 +24,7 @@
           exec-once = [
             "${launch} steam -silent"
             "${launch} vesktop"
-            "${launch} spotify"
+            "${launch} ytmdesktop"
             "${launch} wl-paste --watch cliphist store &"
             "systemctl enable --user app-com.mitchellh.ghostty.service"
           ];
@@ -42,8 +44,8 @@
           windowrule = [
             "match:class steam, monitor 0, float on, center on, size (monitor_w*0.75) (monitor_h*0.75)"
 
+            "match:class Youtube Music Desktop App, monitor 1"
             "match:class vesktop, monitor 1"
-            "match:class spotify, monitor 1"
           ];
 
           bind =

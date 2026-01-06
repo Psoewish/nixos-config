@@ -17,6 +17,7 @@ let
     ++ (import-tree.filter (lib.hasSuffix "default.nix") [
       ../modules/settings
       ../modules/shared
+      ../overlays
       ../lib
       ../secrets
     ]).imports;
