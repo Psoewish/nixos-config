@@ -16,8 +16,8 @@
 
   inputs = {
     # Nix Packages
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
 
     # Secrets
@@ -29,11 +29,8 @@
     import-tree.url = "github:vic/import-tree";
 
     # Home Manager
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Spicetify wrapper for Spotify
-    spicetify-nix.url = "github:gerg-l/spicetify-nix";
 
     # Zen Browser
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
