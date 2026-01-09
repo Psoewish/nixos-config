@@ -4,18 +4,18 @@
     enable = true;
     quickmarks = {
       # homelab stuff
-      jellyfin = "https://jellyfin.psoewish.com";
-      jellyseerr = "https://jellyseerr.psoewish.com";
+      jf = "https://jellyfin.psoewish.com";
+      js = "https://jellyseerr.psoewish.com";
       sonarr = "https://sonarr.psoewish.com";
       radarr = "https://radarr.psoewish.com";
       unmanic = "https://unmanic.psoewish.com";
-      nzbhydra = "https://nzbhydra.psoewish.com";
-      sabnzbd = "https://sabnzbd.psoewish.com";
-      vaultwarden = "https://vault.psoewish.com";
+      nzb = "https://nzbhydra.psoewish.com";
+      sab = "https://sabnzbd.psoewish.com";
+      vault = "https://vault.psoewish.com";
 
-      youtube = "https://youtube.com";
+      yt = "https://youtube.com";
       twitch = "https://twitch.tv";
-      github = "https://github.com";
+      gh = "https://github.com";
       mynixos = "https://mynixos.com";
       noogle = "https://noogle.dev";
       gw2efficiency = "https://gw2efficiency.com";

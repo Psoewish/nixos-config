@@ -59,7 +59,7 @@
               "${mod}, RETURN, exec, ${launch} ${terminal}"
               "${mod}, E, exec, ${launch} ${guiFileManager}"
               "${mod}, B, exec, ${launch} ${browser}"
-              "${shiftmod} B, exec, ${launch} ${browser2}"
+              "${shiftmod}, B, exec, ${launch} ${browser2}"
               "${mod}, Slash, exec, ${launch} ${launcher}"
 
               ", PRINT, exec, ${screenshot} --freeze copysave area"

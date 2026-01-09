@@ -5,10 +5,6 @@
       enable = true;
       package = pkgs.unstable.zed-editor;
       userSettings = {
-        theme = {
-          dark = "Rosé Pine";
-          light = "Rosé Pine Dawn";
-        };
         lsp_document_colors = "background";
         disable_ai = false;
         telemetry = {

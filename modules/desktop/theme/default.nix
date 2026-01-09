@@ -1,44 +1,52 @@
-{ username, pkgs, ... }:
 {
-  fonts.packages = with pkgs; [
-    roboto
-    source-han-sans
-    source-han-serif
-    maple-mono.NF
-    nerd-fonts.sauce-code-pro
-    noto-fonts-color-emoji
-  ];
+  username,
+  config,
+  pkgs,
+  ...
+}:
+let
+  theme = "soft-server";
+in
+{
+  stylix = {
+    enable = true;
+    enableReleaseChecks = false;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    # temporary location, set up proper wallpaper management later
+    image = ./wall.png;
 
-  home-manager.users.${username} = {
-    home.pointerCursor = {
-      enable = true;
-      package = pkgs.bibata-cursors;
+    cursor = {
       name = "Bibata-Modern-Ice";
       size = 24;
-      gtk.enable = true;
-      hyprcursor.enable = true;
+      package = pkgs.bibata-cursors;
     };
-    gtk = {
+
+    icons = {
       enable = true;
-      font = {
+      dark = "Papirus Dark";
+      light = "Papirus Light";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    fonts = {
+      monospace = {
         name = "Maple Mono NF";
-        size = 12;
+        package = pkgs.maple-mono.NF-CN;
       };
-    };
-    fonts.fontconfig = {
-      enable = true;
-      defaultFonts = {
-        monospace = [ "SauceCodePro Nerd Font Propo" ];
-        sansSerif = [
-          "Roboto"
-          "Source Han Sans"
-        ];
-        serif = [
-          "Roboto"
-          "Source Han Serif"
-        ];
-        emoji = [ "Noto Color Emoji" ];
+      sansSerif = config.stylix.fonts.monospace;
+      serif = config.stylix.fonts.monospace;
+      emoji = {
+        name = "Noto Color Emoji";
+        package = pkgs.noto-fonts-color-emoji;
+      };
+
+      sizes = {
+        applications = 12;
+        desktop = 12;
+        popups = 12;
+        terminal = 12;
       };
     };
   };
+  home-manager.users.${username}.stylix.enableReleaseChecks = false;
 }
