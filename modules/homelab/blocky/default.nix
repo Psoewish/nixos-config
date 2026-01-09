@@ -19,6 +19,7 @@
         refreshPeriod = "4h";
       };
       customDNS = {
+        mapping."psoewish.com" = "192.168.1.100";
         customTTL = "1h";
       };
       caching = {
@@ -27,12 +28,5 @@
         prefetching = true;
       };
     };
-  };
-  networking.firewall = {
-    allowedTCPPorts = [
-      53
-      4000
-    ];
-    allowedUDPPorts = [ 53 ];
   };
 }

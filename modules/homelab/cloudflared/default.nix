@@ -3,10 +3,15 @@
   services.cloudflared = {
     enable = true;
     tunnels = {
-      "009088b8-cd7c-41fb-b25d-2d34cd98bc6e" = {
+      "${config.homelab.tunnelId}" = {
         credentialsFile = config.sops.secrets."cloudflare/credentials".path;
         default = "http_status:404";
         originRequest.noTLSVerify = true;
+        ingress = lib.mkMerge (
+          lib.mapAttrsToList (name: cfg: {
+            "${cfg.subdomain}.${config.homelab.domain}" = "https://localhost:443";
+          }) (lib.filterAttrs (name: cfg: cfg.public) config.homelab.routes)
+        );
       };
     };
   };
