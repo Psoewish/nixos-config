@@ -44,5 +44,8 @@
     # Unmanic
     unmanic-nix.url = "github:psoewish/unmanic-nix";
     unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    arion.url = "github:hercules-ci/arion";
+    arion.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
