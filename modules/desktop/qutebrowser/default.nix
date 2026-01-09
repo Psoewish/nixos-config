@@ -33,6 +33,7 @@
     };
 
     settings = {
+      auto_save.session = true;
       colors.webpage = {
         darkmode = {
           enabled = true;
@@ -44,7 +45,6 @@
         position = "bottom";
         remove_finished = 300000;
       };
-      auto_save.session = true;
       scrolling = {
         bar = "never";
         smooth = true;
@@ -55,18 +55,16 @@
         last_close = "startpage";
         max_width = 250;
         show = "multiple";
-        padding = {
-          top = 8;
-          bottom = 8;
-          right = 8;
-          left = 8;
-        };
       };
       content = {
-        cookies.accept = "all";
         autoplay = false;
       };
     };
+
+    extraConfig = ''
+      c.tabs.padding = {'top': 8, 'bottom': 8, 'left': 8, 'right': 8}
+    '';
+
     keyBindings = {
       normal = {
         "alt-ctrl-c" = "config-cycle tabs.show always never";

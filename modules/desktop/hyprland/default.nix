@@ -13,7 +13,8 @@
       terminal = "ghostty +new-window";
       launcher = "fuzzel";
       guiFileManager = "nautilus --new-window";
-      browser = "zen";
+      browser = "qutebrowser";
+      browser2 = "zen";
       screenshot = "grimblast --notify";
     in
     {
@@ -24,7 +25,7 @@
           exec-once = [
             "${launch} steam -silent"
             "${launch} vesktop"
-            "${launch} ytmdesktop"
+            "${launch} cider-2"
             "${launch} wl-paste --watch cliphist store &"
             "systemctl enable --user app-com.mitchellh.ghostty.service"
           ];
@@ -58,6 +59,7 @@
               "${mod}, RETURN, exec, ${launch} ${terminal}"
               "${mod}, E, exec, ${launch} ${guiFileManager}"
               "${mod}, B, exec, ${launch} ${browser}"
+              "${shiftmod} B, exec, ${launch} ${browser2}"
               "${mod}, Slash, exec, ${launch} ${launcher}"
 
               ", PRINT, exec, ${screenshot} --freeze copysave area"
