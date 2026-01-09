@@ -44,5 +44,10 @@
       mode = "0400";
       owner = lib.mkIf (config.services.vaultwarden.enable or false) "vaultwarden";
     };
+
+    "cloudflared/api" = {
+      sopsFile = ./cloudflared.yaml;
+      mode = "0400";
+    };
   };
 }
