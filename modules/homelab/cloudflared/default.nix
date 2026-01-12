@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   services.cloudflared = {
     enable = true;
@@ -9,7 +9,10 @@
         originRequest.noTLSVerify = true;
         ingress = lib.mkMerge (
           lib.mapAttrsToList (name: cfg: {
-            "${cfg.subdomain}.${config.homelab.domain}" = "https://localhost:443";
+            "${cfg.subdomain}.${config.homelab.domain}" = {
+              service = "https://localhost:443";
+              originRequest.originServerName = "${cfg.subdomain}.${config.homelab.domain}";
+            };
           }) (lib.filterAttrs (name: cfg: cfg.public) config.homelab.routes)
         );
       };
