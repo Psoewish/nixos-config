@@ -5,9 +5,6 @@
       enable = true;
       package = pkgs.unstable.ghostty;
       settings = {
-        theme = "Rose Pine";
-        font-family = "SauceCodePro Nerd Font Propo";
-        font-size = 12;
         unfocused-split-opacity = 1;
         clipboard-read = "allow";
         clipboard-write = "allow";
