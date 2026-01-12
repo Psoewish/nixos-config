@@ -12,6 +12,7 @@ in
     enable = true;
     enableReleaseChecks = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    polarity = "dark";
     # temporary location, set up proper wallpaper management later
     image = ./wall.png;
 
@@ -31,14 +32,11 @@ in
     fonts = {
       monospace = {
         name = "Maple Mono NF";
-        package = pkgs.maple-mono.NF-CN;
+        package = pkgs.maple-mono.NF;
       };
       sansSerif = config.stylix.fonts.monospace;
       serif = config.stylix.fonts.monospace;
-      emoji = {
-        name = "Noto Color Emoji";
-        package = pkgs.noto-fonts-color-emoji;
-      };
+      emoji = config.stylix.fonts.monospace;
 
       sizes = {
         applications = 12;
