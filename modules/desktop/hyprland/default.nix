@@ -61,6 +61,7 @@
               "${mod}, B, exec, ${launch} ${browser}"
               "${shiftmod}, B, exec, ${launch} ${browser2}"
               "${mod}, Slash, exec, ${launch} ${launcher}"
+              ''${mod}, D, exec, hyprctl notify -1 3000 "rgb(ffffff)" "$(date)"''
 
               ", PRINT, exec, ${screenshot} --freeze copysave area"
               "SHIFT, PRINT, exec, ${screenshot} copysave output"
