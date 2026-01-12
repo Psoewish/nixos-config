@@ -2,20 +2,20 @@
 {
   home-manager.users.${username}.programs.qutebrowser = {
     enable = true;
+    loadAutoconfig = true; # For dynamic settings (allowing paste permissions to persist, for example)
     quickmarks = {
-      # homelab stuff
-      jf = "https://jellyfin.psoewish.com";
-      js = "https://jellyseerr.psoewish.com";
+      jellyfin = "https://jellyfin.psoewish.com";
+      jellyseerr = "https://jellyseerr.psoewish.com";
       sonarr = "https://sonarr.psoewish.com";
       radarr = "https://radarr.psoewish.com";
       unmanic = "https://unmanic.psoewish.com";
-      nzb = "https://nzbhydra.psoewish.com";
-      sab = "https://sabnzbd.psoewish.com";
-      vault = "https://vault.psoewish.com";
+      nzbhydra = "https://nzbhydra.psoewish.com";
+      sabnzbd = "https://sabnzbd.psoewish.com";
+      vaultwarden = "https://vault.psoewish.com";
 
-      yt = "https://youtube.com";
+      youtube = "https://youtube.com";
       twitch = "https://twitch.tv";
-      gh = "https://github.com";
+      github = "https://github.com";
       mynixos = "https://mynixos.com";
       noogle = "https://noogle.dev";
       gw2efficiency = "https://gw2efficiency.com";
@@ -67,11 +67,11 @@
 
     keyBindings = {
       normal = {
-        "alt-ctrl-c" = "config-cycle tabs.show always never";
-        "alt-ctrl-left" = "set tabs.position left";
-        "alt-ctrl-down" = "set tabs.position bottom";
-        "alt-ctrl-up" = "set tabs.position top";
-        "alt-ctrl-right" = "set tabs.position right";
+        "<Ctrl-Shift-C>" = "config-cycle tabs.show multiple never";
+        "<Ctrl-Shift-Left>" = "set tabs.position left";
+        "<Ctrl-Shift-Down>" = "set tabs.position bottom";
+        "<Ctrl-Shift-Up>" = "set tabs.position top";
+        "<Ctrl-Shift-Right>" = "set tabs.position right";
       };
     };
   };
