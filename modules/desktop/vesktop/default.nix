@@ -111,13 +111,6 @@
               customEngineURL = "https://duckduckgo.com/";
             };
             reverseImageSearch.enable = true;
-            shikiCodeblocks = {
-              enable = true;
-              theme = "https://raw.githubusercontent.com/shikijs/shiki/0b28ad8ccfbf2615f2d9d38ea8255416b8ac3043/packages/shiki/themes/rose-pine.json";
-              tryHljs = "SECONDARY";
-              useDevIcon = "COLOR";
-              bgOpacity = 100.0;
-            };
             spotifyControls.enable = true;
             spotifyShareCommands.enable = true;
             userMessagesPronouns = {
