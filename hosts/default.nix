@@ -13,6 +13,7 @@ let
       home-manager.nixosModules.home-manager
       sops-nix.nixosModules.default
       unmanic-nix.nixosModules.default
+      inputs.mydia.nixosModules.default
       stylix.nixosModules.stylix
     ])
     ++ (import-tree.filter (lib.hasSuffix "default.nix") [

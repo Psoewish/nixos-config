@@ -29,6 +29,11 @@
       sopsFile = ./radarr.yaml;
       mode = "0400";
     };
+    "mydia/secretKeyBase" = {
+      sopsFile = ./mydia.yaml;
+      mode = "0400";
+      owner = lib.mkIf (config.services.mydia.enble or false) "mydia";
+    };
     "matrix/registration_token" = {
       sopsFile = ./matrix.yaml;
       mode = "0400";
