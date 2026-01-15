@@ -3,7 +3,7 @@
   home-manager.users.${username} = {
     programs.zed-editor = {
       enable = true;
-      package = pkgs.unstable.zed-editor;
+      package = pkgs.zed-editor;
       userSettings = {
         lsp_document_colors = "background";
         disable_ai = false;

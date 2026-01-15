@@ -16,8 +16,8 @@
 
   inputs = {
     # Nix Packages
-    nixpkgs.url = "nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    # nixpkgs-stable.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
 
     # Secrets
@@ -38,7 +38,7 @@
 
     # Zen Browser
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     zen-browser-extensions.inputs.nixpkgs.follows = "nixpkgs";
 

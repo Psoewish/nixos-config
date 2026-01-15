@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs.unstable; [
+  environment.systemPackages = with pkgs; [
     nixd
     nixfmt-rfc-style
     fish-lsp

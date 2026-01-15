@@ -1,26 +1,6 @@
 { lib, config, ... }:
 {
   sops.secrets = {
-    "cloudflare/domain" = {
-      sopsFile = ./cloudflare.yaml;
-      mode = "0444";
-    };
-    "cloudflare/credentials" = {
-      sopsFile = ./cloudflare.yaml;
-      mode = "0444";
-    };
-    "cloudflare/accountId" = {
-      sopsFile = ./cloudflare.yaml;
-      mode = "0400";
-    };
-    "cloudflare/tunnelId" = {
-      sopsFile = ./cloudflare.yaml;
-      mode = "0400";
-    };
-    "cloudflare/api" = {
-      sopsFile = ./cloudflare.yaml;
-      mode = "0400";
-    };
     "sonarr/api" = {
       sopsFile = ./sonarr.yaml;
       mode = "0400";
@@ -34,11 +14,6 @@
       mode = "0400";
       owner = lib.mkIf (config.services.mydia.enble or false) "mydia";
     };
-    "matrix/registration_token" = {
-      sopsFile = ./matrix.yaml;
-      mode = "0400";
-      owner = lib.mkIf (config.services.matrix-tuwunel.enable or false) "tuwunel";
-    };
     "vaultwarden/smtp_password" = {
       sopsFile = ./vaultwarden.yaml;
       mode = "0400";
@@ -51,6 +26,10 @@
     };
 
     "cloudflared/api" = {
+      sopsFile = ./cloudflared.yaml;
+      mode = "0400";
+    };
+    "cloudflared/credentials" = {
       sopsFile = ./cloudflared.yaml;
       mode = "0400";
     };

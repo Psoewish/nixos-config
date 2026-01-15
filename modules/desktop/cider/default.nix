@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs.unstable; [ cider-2 ];
+  environment.systemPackages = with pkgs; [ cider-2 ];
 }

@@ -1,9 +1,8 @@
-{ username, pkgs, ... }:
+{ username, ... }:
 {
   home-manager.users.${username} = {
     programs.ghostty = {
       enable = true;
-      package = pkgs.unstable.ghostty;
       settings = {
         unfocused-split-opacity = 1;
         clipboard-read = "allow";

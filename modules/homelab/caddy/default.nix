@@ -23,7 +23,7 @@
       }
 
     '';
-    extraConfig = ''
+    extraConfig = /* Caddyfile */ ''
       (security_defaults) {
         encode zstd gzip
 

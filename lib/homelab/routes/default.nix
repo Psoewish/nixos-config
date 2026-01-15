@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, ... }:
 {
   options.homelab = {
     domain = lib.mkOption {

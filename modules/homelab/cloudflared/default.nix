@@ -4,7 +4,7 @@
     enable = true;
     tunnels = {
       "${config.homelab.tunnelId}" = {
-        credentialsFile = config.sops.secrets."cloudflare/credentials".path;
+        credentialsFile = config.sops.secrets."cloudflared/credentials".path;
         default = "http_status:404";
         originRequest.noTLSVerify = true;
         ingress = lib.mkMerge (
