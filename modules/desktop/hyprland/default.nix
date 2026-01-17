@@ -8,7 +8,7 @@
     { pkgs, ... }:
     let
       launch = "uwsm app -- ";
-      terminal = "ghostty +new-window";
+      terminal = "rio";
       launcher = "fuzzel";
       guiFileManager = "nautilus --new-window";
       browser = "qutebrowser";
@@ -25,7 +25,6 @@
             "${launch} vesktop"
             "${launch} cider-2"
             "${launch} wl-paste --watch cliphist store &"
-            "systemctl enable --user app-com.mitchellh.ghostty.service"
           ];
           monitor = [
             "DP-1, preferred, auto, auto"
