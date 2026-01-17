@@ -16,7 +16,6 @@
 
   inputs = {
     # Nix Packages
-    # nixpkgs-stable.url = "nixpkgs/nixos-25.11";
     nixpkgs.url = "nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
 
@@ -29,7 +28,7 @@
     import-tree.url = "github:vic/import-tree";
 
     # Home Manager
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Stylix
