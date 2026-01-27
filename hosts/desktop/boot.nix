@@ -8,9 +8,7 @@
       timeout = 2;
     };
     initrd = {
-      enable = true;
       systemd.enable = true;
-      kernelModules = [ ];
       availableKernelModules = [
         "xhci_pci"
         "ahci"
@@ -23,7 +21,6 @@
     consoleLogLevel = 3;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelModules = [ "kvm-amd" ];
-    extraModulePackages = [ ];
   };
   services.scx.enable = true;
 }

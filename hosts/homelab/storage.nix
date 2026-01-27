@@ -1,44 +1,24 @@
 { modulesPath, ... }:
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/6f4baa10-8da6-4eb3-93a7-3999057f6cae";
-    fsType = "btrfs";
-    options = [ "subvol=root" ];
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/ad374118-5ab8-4e31-97f9-0e5e8f9de75b";
+      fsType = "ext4";
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/5582-FDA7";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
   };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/6f4baa10-8da6-4eb3-93a7-3999057f6cae";
-    fsType = "btrfs";
-    options = [ "subvol=home" ];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/6f4baa10-8da6-4eb3-93a7-3999057f6cae";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/EBE6-B2CA";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
-  };
-
-  fileSystems."/var/lib" = {
-    device = "/dev/disk/by-uuid/b11cf58f-4835-464f-b052-d5c39ae61d7a";
-    fsType = "btrfs";
-  };
-
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/55566de6-1ff4-4554-878d-07c371712fbf"; }
-  ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/4071aba9-4533-4819-b234-a8903e58a990"; } ];
 
   services.zfs = {
     autoScrub.enable = true;
@@ -48,6 +28,9 @@
 
   networking.hostId = "f46ba50b";
   boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.extraPools = [ "tank" ];
+  boot.zfs.extraPools = [
+    "speedy"
+    "rusty"
+  ];
   boot.zfs.forceImportRoot = false;
 }

@@ -22,6 +22,7 @@
 
   environment.etc = {
     "resolv.conf".text = ''
+      nameserver 9.9.9.9
       nameserver 1.1.1.1
     '';
   };

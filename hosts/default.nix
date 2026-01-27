@@ -8,21 +8,21 @@ let
     username = "psoewish";
   };
 
-  globalModules =
+  globalModules = (with inputs; [ sops-nix.nixosModules.default ]) ++ [
+    ../lib/route-options.nix
+    ../secrets/secrets.nix
+  ];
+
+  desktopModules =
     (with inputs; [
       home-manager.nixosModules.home-manager
-      sops-nix.nixosModules.default
-      unmanic-nix.nixosModules.default
-      # inputs.mydia.nixosModules.default
       stylix.nixosModules.stylix
     ])
-    ++ (import-tree.filter (lib.hasSuffix "default.nix") [
-      ../modules/settings
-      ../modules/shared
-      ../overlays
-      ../lib
-      ../secrets
-    ]).imports;
+    ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop).imports;
+
+  homelabModules =
+    (with inputs; [ unmanic-nix.nixosModules.default ])
+    ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/homelab).imports;
 in
 {
   systems = import inputs.systems;
@@ -30,18 +30,12 @@ in
     desktop = lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = globalArgs;
-      modules =
-        (import-tree ./desktop).imports
-        ++ globalModules
-        ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop).imports;
+      modules = (import-tree ./desktop).imports ++ globalModules ++ desktopModules;
     };
     homelab = lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = globalArgs;
-      modules =
-        (import-tree ./homelab).imports
-        ++ globalModules
-        ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/homelab).imports;
+      modules = (import-tree ./homelab).imports ++ globalModules ++ homelabModules;
     };
   };
 }

@@ -47,7 +47,5 @@
     # Unmanic
     unmanic-nix.url = "github:psoewish/unmanic-nix";
     unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    # mydia.url = "github:chris-kruining/mydia";
   };
 }
