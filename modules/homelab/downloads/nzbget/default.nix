@@ -1,7 +1,7 @@
-{ lib, ... }:
+{ meta, ... }:
 {
-  imports = with lib; [
-    (modules.importApply ../../../../lib/service-template.nix {
+  imports = [
+    (meta.homelab.service {
       name = "nzbget";
       container = {
         image = "lscr.io/linuxserver/nzbget:latest";

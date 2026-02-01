@@ -1,7 +1,7 @@
-{ lib, config, ... }:
+{ meta, config, ... }:
 {
-  imports = with lib; [
-    (modules.importApply ../../../../lib/service-template.nix {
+  imports = [
+    (meta.homelab.service {
       name = "vaultwarden";
       container = {
         image = "vaultwarden/server:latest";

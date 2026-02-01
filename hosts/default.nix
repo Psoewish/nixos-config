@@ -2,10 +2,11 @@
 let
   lib = inputs.nixpkgs.lib;
   import-tree = inputs.import-tree;
+  meta = import ../lib/meta.nix;
 
   globalArgs = {
-    inherit inputs lib;
-    username = "psoewish";
+    inherit inputs lib meta;
+    username = meta.personal.username;
   };
 
   globalModules = (with inputs; [ sops-nix.nixosModules.default ]) ++ [

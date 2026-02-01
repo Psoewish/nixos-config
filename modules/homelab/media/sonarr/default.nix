@@ -1,7 +1,7 @@
-{ lib, ... }:
+{ meta, ... }:
 {
-  imports = with lib; [
-    (modules.importApply ../../../../lib/service-template.nix {
+  imports = [
+    (meta.homelab.service {
       name = "sonarr";
       container = {
         image = "lscr.io/linuxserver/sonarr:latest";

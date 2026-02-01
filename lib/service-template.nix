@@ -4,11 +4,14 @@
   route ? { },
   ...
 }:
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  meta,
+  ...
+}:
 let
-  domain = "psoewish.com";
-  tunnelId = "009088b8-cd7c-41fb-b25d-2d34cd98bc6e";
-  FQDN = "${route.subdomain or name}.${domain}";
+  FQDN = "${route.subdomain or name}.${meta.homelab.domain}";
 in
 {
   virtualisation.oci-containers.containers = lib.mkIf (container != { }) {
@@ -42,7 +45,7 @@ in
     };
   };
 
-  services.cloudflared.tunnels."${tunnelId}".ingress = lib.mkIf (route.public or false) {
+  services.cloudflared.tunnels."${meta.homelab.tunnelId}".ingress = lib.mkIf (route.public or false) {
     "${FQDN}" = {
       service = "https://localhost:443";
       originRequest.originServerName = "${FQDN}";

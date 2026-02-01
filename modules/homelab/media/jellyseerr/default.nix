@@ -1,7 +1,7 @@
-{ lib, ... }:
+{ meta, ... }:
 {
-  imports = with lib; [
-    (modules.importApply ../../../../lib/service-template.nix {
+  imports = [
+    (meta.homelab.service {
       name = "jellyseerr";
       container = {
         image = "ghcr.io/fallenbagel/jellyseerr:latest";
