@@ -16,8 +16,9 @@
 
   inputs = {
     # Nix Packages
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
+    determinate.url = "https://flakehub.com/f/determinatesystems/determinate/*";
 
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
