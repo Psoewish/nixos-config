@@ -8,29 +8,24 @@
       jellyseerr = "https://jellyseerr.psoewish.com";
       sonarr = "https://sonarr.psoewish.com";
       radarr = "https://radarr.psoewish.com";
+      prowlarr = "https://prowlarr.psoewish.com";
+      profilarr = "https://profilarr.psoewish.com";
       unmanic = "https://unmanic.psoewish.com";
       nzbhydra = "https://nzbhydra.psoewish.com";
-      sabnzbd = "https://sabnzbd.psoewish.com";
+      nzbget = "https://nzbget.psoewish.com";
+      qbittorrent = "https://qbittorrent.psoewish.com";
       vaultwarden = "https://vault.psoewish.com";
 
       youtube = "https://youtube.com";
       twitch = "https://twitch.tv";
       github = "https://github.com";
       mynixos = "https://mynixos.com";
-      noogle = "https://noogle.dev";
       gw2efficiency = "https://gw2efficiency.com";
       gw2wiki = "https://wiki.guildwars2.com";
       steam = "https://steampowered.com";
-      humblebundle = "https://humblebundle.com";
     };
 
-    searchEngines = {
-      default = "https://duckduckgo.com/?q={}";
-      yt = "https://youtube.com/results?search_query={}";
-      g = "https://google.com/search?q={}";
-      n = "https://noogle.dev/q?term={}";
-      nw = "https://wiki.nixos.org/index.php?search={}";
-    };
+    searchEngines.default = "https://duckduckgo.com/?q={}";
 
     settings = {
       auto_save.session = true;
