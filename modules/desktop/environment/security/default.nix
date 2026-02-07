@@ -1,19 +1,18 @@
 { ... }:
 {
   services.gnome.gnome-keyring.enable = true;
-
-  programs.regreet = {
-    enable = true;
-    cageArgs = [
-      "-s"
-      "-m"
-      "last"
-    ];
+  services.displayManager = {
+    autoLogin = {
+      enable = true;
+      user = "psoewish";
+    };
+    gdm.enable = true;
   };
 
   security = {
     polkit.enable = true;
     pam.services = {
+      gdm.enableGnomeKeyring = true;
       greetd.enableGnomeKeyring = true;
       login.enableGnomeKeyring = true;
     };

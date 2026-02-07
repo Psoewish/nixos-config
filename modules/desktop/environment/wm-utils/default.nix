@@ -16,10 +16,6 @@
         };
       };
     };
-    services.mako = {
-      enable = true;
-      margin = 20;
-    };
 
     home.packages = with pkgs; [
       grimblast

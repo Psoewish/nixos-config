@@ -21,17 +21,11 @@
           interactiveShellInit = ''
             set -gx fish_greeting
             set -gx sponge_purge_only_on_exit true
-            set -gx tide_prompt_transient_enabled true
-            set -gx tide_left_prompt_items pwd git newline character
-            set -gx tide_right_prompt_items status cmd_duration context jobs direnv nix_shell go python rustc
           '';
           shellAbbrs = {
             ff = "fastfetch";
             lg = "lazygit";
             cc = "claude";
-            rb = "rebuild";
-            rbd = "rebuild desktop";
-            rbh = "rebuild homelab";
           };
           shellAliases = {
             cat = "bat";
@@ -47,13 +41,6 @@
           };
           functions = {
             copycat = "cat $argv | wl-copy";
-            rebuild = /* fish */ ''
-              if [ -z "$argv" ]; or [ "$argv[1]" = $hostname ];
-                nixos-rebuild switch --flake ~/flakes/nixos-config#$hostname --sudo
-              else;
-                nixos-rebuild switch --flake ~/flakes/nixos-config#$argv[1] --target-host $argv[1] --sudo
-              end
-            '';
           };
           plugins = pluginList [
             "autopair"

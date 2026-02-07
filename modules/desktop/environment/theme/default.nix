@@ -1,49 +1,39 @@
-{ config, pkgs, ... }:
-let
-  theme = "soft-server";
-in
+{ username, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    maple-mono.NF-CN
-    papirus-icon-theme
-    bibata-cursors
-  ];
-  # stylix = {
-  #   enable = true;
-  #   enableReleaseChecks = false;
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
-  #   polarity = "dark";
-  #   # temporary location, set up proper wallpaper management later
-  #   image = ./wall.png;
+  fonts = {
+    enableDefaultPackages = true;
+    fontDir.enable = true;
+    packages = with pkgs; [
+      maple-mono.NF-CN
+      roboto
+      nerd-fonts.caskaydia-cove
+      nerd-fonts.fira-code
+    ];
 
-  #   cursor = {
-  #     name = "Bibata-Modern-Ice";
-  #     size = 24;
-  #     package = pkgs.bibata-cursors;
-  #   };
+    fontconfig = {
+      useEmbeddedBitmaps = true;
+      defaultFonts = {
+        serif = [ "Maple Mono NF CN" ];
+        sansSerif = [ "Maple Mono NF CN" ];
+        monospace = [ "Maple Mono NF CN" ];
+      };
+    };
+  };
 
-  #   icons = {
-  #     enable = true;
-  #     dark = "Papirus Dark";
-  #     light = "Papirus Light";
-  #     package = pkgs.papirus-icon-theme;
-  #   };
+  home-manager.users.${username} = {
+    home.pointerCursor = {
+      enable = true;
+      gtk.enable = true;
+      hyprcursor.enable = true;
 
-  #   fonts = {
-  #     monospace = {
-  #       name = "Maple Mono NF";
-  #       package = pkgs.maple-mono.NF;
-  #     };
-  #     sansSerif = config.stylix.fonts.monospace;
-  #     serif = config.stylix.fonts.monospace;
-  #     emoji = config.stylix.fonts.monospace;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
 
-  #     sizes = {
-  #       applications = 12;
-  #       desktop = 12;
-  #       popups = 12;
-  #       terminal = 12;
-  #     };
-  #   };
-  # };
+    gtk.iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus Dark";
+    };
+  };
 }

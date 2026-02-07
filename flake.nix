@@ -18,7 +18,6 @@
     # Nix Packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
-    determinate.url = "https://flakehub.com/f/determinatesystems/determinate/*";
 
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
@@ -31,16 +30,6 @@
     # Home Manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Stylix
-    stylix.url = "github:nix-community/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Zen Browser
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-    zen-browser-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    zen-browser-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     # Affinity
     affinity.url = "github:mrshmllow/affinity-nix";

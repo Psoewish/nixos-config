@@ -8,7 +8,8 @@
     let
       launch = "uwsm app -- ";
       terminal = "ghostty +new-window";
-      launcher = "fuzzel";
+      noctalia = "noctalia-shell ipc call";
+      launcher = "launcher toggle";
       guiFileManager = "nautilus --new-window";
       browser = "qutebrowser";
       browser2 = "zen";
@@ -25,10 +26,11 @@
             "${launch} ytmdesktop"
             "${launch} wl-paste --watch cliphist store &"
             "systemctl enable --user app-com.mitchellh.ghostty.service"
+            "${launch} noctalia-shell"
           ];
           monitor = [
-            "DP-1, preferred, auto, auto"
-            "DP-2, preferred, auto-up, auto"
+            "DP-1, preferred, 0x1440, auto"
+            "DP-2, preferred, 0x0, auto"
           ];
 
           workspace = [
@@ -40,89 +42,107 @@
           ];
 
           windowrule = [
-            "match:class steam, monitor 0, float on, center on, size (monitor_w*0.75) (monitor_h*0.75)"
-
-            "match:class Youtube Music Desktop App', monitor 1"
+            "match:class Youtube Music Desktop App, monitor 1"
             "match:class vesktop, monitor 1"
           ];
 
-          bind =
-            let
-              mod = "SUPER";
-              shiftmod = "SUPER SHIFT";
-              ctrlmod = "SUPER CTRL";
-            in
-            [
-              "${mod}, RETURN, exec, ${launch} ${terminal}"
-              "${mod}, E, exec, ${launch} ${guiFileManager}"
-              "${mod}, B, exec, ${launch} ${browser}"
-              "${shiftmod}, B, exec, ${launch} ${browser2}"
-              "${mod}, Slash, exec, ${launch} ${launcher}"
-              ''${mod}, D, exec, hyprctl notify -1 3000 "rgb(ffffff)" "$(date)"''
+          layerrule = [
+            {
+              name = noctalia;
+              "match:namespace" = "noctalia-background-.*$";
+              ignore_alpha = 0.5;
+              blur = true;
+              blur_popups = true;
+            }
+          ];
 
-              ", PRINT, exec, ${screenshot} --freeze copysave area"
-              "SHIFT, PRINT, exec, ${screenshot} copysave output"
+          "$mod" = "SUPER";
+          "$shiftmod" = "SUPERSHIFT";
+          "$ctrlmod" = "SUPERCTRL";
 
-              "${mod}, V, togglefloating"
-              "${mod}, Q, killactive"
-              "${mod}, F, fullscreenstate, 1 3"
-              "${shiftmod}, F, fullscreenstate, 3 3"
+          bind = [
+            "$mod, RETURN, exec, ${launch} ${terminal}"
+            "$mod, E, exec, ${launch} ${guiFileManager}"
+            "$mod, B, exec, ${launch} ${browser}"
+            "$shiftmod, B, exec, ${launch} ${browser2}"
 
-              "${mod}, left, movefocus, l"
-              "${mod}, right, movefocus, r"
-              "${mod}, up, movefocus, u"
-              "${mod}, down, movefocus, d"
+            "$mod, Slash, exec, ${noctalia} ${launcher}"
 
-              "${shiftmod}, left, movewindow, l"
-              "${shiftmod}, right, movewindow, r"
-              "${shiftmod}, up, movewindow, u"
-              "${shiftmod}, down, movewindow, d"
+            ", PRINT, exec, ${screenshot} --freeze copysave area"
+            "SHIFT, PRINT, exec, ${screenshot} copysave output"
 
-              "${mod}, bracketleft, layoutmsg, addmaster"
-              "${mod}, bracketright, layoutmsg, removemaster"
-              "${shiftmod}, tab, layoutmsg, cyclenext"
-              "${mod}, tab, layoutmsg, cycleprev"
+            "$mod, V, togglefloating"
+            "$mod, Q, killactive"
+            "$mod, F, fullscreenstate, 1 3"
+            "$shiftmod, F, fullscreenstate, 3 3"
 
-              "${mod}, 1, workspace, 1"
-              "${mod}, 2, workspace, 2"
-              "${mod}, 3, workspace, 3"
-              "${mod}, 4, workspace, 4"
-              "${mod}, 5, workspace, 5"
+            "$mod, left, movefocus, l"
+            "$mod, right, movefocus, r"
+            "$mod, up, movefocus, u"
+            "$mod, down, movefocus, d"
 
-              "${shiftmod}, 1, movetoworkspace, 1"
-              "${shiftmod}, 2, movetoworkspace, 2"
-              "${shiftmod}, 3, movetoworkspace, 3"
-              "${shiftmod}, 4, movetoworkspace, 4"
-              "${shiftmod}, 5, movetoworkspace, 5"
+            "$shiftmod, left, movewindow, l"
+            "$shiftmod, right, movewindow, r"
+            "$shiftmod, up, movewindow, u"
+            "$shiftmod, down, movewindow, d"
 
-              "${ctrlmod}, left, resizeactive, -50 0"
-              "${ctrlmod}, right, resizeactive, 50 0"
-              "${ctrlmod}, up, resizeactive, 0 -50"
-              "${ctrlmod}, down, resizeactive, 0 50"
-            ];
+            "$mod, bracketleft, layoutmsg, addmaster"
+            "$mod, bracketright, layoutmsg, removemaster"
+            "$shiftmod, tab, layoutmsg, cyclenext"
+            "$mod, tab, layoutmsg, cycleprev"
 
-          bindm =
-            let
-              mod = "SUPER";
-            in
-            [
-              "${mod}, mouse:272, movewindow"
-              "${mod}, mouse:273, resizewindow"
-            ];
+            "$mod, 1, workspace, 1"
+            "$mod, 2, workspace, 2"
+            "$mod, 3, workspace, 3"
+            "$mod, 4, workspace, 4"
+            "$mod, 5, workspace, 5"
+
+            "$shiftmod, 1, movetoworkspace, 1"
+            "$shiftmod, 2, movetoworkspace, 2"
+            "$shiftmod, 3, movetoworkspace, 3"
+            "$shiftmod, 4, movetoworkspace, 4"
+            "$shiftmod, 5, movetoworkspace, 5"
+
+            "$ctrlmod, left, resizeactive, -50 0"
+            "$ctrlmod, right, resizeactive, 50 0"
+            "$ctrlmod, up, resizeactive, 0 -50"
+            "$ctrlmod, down, resizeactive, 0 50"
+          ];
+
+          bindm = [
+            "$mod, mouse:272, movewindow"
+            "$mod, mouse:273, resizewindow"
+          ];
 
           general = {
             border_size = 1;
-            gaps_in = 10;
-            gaps_out = 20;
+            gaps_in = 5;
+            gaps_out = 10;
             layout = "master";
             resize_on_border = true;
             extend_border_grab_area = true;
             allow_tearing = false;
           };
 
+          source = "./noctalia/noctalia-colors.conf";
           decoration = {
-            rounding = 2;
+            rounding = 10;
+            rounding_power = 2;
             dim_inactive = false;
+
+            shadow = {
+              enabled = true;
+              range = 4;
+              render_power = 3;
+              color = "rgba(1a1a1aee)";
+            };
+
+            blur = {
+              enabled = true;
+              size = 3;
+              passes = 2;
+              vibrancy = 0.1696;
+            };
           };
 
           animations = {

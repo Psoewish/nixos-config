@@ -17,8 +17,6 @@ let
   desktopModules =
     (with inputs; [
       home-manager.nixosModules.home-manager
-      stylix.nixosModules.stylix
-      determinate.nixosModules.default
     ])
     ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop).imports;
 
