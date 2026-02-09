@@ -2,15 +2,15 @@
 {
   imports = [
     (meta.homelab.service {
-      name = "nzbget";
+      name = "sabnzbd";
       container = {
-        image = "lscr.io/linuxserver/nzbget:latest";
+        image = "lscr.io/linuxserver/sabnzbd:latest";
         volumes = [
-          "/var/lib/nzbget:/config"
+          "/var/lib/sabnzbd:/config"
           "/data/downloads/usenet:/downloads/usenet"
         ];
       };
-      route.port = 6789;
+      route.port = 8080;
     })
   ];
 }
