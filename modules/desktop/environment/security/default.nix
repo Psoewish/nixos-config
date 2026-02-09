@@ -6,13 +6,14 @@
       enable = true;
       user = "psoewish";
     };
-    gdm.enable = true;
+    cosmic-greeter.enable = true;
   };
 
   security = {
     polkit.enable = true;
     pam.services = {
       gdm.enableGnomeKeyring = true;
+      cosmic-greeter.enableGnomeKeyring = true;
       greetd.enableGnomeKeyring = true;
       login.enableGnomeKeyring = true;
     };
