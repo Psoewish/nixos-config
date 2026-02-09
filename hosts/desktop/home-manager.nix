@@ -1,9 +1,15 @@
-{ inputs, username, ... }:
+{
+  inputs,
+  pkgs,
+  username,
+  ...
+}:
 {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = "backup";
+    backupFileExtension = "bak";
+    backupCommand = "${pkgs.trash-cli}/bin/trash";
     users.${username}.imports = with inputs; [
       noctalia.homeModules.default
     ];
