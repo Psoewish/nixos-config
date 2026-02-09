@@ -20,6 +20,11 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    papirus-icon-theme
+    adwsteamgtk
+  ];
+
   home-manager.users.${username} = {
     home.pointerCursor = {
       enable = true;
@@ -31,9 +36,25 @@
       size = 24;
     };
 
-    gtk.iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus Dark";
+    gtk = {
+      enable = true;
+      font = {
+        name = "Maple Mono NF CN";
+        package = pkgs.maple-mono.NF-CN;
+        size = 12;
+      };
+      colorScheme = "dark";
+      iconTheme = {
+        package = pkgs.papirus-icon-theme;
+        name = "Papirus-Dark";
+      };
+    };
+
+    qt = {
+      enable = true;
+      style = {
+        name = "adwaita-dark";
+      };
     };
   };
 }
