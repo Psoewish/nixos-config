@@ -5,14 +5,27 @@
   ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cc29d060-0385-47b7-bbe7-ee856f13e122";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/c5056b3d-2639-4bab-9ec1-f1b13bfa73ff";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "subvol=root" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/c5056b3d-2639-4bab-9ec1-f1b13bfa73ff";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "subvol=home" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/c5056b3d-2639-4bab-9ec1-f1b13bfa73ff";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "noatime" "subvol=nix" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/31FE-E4EA";
+    { device = "/dev/disk/by-uuid/12CE-A600";
       fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices = [ ];
