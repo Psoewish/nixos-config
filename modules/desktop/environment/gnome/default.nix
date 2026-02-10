@@ -11,13 +11,15 @@
     (with pkgs.gnomeExtensions; [
       arc-menu
       caffeine
-      dash2dock-lite
       clipboard-indicator
       emoji-copy
       extension-list
       removable-drive-menu
-      user-themes
-      kiwi-is-not-apple
+      dash2dock-lite
+      appindicator
+      screentospace
+      smart-auto-move-ng
+      tiling-assistant
     ])
     ++ (with pkgs; [
       refine
