@@ -1,6 +1,12 @@
-{ username, pkgs, ... }:
 {
-  home-manager.users.${username} = {
+  username,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
+  home-manager.users.${username} = lib.mkIf config.programs.hyprland.enable {
     programs.fuzzel = {
       enable = true;
       settings = {
