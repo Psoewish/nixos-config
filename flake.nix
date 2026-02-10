@@ -34,10 +34,6 @@
     # Affinity
     affinity.url = "github:mrshmllow/affinity-nix";
 
-    # Unmanic
-    unmanic-nix.url = "github:psoewish/unmanic-nix";
-    unmanic-nix.inputs.nixpkgs.follows = "nixpkgs";
-
     # Noctalia
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
