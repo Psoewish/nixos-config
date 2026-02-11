@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs,
   username,
   ...
@@ -10,8 +11,7 @@
     useUserPackages = true;
     backupFileExtension = "bak";
     backupCommand = "${pkgs.trash-cli}/bin/trash";
-    users.${username}.imports = with inputs; [
-      noctalia.homeModules.default
-    ];
+    users.${username}.imports =
+      (inputs.import-tree.filter (lib.hasSuffix "default.nix") ../../modules/desktop/home).imports;
   };
 }

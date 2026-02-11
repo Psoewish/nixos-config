@@ -33,9 +33,5 @@
 
     # Affinity
     affinity.url = "github:mrshmllow/affinity-nix";
-
-    # Noctalia
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
