@@ -14,22 +14,22 @@
       interactiveShellInit = ''
         set -gx fish_greeting
         set -gx sponge_purge_only_on_exit true
+        zoxide init fish --cmd cd | source
       '';
       shellAbbrs = {
         ff = "fastfetch";
         lg = "lazygit";
-        cc = "claude";
       };
       shellAliases = {
         cat = "bat";
         man = "batman";
         shx = "sudo hx";
         mkdir = "mkdir -pv";
-        grep = "batgrep --smart-case --color";
+        grep = "ripgrep --smart-case --hidden";
         cp = "rsync -ah --info=progress2";
-        ls = "eza";
-        ll = "eza -l";
-        lt = "eza -T -L=3 --git-ignore";
+        ls = "eza --all --group-directories-first --git --color=always --icons=always";
+        ll = "eza -l --all --group-directories-first --git --color=always --icons=always";
+        lt = "eza --tree --level 3 --git-ignore";
         fzf = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       };
       functions = {
