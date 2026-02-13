@@ -5,21 +5,27 @@
   ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c5056b3d-2639-4bab-9ec1-f1b13bfa73ff";
+    { device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
       fsType = "btrfs";
-      options = [ "compress=zstd" "subvol=root" ];
+      options = [ "subvol=root" "compress=zstd" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/c5056b3d-2639-4bab-9ec1-f1b13bfa73ff";
+    { device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
       fsType = "btrfs";
-      options = [ "compress=zstd" "subvol=home" ];
+      options = [ "subvol=home" "compress=zstd" ];
+    };
+
+  fileSystems."/games" =
+    { device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
+      fsType = "btrfs";
+      options = [ "subvol=games" "compress=zstd" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/c5056b3d-2639-4bab-9ec1-f1b13bfa73ff";
+    { device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
       fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=nix" ];
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/boot" =
