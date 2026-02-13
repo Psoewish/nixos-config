@@ -41,10 +41,7 @@
         "puffer"
         "tide"
         "sponge"
-        "bass"
         "fzf-fish"
-        "fish-bd"
-        "bang-bang"
         "plugin-sudope"
       ];
     };
