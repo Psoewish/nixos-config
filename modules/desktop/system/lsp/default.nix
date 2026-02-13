@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     nixd
-    nixfmt-rfc-style
+    nixfmt
     fish-lsp
     bash-language-server
     vscode-langservers-extracted
