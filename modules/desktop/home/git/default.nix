@@ -10,7 +10,10 @@
     };
     gh = {
       enable = true;
-      settings.editor = "hx";
+      settings = {
+        editor = "hx";
+        git_protocol = "ssh";
+      };
     };
     lazygit.enable = true;
   };
