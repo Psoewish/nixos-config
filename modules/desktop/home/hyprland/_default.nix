@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, osConfig, ... }:
 let
   launch = "uwsm app -- ";
   terminal = "ghostty +new-window";
@@ -9,7 +9,7 @@ let
   screenshot = "grimblast --notify";
 in
 {
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = lib.mkIf osConfig.programs.hyprland.enable {
     enable = true;
     systemd.variables = [ "--all" ];
     settings = {
