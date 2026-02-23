@@ -1,12 +1,20 @@
 { pkgs, ... }:
 {
-  services.desktopManager.gnome.enable = true;
-  services.gnome.gnome-browser-connector.enable = true;
+  services = {
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "psoewish";
+      };
+      gdm.enable = true;
+    };
+
+    desktopManager.gnome.enable = true;
+  };
+
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     gnome-user-docs
-    gnome-text-editor
-    gnome-terminal
   ];
 
   environment.systemPackages =
