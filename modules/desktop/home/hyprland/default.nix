@@ -10,10 +10,11 @@ let
   launcher = "noctalia-shell ipc call launcher toggle";
 
   # Default applications
-  terminal = "ghostty +new-window";
+  terminal = "footclient";
   guiFileManager = "thunar";
   browser = "qutebrowser";
   browser2 = "zen";
+  settings = "noctalia-shell ipc call settings toggle";
 
   # Screenshots
   capture-window = "hyprshot -m window --clipboard-only";
@@ -38,7 +39,6 @@ in
         "vesktop"
         "ytmdesktop"
         "wl-paste --watch cliphist store &"
-        "noctalia-shell"
       ];
 
       monitor = [
@@ -74,6 +74,7 @@ in
         "${mod}, E, exec, ${guiFileManager}"
         "${mod}, B, exec, ${browser}"
         "${shiftmod}, B, exec, ${browser2}"
+        "${mod}, I, exec, ${settings}"
 
         "${mod}, Slash, exec, ${launcher}"
 
@@ -91,15 +92,12 @@ in
         "${mod}, up, movefocus, u"
         "${mod}, down, movefocus, d"
 
-        "${shiftmod}, left, movewindow, l"
-        "${shiftmod}, right, movewindow, r"
+        "${shiftmod}, left, layoutmsg, swapcol l"
+        "${ctrlmod}, left, movewindow, l"
+        "${shiftmod}, right, layoutmsg, swapcol r"
+        "${ctrlmod}, right, movewindow, r"
         "${shiftmod}, up, movewindow, u"
         "${shiftmod}, down, movewindow, d"
-
-        "${mod}, bracketleft, layoutmsg, addmaster"
-        "${mod}, bracketright, layoutmsg, removemaster"
-        "${shiftmod}, tab, layoutmsg, cyclenext"
-        "${mod}, tab, layoutmsg, cycleprev"
 
         "${mod}, 1, workspace, 1"
         "${mod}, 2, workspace, 2"
@@ -112,11 +110,6 @@ in
         "${shiftmod}, 3, movetoworkspace, 3"
         "${shiftmod}, 4, movetoworkspace, 4"
         "${shiftmod}, 5, movetoworkspace, 5"
-
-        "${ctrlmod}, left, resizeactive, -50 0"
-        "${ctrlmod}, right, resizeactive, 50 0"
-        "${ctrlmod}, up, resizeactive, 0 -50"
-        "${ctrlmod}, down, resizeactive, 0 50"
       ];
 
       bindm = [
@@ -128,7 +121,7 @@ in
         border_size = 1;
         gaps_in = 5;
         gaps_out = 10;
-        layout = "master";
+        layout = "scrolling";
         resize_on_border = true;
         extend_border_grab_area = true;
         allow_tearing = false;
@@ -196,14 +189,11 @@ in
         no_donation_nag = true;
       };
 
-      master = {
-        allow_small_split = true;
-        special_scale_factor = 1;
-        mfact = 0.5;
-        new_status = "slave";
-        new_on_top = false;
-        new_on_active = "none";
-        slave_count_for_center_master = 0;
+      scrolling = {
+        fullscreen_on_one_column = true;
+        column_width = 0.5;
+        focus_fit_method = 1;
+        follow_focus = true;
       };
     };
   };
