@@ -14,6 +14,24 @@
     unzip
     zip
     bind
-    zoxide
   ];
+
+  programs = {
+    bat = {
+      enable = true;
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        prettybat
+      ];
+      settings = {
+        italic-text = "always";
+        paging = "never";
+      };
+    };
+    zoxide = {
+      enable = true;
+      flags = [ "--cmd cd" ];
+    };
+  };
 }
