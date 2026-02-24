@@ -5,13 +5,6 @@
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ ./hosts ];
-      perSystem =
-        { pkgs, ... }:
-        {
-          devShells.default = pkgs.mkShell {
-            buildInputs = with pkgs; [ sops ];
-          };
-        };
     };
 
   inputs = {
@@ -38,6 +31,7 @@
     # Noctalia
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     # Affinity
     affinity.url = "github:mrshmllow/affinity-nix";
