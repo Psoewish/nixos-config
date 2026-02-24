@@ -61,5 +61,7 @@
     cliphist
     hyprshot
     hyprcursor
+    gpu-screen-recorder-gtk
+    kdePackages.qttools
   ];
 }
