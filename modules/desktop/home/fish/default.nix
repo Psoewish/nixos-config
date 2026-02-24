@@ -14,7 +14,6 @@
       interactiveShellInit = ''
         set -gx fish_greeting
         set -gx sponge_purge_only_on_exit true
-        zoxide init fish --cmd cd | source
       '';
       shellAbbrs = {
         ff = "fastfetch";
