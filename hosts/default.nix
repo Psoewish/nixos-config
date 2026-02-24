@@ -20,9 +20,7 @@ let
     ])
     ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop/system).imports;
 
-  homelabModules =
-    (with inputs; [ unmanic-nix.nixosModules.default ])
-    ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/homelab).imports;
+  homelabModules = (import-tree.filter (lib.hasSuffix "default.nix") ../modules/homelab).imports;
 in
 {
   systems = import inputs.systems;

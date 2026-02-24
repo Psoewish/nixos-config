@@ -50,7 +50,6 @@
   services = {
     power-profiles-daemon.enable = true;
     upower.enable = true;
-    cliphist.enable = true;
   };
   programs = {
     gpu-screen-recorder.enable = true;
@@ -59,6 +58,7 @@
   environment.systemPackages = with pkgs; [
     wl-clipboard-rs
     wl-clip-persist
+    cliphist
     hyprshot
     hyprcursor
   ];
