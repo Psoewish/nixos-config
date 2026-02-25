@@ -15,27 +15,34 @@
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     gnome-user-docs
+    gnome-text-editor
+    gnome-console
+    gnome-music
+    gnome-software # This auto enables when you enable flatpaks unless excluded
+    decibels
+    epiphany
+    simple-scan
+    yelp
   ];
 
   environment.systemPackages =
     (with pkgs.gnomeExtensions; [
       caffeine
       tiling-shell
-      extension-list
       removable-drive-menu
       dash2dock-lite
       appindicator
       blur-my-shell
-      fuzzy-app-search
       gnome-40-ui-improvements
     ])
     ++ (with pkgs; [
       refine
       ignition
+      ulauncher
+      gnome-extension-manager
+      gnome-multi-writer
+      gnome-decoder
+      cartridges
+      boatswain
     ]);
-
-  programs.kdeconnect = {
-    enable = true;
-    package = pkgs.gnomeExtensions.gsconnect;
-  };
 }
