@@ -16,20 +16,20 @@
       options = [ "subvol=home" "compress=zstd" ];
     };
 
-  fileSystems."/games" =
-    { device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
-      fsType = "btrfs";
-      options = [ "subvol=games" "compress=zstd" ];
-    };
-
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
+  fileSystems."/games" =
+    { device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
+      fsType = "btrfs";
+      options = [ "subvol=games" "compress=zstd" ];
+    };
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/12CE-A600";
+    { device = "/dev/disk/by-uuid/C267-9992";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
