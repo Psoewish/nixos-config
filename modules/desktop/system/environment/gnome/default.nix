@@ -20,6 +20,7 @@
     gnome-music
     gnome-software # This auto enables when you enable flatpaks unless excluded
     decibels
+    showtime
     epiphany
     simple-scan
     yelp
@@ -27,21 +28,18 @@
 
   environment.systemPackages =
     (with pkgs.gnomeExtensions; [
+      arc-menu
       caffeine
-      tiling-shell
-      dash-to-panel
       appindicator
       blur-my-shell
       just-perfection
-      vicinae
+      gtile
+      focus-control
     ])
     ++ (with pkgs; [
       refine
       ignition
-      gnome-extension-manager
-      gnome-multi-writer
-      gnome-decoder
-      cartridges
-      boatswain
+      celluloid
+      geary
     ]);
 }
