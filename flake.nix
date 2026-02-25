@@ -31,7 +31,6 @@
     # Noctalia
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     # Affinity
     affinity.url = "github:mrshmllow/affinity-nix";

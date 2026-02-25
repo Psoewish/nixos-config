@@ -28,14 +28,7 @@ in
     desktop = lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = globalArgs;
-      modules = [
-        {
-          nixpkgs.overlays = [ inputs.millennium.overlays.default ];
-        }
-      ]
-      ++ (import-tree ./desktop).imports
-      ++ globalModules
-      ++ desktopModules;
+      modules = (import-tree ./desktop).imports ++ globalModules ++ desktopModules;
     };
     homelab = lib.nixosSystem {
       system = "x86_64-linux";
