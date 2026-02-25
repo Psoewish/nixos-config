@@ -29,16 +29,15 @@
     (with pkgs.gnomeExtensions; [
       caffeine
       tiling-shell
-      removable-drive-menu
-      dash2dock-lite
+      dash-to-panel
       appindicator
       blur-my-shell
-      gnome-40-ui-improvements
+      just-perfection
+      vicinae
     ])
     ++ (with pkgs; [
       refine
       ignition
-      ulauncher
       gnome-extension-manager
       gnome-multi-writer
       gnome-decoder
