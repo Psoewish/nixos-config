@@ -13,4 +13,10 @@
     ];
     protontricks.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    heroic
+    faugus-launcher
+    satisfactorymodmanager
+  ];
 }
