@@ -25,5 +25,10 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelModules = [ "kvm-amd" ];
   };
-  services.scx.enable = true;
+
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+    extraArgs = [ "--performance" ];
+  };
 }
