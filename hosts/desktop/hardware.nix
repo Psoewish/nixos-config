@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}:
+{ lib, config, ... }:
 {
   hardware = {
     keyboard.qmk.enable = true;
@@ -15,20 +10,7 @@
     amdgpu = {
       initrd.enable = true;
       opencl.enable = true;
-    };
-  };
-
-  environment.systemPackages = [ pkgs.vial ];
-
-  security.rtkit.enable = true;
-  services = {
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-      wireplumber.enable = true;
+      overdrive.enable = true;
     };
   };
 }
