@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.kanata ];
+  environment.systemPackages = with pkgs; [
+    vial
+    kanata
+  ];
 
   services.kanata = {
     enable = true;
