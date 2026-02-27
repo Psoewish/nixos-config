@@ -39,8 +39,6 @@
         homeDirectory = "/home/${username}";
         stateVersion = "25.11";
       };
-      imports =
-        (inputs.import-tree.filter (lib.hasSuffix "default.nix") ../../modules/desktop/home).imports;
     };
   };
 }

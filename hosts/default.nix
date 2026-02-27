@@ -18,7 +18,7 @@ let
     (with inputs; [
       home-manager.nixosModules.home-manager
     ])
-    ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop/system).imports;
+    ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop).imports;
 
   homelabModules = (import-tree.filter (lib.hasSuffix "default.nix") ../modules/homelab).imports;
 in
