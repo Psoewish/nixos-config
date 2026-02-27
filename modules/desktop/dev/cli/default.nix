@@ -27,6 +27,7 @@
       settings = {
         italic-text = "always";
         paging = "never";
+        style = "plain";
       };
     };
     zoxide = {
