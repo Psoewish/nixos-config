@@ -1,6 +1,6 @@
-{ ... }:
+{ username, ... }:
 {
-  programs.helix = {
+  home-manager.users.${username}.programs.helix = {
     enable = true;
     defaultEditor = true;
     settings = {

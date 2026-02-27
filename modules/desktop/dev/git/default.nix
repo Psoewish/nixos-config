@@ -1,6 +1,6 @@
-{ ... }:
+{ username, ... }:
 {
-  programs = {
+  home-manager.users.${username}.programs = {
     git = {
       enable = true;
       settings = {

@@ -1,6 +1,6 @@
-{ ... }:
+{ username, ... }:
 {
-  programs.chromium = {
+  home-manager.users.${username}.programs.chromium = {
     enable = true;
     extensions = [
       {

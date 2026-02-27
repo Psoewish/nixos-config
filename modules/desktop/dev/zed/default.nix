@@ -1,6 +1,6 @@
-{ ... }:
+{ username, ... }:
 {
-  programs.zed-editor = {
+  home-manager.users.${username}.programs.zed-editor = {
     enable = true;
     userSettings = {
       lsp_document_colors = "background";

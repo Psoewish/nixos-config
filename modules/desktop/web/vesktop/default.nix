@@ -1,6 +1,6 @@
-{ ... }:
+{ username, ... }:
 {
-  programs.vesktop = {
+  home-manager.users.${username}.programs.vesktop = {
     enable = true;
     vencord = {
       settings = {

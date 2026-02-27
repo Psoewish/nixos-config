@@ -1,10 +1,4 @@
-{
-  lib,
-  osConfig,
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 let
   # Launcher
   launcher = "noctalia-shell ipc call launcher toggle";
@@ -27,7 +21,7 @@ let
   ctrlmod = "SUPERCTRL";
 in
 {
-  wayland.windowManager.hyprland = lib.mkIf osConfig.programs.hyprland.enable {
+  wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage =

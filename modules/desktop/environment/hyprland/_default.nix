@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
   # Import nixos modules
-  imports = with inputs; [ noctalia.nixosModules.default ];
+  imports = with inputs; [ noctalia.nixosModules.default ] ++ [ ./config.nix ];
 
   # Set up autostart + login/keyring
   services.getty.autologinUser = "psoewish";

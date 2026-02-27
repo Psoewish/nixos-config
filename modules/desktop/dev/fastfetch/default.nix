@@ -1,6 +1,6 @@
-{ ... }:
+{ username, ... }:
 {
-  programs.fastfetch = {
+  home-manager.users.${username}.programs.fastfetch = {
     enable = true;
     settings = {
       logo = {

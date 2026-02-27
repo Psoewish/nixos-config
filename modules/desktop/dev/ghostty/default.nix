@@ -1,6 +1,6 @@
-{ ... }:
+{ username, ... }:
 {
-  programs.ghostty = {
+  home-manager.users.${username}.programs.ghostty = {
     enable = true;
     systemd.enable = true;
     settings = {

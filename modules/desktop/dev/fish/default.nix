@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ username, pkgs, ... }:
 {
-  programs.fish =
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
+
+  home-manager.users.${username}.programs.fish =
     let
       pluginList =
         plugins:
