@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [ youtube-music ];
+  environment.systemPackages = with pkgs; [ pear-desktop ];
 }
