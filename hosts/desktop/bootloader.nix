@@ -8,6 +8,7 @@
       timeout = 0;
     };
     initrd = {
+      verbose = false;
       systemd.enable = true;
       availableKernelModules = [
         "xhci_pci"
@@ -18,12 +19,17 @@
       ];
     };
     kernelParams = [
+      "quiet"
+      "udev.log_level=3"
+      "systemd.show_status=auto"
       "8250.nr_uarts=0"
       "console=tty0"
     ];
     consoleLogLevel = 3;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelModules = [ "kvm-amd" ];
+
+    plymouth.enable = true;
   };
 
   services.scx = {
