@@ -1,0 +1,31 @@
+{ inputs, pkgs, ... }:
+{
+  # Import modules
+  imports = [
+    ./config.nix
+    ./dms.nix
+    ./file-management.nix
+    ./utils.nix
+  ];
+
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    withUWSM = true;
+  };
+
+  services.getty.autologinUser = "psoewish";
+  programs.fish.loginShellInit = /* fish */ ''
+    if test (tty) = "/dev/tty1"; and not set -q WAYLAND_DISPLAY; and uwsm check may-start
+        exec uwsm start hyprland.desktop
+    end
+  '';
+
+  services.gnome.gnome-keyring.enable = true;
+  security = {
+    polkit.enable = true;
+    pam.services.login.enableGnomeKeyring = true;
+  };
+}

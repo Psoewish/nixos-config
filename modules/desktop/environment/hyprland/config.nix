@@ -1,14 +1,19 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  username,
+  pkgs,
+  ...
+}:
 let
   # Launcher
-  launcher = "noctalia-shell ipc call launcher toggle";
+  launcher = "dms ipc call spotlight toggle";
 
   # Default applications
-  terminal = "footclient";
-  guiFileManager = "thunar";
+  terminal = "ghostty";
+  guiFileManager = "nautilus";
   browser = "qutebrowser";
-  browser2 = "zen";
-  settings = "noctalia-shell ipc call settings toggle";
+  browser2 = "chromium";
+  settings = "dms ipc call settings focusOrToggle";
 
   # Screenshots
   capture-window = "hyprshot -m window --clipboard-only";
@@ -21,7 +26,7 @@ let
   ctrlmod = "SUPERCTRL";
 in
 {
-  wayland.windowManager.hyprland = {
+  home-manager.users.${username}.wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage =
@@ -29,10 +34,11 @@ in
     systemd.variables = [ "--all" ];
     settings = {
       exec-once = [
+        "wl-paste --watch cliphist store &"
         "steam -silent"
         "vesktop"
-        "ytmdesktop"
-        "wl-paste --watch cliphist store &"
+        "pear-desktop"
+        "bitwarden"
       ];
 
       monitor = [
@@ -49,19 +55,11 @@ in
       ];
 
       windowrule = [
-        "match:class Youtube Music Desktop App, monitor DP-2"
+        "match:class pear-desktop, monitor DP-2"
         "match:class vesktop, monitor DP-2"
       ];
 
-      layerrule = [
-        {
-          name = "noctalia";
-          "match:namespace" = "noctalia-background-.*$";
-          ignore_alpha = 0.5;
-          blur = true;
-          blur_popups = true;
-        }
-      ];
+      layerrule = [ ];
 
       bind = [
         "${mod}, RETURN, exec, ${terminal}"
@@ -86,12 +84,20 @@ in
         "${mod}, up, movefocus, u"
         "${mod}, down, movefocus, d"
 
-        "${shiftmod}, left, layoutmsg, swapcol l"
-        "${ctrlmod}, left, movewindow, l"
-        "${shiftmod}, right, layoutmsg, swapcol r"
-        "${ctrlmod}, right, movewindow, r"
+        "${shiftmod}, left, movewindow, l"
+        "${shiftmod}, right, movewindow, r"
         "${shiftmod}, up, movewindow, u"
         "${shiftmod}, down, movewindow, d"
+
+        "${mod}, bracketleft, layoutmsg, addmaster"
+        "${mod}, bracketright, layoutmsg, removemaster"
+        "${shiftmod}, tab, layoutmsg, cyclenext"
+        "${mod}, tab, layoutmsg, cycleprev"
+
+        "${ctrlmod}, left, resizeactive, -50 0"
+        "${ctrlmod}, right, resizeactive, 50 0"
+        "${ctrlmod}, up, resizeactive, 0 -50"
+        "${ctrlmod}, down, resizeactive, 0 50"
 
         "${mod}, 1, workspace, 1"
         "${mod}, 2, workspace, 2"
@@ -115,13 +121,12 @@ in
         border_size = 1;
         gaps_in = 5;
         gaps_out = 10;
-        layout = "scrolling";
+        layout = "master";
         resize_on_border = true;
         extend_border_grab_area = true;
         allow_tearing = false;
       };
 
-      source = "./noctalia/noctalia-colors.conf";
       decoration = {
         rounding = 10;
         rounding_power = 2;
@@ -183,6 +188,16 @@ in
         no_donation_nag = true;
       };
 
+      master = {
+        allow_small_split = true;
+        special_scale_factor = 1;
+        mfact = 0.5;
+        new_status = "slave";
+        new_on_top = false;
+        new_on_active = "none";
+        slave_count_for_center_master = 0;
+      };
+
       scrolling = {
         fullscreen_on_one_column = true;
         column_width = 0.5;
@@ -191,6 +206,4 @@ in
       };
     };
   };
-
-  services.hyprpolkitagent.enable = true;
 }
