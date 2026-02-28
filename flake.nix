@@ -28,9 +28,9 @@
     hyprland.url = "github:hyprwm/hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Noctalia
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    # Dank Material Shell
+    dms.url = "github:avengemedia/dankmaterialshell";
+    dms.inputs.nixpkgs.follows = "nixpkgs";
 
     # Affinity
     affinity.url = "github:mrshmllow/affinity-nix";
