@@ -34,5 +34,6 @@
       enable = true;
       flags = [ "--cmd cd" ];
     };
+    vivid.enable = true;
   };
 }

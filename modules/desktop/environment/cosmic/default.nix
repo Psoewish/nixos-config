@@ -19,7 +19,6 @@
     cosmic-ext-applet-weather
     cosmic-ext-applet-caffeine
     cosmic-ext-applet-privacy-indicator
-    quick-webapps
     resources
     loupe
   ];
