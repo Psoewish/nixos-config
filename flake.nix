@@ -35,7 +35,7 @@
     # Affinity
     affinity.url = "github:mrshmllow/affinity-nix";
 
-    # Flatpak
-    flatpak.url = "github:in-a-dil-emma/declarative-flatpak/latest";
+    # catppuccin-nix
+    catppuccin.url = "github:catppuccin/nix";
   };
 }

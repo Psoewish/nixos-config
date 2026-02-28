@@ -17,7 +17,7 @@ let
   desktopModules =
     (with inputs; [
       home-manager.nixosModules.home-manager
-      flatpak.nixosModules.default
+      catppuccin.nixosModules.catppuccin
     ])
     ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop).imports;
 

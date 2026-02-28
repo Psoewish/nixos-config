@@ -38,6 +38,9 @@
         homeDirectory = "/home/${username}";
         stateVersion = "25.11";
       };
+      imports = [
+        inputs.catppuccin.homeModules.catppuccin
+      ];
     };
   };
 }

@@ -4,7 +4,6 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "rose_pine";
       editor = {
         line-number = "absolute";
         continue-comments = false;

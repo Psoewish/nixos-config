@@ -4,7 +4,6 @@
     enable = true;
     systemd.enable = true;
     settings = {
-      theme = "Rose Pine";
       unfocused-split-opacity = 1;
       clipboard-read = "allow";
       clipboard-write = "allow";
