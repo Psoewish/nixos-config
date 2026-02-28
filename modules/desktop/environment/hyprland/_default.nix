@@ -3,7 +3,6 @@
   # Import modules
   imports = [
     ./config.nix
-    ./dms.nix
     ./file-management.nix
     ./utils.nix
   ];
