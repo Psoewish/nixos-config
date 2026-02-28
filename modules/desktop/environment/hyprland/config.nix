@@ -1,9 +1,4 @@
-{
-  inputs,
-  username,
-  pkgs,
-  ...
-}:
+{ username, ... }:
 let
   # Launcher
   launcher = "dms ipc call spotlight toggle";
@@ -28,9 +23,6 @@ in
 {
   home-manager.users.${username}.wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     systemd.variables = [ "--all" ];
     settings = {
       exec-once = [
