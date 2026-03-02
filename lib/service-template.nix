@@ -18,6 +18,7 @@ in
     ${name} = (
       container
       // {
+        pull = "always";
         environment = (container.environment or { }) // {
           PUID = "5000";
           PGID = "5000";
