@@ -5,7 +5,7 @@
       systemd-boot.enable = true;
       systemd-boot.configurationLimit = 10;
       efi.canTouchEfiVariables = true;
-      timeout = 2;
+      timeout = 0;
     };
     initrd = {
       systemd.enable = true;

@@ -3,7 +3,7 @@
   users = {
     users = {
       root.shell = pkgs.fish;
-      ${username} = {
+      username = {
         shell = pkgs.fish;
         isNormalUser = true;
         description = username;
@@ -25,7 +25,10 @@
     groups.media.gid = 5000;
   };
 
-  nix.settings.trusted-users = [ "root" ];
+  nix.settings.trusted-users = [
+    "root"
+    username
+  ];
 
   systemd.tmpfiles.rules = [
     "Z /media 0774 media media - -"
