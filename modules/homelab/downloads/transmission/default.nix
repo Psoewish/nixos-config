@@ -2,18 +2,18 @@
 {
   imports = [
     (meta.homelab.service {
-      name = "qbittorrent";
+      name = "transmission";
       container = {
-        image = "lscr.io/linuxserver/qbittorrent:latest";
+        image = "lscr.io/linuxserver/transmission:latest";
         environment = {
-          WEBUI_PORT = "8181";
+          DOCKER_MODS = "linuxserver/mods:transmission-floodui";
         };
         volumes = [
-          "/var/lib/qbittorrent:/config"
+          "/var/lib/transmission:/config"
           "/data/downloads/torrents:/downloads/torrents"
         ];
       };
-      route.port = 8181;
+      route.port = 9091;
     })
   ];
 }
