@@ -2,7 +2,6 @@
 {
   users = {
     users = {
-      root.shell = pkgs.fish;
       username = {
         shell = pkgs.fish;
         isNormalUser = true;
