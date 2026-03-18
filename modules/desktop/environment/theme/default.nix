@@ -16,7 +16,7 @@
     fontconfig = {
       defaultFonts = {
         serif = [ "Maple Mono NF CN" ];
-        sansSerif = [ "Maple Mono NF CN" ];
+        sansSerif = [ "Inter" ];
         monospace = [ "Maple Mono NF CN" ];
       };
     };
