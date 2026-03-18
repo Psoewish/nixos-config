@@ -8,7 +8,6 @@
       };
       gdm.enable = true;
     };
-
     desktopManager.gnome.enable = true;
   };
 
@@ -33,13 +32,10 @@
       appindicator
       blur-my-shell
       just-perfection
-      gtile
-      focus-control
     ])
     ++ (with pkgs; [
       refine
       ignition
       celluloid
-      geary
     ]);
 }
