@@ -15,7 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # heroic
+    heroic
     faugus-launcher
     satisfactorymodmanager
   ];
