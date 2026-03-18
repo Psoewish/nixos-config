@@ -8,7 +8,6 @@ let
   guiFileManager = "nautilus";
   browser = "qutebrowser";
   browser2 = "chromium";
-  settings = "dms ipc call settings focusOrToggle";
 
   # Screenshots
   capture-window = "hyprshot -m window --clipboard-only";
@@ -51,14 +50,11 @@ in
         "match:class vesktop, monitor DP-2"
       ];
 
-      layerrule = [ ];
-
       bind = [
         "${mod}, RETURN, exec, ${terminal}"
         "${mod}, E, exec, ${guiFileManager}"
         "${mod}, B, exec, ${browser}"
         "${shiftmod}, B, exec, ${browser2}"
-        "${mod}, I, exec, ${settings}"
 
         "${mod}, Slash, exec, ${launcher}"
 
