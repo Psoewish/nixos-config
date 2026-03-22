@@ -1,13 +1,13 @@
 { username, ... }:
 let
   # Launcher
-  launcher = "dms ipc call spotlight toggle";
+  launcher = "fuzzel";
 
   # Default applications
   terminal = "ghostty";
   guiFileManager = "nautilus";
-  browser = "qutebrowser";
-  browser2 = "chromium";
+  browser = "app.zen_browser.zen";
+  browser2 = "qutebrowser";
 
   # Screenshots
   capture-window = "hyprshot -m window --clipboard-only";
