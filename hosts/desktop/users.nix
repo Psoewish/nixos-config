@@ -38,8 +38,9 @@
         homeDirectory = "/home/${username}";
         stateVersion = "25.11";
       };
-      imports = [
-        inputs.catppuccin.homeModules.catppuccin
+      imports = with inputs; [
+        catppuccin.homeModules.catppuccin
+        zen-browser.homeModules.twilight
       ];
     };
   };

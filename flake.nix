@@ -29,5 +29,11 @@
 
     # catppuccin-nix
     catppuccin.url = "github:catppuccin/nix";
+
+    # Zen Browser
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    zen-browser-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
