@@ -16,7 +16,6 @@
   environment.systemPackages = with pkgs; [
     cosmic-ext-tweaks
     cosmic-ext-calculator
-    cosmic-ext-applet-weather
     cosmic-ext-applet-caffeine
     cosmic-ext-applet-privacy-indicator
     resources

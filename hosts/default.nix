@@ -19,9 +19,9 @@ let
       home-manager.nixosModules.home-manager
       catppuccin.nixosModules.catppuccin
     ])
-    ++ (import-tree.filter (lib.hasSuffix "default.nix") ../modules/desktop).imports;
+    ++ (import-tree ../modules/desktop).imports;
 
-  homelabModules = (import-tree.filter (lib.hasSuffix "default.nix") ../modules/homelab).imports;
+  homelabModules = (import-tree ../modules/homelab).imports;
 in
 {
   systems = import inputs.systems;
