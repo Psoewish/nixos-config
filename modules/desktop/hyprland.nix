@@ -1,7 +1,5 @@
 { pkgs, username, ... }:
 {
-  imports = [ ./config.nix ];
-
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -22,7 +20,7 @@
       enable = true;
       mountOnMedia = true;
     };
-    power-power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = true;
   };
 
   security = {
