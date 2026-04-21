@@ -38,6 +38,7 @@
     hyprcursor
     fuzzel
     nautilus
+    noctalia-shell
   ];
 
   programs.nautilus-open-any-terminal = {
@@ -53,7 +54,7 @@
       # Default applications
       terminal = "ghostty";
       guiFileManager = "nautilus";
-      browser = "app.zen_browser.zen";
+      browser = "zen_twilight";
       browser2 = "qutebrowser";
 
       # Screenshots
