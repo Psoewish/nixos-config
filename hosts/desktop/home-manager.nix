@@ -18,7 +18,7 @@
       };
       imports = with inputs; [
         catppuccin.homeModules.catppuccin
-        zen-browser.homeModules.twilight
+        zen-browser.homeModules.beta
       ];
     };
   };

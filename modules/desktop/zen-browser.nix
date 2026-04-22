@@ -7,7 +7,7 @@
 {
   home-manager.users.${username}.programs.zen-browser = {
     enable = true;
-    profiles."default" = {
+    profiles.default = {
       extensions.packages =
         with inputs.zen-browser-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
           clearurls
