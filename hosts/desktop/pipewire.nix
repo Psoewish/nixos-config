@@ -3,6 +3,25 @@ let
   stateFile = "/home/${username}/.audio-device-state";
   speakers = "alsa_output.pci-0000_03_00.1.hdmi-stereo";
   headphones = "alsa_output.usb-Logitech_PRO_X_2_LIGHTSPEED_0000000000000000-00.analog-stereo";
+
+  sinks = [
+    {
+      name = "game_sink";
+      description = "Game";
+    }
+    {
+      name = "browser_sink";
+      description = "Browser";
+    }
+    {
+      name = "chat_sink";
+      description = "Chat";
+    }
+    {
+      name = "media_sink";
+      description = "Media";
+    }
+  ];
 in
 {
   security.rtkit.enable = true;
@@ -27,72 +46,22 @@ in
               };
             }
           ];
-          "context.modules" = [
-            {
-              name = "libpipewire-module-loopback";
-              args = {
-                "capture.props" = {
-                  "node.name" = "game_sink";
-                  "node.description" = "Game";
-                  "media.class" = "Audio/Sink";
-                  "audio.position" = "[ FL FR ]";
-                  "node.passive" = true;
-                };
-                "playback.props" = {
-                  "target.object" = "combine_sink";
-                  "node.passive" = true;
-                };
+          context.modules = map (sink: {
+            name = "libpipewire-module-loopback";
+            args = {
+              "capture.props" = {
+                "node.name" = sink.name;
+                "node.description" = sink.description;
+                "media.class" = "Audio/Sink";
+                "audio.position" = "[ FL FR ]";
+                "node.passive" = true;
               };
-            }
-            {
-              name = "libpipewire-module-loopback";
-              args = {
-                "capture.props" = {
-                  "node.name" = "browser_sink";
-                  "node.description" = "Browser";
-                  "media.class" = "Audio/Sink";
-                  "audio.position" = "[ FL FR ]";
-                  "node.passive" = true;
-                };
-                "playback.props" = {
-                  "target.object" = "combine_sink";
-                  "node.passive" = true;
-                };
+              "playback.props" = {
+                "target.object" = "combine_sink";
+                "node.passive" = true;
               };
-            }
-            {
-              name = "libpipewire-module-loopback";
-              args = {
-                "capture.props" = {
-                  "node.name" = "chat_sink";
-                  "node.description" = "Chat";
-                  "media.class" = "Audio/Sink";
-                  "audio.position" = "[ FL FR ]";
-                  "node.passive" = true;
-                };
-                "playback.props" = {
-                  "target.object" = "combine_sink";
-                  "node.passive" = true;
-                };
-              };
-            }
-            {
-              name = "libpipewire-module-loopback";
-              args = {
-                "capture.props" = {
-                  "node.name" = "media_sink";
-                  "node.description" = "Media";
-                  "media.class" = "Audio/Sink";
-                  "audio.position" = "[ FL FR ]";
-                  "node.passive" = true;
-                };
-                "playback.props" = {
-                  "target.object" = "combine_sink";
-                  "node.passive" = true;
-                };
-              };
-            }
-          ];
+            };
+          }) sinks;
         };
       };
       wireplumber = {
@@ -182,5 +151,6 @@ in
 
       echo "$DEVICE" > ${stateFile}
     '')
+    pkgs.pulsemixer
   ];
 }
