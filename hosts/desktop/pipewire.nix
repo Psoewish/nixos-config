@@ -3,25 +3,6 @@ let
   stateFile = "/home/${username}/.audio-device-state";
   speakers = "alsa_output.pci-0000_03_00.1.hdmi-stereo";
   headphones = "alsa_output.usb-Logitech_PRO_X_2_LIGHTSPEED_0000000000000000-00.analog-stereo";
-
-  sinks = [
-    {
-      name = "game_sink";
-      description = "Game";
-    }
-    {
-      name = "browser_sink";
-      description = "Browser";
-    }
-    {
-      name = "chat_sink";
-      description = "Chat";
-    }
-    {
-      name = "media_sink";
-      description = "Media";
-    }
-  ];
 in
 {
   security.rtkit.enable = true;
@@ -46,22 +27,72 @@ in
               };
             }
           ];
-          context.modules = map (sink: {
-            name = "libpipewire-module-loopback";
-            args = {
-              "capture.props" = {
-                "node.name" = sink.name;
-                "node.description" = sink.description;
-                "media.class" = "Audio/Sink";
-                "audio.position" = "[ FL FR ]";
-                "node.passive" = true;
+          "context.modules" = [
+            {
+              name = "libpipewire-module-loopback";
+              args = {
+                "capture.props" = {
+                  "node.name" = "game_sink";
+                  "node.description" = "Game";
+                  "media.class" = "Audio/Sink";
+                  "audio.position" = "[ FL FR ]";
+                  "node.passive" = true;
+                };
+                "playback.props" = {
+                  "target.object" = "combine_sink";
+                  "node.passive" = true;
+                };
               };
-              "playback.props" = {
-                "target.object" = "combine_sink";
-                "node.passive" = true;
+            }
+            {
+              name = "libpipewire-module-loopback";
+              args = {
+                "capture.props" = {
+                  "node.name" = "browser_sink";
+                  "node.description" = "Browser";
+                  "media.class" = "Audio/Sink";
+                  "audio.position" = "[ FL FR ]";
+                  "node.passive" = true;
+                };
+                "playback.props" = {
+                  "target.object" = "combine_sink";
+                  "node.passive" = true;
+                };
               };
-            };
-          }) sinks;
+            }
+            {
+              name = "libpipewire-module-loopback";
+              args = {
+                "capture.props" = {
+                  "node.name" = "chat_sink";
+                  "node.description" = "Chat";
+                  "media.class" = "Audio/Sink";
+                  "audio.position" = "[ FL FR ]";
+                  "node.passive" = true;
+                };
+                "playback.props" = {
+                  "target.object" = "combine_sink";
+                  "node.passive" = true;
+                };
+              };
+            }
+            {
+              name = "libpipewire-module-loopback";
+              args = {
+                "capture.props" = {
+                  "node.name" = "media_sink";
+                  "node.description" = "Media";
+                  "media.class" = "Audio/Sink";
+                  "audio.position" = "[ FL FR ]";
+                  "node.passive" = true;
+                };
+                "playback.props" = {
+                  "target.object" = "combine_sink";
+                  "node.passive" = true;
+                };
+              };
+            }
+          ];
         };
       };
       wireplumber = {
@@ -102,22 +133,29 @@ in
         routingScript = /* bash */ ''
           DEVICE=$(cat ${stateFile})
 
-          for i in {1..10}; do
-            ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FR" "$DEVICE:playback_FR"
-            ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FL" "$DEVICE:playback_FL"
-            sleep 0.5
+          for attempt in {1..30}; do
+            if ${pkgs.pipewire}/bin/pw-dump | grep -q "combine_sink"; then
+              ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FR" "$DEVICE:playback_FR" || true
+              ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FL" "$DEVICE:playback_FL" || true
+              exit 0
+            fi
+            sleep 0.2
           done
+          exit 1
         '';
       in
       {
         pipewire-routing-init = {
           unitConfig = {
             Description = "Pipewire audio routing initialization";
-            After = [ "basic.target" ];
+            After = [ "pipewire.service" ];
+            Wants = [ "pipewire.service" ];
           };
           serviceConfig = {
             Type = "oneshot";
             RemainAfterExit = true;
+            Restart = "on-failure";
+            RestartSec = 2;
           };
           wantedBy = [ "default.target" ];
           script = routingScript;
