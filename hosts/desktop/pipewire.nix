@@ -1,4 +1,9 @@
-{ ... }:
+{ username, pkgs, ... }:
+let
+  stateFile = "/home/${username}/.audio-device-state";
+  speakers = "alsa_output.pci-0000_03_00.1.hdmi-stereo";
+  headphones = "alsa_output.usb-Logitech_PRO_X_2_LIGHTSPEED_0000000000000000-00.analog-stereo";
+in
 {
   security.rtkit.enable = true;
   services = {
@@ -120,4 +125,62 @@
       };
     };
   };
+
+  systemd.user = {
+    tmpfiles.rules = [ "f ${stateFile} - - - - ${speakers}" ];
+    services =
+      let
+        routingScript = /* bash */ ''
+          DEVICE=$(cat ${stateFile})
+
+          for i in {1..10}; do
+            ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FR" "$DEVICE:playback_FR"
+            ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FL" "$DEVICE:playback_FL"
+            sleep 0.5
+          done
+        '';
+      in
+      {
+        pipewire-routing-init = {
+          unitConfig = {
+            Description = "Pipewire audio routing initialization";
+            After = [ "basic.target" ];
+          };
+          serviceConfig = {
+            Type = "oneshot";
+            RemainAfterExit = true;
+          };
+          wantedBy = [ "default.target" ];
+          script = routingScript;
+        };
+        pipewire-routing-on-resume = {
+          unitConfig.Description = "Restore Pipewire routing after sleep";
+          serviceConfig.Type = "oneshot";
+          wantedBy = [ "sleep.target" ];
+          script = routingScript;
+        };
+      };
+  };
+
+  environment.systemPackages = [
+    (pkgs.writeShellScriptBin "pipewire-routing-toggle" /* bash */ ''
+      CURRENT_DEVICE=$(cat ${stateFile})
+
+      if [[ $CURRENT_DEVICE == "${speakers}" ]]; then
+        DEVICE=${headphones}
+      else
+        DEVICE=${speakers}
+      fi
+
+      ${pkgs.pipewire}/bin/pw-link -d "combine_sink:monitor_FR" "${speakers}:playback_FR"
+      ${pkgs.pipewire}/bin/pw-link -d "combine_sink:monitor_FL" "${speakers}:playback_FL"
+      ${pkgs.pipewire}/bin/pw-link -d "combine_sink:monitor_FR" "${headphones}:playback_FR"
+      ${pkgs.pipewire}/bin/pw-link -d "combine_sink:monitor_FL" "${headphones}:playback_FL"
+
+      ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FR" "$DEVICE:playback_FR"
+      ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FL" "$DEVICE:playback_FL"
+
+      echo "$DEVICE" > ${stateFile}
+    '')
+  ];
 }
