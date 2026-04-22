@@ -133,23 +133,23 @@ in
         routingScript = /* bash */ ''
           DEVICE=$(cat ${stateFile})
 
-          for attempt in {1..30}; do
-            if ${pkgs.pipewire}/bin/pw-dump | grep -q "combine_sink"; then
-              ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FR" "$DEVICE:playback_FR" || true
-              ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FL" "$DEVICE:playback_FL" || true
-              exit 0
-            fi
+          # Wait to run the script until the last known device becomes available
+          while ! ${pkgs.pipewire}/bin/pw-link -o 2>/dev/null | grep -q "$DEVICE"; do
             sleep 0.2
           done
-          exit 1
+
+          echo "Device $DEVICE found, establishing links..."
+          ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FR" "$DEVICE:playback_FR" 
+          ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FL" "$DEVICE:playback_FL"
+          echo "Links established, happy listening :)"
         '';
       in
       {
         pipewire-routing-init = {
           unitConfig = {
             Description = "Pipewire audio routing initialization";
-            After = [ "pipewire.service" ];
-            Wants = [ "pipewire.service" ];
+            After = [ "graphical-session.target" ];
+            Wants = [ "graphical-session.target" ];
           };
           serviceConfig = {
             Type = "oneshot";
