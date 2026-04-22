@@ -29,7 +29,6 @@
         man = "batman";
         shx = "sudo hx";
         mkdir = "mkdir -pv";
-        grep = "ripgrep --smart-case --hidden";
         cp = "rsync -ah --info=progress2";
         ls = "eza --all --group-directories-first --git --color=always --icons=always";
         ll = "eza -l --all --group-directories-first --git --color=always --icons=always";
