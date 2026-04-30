@@ -27,7 +27,6 @@
 
   environment.systemPackages =
     (with pkgs.gnomeExtensions; [
-      arc-menu
       caffeine
       appindicator
       blur-my-shell
