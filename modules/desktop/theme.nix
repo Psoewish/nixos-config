@@ -1,6 +1,7 @@
 { username, pkgs, ... }:
 {
   catppuccin = {
+    autoEnable = true;
     enable = true;
     cursors.enable = false;
   };
@@ -29,6 +30,7 @@
 
   home-manager.users.${username} = {
     catppuccin = {
+      autoEnable = true;
       enable = true;
       cursors.enable = false;
     };
