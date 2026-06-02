@@ -1,22 +1,25 @@
 { pkgs, username, ... }:
 {
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      swtpm.enable = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
     };
+    spiceUSBRedirection.enable = true;
+    docker.enable = true;
   };
-
-  virtualisation.spiceUSBRedirection.enable = true;
 
   users.groups = {
     libvirtd.members = [ username ];
     kvm.members = [ username ];
+    docker.members = [ username ];
   };
 
   environment.systemPackages = with pkgs; [
     gnome-boxes
     dnsmasq
     phodav
+    winboat
+    docker-compose
   ];
 }
