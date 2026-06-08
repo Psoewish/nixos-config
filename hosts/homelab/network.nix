@@ -10,6 +10,11 @@
     defaultGateway = "192.168.1.1";
     useDHCP = false;
     nftables.enable = true;
+    nameservers = [
+      "192.168.1.100"
+      "9.9.9.9"
+      "1.1.1.1"
+    ];
     firewall = {
       allowedTCPPorts = [
         53
@@ -18,12 +23,5 @@
       ];
       allowedUDPPorts = [ 53 ];
     };
-  };
-
-  environment.etc = {
-    "resolv.conf".text = ''
-      nameserver 9.9.9.9
-      nameserver 1.1.1.1
-    '';
   };
 }
