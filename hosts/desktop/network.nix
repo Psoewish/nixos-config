@@ -9,17 +9,26 @@
     ];
     networkmanager = {
       enable = true;
+      dns = "none";
     };
+    useDHCP = false;
+    defaultGateway = "192.168.1.1";
+    nameservers = [
+      "192.168.1.100"
+      "9.9.9.9"
+      "1.1.1.1"
+    ];
     nftables.enable = true;
   };
-
-  services.openssh = {
-    enable = true;
-    knownHosts = {
-      "192.168.1.100" = {
-        extraHostNames = [ "homelab" ];
-        publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOAKGYMNaCK17QYNwe4PUJ+6INU303baKyMqzYnpMS5R";
+  services = {
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "prohibit-password";
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
       };
     };
+    fail2ban.enable = true;
   };
 }
