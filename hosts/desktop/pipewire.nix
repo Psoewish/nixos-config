@@ -1,6 +1,6 @@
-{ username, pkgs, ... }:
+{ pkgs, ... }:
 let
-  stateFile = "/home/${username}/.audio-device-state";
+  stateFile = "/home/psoewish/.audio-device-state";
   speakers = "alsa_output.pci-0000_03_00.1.hdmi-stereo";
   headphones = "alsa_output.usb-Logitech_PRO_X_2_LIGHTSPEED_0000000000000000-00.analog-stereo";
 in
@@ -139,7 +139,7 @@ in
           done
 
           echo "Device $DEVICE found, establishing links..."
-          ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FR" "$DEVICE:playback_FR" 
+          ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FR" "$DEVICE:playback_FR"
           ${pkgs.pipewire}/bin/pw-link "combine_sink:monitor_FL" "$DEVICE:playback_FL"
           echo "Links established, happy listening :)"
         '';
