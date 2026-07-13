@@ -9,7 +9,10 @@ let
   username = "psoewish";
 in
 {
-  imports = [ (mkAliasOptionModule [ "hm" ] [ "home-manager" "users" username ]) ];
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    (mkAliasOptionModule [ "hm" ] [ "home-manager" "users" username ])
+  ];
 
   home-manager = {
     useGlobalPkgs = true;

@@ -1,5 +1,6 @@
 { pkgs, inputs, ... }:
 {
+  imports = [ inputs.catppuccin.nixosModules.catppuccin ];
   programs.vivid = {
     enable = true;
     theme = "ansi";
@@ -31,7 +32,7 @@
   environment.systemPackages = with pkgs; [ numix-icon-theme-square ];
 
   hm = {
-    imports = with inputs; [ catppuccin.homeModules.catppuccin ];
+    imports = [ inputs.catppuccin.homeModules.catppuccin ];
     catppuccin = {
       autoEnable = true;
       enable = true;

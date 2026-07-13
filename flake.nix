@@ -6,31 +6,17 @@
     let
       lib = import ./lib { inherit inputs; };
     in
-    with inputs;
+    with inputs.self.nixosModules;
     lib.fractal.mkFlake ./. {
-      systems = {
-        specialArgs = {
-          meta = import ./meta.nix;
-        };
-        modules = with inputs; [
-          helium.nixosModules.default
-          sops-nix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          catppuccin.nixosModules.catppuccin
-        ];
-        tags = with self.nixosModules; [ secrets ];
-        hosts = {
-          desktop.tags = with self.nixosModules; [
-            shell
-            core
-            dev
-            environment
-            gaming
-            graphical
-            theming
-          ];
-          homelab.tags = with self.nixosModules; [ homelab ];
-        };
+      systems.specialArgs.meta = import ./meta.nix;
+      systems.tags = [
+        core
+        secrets
+        theming
+      ];
+      systems.hosts = {
+        desktop.tags = [ environment ];
+        homelab.tags = [ services ];
       };
     };
 

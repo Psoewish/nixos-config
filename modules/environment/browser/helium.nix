@@ -1,4 +1,5 @@
-{ ... }: {
+{ inputs, ... }: {
+  imports = [ inputs.helium.nixosModules.default ];
   programs.helium = {
     enable = true;
     flags = [ "--show-avatar-button=never" ];
