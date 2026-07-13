@@ -15,15 +15,10 @@
     zip
     bind
   ];
-
   programs = {
     bat = {
       enable = true;
-      extraPackages = with pkgs.bat-extras; [
-        batdiff
-        batman
-        prettybat
-      ];
+      extraPackages = [ pkgs.bat-extras.batman ];
       settings = {
         italic-text = "always";
         paging = "never";
@@ -34,6 +29,15 @@
       enable = true;
       flags = [ "--cmd cd" ];
     };
-    vivid.enable = true;
+  };
+  hm.programs.eza = {
+    enable = true;
+    colors = "always";
+    icons = "always";
+    git = true;
+    extraOptions = [
+      "--all"
+      "--group-directories-first"
+    ];
   };
 }

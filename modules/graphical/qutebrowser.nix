@@ -1,6 +1,5 @@
-{ ... }:
-{
-  home-manager.users."psoewish".programs.qutebrowser = {
+{ ... }: {
+  hm.programs.qutebrowser = {
     enable = true;
     loadAutoconfig = true; # For dynamic settings (allowing paste permissions to persist, for example)
     quickmarks = {

@@ -1,5 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
+  programs.vivid = {
+    enable = true;
+    theme = "ansi";
+  };
+
   catppuccin = {
     autoEnable = true;
     enable = true;
@@ -23,12 +28,10 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    numix-icon-theme-square
-    adwsteamgtk
-  ];
+  environment.systemPackages = with pkgs; [ numix-icon-theme-square ];
 
-  home-manager.users."psoewish" = {
+  hm = {
+    imports = with inputs; [ catppuccin.homeModules.catppuccin ];
     catppuccin = {
       autoEnable = true;
       enable = true;

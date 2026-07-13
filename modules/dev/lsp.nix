@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    nixd
+    nixfmt
     fish-lsp
     bash-language-server
     vscode-langservers-extracted
@@ -11,5 +13,10 @@
     tombi
     yaml-language-server
     lua-language-server
+    marksman
+    markdown-oxide
+    harper
+    mpls
+    prettier
   ];
 }

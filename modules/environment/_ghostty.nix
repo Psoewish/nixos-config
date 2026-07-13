@@ -1,6 +1,5 @@
-{ ... }:
-{
-  home-manager.users."psoewish".programs.ghostty = {
+{ ... }: {
+  hm.programs.ghostty = {
     enable = true;
     systemd.enable = true;
     settings = {

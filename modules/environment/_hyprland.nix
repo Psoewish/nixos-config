@@ -44,7 +44,7 @@
     terminal = "ghostty";
   };
 
-  home-manager.users."psoewish".wayland.windowManager.hyprland =
+  hm.wayland.windowManager.hyprland =
     let
       # Launcher
       launcher = "fuzzel";

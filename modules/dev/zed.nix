@@ -1,6 +1,5 @@
-{ ... }:
-{
-  home-manager.users."psoewish".programs.zed-editor = {
+{ ... }: {
+  hm.programs.zed-editor = {
     enable = true;
     userSettings = {
       lsp_document_colors = "background";
