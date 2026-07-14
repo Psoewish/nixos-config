@@ -11,9 +11,7 @@ let
       else if isAttrs value && (value.__namespace or false) then
         collectModules (attrValues (removeAttrs value [ "__namespace" ]))
       else if isAttrs value then
-        builtins.trace
-          "collectModules: treating as LEAF (no tag) -> keys: ${builtins.toJSON (builtins.attrNames value)}"
-          [ value ]
+        [ value ]
       else
         [ ]
     ) list;
