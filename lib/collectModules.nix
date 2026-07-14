@@ -5,16 +5,17 @@ let
   collectModules =
     list:
     concatMap (
-      attrs:
-      concatMap (
-        value:
-        if isFunction value then
+      value:
+      if isFunction value then
+        [ value ]
+      else if isAttrs value && (value.__namespace or false) then
+        collectModules (attrValues (removeAttrs value [ "__namespace" ]))
+      else if isAttrs value then
+        builtins.trace
+          "collectModules: treating as LEAF (no tag) -> keys: ${builtins.toJSON (builtins.attrNames value)}"
           [ value ]
-        else if isAttrs value then
-          collectModules [ value ]
-        else
-          [ ]
-      ) (attrValues attrs)
+      else
+        [ ]
     ) list;
 in
 collectModules

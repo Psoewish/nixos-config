@@ -6,8 +6,6 @@ let
     recursiveUpdate
     mapAttrsToList
     foldl'
-    setAttrByPath
-    splitString
     hasSuffix
     hasPrefix
     removeSuffix
@@ -15,18 +13,16 @@ let
   inherit (builtins) readDir;
 in
 (fix (
-  traverse: path: prefix:
-  foldl' recursiveUpdate { } (
+  traverse: path:
+  foldl' recursiveUpdate { __namespace = true; } (
     mapAttrsToList (
       name: type:
       if type == "directory" then
-        traverse (path + "/${name}") (if prefix == "" then name else "${prefix}.${name}")
+        { ${name} = traverse (path + "/${name}"); }
       else if type == "regular" && hasSuffix ".nix" name && !hasPrefix "_" name then
-        setAttrByPath (splitString "." (
-          removeSuffix ".nix" (if prefix == "" then name else "${prefix}.${name}")
-        )) (import (path + "/${name}"))
+        { ${removeSuffix ".nix" name} = import (path + "/${name}"); }
       else
         { }
     ) (readDir path)
   )
-) modulesDir "")
+) modulesDir)
