@@ -16,7 +16,10 @@
       ];
       systems.hosts = {
         desktop.tags = [ environment ];
-        homelab.tags = [ services ];
+        homelab.tags = [
+          services
+          environment.dev.helix
+        ];
       };
     };
 
