@@ -24,7 +24,7 @@ in
     Host homelab
       Hostname 192.168.1.100
       Port 22
-      User root
+      User ${username}
   '';
 
   users.users.${username}.openssh.authorizedKeys.keys = [
