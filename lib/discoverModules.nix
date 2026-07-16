@@ -11,8 +11,8 @@ let
     removeSuffix
     ;
   inherit (builtins) readDir;
-in
-(fix (
+
+traverse = fix (
   traverse: path:
   foldl' recursiveUpdate { __namespace = true; } (
     mapAttrsToList (
@@ -25,4 +25,6 @@ in
         { }
     ) (readDir path)
   )
-) modulesDir)
+);
+in
+traverse modulesDir
