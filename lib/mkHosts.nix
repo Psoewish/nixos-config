@@ -25,4 +25,4 @@ mapAttrs (
     ++ (hostCfg.modules or [ ])
     ++ (collectModules (hostCfg.tags or [ ]));
   }
-) cfg.hosts
+) cfg.systems.hosts
