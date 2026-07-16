@@ -1,25 +1,21 @@
 { lib, ... }:
-list:
+input:
 let
-  inherit (lib) hasSuffix hasPrefix;
-  inherit (lib.filesystem) listFilesRecursive;
-  inherit (builtins)
-    filter
-    isPath
-    concatMap
-    readFileType
-    ;
-in
-filter
-  (
-    elem:
-    if !isPath elem then
-      true
-    else
-      hasSuffix ".nix" (baseNameOf (toString elem)) && !hasPrefix "_" (baseNameOf (toString elem))
-  )
-  (
+  inherit (lib) hasSuffix hasPrefix mapAttrsToList;
+  inherit (builtins) isPath concatMap readDir;
+
+  list = if isPath input then [ input ] else input;
+
+  traverse =
+    path:
     concatMap (
-      elem: if !isPath elem || readFileType elem != "directory" then [ elem ] else listFilesRecursive elem
-    ) list
-  )
+      { name, type }:
+      if type == "directory" then
+        traverse (path + "/${name}")
+      else if type == "regular" && hasSuffix ".nix" name && !hasPrefix "_" name then
+        [ (import (path + "/${name}")) ]
+      else
+        [ ]
+    ) (mapAttrsToList (name: type: { inherit name type; }) (readDir path));
+in
+concatMap traverse list
