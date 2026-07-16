@@ -8,8 +8,8 @@ in
 mapAttrs (
   name: _:
   let
-    globalCfg = cfg;
-    hostCfg = cfg.hosts.${name};
+    globalCfg = cfg.systems;
+    hostCfg = cfg.systems.hosts.${name};
   in
   nixosSystem {
     specialArgs = {
@@ -20,10 +20,9 @@ mapAttrs (
     modules = [
       { networking.hostName = name; }
     ]
+    ++ cfg.options
     ++ (collectModules [ (discoverModules (hostsDir + "/${name}")) ])
-    ++ (globalCfg.modules or [ ])
     ++ (hostCfg.modules or [ ])
-    ++ (collectModules (globalCfg.tags or [ ]))
     ++ (collectModules (hostCfg.tags or [ ]));
   }
 ) cfg.hosts
