@@ -9,14 +9,11 @@
     with inputs.self.nixosModules;
     lib.fractal.mkFlake ./. {
       systems.specialArgs.meta = import ./meta.nix;
-      systems.tags = [
-        core
-        secrets
-        theming
-      ];
       systems.hosts = {
-        desktop.tags = [ environment ];
+        desktop.tags = [ core environment theming secrets];
         homelab.tags = [
+          core
+          secrets
           services
           environment.dev.helix
         ];
