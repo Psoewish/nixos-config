@@ -1,15 +1,17 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
   ...
 }:
 {
+  nixpkgs.overlays = [ inputs.xcaddy-nix.overlays.default ];
   services.caddy = {
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/cloudflare@v0.2.2" ];
-      hash = "sha256-7g8zDx5RhbptXFyEPtexxkHX8hw/gF001bZ7wX4Mjhs=";
+      hash = "sha256-+UWppmP71ERvUW0MBs9U32cYJ0ivURzgnZYl6IMvDdg=";
     };
     email = "admin@psoewish.com";
     environmentFile = config.sops.secrets."cloudflared/api".path;
@@ -37,14 +39,6 @@
           X-Forwarded-Proto "https"
         }
       }
-
-      (admin_redir) {
-        @admin {
-          path /admin*
-          not remote_ip private_ranges
-        }
-        redir @admin /
-      }
     '';
 
     virtualHosts = lib.mkMerge (
@@ -55,7 +49,6 @@
             if cfg.staticConfig == null then
               ''
                 import security_defaults
-                import admin_redir
                 reverse_proxy localhost:${toString cfg.port}
               ''
             else

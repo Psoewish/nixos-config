@@ -31,5 +31,6 @@
     helium.url = "github:oxcl/nix-flake-helium-browser";
     helium.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
+    xcaddy-nix.url = "github:michailik/nix-caddy-withplugins";
   };
 }
