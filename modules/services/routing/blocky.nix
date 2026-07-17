@@ -6,9 +6,7 @@
       ports.dns = 53;
       ports.http = 4000;
 
-      upstreams.groups.default = [
-        "https://dns.quad9.net/dns-query"
-      ];
+      upstreams.groups.default = [ "127.0.0.1:5335" ];
 
       blocking = {
         denylists.ads = [
@@ -17,15 +15,6 @@
         ];
         clientGroupsBlock.default = [ "ads" ];
         refreshPeriod = "4h";
-      };
-      customDNS = {
-        mapping."psoewish.com" = "192.168.1.100";
-        customTTL = "1h";
-      };
-      caching = {
-        minTime = "5m";
-        maxTime = "30m";
-        prefetching = true;
       };
     };
   };
