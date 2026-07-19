@@ -19,7 +19,6 @@
     gnome-boxes
     dnsmasq
     phodav
-    winboat
     docker-compose
   ];
 }
