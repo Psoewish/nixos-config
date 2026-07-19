@@ -1,8 +1,4 @@
-{ pkgs, lib, ... }:
-let
-  inherit (lib) getExe;
-in
-{
+{ pkgs, lib, ... }:{
   environment.systemPackages = [ pkgs.helix ];
 
   hm.programs.helix = {
@@ -63,7 +59,7 @@ in
           ];
           C-g = [
             ":new"
-            ":insert-output ${getExe pkgs.lazygit}"
+            ":insert-output lazygit"
             ":buffer-close!"
             ":redraw"
           ];
@@ -76,11 +72,11 @@ in
         {
           name = "nix";
           language-servers = [
-            "${getExe pkgs.nixd}"
+            "nixd"
           ];
           auto-format = true;
           formatter = {
-            command = "${getExe pkgs.nixfmt}";
+            command = "nixfmt";
           };
         }
         {
@@ -90,13 +86,13 @@ in
         {
           name = "markdown";
           language-servers = [
-            "${getExe pkgs.marksman}"
-            "${getExe pkgs.markdown-oxide}"
-            "${getExe pkgs.harper}"
-            "${getExe pkgs.mpls}"
+            "marksman"
+            "markdown-oxide"
+            "harper-ls"
+            "mpls"
           ];
           formatter = {
-            command = "${getExe pkgs.prettier}";
+            command = "prettier";
             args = [
               "--parser"
               "--markdown"
@@ -108,11 +104,11 @@ in
         }
       ];
       language-server.harper-ls = {
-        command = "${getExe pkgs.harper}";
+        command = "harper-ls";
         args = [ "--stdio" ];
       };
       language-server.mpls = {
-        command = "${getExe pkgs.mpls}";
+        command = "mpls";
         args = [
           "--dark-mode"
           "--enable-emoji"
