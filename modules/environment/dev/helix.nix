@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:{
+{ pkgs, ... }:{
   environment.systemPackages = [ pkgs.helix ];
 
   hm.programs.helix = {
@@ -58,10 +58,14 @@
             "keep_primary_selection"
           ];
           C-g = [
+            ":write-all"
             ":new"
             ":insert-output lazygit"
+            ":set mouse false"
+            ":set mouse true"
             ":buffer-close!"
             ":redraw"
+            ":reload-all"
           ];
           C-s = [ ":w" ];
         };
