@@ -4,13 +4,18 @@
   outputs =
     inputs:
     let
-      lib = import ./lib { inherit inputs; };
+      lib = import ./lib inputs;
     in
     with inputs.self.nixosModules;
     lib.fractal.mkFlake ./. {
       systems.specialArgs.meta = import ./meta.nix;
       systems.hosts = {
-        desktop.tags = [ core environment theming secrets];
+        desktop.tags = [
+          core
+          environment
+          theming
+          secrets
+        ];
         homelab.tags = [
           core
           secrets

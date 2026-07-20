@@ -1,33 +1,30 @@
-{ inputs, ... }:
+inputs:
 let
-  inherit (inputs) self;
   inherit (inputs.nixpkgs.lib)
-    extend
-    mapAttrs'
-    nameValuePair
-    removeSuffix
-    filterAttrs
     hasSuffix
+    hasPrefix
+    mapAttrsToList
+    extend
+    composeManyExtensions
     ;
-  inherit (builtins) readDir;
+  inherit (builtins) concatMap readDir;
+
+  loadExtensions =
+    dir:
+    concatMap (
+      { name, type }:
+      if type == "directory" then
+        loadExtensions (dir + "/${name}")
+      else if
+        type == "regular" && hasSuffix ".nix" name && !hasPrefix "_" name && name != "default.nix"
+      then
+        [ (import (dir + "/${name}") inputs) ]
+      else
+        [ ]
+    ) (mapAttrsToList (name: type: { inherit name type; }) (readDir dir));
 in
 extend (
-  self': _: {
-    fractal =
-      mapAttrs'
-        (
-          name: _:
-          nameValuePair (removeSuffix ".nix" name) (
-            import ./${name} {
-              inherit inputs self;
-              lib = self';
-            }
-          )
-        )
-        (
-          filterAttrs (name: type: type == "regular" && hasSuffix ".nix" name && name != "default.nix") (
-            readDir ./.
-          )
-        );
+  final: prev: {
+    fractal = composeManyExtensions (loadExtensions ./.) final prev;
   }
 )
