@@ -67,11 +67,11 @@
         hl.monitor({ output = "DP-1", mode = "preferred", position = "0x1440", scale = 1 })
         hl.monitor({ output = "DP-2", mode = "preferred", position = "0x0", scale = 1 })
 
-        hl.workspace_rule({ workspace = "name:main", monitor = "DP-1", default = true, persistent = true })
-        hl.workspace_rule({ workspace = "name:dev", monitor = "DP-1", persistent = true })
-        hl.workspace_rule({ workspace = "name:gaming", monitor = "DP-1", persistent = true })
-        hl.workspace_rule({ workspace = "name:temp", monitor = "DP-1", persistent = true })
-        hl.workspace_rule({ workspace = "name:secondary", monitor = "DP-2", default = true, persistent = true })
+        hl.workspace_rule({ workspace = "1", default_name = "main", monitor = "DP-1", default = true, persistent = true })
+        hl.workspace_rule({ workspace = "2", default_name = "dev", monitor = "DP-1", persistent = true })
+        hl.workspace_rule({ workspace = "3", default_name = "gaming", monitor = "DP-1", persistent = true })
+        hl.workspace_rule({ workspace = "4", default_name = "temp", monitor = "DP-1", persistent = true })
+        hl.workspace_rule({ workspace = "5", default_name = "secondary", monitor = "DP-2", default = true, persistent = true })
 
         hl.window_rule({ match = { class = "pear-desktop" }, monitor = "DP-2" })
         hl.window_rule({ match = { class = "vesktop" }, monitor = "DP-2" })
@@ -116,11 +116,11 @@
         hl.bind("${mod} + 4", hl.dsp.focus({ workspace = 4 }))
         hl.bind("${mod} + 5", hl.dsp.focus({ workspace = 5 }))
 
-        hl.bind("${shiftmod} + 1", hl.dsp.focus({ workspace = 1 }))
-        hl.bind("${shiftmod} + 2", hl.dsp.focus({ workspace = 2 }))
-        hl.bind("${shiftmod} + 3", hl.dsp.focus({ workspace = 3 }))
-        hl.bind("${shiftmod} + 4", hl.dsp.focus({ workspace = 4 }))
-        hl.bind("${shiftmod} + 5", hl.dsp.focus({ workspace = 5 }))
+        hl.bind("${shiftmod} + 1", hl.dsp.window.move({ workspace = 1 }))
+        hl.bind("${shiftmod} + 2", hl.dsp.window.move({ workspace = 2 }))
+        hl.bind("${shiftmod} + 3", hl.dsp.window.move({ workspace = 3 }))
+        hl.bind("${shiftmod} + 4", hl.dsp.window.move({ workspace = 4 }))
+        hl.bind("${shiftmod} + 5", hl.dsp.window.move({ workspace = 5 }))
 
         hl.bind("${mod} + mouse:272", hl.dsp.window.drag())
         hl.bind("${mod} + mouse:273", hl.dsp.window.resize())
@@ -205,14 +205,8 @@
           },
         })
 
-
-        hl.curve("default", { type = "bezier", points = { {0.5, 1}, {0.89, 1} } })
         hl.animation({ leaf = "windows", enabled = false })
         hl.animation({ leaf = "global", enabled = false })
-        hl.animation({ leaf = "fade", enabled = true, speed = 5, bezier = "default" })
-        hl.animation({ leaf = "fadeIn", enabled = true, speed = 5, bezier = "default" })
-        hl.animation({ leaf = "fadeOut", enabled = true, speed = 5, bezier = "default" })
-        hl.animation({ leaf = "fadeDim", enabled = true, speed = 5, bezier = "default" })
       '';
   };
 }
