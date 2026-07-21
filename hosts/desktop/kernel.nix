@@ -1,13 +1,12 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = ["kvm-amd"];
   };
 
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
-    extraArgs = [ "--performance" ];
+    extraArgs = ["--performance"];
   };
 }

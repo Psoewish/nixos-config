@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     nixd
     nixfmt
+    alejandra
     fish-lsp
     bash-language-server
     vscode-langservers-extracted

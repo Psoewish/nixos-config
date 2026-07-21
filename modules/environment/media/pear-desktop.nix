@@ -1,3 +1,3 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ pear-desktop ];
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [pear-desktop];
 }

@@ -1,5 +1,5 @@
-{ pkgs, ... }:{
-  environment.systemPackages = [ pkgs.helix ];
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.helix];
 
   hm.programs.helix = {
     enable = true;
@@ -67,7 +67,7 @@
             ":redraw"
             ":reload-all"
           ];
-          C-s = [ ":w" ];
+          C-s = [":w"];
         };
       };
     };
@@ -80,7 +80,7 @@
           ];
           auto-format = true;
           formatter = {
-            command = "nixfmt";
+            command = "alejandra";
           };
         }
         {
@@ -109,7 +109,7 @@
       ];
       language-server.harper-ls = {
         command = "harper-ls";
-        args = [ "--stdio" ];
+        args = ["--stdio"];
       };
       language-server.mpls = {
         command = "mpls";

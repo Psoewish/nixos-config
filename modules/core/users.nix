@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   users.users."psoewish" = {
     shell = pkgs.fish;
     isNormalUser = true;

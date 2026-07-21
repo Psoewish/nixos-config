@@ -4,60 +4,67 @@
   lib,
   pkgs,
   ...
-}:
-{
-  nixpkgs.overlays = [ inputs.xcaddy-nix.overlays.default ];
+}: {
+  nixpkgs.overlays = [inputs.xcaddy-nix.overlays.default];
   services.caddy = {
     enable = true;
     package = pkgs.caddy.withPlugins {
-      plugins = [ "github.com/caddy-dns/cloudflare@v0.2.2" ];
+      plugins = ["github.com/caddy-dns/cloudflare@v0.2.2"];
       hash = "sha256-+UWppmP71ERvUW0MBs9U32cYJ0ivURzgnZYl6IMvDdg=";
     };
     email = "admin@psoewish.com";
     environmentFile = config.sops.secrets."cloudflared/api".path;
-    globalConfig = /* Caddyfile */ ''
-      acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+    globalConfig =
+      /*
+      Caddyfile
+      */
+      ''
+        acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
 
-      servers {
-        protocols h1 h2 h3
-        trusted_proxies static private_ranges
-        client_ip_headers CF-Connecting-IP X-Forwarded-For X-Real-IP
-      }
-
-    '';
-    extraConfig = /* Caddyfile */ ''
-      (security_defaults) {
-        encode zstd gzip
-
-        header / {
-          Strict-Transport-Security "max-age=31536000; includeSubDomains"
-          X-Frame-Options "SAMEORIGIN"
-          X-Content-Type-Options "nosniff"
-          X-Robots-Tag "noindex, nofollow"
-          X-XSS-Protection "1; mode=block"
-          Referrer-Policy "strict-origin-when-cross-origin"
-          X-Forwarded-Proto "https"
+        servers {
+          protocols h1 h2 h3
+          trusted_proxies static private_ranges
+          client_ip_headers CF-Connecting-IP X-Forwarded-For X-Real-IP
         }
-      }
-    '';
+
+      '';
+    extraConfig =
+      /*
+      Caddyfile
+      */
+      ''
+        (security_defaults) {
+          encode zstd gzip
+
+          header / {
+            Strict-Transport-Security "max-age=31536000; includeSubDomains"
+            X-Frame-Options "SAMEORIGIN"
+            X-Content-Type-Options "nosniff"
+            X-Robots-Tag "noindex, nofollow"
+            X-XSS-Protection "1; mode=block"
+            Referrer-Policy "strict-origin-when-cross-origin"
+            X-Forwarded-Proto "https"
+          }
+        }
+      '';
 
     virtualHosts = lib.mkMerge (
       lib.mapAttrsToList (name: cfg: {
         "${cfg.subdomain}.${config.homelab.domain}" = {
           serverAliases = cfg.aliases;
           extraConfig =
-            if cfg.staticConfig == null then
-              ''
-                import security_defaults
-                reverse_proxy localhost:${toString cfg.port}
-              ''
-            else
-              ''
-                import security_defaults
-                ${cfg.staticConfig}
-              '';
+            if cfg.staticConfig == null
+            then ''
+              import security_defaults
+              reverse_proxy localhost:${toString cfg.port}
+            ''
+            else ''
+              import security_defaults
+              ${cfg.staticConfig}
+            '';
         };
-      }) config.homelab.routes
+      })
+      config.homelab.routes
     );
   };
 }

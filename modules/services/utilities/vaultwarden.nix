@@ -1,5 +1,8 @@
-{ meta, config, ... }:
 {
+  meta,
+  config,
+  ...
+}: {
   imports = [
     (meta.homelab.service {
       name = "vaultwarden";

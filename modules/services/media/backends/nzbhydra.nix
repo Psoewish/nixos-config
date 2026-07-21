@@ -1,5 +1,4 @@
-{ meta, ... }:
-{
+{meta, ...}: {
   imports = [
     (meta.homelab.service {
       name = "nzbhydra";

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     curl
     eza
@@ -18,7 +17,7 @@
   programs = {
     bat = {
       enable = true;
-      extraPackages = [ pkgs.bat-extras.batman ];
+      extraPackages = [pkgs.bat-extras.batman];
       settings = {
         italic-text = "always";
         paging = "never";
@@ -27,7 +26,7 @@
     };
     zoxide = {
       enable = true;
-      flags = [ "--cmd cd" ];
+      flags = ["--cmd cd"];
     };
   };
   hm.programs.eza = {

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -10,9 +9,9 @@
   };
 
   users.groups = {
-    libvirtd.members = [ "psoewish" ];
-    kvm.members = [ "psoewish" ];
-    docker.members = [ "psoewish" ];
+    libvirtd.members = ["psoewish"];
+    kvm.members = ["psoewish"];
+    docker.members = ["psoewish"];
   };
 
   environment.systemPackages = with pkgs; [

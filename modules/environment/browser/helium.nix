@@ -1,8 +1,8 @@
-{ inputs, ... }: {
-  imports = [ inputs.helium.nixosModules.default ];
+{inputs, ...}: {
+  imports = [inputs.helium.nixosModules.default];
   programs.helium = {
     enable = true;
-    flags = [ "--show-avatar-button=never" ];
+    flags = ["--show-avatar-button=never"];
     policies = {
       "ShowHomeButton" = true;
       "BrowserSignin" = 0;

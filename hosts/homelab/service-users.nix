@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   users = {
     users.media = {
       isSystemUser = true;

@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   username = "psoewish";
-in
-{
+in {
   services = {
     openssh = {
       enable = true;

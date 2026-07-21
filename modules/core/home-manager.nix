@@ -3,21 +3,19 @@
   lib,
   inputs,
   ...
-}:
-let
+}: let
   inherit (lib) mkAliasOptionModule;
   username = "psoewish";
-in
-{
+in {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    (mkAliasOptionModule [ "hm" ] [ "home-manager" "users" username ])
+    (mkAliasOptionModule ["hm"] ["home-manager" "users" username])
   ];
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     backupCommand = "${pkgs.trash-cli}/bin/trash";
     users."psoewish".home = {
       username = "psoewish";

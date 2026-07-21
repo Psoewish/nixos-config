@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   networking = {
     interfaces.enp94s0.ipv4.addresses = [
       {
@@ -13,7 +12,7 @@
         80
         443
       ];
-      allowedUDPPorts = [ 53 ];
+      allowedUDPPorts = [53];
     };
   };
 }

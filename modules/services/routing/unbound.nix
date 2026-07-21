@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   services.unbound = {
     enable = true;
     enableRootTrustAnchor = true;
@@ -7,8 +7,8 @@
       server = {
         port = 5335;
         prefetch = "yes";
-        local-zone = [ ''"psoewish.com" redirect'' ];
-        local-data = [ ''"psoewish.com. 3600 IN A 192.168.1.100" '' ];
+        local-zone = [''"psoewish.com" redirect''];
+        local-data = [''"psoewish.com. 3600 IN A 192.168.1.100" ''];
       };
     };
   };

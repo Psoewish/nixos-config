@@ -1,8 +1,10 @@
-{ pkgs, lib, ... }:
-let
-  inherit (lib) getExe;
-in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (lib) getExe;
+in {
   programs.fish = {
     enable = true;
     useBabelfish = true;
@@ -30,21 +32,20 @@ in
     };
     functions = with pkgs; {
       copycat = "cat $argv | ${wl-clipboard-rs}/bin/wl-copy";
-
     };
     plugins =
       map
-        (plugin: {
-          name = plugin;
-          src = pkgs.fishPlugins.${plugin}.src;
-        })
-        [
-          "autopair"
-          "done"
-          "puffer"
-          "tide"
-          "sponge"
-          "plugin-sudope"
-        ];
+      (plugin: {
+        name = plugin;
+        src = pkgs.fishPlugins.${plugin}.src;
+      })
+      [
+        "autopair"
+        "done"
+        "puffer"
+        "tide"
+        "sponge"
+        "plugin-sudope"
+      ];
   };
 }

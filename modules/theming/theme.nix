@@ -1,6 +1,9 @@
-{ pkgs, inputs, ... }:
 {
-  imports = [ inputs.catppuccin.nixosModules.catppuccin ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [inputs.catppuccin.nixosModules.catppuccin];
   programs.vivid = {
     enable = true;
     theme = "ansi";
@@ -22,17 +25,17 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "Maple Mono NF CN" ];
-        sansSerif = [ "Inter" ];
-        monospace = [ "Maple Mono NF CN" ];
+        serif = ["Maple Mono NF CN"];
+        sansSerif = ["Inter"];
+        monospace = ["Maple Mono NF CN"];
       };
     };
   };
 
-  environment.systemPackages = with pkgs; [ numix-icon-theme-square ];
+  environment.systemPackages = with pkgs; [numix-icon-theme-square];
 
   hm = {
-    imports = [ inputs.catppuccin.homeModules.catppuccin ];
+    imports = [inputs.catppuccin.homeModules.catppuccin];
     catppuccin = {
       autoEnable = true;
       enable = true;

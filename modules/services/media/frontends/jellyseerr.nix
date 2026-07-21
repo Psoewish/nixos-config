@@ -1,5 +1,4 @@
-{ meta, ... }:
-{
+{meta, ...}: {
   imports = [
     (meta.homelab.service {
       name = "jellyseerr";
@@ -8,7 +7,7 @@
         volumes = [
           "/var/lib/jellyseerr:/app/config"
         ];
-        extraOptions = [ "--init" ];
+        extraOptions = ["--init"];
       };
       route = {
         port = 5055;

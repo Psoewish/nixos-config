@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   hm.programs.zed-editor = {
     enable = true;
     userSettings = {

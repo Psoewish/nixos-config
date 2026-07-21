@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   options.homelab = {
     domain = lib.mkOption {
       type = lib.types.str;
@@ -18,8 +17,7 @@
     routes = lib.mkOption {
       type = lib.types.attrsOf (
         lib.types.submodule (
-          { name, ... }:
-          {
+          {name, ...}: {
             options = {
               subdomain = lib.mkOption {
                 type = lib.types.str;
@@ -28,7 +26,7 @@
               };
               aliases = lib.mkOption {
                 type = lib.types.listOf lib.types.str;
-                default = [ ];
+                default = [];
                 description = "Additional aliases for the service";
               };
               port = lib.mkOption {
@@ -49,7 +47,7 @@
           }
         )
       );
-      default = { };
+      default = {};
       description = "Routing information for services";
     };
   };

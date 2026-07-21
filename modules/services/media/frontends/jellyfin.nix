@@ -1,5 +1,4 @@
-{ meta, ... }:
-{
+{meta, ...}: {
   imports = [
     (meta.homelab.service {
       name = "jellyfin";
@@ -10,7 +9,7 @@
           "/data/media/tv:/data/media/tv"
           "/data/media/movies:/data/media/movies"
         ];
-        devices = [ "/dev/dri:/dev/dri" ];
+        devices = ["/dev/dri:/dev/dri"];
       };
       route = {
         port = 8096;
