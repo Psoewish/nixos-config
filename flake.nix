@@ -29,8 +29,8 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    kineticwe.url = "gitlab:theblackdon/kineticwe";
-    kineticwe.inputs.nixpkgs.follows = "nixpkgs";
+    hjem.url = "github:feel-co/hjem";
+    hjem.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
