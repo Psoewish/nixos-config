@@ -1,0 +1,25 @@
+theme = light:Catppuccin Mocha,dark:Catppuccin Mocha
+unfocused-split-opacity = 1
+clipboard-read = "allow"
+clipboard-write = "allow"
+copy-on-select = true
+right-click-action = "copy-or-paste"
+confirm-close-surface = false
+window-inherit-working-directory = false
+quit-after-last-window-closed = true
+keybind = shift+enter=text:\\x1b\\r
+keybind = ctrl+t=new_tab
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
+keybind = ctrl+w=close_tab:this
+keybind = alt+enter=new_split:down
+keybind = alt+shift+enter=new_split:right
+keybind = alt+left=goto_split:left
+keybind = alt+down=goto_split:down
+keybind = alt+up=goto_split:up
+keybind = alt+right=goto_split:right
+keybind = alt+w=close_surface
+keybind = alt+ctrl+left=resize_split:left,50
+keybind = alt+ctrl+down=resize_split:down,50
+keybind = alt+ctrl+up=resize_split:up,50
+keybind = alt+ctrl+right=resize_split:right,50
