@@ -1,0 +1,28 @@
+[[language]]
+auto-format = true
+language-servers = ["nixd"]
+name = "nix"
+
+[language.formatter]
+command = "alejandra"
+
+[[language]]
+auto-format = true
+name = "lua"
+
+[[language]]
+auto-format = true
+language-servers = ["marksman", "markdown-oxide", "harper-ls", "mpls"]
+name = "markdown"
+
+[language.formatter]
+args = ["--parser", "--markdown", "--prose-wrap", "never"]
+command = "prettier"
+
+[language-server.harper-ls]
+args = ["--stdio"]
+command = "harper-ls"
+
+[language-server.mpls]
+args = ["--dark-mode", "--enable-emoji", "--full-sync"]
+command = "mpls"
