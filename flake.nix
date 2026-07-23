@@ -36,6 +36,8 @@
     catppuccin.url = "github:catppuccin/nix";
     helium.url = "github:oxcl/nix-flake-helium-browser";
     helium.inputs.nixpkgs.follows = "nixpkgs";
+    streamcontroller.url = "github:daaboulex/streamcontroller-nix";
+    streamcontroller.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
     xcaddy-nix.url = "github:michailik/nix-caddy-withplugins";
   };
