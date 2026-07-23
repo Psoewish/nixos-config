@@ -1,0 +1,10 @@
+{
+  "BrowserSignin": 0,
+  "HomepageLocation": "https://duckduckgo.com",
+  "PasswordManagerEnabled": false,
+  "RestoreOnStartup": 1,
+  "ShowHomeButton": true,
+  "SyncDisabled": true,
+  "DefaultSearchProviderEnabled": true,
+  "DefaultSearchProviderSearchURL": "https://duckduckgo.com/?q={searchTerms}"
+}
