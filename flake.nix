@@ -18,6 +18,8 @@
     };
     nixcord.url = "github:4evy/nixcord";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    pear-desktop.url = "github:h-banii/pear-desktop-nix";
     systems.url = "github:nix-systems/default";
+    vaultix.url = "github:milieuim/vaultix";
   };
 }
