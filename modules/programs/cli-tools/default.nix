@@ -14,6 +14,9 @@
       unzip
       zip
       bind
+      git
+      gh
+      lazygit
     ];
   };
 }
