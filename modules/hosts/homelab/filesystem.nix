@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.homelab = { pkgs, ... }: {
+  flake.modules.nixos.homelab = { pkgs, config, ... }: {
     fileSystems = {
       "/" = {
         device = "/dev/disk/by-uuid/ad374118-5ab8-4e31-97f9-0e5e8f9de75b";

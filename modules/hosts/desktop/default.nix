@@ -18,6 +18,8 @@
       imports = with inputs.self.modules.nixos; [
         amdcpu
         amdgpu
+        home-manager
+        config.constants.primaryUser
       ];
 
       networking.hostName = config.constants.hosts.desktop.hostName;
