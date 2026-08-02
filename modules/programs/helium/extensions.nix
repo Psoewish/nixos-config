@@ -1,4 +1,4 @@
-{ ... }: {
+{
   flake.modules.homeModules.helium = {
     programs.helium = {
       policies."ExtensionInstallForcelist" = [

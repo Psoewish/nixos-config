@@ -1,4 +1,4 @@
-{ ... }: {
+{
   flake.modules.homeManager.qutebrowser = {
     programs.qutebrowser = {
       loadAutoconfig = true; # For dynamic settings (allowing paste permissions to persist, for example)

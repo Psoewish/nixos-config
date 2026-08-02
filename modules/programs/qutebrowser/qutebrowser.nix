@@ -1,5 +1,5 @@
-{ inputs, ... }: {
-  flake.modules.nixos.helium = {
+{
+  flake.modules.nixos.qutebrowser = { inputs, ... }: {
     home-manager.sharedModules = [ inputs.self.modules.homeManager.qutebrowser ];
   };
 

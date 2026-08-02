@@ -1,4 +1,4 @@
-{ ... }: {
+{
   flake.modules.homeManager.discord = {
     programs.nixcord.config.plugins = {
       accountPanelServerProfile = {

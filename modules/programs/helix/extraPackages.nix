@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  flake.modules.homeManager.helix = {
+{
+  flake.modules.homeManager.helix = { pkgs, ... }: {
     programs.helix.extraPackages = with pkgs; [
       nixd
       nixfmt

@@ -1,4 +1,4 @@
-{ ... }: {
+{
   flake.modules.homeManager.helix = {
     programs.helix.languages.language = [
       {

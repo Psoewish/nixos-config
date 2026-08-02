@@ -1,4 +1,4 @@
-{ ... }: {
+{
   flake.modules.homeManager.qutebrowser = {
     programs.qutebrowser = {
       quickmarks = {
