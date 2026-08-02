@@ -5,8 +5,10 @@
         nixpkgs
         settings
         boot
+        locale
         secrets
         home-manager
+        flatpak
       ])
       ++ [ inputs.self.modules.generic.constants ];
   };
