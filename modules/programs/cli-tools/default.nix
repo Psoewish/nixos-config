@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.cli-tools = { pkgs, ... }: {
+  flake.modules.nixos.cli-tools = { inputs, pkgs, ... }: {
+    home-manager.sharedModules = [ inputs.self.modules.homeManager.cli-tools ];
     environment.systemPackages = with pkgs; [
       curl
       btop
@@ -15,5 +16,4 @@
       bind
     ];
   };
-  home-manager.sharedModules = [ inputs.self.modules.homeManager.cli-tools ];
 }
