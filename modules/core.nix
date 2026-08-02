@@ -9,6 +9,7 @@
         secrets
         home-manager
         flatpak
+        nix-ld
       ])
       ++ [ inputs.self.modules.generic.constants ];
   };
