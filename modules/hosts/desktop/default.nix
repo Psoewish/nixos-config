@@ -26,15 +26,13 @@
       helium
       helix
       obs
-      qutebrowser
       streamcontroller
       vial
       zed
-      # tartarus
-      razer
       youtube-music
       flatpak
       corsair
+      input-remapper
 
       psoewish
     ];
