@@ -1,6 +1,10 @@
 {
-  flake.modules.nixos.amdcpu = {lib, ...}: {
-    hardware.cpu.amd.updateMicrocode = lib.mkDefault true;
+  flake.modules.nixos.amdcpu = {
+    lib,
+    config,
+    ...
+  }: {
+    hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     boot.kernelModules = ["kvm-amd"];
   };
 }

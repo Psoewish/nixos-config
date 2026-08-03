@@ -16,6 +16,7 @@
       "8250.nr_uarts=0"
       "console=tty0"
     ];
+    hardware.enableAllFirmware = true;
 
     boot.loader = {
       systemd-boot.enable = lib.mkDefault true;
