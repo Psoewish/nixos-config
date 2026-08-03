@@ -23,7 +23,7 @@
         prefixLength = 24;
       }
     ];
-    firewall = {
+    networking.firewall = {
       allowedTCPPorts = [
         53
         80
