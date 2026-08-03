@@ -1,11 +1,13 @@
 {
   flake-file.inputs.catppuccin.url = "github:catppuccin/nix";
-  flake.modules.nixos.catppuccin = { inputs, pkgs, ... }: {
+  flake.modules.nixos.catppuccin = {inputs, ...}: {
     imports = with inputs; [
-      (catppuccin.nixosModules.catppuccin or { })
-      modules.nixos.theme-base
-      modules.homeManager.theme-base
-      modules.homeManager.catppuccin
+      (catppuccin.nixosModules.catppuccin or {})
+      self.modules.nixos.theme-base
+    ];
+    home-manager.sharedModules = with inputs.self.modules; [
+      homeManager.theme-base
+      homeManager.catppuccin
     ];
     catppuccin = {
       autoEnable = true;
@@ -14,8 +16,8 @@
     };
   };
 
-  flake.modules.homeManager.catppuccin = { inputs, pkgs, ... }: {
-    imports = [ (inputs.catppuccin.homeModules.catppuccin or { }) ];
+  flake.modules.homeManager.catppuccin = {inputs, ...}: {
+    imports = [(inputs.catppuccin.homeModules.catppuccin or {})];
     catppuccin = {
       autoEnable = true;
       enable = true;

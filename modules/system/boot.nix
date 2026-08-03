@@ -42,5 +42,7 @@
 
       boot.consoleLogLevel = lib.mkDefault 3;
       boot.plymouth.enable = lib.mkDefault true;
+
+      hardware.enableRedistributableFirmware = true;
     };
 }

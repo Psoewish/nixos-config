@@ -1,9 +1,9 @@
 {
-  flake.modules.nixos.tartarus = { pkgs, ... }: {
-    environment.systemPackages = [ pkgs.kanata ];
-
+  flake.modules.nixos.tartarus = {pkgs, ...}: {
+    hardware.uinput.enable = true;
     services.kanata = {
       enable = true;
+      package = pkgs.kanata-with-cmd;
       keyboards = {
         tartarus = {
           devices = [

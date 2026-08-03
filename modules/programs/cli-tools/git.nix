@@ -1,10 +1,10 @@
 {
-  flake.modules.homeManager.cli-tools = { config, ... }: {
+  flake.modules.homeManager.cli-tools = {...}: {
     programs = {
       git = {
         enable = true;
         settings.user = {
-          name = "${config.constants.primaryUser}";
+          name = "psoewish";
           email = "personal@psoewish.com";
         };
       };

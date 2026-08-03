@@ -1,7 +1,6 @@
 {
   flake.modules.homeManager.helix = {
     programs.helix.settings = {
-      theme = "catppuccin_mocha";
       editor = {
         bufferline = "multiple";
         color-modes = true;

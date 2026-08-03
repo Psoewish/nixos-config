@@ -7,9 +7,9 @@
   flake.modules.nixos.streamcontroller = { inputs, ... }: {
     imports = [ inputs.streamcontroller.nixosModules.default ];
     nixpkgs.overlays = [ inputs.streamcontroller.overlays.default ];
-    home-manager.sharedModules = [
-      inputs.streamcontroller.homeManagerModules.default
-      inputs.modules.homeManager.streamcontroller
+    home-manager.sharedModules = with inputs;[
+      streamcontroller.homeManagerModules.default
+      self.modules.homeManager.streamcontroller
     ];
 
     programs.streamcontroller = {
