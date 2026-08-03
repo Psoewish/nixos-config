@@ -23,7 +23,7 @@
         closeOthers = false;
         forceOpen = false;
         keepIcons = false;
-        showFolderIcon = "moreThanOne";
+        showFolderIcon = 2;
       };
       betterUploadButton.enable = true;
       biggerStreamPreview.enable = true;
@@ -33,7 +33,7 @@
         trackSelf = true;
         format = "stopwatch";
       };
-      clearURLs.enable = true;
+      clearUrls.enable = true;
       copyFileContents.enable = true;
       crashHandler = {
         enable = true;
@@ -86,7 +86,7 @@
       };
       noF1.enable = true;
       noOnboardingDelay.enable = true;
-      onePingPerDM = {
+      onePingPerDm = {
         enable = true;
         channelToAffect = "both_dms";
         allowMentions = true;
@@ -103,7 +103,7 @@
       replaceGoogleSearch = {
         enable = true;
         customEngineName = "DuckDuckGo";
-        customEngineURL = "https://duckduckgo.com/";
+        customEngineUrl = "https://duckduckgo.com/";
       };
       reverseImageSearch.enable = true;
       spotifyControls.enable = true;
