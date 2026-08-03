@@ -4,7 +4,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.home-manager = {inputs, ...}: {
+  flake.modules.nixos.core = {inputs, ...}: {
     imports = [
       (inputs.home-manager.nixosModules.home-manager or {})
       # (inputs.home-manager.flakeModules.home-manager or { })

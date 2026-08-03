@@ -4,7 +4,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
   };
 
-  flake.modules.nixos.nixpkgs = {
+  flake.modules.nixos.core = {
     nixpkgs.config.allowUnfree = true;
     nix = {
       gc = {
