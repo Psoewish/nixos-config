@@ -8,8 +8,9 @@
         locale
         secrets
         home-manager
-        flatpak
         nix-ld
+        network
+        ssh
       ])
       ++ [ inputs.self.modules.generic.constants ];
   };

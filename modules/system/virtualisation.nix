@@ -1,5 +1,9 @@
 {
-  flake.modules.nixos.virtualisation = { pkgs, config, ... }: {
+  flake.modules.nixos.virtualisation = {
+    pkgs,
+    config,
+    ...
+  }: {
     virtualisation = {
       libvirtd = {
         enable = true;
@@ -10,9 +14,9 @@
     };
 
     users.groups = {
-      libvirtd.members = [ config.constants.primaryUser ];
-      kvm.members = [ config.constants.primaryUser ];
-      docker.members = [ config.constants.primaryUser ];
+      libvirtd.members = [config.constants.primaryUser];
+      kvm.members = [config.constants.primaryUser];
+      docker.members = [config.constants.primaryUser];
     };
 
     environment.systemPackages = with pkgs; [

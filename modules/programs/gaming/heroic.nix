@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.gaming = { pkgs, ... }: {
-    environment.systemPackages = [ pkgs.heroic ];
+  flake.modules.nixos.gaming = {pkgs, ...}: {
+    environment.systemPackages = [pkgs.heroic];
   };
 }

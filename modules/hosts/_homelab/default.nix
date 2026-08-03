@@ -1,13 +1,17 @@
-{ inputs, ... }: {
+{inputs, ...}: {
   flake.nixosConfigurations.homelab = inputs.nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit inputs; };
+    specialArgs = {inherit inputs;};
     modules = with inputs.self.modules.nixos; [
       core
       homelab
     ];
   };
 
-  flake.modules.nixos.homelab = { inputs, config, ... }: {
+  flake.modules.nixos.homelab = {
+    inputs,
+    config,
+    ...
+  }: {
     imports = with inputs.self.modules.nixos; [
       intelcpu
       intelgpu
@@ -29,7 +33,7 @@
         80
         443
       ];
-      allowedUDPPorts = [ 53 ];
+      allowedUDPPorts = [53];
     };
   };
 }

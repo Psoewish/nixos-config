@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.cli-tools = {...}: {
+  flake.modules.homeManager.cli-tools = {
     programs.eza = {
       enable = true;
       colors = "always";

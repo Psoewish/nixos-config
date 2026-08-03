@@ -4,6 +4,14 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
+    agenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix-rekey = {
+      url = "github:oddlama/agenix-rekey";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
     flake-file.url = "github:denful/flake-file";
     flake-parts = {
@@ -27,6 +35,14 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    openlinkhub = {
+      url = "github:skelettor/nix-openlinkhub";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pear-desktop = {
+      url = "github:h-banii/pear-desktop-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     streamcontroller = {
       url = "github:daaboulex/streamcontroller-nix";
       inputs.nixpkgs.follows = "nixpkgs";

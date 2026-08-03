@@ -52,7 +52,7 @@
           ":redraw"
           ":reload-all"
         ];
-        C-s = [ ":w" ];
+        C-s = [":w"];
         esc = [
           "collapse_selection"
           "keep_primary_selection"

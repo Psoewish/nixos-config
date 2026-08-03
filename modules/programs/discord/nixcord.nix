@@ -4,12 +4,12 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.discord = { inputs, ... }: {
-    home-manager.sharedModules = [ inputs.self.modules.homeManager.discord ];
+  flake.modules.nixos.discord = {inputs, ...}: {
+    home-manager.sharedModules = [inputs.self.modules.homeManager.discord];
   };
 
-  flake.modules.homeManager.discord = { inputs, ... }: {
-    imports = [ (inputs.nixcord.homeModules.nixcord or { }) ];
+  flake.modules.homeManager.discord = {inputs, ...}: {
+    imports = [(inputs.nixcord.homeModules.nixcord or {})];
 
     programs.nixcord = {
       enable = true;

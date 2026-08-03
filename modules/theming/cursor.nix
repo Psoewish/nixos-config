@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.theme-base = { pkgs, ... }: {
+  flake.modules.homeManager.theme-base = {pkgs, ...}: {
     home.pointerCursor = {
       enable = true;
       gtk.enable = true;

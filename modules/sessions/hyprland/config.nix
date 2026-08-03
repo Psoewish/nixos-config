@@ -1,29 +1,31 @@
 {
   flake.modules.homeManager.hyprland = {
-    wayland.windowManager.hyprland =
-      let
-        # Launcher
-        launcher = "noctalia msg panel-toggle launcher";
+    wayland.windowManager.hyprland = let
+      # Launcher
+      launcher = "noctalia msg panel-toggle launcher";
 
-        # Default applications
-        terminal = "ghostty";
-        guiFileManager = "nautilus";
-        browser = "helium";
-        browser2 = "qutebrowser";
+      # Default applications
+      terminal = "ghostty";
+      guiFileManager = "nautilus";
+      browser = "helium";
+      browser2 = "qutebrowser";
 
-        # Screenshots
-        capture-window = "hyprshot -m window --clipboard-only";
-        capture-region = "hyprshot -m region --clipboard-only";
-        capture-screen = "hyprshot -m output --clipboard-only";
+      # Screenshots
+      capture-window = "hyprshot -m window --clipboard-only";
+      capture-region = "hyprshot -m region --clipboard-only";
+      capture-screen = "hyprshot -m output --clipboard-only";
 
-        # Hotkeys
-        mod = "SUPER";
-        shiftmod = "SUPER + SHIFT";
-        ctrlmod = "SUPER+ CTRL";
-      in
-      {
-        configType = "lua";
-        extraConfig = /* lua */ ''
+      # Hotkeys
+      mod = "SUPER";
+      shiftmod = "SUPER + SHIFT";
+      ctrlmod = "SUPER+ CTRL";
+    in {
+      configType = "lua";
+      extraConfig =
+        /*
+        lua
+        */
+        ''
           hl.monitor({ output = "DP-1", mode = "preferred", position = "0x1440", scale = 1 })
           hl.monitor({ output = "DP-2", mode = "preferred", position = "0x0", scale = 1 })
 
@@ -168,6 +170,6 @@
           hl.animation({ leaf = "windows", enabled = false })
           hl.animation({ leaf = "global", enabled = false })
         '';
-      };
+    };
   };
 }

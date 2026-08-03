@@ -1,8 +1,8 @@
 {
   flake-file.inputs.nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
 
-  flake.modules.nixos.flatpak = { inputs, ... }: {
-    imports = [ (inputs.nix-flatpak.nixosModules.nix-flatpak or { }) ];
+  flake.modules.nixos.flatpak = {inputs, ...}: {
+    imports = [(inputs.nix-flatpak.nixosModules.nix-flatpak or {})];
     services.flatpak = {
       enable = true;
       update.auto = {

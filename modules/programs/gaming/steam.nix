@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.gaming = { pkgs, ... }: {
+  flake.modules.nixos.gaming = {pkgs, ...}: {
     programs.steam = {
       enable = true;
       package = pkgs.steam.override {

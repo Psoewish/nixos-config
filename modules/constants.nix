@@ -1,8 +1,8 @@
 {
-  flake.modules.generic.constants = { lib, ... }: {
+  flake.modules.generic.constants = {lib, ...}: {
     options.constants = lib.mkOption {
       type = lib.types.attrsOf lib.types.unspecified;
-      default = { };
+      default = {};
     };
 
     config.constants = {

@@ -1,6 +1,10 @@
 {
-  flake.modules.nixos.cosmic = { inputs, pkgs, ... }: {
-    imports = [ inputs.self.modules.nixos.greeter ];
+  flake.modules.nixos.cosmic = {
+    inputs,
+    pkgs,
+    ...
+  }: {
+    imports = [inputs.self.modules.nixos.greeter];
 
     services.desktopManager.cosmic.enable = true;
 

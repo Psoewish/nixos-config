@@ -1,5 +1,9 @@
 {
-  flake.modules.nixos.hyprland = { inputs, pkgs, ... }: {
+  flake.modules.nixos.hyprland = {
+    inputs,
+    pkgs,
+    ...
+  }: {
     imports = with inputs.self.modules; [
       nixos.greeter
       homeManager.hyprland
@@ -41,7 +45,7 @@
   flake.modules.homeManager.hyprland = {
     wayland.windowManager.hyprland = {
       enable = true;
-      systemd.variables = [ "--all" ];
+      systemd.variables = ["--all"];
     };
   };
 }

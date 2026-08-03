@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.greeter = {...}: {
+  flake.modules.nixos.greeter = {
     services.displayManager = {
       autoLogin = {
         enable = true;

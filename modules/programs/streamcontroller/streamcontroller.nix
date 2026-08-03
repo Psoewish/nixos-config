@@ -4,10 +4,10 @@
     streamcontroller.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.streamcontroller = { inputs, ... }: {
-    imports = [ inputs.streamcontroller.nixosModules.default ];
-    nixpkgs.overlays = [ inputs.streamcontroller.overlays.default ];
-    home-manager.sharedModules = with inputs;[
+  flake.modules.nixos.streamcontroller = {inputs, ...}: {
+    imports = [inputs.streamcontroller.nixosModules.default];
+    nixpkgs.overlays = [inputs.streamcontroller.overlays.default];
+    home-manager.sharedModules = with inputs; [
       streamcontroller.homeManagerModules.default
       self.modules.homeManager.streamcontroller
     ];
@@ -18,7 +18,7 @@
     };
   };
 
-  flake.modules.homeManager.streamcontroller = { };
+  flake.modules.homeManager.streamcontroller = {};
   # hm.programs.streamcontroller = let
   #   assetDir = "${config.programs.streamcontroller.dataPath}/assets";
   # in {

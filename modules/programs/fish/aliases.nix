@@ -1,5 +1,9 @@
 {
-  flake.modules.homeManager.fish = { pkgs, lib, ... }: {
+  flake.modules.homeManager.fish = {
+    pkgs,
+    lib,
+    ...
+  }: {
     programs.fish.shellAliases = {
       cat = "${lib.getExe pkgs.bat}";
       man = "${lib.getExe pkgs.bat-extras.batman}";

@@ -4,7 +4,7 @@
       {
         name = "nix";
         auto-format = true;
-        language-servers = [ "nixd" ];
+        language-servers = ["nixd"];
         formatter.command = "alejandra";
       }
       {

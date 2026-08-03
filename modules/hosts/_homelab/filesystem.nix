@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.homelab = { pkgs, config, ... }: {
+  flake.modules.nixos.homelab = {config, ...}: {
     fileSystems = {
       "/" = {
         device = "/dev/disk/by-uuid/ad374118-5ab8-4e31-97f9-0e5e8f9de75b";
@@ -16,7 +16,7 @@
       };
     };
 
-    swapDevices = [ { device = "/dev/disk/by-uuid/4071aba9-4533-4819-b234-a8903e58a990"; } ];
+    swapDevices = [{device = "/dev/disk/by-uuid/4071aba9-4533-4819-b234-a8903e58a990";}];
 
     services.zfs = {
       autoScrub.enable = true;

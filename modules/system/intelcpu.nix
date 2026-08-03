@@ -1,6 +1,6 @@
 {
-  flake.modules.nixos.intelcpu = { config, lib, ... }: {
-    hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    boot.kernelModules = [ "kvm-intel" ];
+  flake.modules.nixos.intelcpu = {lib, ...}: {
+    hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
+    boot.kernelModules = ["kvm-intel"];
   };
 }
