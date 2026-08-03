@@ -10,32 +10,47 @@
     pkgs,
     ...
   }: {
-    imports = with inputs.self.modules.nixos; [
-      core
-      amdcpu
-      amdgpu
-      cosmic
-      catppuccin
-      virtualisation
+    imports = with inputs.self.modules;
+      (with nixos; [
+        core
 
-      cli-tools
-      discord
-      fish
-      gaming
-      ghostty
-      helium
-      helix
-      obs
-      streamcontroller
-      vial
-      zed
-      youtube-music
-      flatpak
-      corsair
-      input-remapper
+        # hardware
+        amdcpu
+        amdgpu
 
-      psoewish
-    ];
+        # input devices
+        vial
+        streamcontroller
+        input-remapper
+        openlinkhub
+
+        # dev
+        virtualisation
+        helix
+        zed
+
+        # desktop session
+        cosmic
+
+        # terminal stuff
+        fish
+        ghostty
+
+        # applications
+        discord
+        pear-desktop
+        gaming
+        helium
+        obs
+
+        # theme
+        catppuccin
+
+        # TEMP, MOVE LATER
+        psoewish
+        flatpak
+      ])
+      ++ [(generic.constants)];
 
     networking.hostName = config.constants.hosts.desktop.hostName;
     system.stateVersion = config.constants.hosts.desktop.stateVersion;

@@ -51,7 +51,6 @@
       };
       vivid = {
         enable = true;
-        theme = "ansi";
       };
     };
   };
