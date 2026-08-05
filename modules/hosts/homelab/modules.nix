@@ -10,6 +10,21 @@
         ghostty
         # theme
         catppuccin
+
+        docker
+        blocky
+        unbound
+
+        jellyfin
+        jellyseerr
+
+        sonarr
+        radarr
+        profilarr
+        nzbhydra
+        prowlarr
+        sabnzbd
+        transmission
       ])
       ++ [(generic.constants)];
   };
