@@ -11,7 +11,6 @@
       with pkgs.gnomeExtensions; [
         caffeine
         appindicator
-        blur-my-shell
       ]
     );
   };
