@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.jellyfin = {
+  flake.modules.nixos.jellyseerr = {
     config,
     hosts,
     ...
