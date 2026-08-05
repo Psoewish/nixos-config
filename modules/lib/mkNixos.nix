@@ -27,6 +27,9 @@
                         type = lib.types.str;
                         default = name;
                       };
+                      id = lib.mkOption {
+                        type = lib.types.nullOr lib.types.int;
+                      };
                       isPrimary = lib.mkOption {
                         type = lib.types.bool;
                         default = false;
@@ -35,7 +38,7 @@
                         type = lib.types.bool;
                         default = false;
                       };
-                      enableHomeManager = lib.mkOption{
+                      enableHomeManager = lib.mkOption {
                         type = lib.types.bool;
                         default = false;
                       };
@@ -76,12 +79,13 @@
             security.sudo.wheelNeedsPassword = false;
 
             # User setup
-            users.groups = lib.mapAttrs (username: userData: {}) hostData.users;
+            users.groups = lib.mapAttrs (username: userData: {gid = userData.id;}) hostData.users;
             users.users =
               lib.mapAttrs (username: userData: {
                 group = username;
                 description = username;
-                isNormalUser = (userData.isPrimary || userData.isAdmin || userData.enableHomeManager);
+                uid = userData.id;
+                isNormalUser = userData.isPrimary || userData.isAdmin || userData.enableHomeManager;
                 isSystemUser = !(userData.isPrimary || userData.isAdmin || userData.enableHomeManager);
                 shell = inputs.nixpkgs.legacyPackages.${hostData.system}.${userData.shell};
                 extraGroups = userData.extraGroups ++ lib.optionals (userData.isPrimary || userData.isAdmin) ["wheel" "networkmanager"];
