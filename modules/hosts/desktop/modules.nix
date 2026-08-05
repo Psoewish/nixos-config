@@ -33,10 +33,6 @@
 
         # theme
         catppuccin
-
-        # TEMP, MOVE LATER
-        psoewish
-        flatpak
       ])
       ++ [(generic.constants)];
   };
