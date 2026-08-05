@@ -31,6 +31,14 @@
                         type = lib.types.bool;
                         default = false;
                       };
+                      isAdmin = lib.mkOption {
+                        type = lib.types.bool;
+                        default = false;
+                      };
+                      enableHomeManager = lib.mkOption{
+                        type = lib.types.bool;
+                        default = false;
+                      };
                       shell = lib.mkOption {
                         type = lib.types.str;
                         default = "bash";
@@ -73,14 +81,14 @@
               lib.mapAttrs (username: userData: {
                 group = username;
                 description = username;
-                isNormalUser = userData.isPrimary;
-                isSystemUser = !userData.isPrimary;
+                isNormalUser = (userData.isPrimary || userData.isAdmin || userData.enableHomeManager);
+                isSystemUser = !(userData.isPrimary || userData.isAdmin || userData.enableHomeManager);
                 shell = inputs.nixpkgs.legacyPackages.${hostData.system}.${userData.shell};
-                extraGroups = userData.extraGroups ++ lib.optionals userData.isPrimary ["wheel" "networkmanager"];
+                extraGroups = userData.extraGroups ++ lib.optionals (userData.isPrimary || userData.isAdmin) ["wheel" "networkmanager"];
               })
               hostData.users;
 
-            nix.settings.trusted-users = ["root"] ++ lib.attrNames (lib.filterAttrs (username: userData: userData.isPrimary) hostData.users);
+            nix.settings.trusted-users = ["root"] ++ lib.attrNames (lib.filterAttrs (username: userData: userData.isPrimary || userData.isAdmin) hostData.users);
 
             home-manager.users = lib.mapAttrs (username: userData: {
               home = {
@@ -88,7 +96,7 @@
                 homeDirectory = "/home/${username}";
                 stateVersion = hostData.stateVersion;
               };
-            }) (lib.filterAttrs (username: userData: userData.isPrimary) hostData.users);
+            }) (lib.filterAttrs (username: userData: userData.isPrimary || userData.enableHomeManager) hostData.users);
           }
         ]
         ++ [
