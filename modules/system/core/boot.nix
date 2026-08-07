@@ -1,15 +1,10 @@
 {
-  flake-file.inputs.nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-
   flake.modules.nixos.core = {
-    inputs,
     lib,
     pkgs,
     ...
   }: {
-    nixpkgs.overlays = [inputs.nix-cachyos-kernel.overlays.pinned];
-
-    boot.kernelPackages = lib.mkDefault pkgs.cachyosKernels.linuxPackages-cachyos-lts;
+    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages;
     boot.kernelParams = lib.mkDefault [
       "quiet"
       "udev.log_level=3"
