@@ -13,6 +13,7 @@
       ];
       shell = "fish";
     };
+    pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0Ab3o9NKMJT15F3bpwMReI2dIEUxOb0qI2PNMVx8Mg";
   };
 
   flake.modules.nixos.desktop = {

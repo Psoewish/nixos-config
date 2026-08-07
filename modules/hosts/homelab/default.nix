@@ -16,6 +16,7 @@
         extraGroups = ["video" "render"];
       };
     };
+    pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOAKGYMNaCK17QYNwe4PUJ+6INU303baKyMqzYnpMS5R";
   };
 
   flake.modules.nixos.homelab = {hosts, ...}: {
