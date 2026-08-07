@@ -17,7 +17,7 @@
     };
 
     services.traefik.dynamicConfigOptions.http = let
-      service = "nzbhydra";
+      service = "sabnzbd";
       port = 8080;
     in {
       routers.${service} = {
