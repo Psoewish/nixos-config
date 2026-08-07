@@ -29,6 +29,7 @@
         pear-desktop
         gaming
         helium
+        firefox
         obs
 
         # theme
