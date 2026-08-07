@@ -1,9 +1,14 @@
 {
   flake-file.inputs.nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
 
-  flake.modules.nixos.core = {inputs, ...}: {
+  flake.modules.nixos.core = {
+    inputs,
+    lib,
+    config,
+    ...
+  }: {
     imports = [(inputs.nix-flatpak.nixosModules.nix-flatpak or {})];
-    services.flatpak = {
+    services.flatpak = lib.mkIf config.xdg.portal.enable {
       enable = true;
       update.auto = {
         enable = true;
