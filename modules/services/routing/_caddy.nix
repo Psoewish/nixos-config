@@ -1,4 +1,6 @@
 {
+  flake-file.inputs.xcaddy-nix.url = "github:michailik/nix-caddy-withplugins";
+
   flake.modules.nixos.caddy = {
     inputs,
     config,
@@ -13,7 +15,7 @@
         hash = "sha256-+UWppmP71ERvUW0MBs9U32cYJ0ivURzgnZYl6IMvDdg=";
       };
       email = "${config.global.admin.email}";
-      environmentFile = config.sops.secrets."cloudflared/api".path;
+      environmentFile = config.age.secrets.cloudflared_api.path;
       globalConfig =
         /*
         Caddyfile

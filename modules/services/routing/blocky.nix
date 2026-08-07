@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.blocky = {
+  flake.modules.nixos.blocky = {config, ...}: {
     services.blocky = {
       enable = true;
       settings = {
@@ -16,6 +16,8 @@
           clientGroupsBlock.default = ["ads"];
           refreshPeriod = "4h";
         };
+
+        customDNS.mapping.${config.global.domain} = config.hosts.homelab.staticIp;
       };
     };
   };
