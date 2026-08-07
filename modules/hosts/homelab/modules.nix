@@ -11,18 +11,22 @@
       catppuccin
 
       docker
+
       blocky
+      cloudflared
+      traefik
       unbound
 
       jellyfin
       jellyseerr
+      vaultwarden
 
-      sonarr
-      radarr
-      profilarr
       nzbhydra
+      profilarr
       prowlarr
+      radarr
       sabnzbd
+      sonarr
       transmission
     ];
   };

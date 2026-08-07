@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.homelab = {config, ...}: {
+  flake.modules.nixos.homelab = {
     fileSystems = {
       "/" = {
         device = "/dev/disk/by-uuid/ad374118-5ab8-4e31-97f9-0e5e8f9de75b";
@@ -28,7 +28,6 @@
     boot = {
       supportedFilesystems.zfs = true;
       zfs = {
-        package = config.boot.kernelPackages.zfs_cachyos;
         extraPools = [
           "speedy"
           "rusty"
