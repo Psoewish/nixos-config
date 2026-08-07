@@ -2,7 +2,6 @@
   flake.modules.nixos.core = {
     lib,
     config,
-    hosts,
     ...
   }: {
     services = {
@@ -21,11 +20,11 @@
         Host ${host.hostname}
           Hostname ${host.staticIp}
           Port 22
-          User ${config.constants.primaryUser}
+          User ${config.global.primaryUser}
       '')
-      hosts.nixos);
+      config.hosts);
 
-    users.users.${config.constants.primaryUser}.openssh.authorizedKeys.keys = [
+    users.users.${config.global.primaryUser}.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh/C3Qmm+9EoNeiLUNsmpvqzGjNF6n0xNUpksIm3xUK psoewish"
     ];
   };

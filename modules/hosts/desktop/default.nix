@@ -18,7 +18,7 @@
 
   flake.modules.nixos.desktop = {
     pkgs,
-    hosts,
+    config,
     ...
   }: {
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
@@ -30,7 +30,7 @@
 
     networking.interfaces.enp9s0.ipv4.addresses = [
       {
-        address = hosts.nixos.desktop.staticIp;
+        address = config.hosts.desktop.staticIp;
         prefixLength = 24;
       }
     ];

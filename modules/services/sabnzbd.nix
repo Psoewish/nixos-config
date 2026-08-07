@@ -1,17 +1,13 @@
 {
-  flake.modules.nixos.sabnzbd = {
-    config,
-    hosts,
-    ...
-  }: {
+  flake.modules.nixos.sabnzbd = {config, ...}: {
     virtualisation.oci-containers.containers.sabnzbd = {
       name = "sabnzbd";
       container = {
         image = "lscr.io/linuxserver/sabnzbd:latest";
         pull = "always";
         environment = {
-          PUID = "${hosts.homelab.users.media.id}";
-          PGID = "${hosts.homelab.users.media.id}";
+          PUID = "${config.hosts.homelab.users.media.id}";
+          PGID = "${config.hosts.homelab.users.media.id}";
           TZ = config.time.timeZone;
         };
         volumes = [
@@ -23,7 +19,7 @@
     };
 
     services.caddy.virtualHosts = {
-      "nzbhydra.psoewish.com" = {
+      "nzbhydra.${config.global.domain}" = {
         extraConfig = ''
           import security_defaults
           reverse_proxy localhost:8080

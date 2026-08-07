@@ -12,7 +12,7 @@
         plugins = ["github.com/caddy-dns/cloudflare@v0.2.2"];
         hash = "sha256-+UWppmP71ERvUW0MBs9U32cYJ0ivURzgnZYl6IMvDdg=";
       };
-      email = "admin@psoewish.com";
+      email = "${config.global.admin.email}";
       environmentFile = config.sops.secrets."cloudflared/api".path;
       globalConfig =
         /*

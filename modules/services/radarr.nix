@@ -1,17 +1,13 @@
 {
-  flake.modules.nixos.radarr = {
-    config,
-    hosts,
-    ...
-  }: {
+  flake.modules.nixos.radarr = {config, ...}: {
     virtualisation.oci-containers.containers.radarr = {
       name = "radarr";
       container = {
         image = "lscr.io/linuxserver/radarr:latest";
         pull = "always";
         environment = {
-          PUID = "${hosts.homelab.users.media.id}";
-          PGID = "${hosts.homelab.users.media.id}";
+          PUID = "${config.hosts.homelab.users.media.id}";
+          PGID = "${config.hosts.homelab.users.media.id}";
           TZ = config.time.timeZone;
         };
         volumes = [
@@ -25,7 +21,7 @@
     };
 
     services.caddy.virtualHosts = {
-      "radarr.psoewish.com" = {
+      "radarr.${config.global.domain}" = {
         extraConfig = ''
           import security_defaults
           reverse_proxy localhost:7878

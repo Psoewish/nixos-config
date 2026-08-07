@@ -1,17 +1,13 @@
 {
-  flake.modules.nixos.transmission = {
-    config,
-    hosts,
-    ...
-  }: {
+  flake.modules.nixos.transmission = {config, ...}: {
     virtualisation.oci-containers.containers.transmission = {
       name = "transmission";
       container = {
         image = "lscr.io/linuxserver/transmission:latest";
         pull = "always";
         environment = {
-          PUID = "${hosts.homelab.users.media.id}";
-          PGID = "${hosts.homelab.users.media.id}";
+          PUID = "${config.hosts.homelab.users.media.id}";
+          PGID = "${config.hosts.homelab.users.media.id}";
           TZ = config.time.timeZone;
         };
         volumes = [
@@ -23,7 +19,7 @@
     };
 
     services.caddy.virtualHosts = {
-      "transmission.psoewish.com" = {
+      "transmission.${config.global.domain}" = {
         extraConfig = ''
           import security_defaults
           reverse_proxy localhost:9091

@@ -1,31 +1,29 @@
 {
   flake.modules.nixos.homelab = {inputs, ...}: {
-    imports = with inputs.self.modules;
-      (with nixos; [
-        # hardware
-        intelcpu
-        intelgpu
-        helix
-        fish
-        ghostty
-        # theme
-        catppuccin
+    imports = with inputs.self.modules.nixos; [
+      # hardware
+      intelcpu
+      intelgpu
+      helix
+      fish
+      ghostty
+      # theme
+      catppuccin
 
-        docker
-        blocky
-        unbound
+      docker
+      blocky
+      unbound
 
-        jellyfin
-        jellyseerr
+      jellyfin
+      jellyseerr
 
-        sonarr
-        radarr
-        profilarr
-        nzbhydra
-        prowlarr
-        sabnzbd
-        transmission
-      ])
-      ++ [(generic.constants)];
+      sonarr
+      radarr
+      profilarr
+      nzbhydra
+      prowlarr
+      sabnzbd
+      transmission
+    ];
   };
 }

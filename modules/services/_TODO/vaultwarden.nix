@@ -11,7 +11,7 @@
           config.sops.secrets."vaultwarden/smtp_password".path
         ];
         environment = {
-          DOMAIN = "https://vault.psoewish.com";
+          DOMAIN = "https://vault.${config.global.domain}";
           SIGNUPS_ALLOWED = "false";
           WEB_VAULT_ENABLED = "true";
           ROCKET_PORT = "8222";
@@ -29,7 +29,7 @@
     };
 
     services.caddy.virtualHosts = {
-      "vault.psoewish.com" = {
+      "vault.${config.global.domain}" = {
         extraConfig = ''
           import security_defaults
           import admin_redir
@@ -38,9 +38,9 @@
       };
     };
 
-    services.cloudflared.tunnels."009088b8-cd7c-41fb-b25d-2d34cd98bc6e".ingress."vault.psoewish.com" = {
+    services.cloudflared.tunnels."${config.global.cloudflared.tunnelId}".ingress."vault.${config.global.domain}" = {
       service = "https://localhost:443";
-      originRequest.originServerName = "vault.psoewish.com";
+      originRequest.originServerName = "vault.${config.global.domain}";
     };
   };
 }

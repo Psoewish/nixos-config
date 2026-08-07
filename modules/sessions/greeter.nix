@@ -1,9 +1,9 @@
 {
-  flake.modules.nixos.greeter = {
+  flake.modules.nixos.greeter = {config, ...}: {
     services.displayManager = {
       autoLogin = {
         enable = true;
-        user = "psoewish";
+        user = config.hosts.${config.networking.hostName}.primaryUser;
       };
       cosmic-greeter.enable = true;
     };

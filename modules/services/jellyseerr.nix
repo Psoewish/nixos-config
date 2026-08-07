@@ -1,17 +1,13 @@
 {
-  flake.modules.nixos.jellyseerr = {
-    config,
-    hosts,
-    ...
-  }: {
+  flake.modules.nixos.jellyseerr = {config, ...}: {
     virtualisation.oci-containers.containers.jellyseerr = {
       name = "jellyseerr";
       container = {
         image = "ghcr.io/seerr-team/seerr:latest";
         pull = "always";
         environment = {
-          PUID = "${hosts.homelab.users.media.id}";
-          PGID = "${hosts.homelab.users.media.id}";
+          PUID = "${config.hosts.homelab.users.media.id}";
+          PGID = "${config.hosts.homelab.users.media.id}";
           TZ = config.time.timeZone;
         };
         volumes = [
@@ -22,7 +18,7 @@
     };
 
     services.caddy.virtualHosts = {
-      "jellyseerr.psoewish.com" = {
+      "jellyseerr.${config.global.domain}" = {
         extraConfig = ''
           import security_defaults
           reverse_proxy localhost:5055
@@ -30,9 +26,9 @@
       };
     };
 
-    services.cloudflared.tunnels."009088b8-cd7c-41fb-b25d-2d34cd98bc6e".ingress."jellyseerr.psoewish.com" = {
+    services.cloudflared.tunnels."${config.global.cloudflared.tunnelId}".ingress."jellyseerr.${config.global.domain}" = {
       service = "https://localhost:443";
-      originRequest.originServerName = "jellyseerr.psoewish.com";
+      originRequest.originServerName = "jellyseerr.${config.global.domain}";
     };
   };
 }

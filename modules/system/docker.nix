@@ -12,6 +12,6 @@
 
       oci-containers.backend = "docker";
     };
-    users.groups.docker.members = [config.constants.primaryUser];
+    users.groups.docker.members = [config.global.primaryUser];
   };
 }

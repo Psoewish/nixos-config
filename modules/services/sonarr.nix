@@ -1,17 +1,13 @@
 {
-  flake.modules.nixos.sonarr = {
-    config,
-    hosts,
-    ...
-  }: {
+  flake.modules.nixos.sonarr = {config, ...}: {
     virtualisation.oci-containers.containers.sonarr = {
       name = "sonarr";
       container = {
         image = "lscr.io/linuxserver/sonarr:latest";
         pull = "always";
         environment = {
-          PUID = "${hosts.homelab.users.media.id}";
-          PGID = "${hosts.homelab.users.media.id}";
+          PUID = "${config.hosts.homelab.users.media.id}";
+          PGID = "${config.hosts.homelab.users.media.id}";
           TZ = config.time.timeZone;
         };
         volumes = [
@@ -25,7 +21,7 @@
     };
 
     services.caddy.virtualHosts = {
-      "sonarr.psoewish.com" = {
+      "sonarr.${config.global.domain}" = {
         extraConfig = ''
           import security_defaults
           reverse_proxy localhost:8989

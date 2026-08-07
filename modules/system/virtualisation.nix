@@ -13,8 +13,8 @@
     };
 
     users.groups = {
-      libvirtd.members = [config.constants.primaryUser];
-      kvm.members = [config.constants.primaryUser];
+      libvirtd.members = [config.global.primaryUser];
+      kvm.members = [config.global.primaryUser];
     };
 
     environment.systemPackages = with pkgs; [

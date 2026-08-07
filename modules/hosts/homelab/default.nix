@@ -19,10 +19,10 @@
     pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOAKGYMNaCK17QYNwe4PUJ+6INU303baKyMqzYnpMS5R";
   };
 
-  flake.modules.nixos.homelab = {hosts, ...}: {
+  flake.modules.nixos.homelab = {config, ...}: {
     networking.interfaces.enp94s0.ipv4.addresses = [
       {
-        address = hosts.homelab.staticIp;
+        address = config.hosts.homelab.staticIp;
         prefixLength = 24;
       }
     ];

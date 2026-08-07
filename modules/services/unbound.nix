@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.unbound = {hosts, ...}: {
+  flake.modules.nixos.unbound = {config, ...}: {
     services.unbound = {
       enable = true;
       enableRootTrustAnchor = true;
@@ -8,8 +8,8 @@
         server = {
           port = 5335;
           prefetch = "yes";
-          local-zone = [''"psoewish.com" redirect''];
-          local-data = [''"psoewish.com. 3600 IN A ${hosts.homelab.staticIp}" ''];
+          local-zone = [''"${config.global.domain}" redirect''];
+          local-data = [''"${config.global.domain}. 3600 IN A ${config.hosts.homelab.staticIp}" ''];
         };
       };
     };
