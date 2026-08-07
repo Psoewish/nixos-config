@@ -1,7 +1,7 @@
 {
   flake.hosts.nixos.homelab = {
     system = "x86_64-linux";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
     staticIp = "192.168.1.100";
     users = {
       psoewish = {

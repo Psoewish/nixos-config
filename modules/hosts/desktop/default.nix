@@ -1,7 +1,7 @@
 {
   flake.hosts.nixos.desktop = {
     system = "x86_64-linux";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
     staticIp = "192.168.1.16";
     users.psoewish = {
       isPrimary = true;
@@ -21,7 +21,7 @@
     config,
     ...
   }: {
-    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+    boot.kernelPackages = pkgs.linuxPackages_zen;
     services.scx = {
       enable = true;
       scheduler = "scx_lavd";
