@@ -11,6 +11,7 @@
         inherit inputs;
         hosts = lib.foldl' (acc: classHosts: acc // classHosts) {} (lib.attrValues config.flake.hosts);
         global = config.flake.global;
+        routes = config.flake.routes;
       };
       modules =
         [

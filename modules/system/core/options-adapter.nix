@@ -3,6 +3,7 @@
     lib,
     hosts,
     global,
+    routes,
     ...
   }: {
     options.hosts = lib.mkOption {
@@ -12,6 +13,10 @@
     options.global = lib.mkOption {
       type = lib.types.attrsOf lib.types.unspecified;
       default = global;
+    };
+    options.routes = lib.mkOption {
+      type = lib.types.attrsOf lib.types.unspecified;
+      default = routes;
     };
   };
 }
