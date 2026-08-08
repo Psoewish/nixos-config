@@ -73,7 +73,7 @@
           lib.mapAttrs (name: route: {
             inherit (route) service;
             rule = lib.concatStringsSep " || " (
-              map (sd: "Host(`${sd}.${config.global.domain}`)") ([route.subdomain] ++ route.aliases)
+              map (sd: "Host(`${sd}.${config.global.domain}`)") ([route.service] ++ route.aliases)
             );
             entryPoints = ["websecure"];
           })

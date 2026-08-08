@@ -9,10 +9,6 @@
                 type = lib.types.str;
                 default = name;
               };
-              subdomain = lib.mkOption {
-                type = lib.types.str;
-                default = name;
-              };
               aliases = lib.mkOption {
                 type = lib.types.listOf lib.types.str;
                 default = [];

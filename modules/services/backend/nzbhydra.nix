@@ -17,7 +17,7 @@
   };
 
   flake.routes.nzbhydra2 = {
-    subdomain = "nzbhydra";
+    aliases = ["nzbhydra"];
     port = 5076;
   };
 }
