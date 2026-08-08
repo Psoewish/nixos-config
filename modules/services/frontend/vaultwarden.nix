@@ -6,7 +6,7 @@
         config.age.secrets.vaultwarden_admin_token.path
         config.age.secrets.vaultwarden_smtp_password.path
       ];
-      domain = "vault.${config.global.domain}";
+      domain = "vaultwarden.${config.global.domain}";
       config = {
         USE_SYSLOG = "true";
         EXTENDED_LOGGING = "true";
@@ -21,24 +21,11 @@
         SMTP_FROM_NAME = "Psoewish's Vaultwarden Service";
       };
     };
+  };
 
-    services.traefik.dynamicConfigOptions.http = let
-      service = "vaultwarden";
-      port = 8222;
-    in {
-      routers.${service} = {
-        rule = "Host(`vault.${config.global.domain}`)";
-        service = service;
-        entryPoints = ["websecure"];
-      };
-      services.${service}.loadBalancer.servers = [
-        {url = "http://localhost:${toString port}";}
-      ];
-    };
-
-    services.cloudflared.tunnels."${config.global.cloudflared.tunnelId}".ingress."vault.${config.global.domain}" = {
-      service = "https://localhost:443";
-      originRequest.originServerName = "vault.${config.global.domain}";
-    };
+  flake.routes.vaultwarden = {
+    aliases = ["vault"];
+    port = 8222;
+    public = true;
   };
 }

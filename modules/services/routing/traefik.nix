@@ -1,5 +1,9 @@
 {
-  flake.modules.nixos.traefik = {config, ...}: {
+  flake.modules.nixos.traefik = {
+    config,
+    lib,
+    ...
+  }: {
     services.traefik = {
       enable = true;
       environmentFiles = [config.age.secrets.cloudflared_api.path];
@@ -64,18 +68,35 @@
         };
       };
 
-      dynamicConfigOptions.http.middlewares = {
-        secure-headers.headers = {
-          stsSeconds = 31536000;
-          stsIncludeSubdomains = true;
-          customFrameOptionsValue = "SAMEORIGIN";
-          contentTypeNosniff = true;
-          browserXssFilter = true;
-          referrerPolicy = "strict-origin-when-cross-origin";
-          customResponseHeaders.X-Robots-Tag = "noindex, nofollow";
+      dynamicConfigOptions.http = {
+        routers =
+          lib.mapAttrs (name: route: {
+            inherit (route) service;
+            rule = lib.concatStringsSep " || " (
+              map (sd: "Host(`${sd}.${config.global.domain}`)") ([route.subdomain] ++ route.aliases)
+            );
+            entryPoints = ["websecure"];
+          })
+          config.routes;
+        services =
+          lib.mapAttrs (name: route: {
+            loadBalancer.servers = [{url = "http://localhost:${toString route.port}";}];
+          })
+          config.routes;
+
+        middlewares = {
+          secure-headers.headers = {
+            stsSeconds = 31536000;
+            stsIncludeSubdomains = true;
+            customFrameOptionsValue = "SAMEORIGIN";
+            contentTypeNosniff = true;
+            browserXssFilter = true;
+            referrerPolicy = "strict-origin-when-cross-origin";
+            customResponseHeaders.X-Robots-Tag = "noindex, nofollow";
+          };
+          xff-to-xrealip.plugin.traefik-xff-to-xrealip = {};
+          compression.compress.encodings = ["zstd" "gzip"];
         };
-        xff-to-xrealip.plugin.traefik-xff-to-xrealip = {};
-        compression.compress.encodings = ["zstd" "gzip"];
       };
     };
   };

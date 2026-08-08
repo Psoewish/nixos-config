@@ -17,19 +17,9 @@
       ];
       extraOptions = ["--network=host"];
     };
+  };
 
-    services.traefik.dynamicConfigOptions.http = let
-      service = "radarr";
-      port = 7878;
-    in {
-      routers.${service} = {
-        rule = "Host(`${service}.${config.global.domain}`)";
-        service = service;
-        entryPoints = ["websecure"];
-      };
-      services.${service}.loadBalancer.servers = [
-        {url = "http://localhost:${toString port}";}
-      ];
-    };
+  flake.routes.radarr = {
+    port = 7878;
   };
 }

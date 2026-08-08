@@ -15,19 +15,9 @@
       ];
       extraOptions = ["--network=host"];
     };
+  };
 
-    services.traefik.dynamicConfigOptions.http = let
-      service = "transmission";
-      port = 9091;
-    in {
-      routers.${service} = {
-        rule = "Host(`${service}.${config.global.domain}`)";
-        service = service;
-        entryPoints = ["websecure"];
-      };
-      services.${service}.loadBalancer.servers = [
-        {url = "http://localhost:${toString port}";}
-      ];
-    };
+  flake.routes.transmission = {
+    port = 9091;
   };
 }

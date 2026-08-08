@@ -14,19 +14,10 @@
       ];
       extraOptions = ["--network=host"];
     };
+  };
 
-    services.traefik.dynamicConfigOptions.http = let
-      service = "nzbhydra";
-      port = 5076;
-    in {
-      routers.${service} = {
-        rule = "Host(`${service}.${config.global.domain}`)";
-        service = service;
-        entryPoints = ["websecure"];
-      };
-      services.${service}.loadBalancer.servers = [
-        {url = "http://localhost:${toString port}";}
-      ];
-    };
+  flake.routes.nzbhydra2 = {
+    subdomain = "nzbhydra";
+    port = 5076;
   };
 }
