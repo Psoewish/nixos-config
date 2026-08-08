@@ -29,6 +29,7 @@
       gaming
       helium
       firefox
+      qutebrowser
       obs
 
       # theme
