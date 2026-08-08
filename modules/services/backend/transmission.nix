@@ -1,19 +1,13 @@
 {
-  flake.modules.nixos.transmission = {config, ...}: {
-    virtualisation.oci-containers.containers.transmission = {
-      hostname = "transmission";
-      image = "lscr.io/linuxserver/transmission:latest";
-      pull = "always";
-      environment = {
-        PUID = toString config.hosts.homelab.users.media.id;
-        PGID = toString config.hosts.homelab.users.media.id;
-        TZ = config.time.timeZone;
+  flake.modules.nixos.transmission = {pkgs,...}:{
+    services.transmission = {
+      enable = true;
+      group = "media";
+      webHome = pkgs.flood-for-transmission;
+      settings = {
+        download-dir = "/data/downloads/torrents/complete";
+        incomplete-dir = "/data/downloads/torrents/incomplete";
       };
-      volumes = [
-        "/var/lib/transmission:/config"
-        "/data/downloads/torrents:/downloads/torrents"
-      ];
-      extraOptions = ["--network=host"];
     };
   };
 
