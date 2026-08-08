@@ -1,8 +1,8 @@
 {
   flake.modules.nixos.core = {
+    lib,
     hosts,
     global,
-    lib,
     ...
   }: {
     options.hosts = lib.mkOption {
