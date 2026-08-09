@@ -1,7 +1,8 @@
 {
-  flake.modules.nixos.prowlarr = {
+  flake.modules.nixos.prowlarr = {config, ...}: {
     services.prowlarr = {
       enable = true;
+      environmentFiles = [config.age.secrets.prowlar_api.path];
     };
   };
 

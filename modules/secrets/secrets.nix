@@ -7,6 +7,7 @@
 
       sonarr_api.rekeyFile = ./sonarr_api.age;
       radarr_api.rekeyFile = ./radarr_api.age;
+      prowlarr_api.rekeyFile = ./prowlarr_api.age;
 
       vaultwarden_admin_token.rekeyFile = ./vaultwarden_admin_token.age;
       vaultwarden_smtp_password.rekeyFile = ./vaultwarden_smtp_password.age;
