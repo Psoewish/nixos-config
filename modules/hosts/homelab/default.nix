@@ -34,9 +34,18 @@
       ];
       allowedUDPPorts = [53];
     };
-    systemd.tmpfiles.rules = [
-      "Z /media 0774 media media - -"
-      "Z /downloads 0774 media media - -"
-    ];
+
+    systemd.tmpfiles.settings.updateMedia = {
+      "/data/media".Z = {
+        user = "media";
+        group = "media";
+        mode = "0774";
+      };
+      "/data/downloads".Z = {
+        user = "media";
+        group = "media";
+        mode = "0774";
+      };
+    };
   };
 }
