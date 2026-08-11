@@ -1,7 +1,6 @@
 {
-  flake.modules.nixos.secrets = {
+  flake.modules.nixos.homelab = {
     age.secrets = {
-      listenbrainz_token.rekeyFile = ./listenbrainz_token.age;
       cloudflared_credentials.rekeyFile = ./cloudflared_credentials.age;
       cloudflared_api.rekeyFile = ./cloudflared_api.age;
 

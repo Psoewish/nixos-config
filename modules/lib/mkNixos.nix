@@ -49,7 +49,6 @@
         ]
         ++ [
           config.flake.modules.nixos.core
-          config.flake.modules.nixos.secrets
           config.flake.modules.nixos.${hostname}
         ];
     })
