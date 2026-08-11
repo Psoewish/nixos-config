@@ -14,6 +14,7 @@
       tombi
       yaml-language-server
       lua-language-server
+      typescript-language-server
       marksman
       markdown-oxide
       harper
