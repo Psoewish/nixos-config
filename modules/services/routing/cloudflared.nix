@@ -15,7 +15,7 @@
             name: route:
               if route.public
               then
-                lib.genAttrs (map (sd: "${route.service}.${config.global.domain}") ([route.subdomain] ++ route.aliases))
+                lib.genAttrs (map (sd: "${sd}.${config.global.domain}") ([route.service] ++ route.aliases))
                 (
                   hostname: {
                     service = "https://localhost:443";
