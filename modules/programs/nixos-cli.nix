@@ -4,7 +4,12 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.nixos-cli = {inputs, ...}: {
+  flake.modules.nixos.nixos-cli = {
+    inputs,
+    lib,
+    pkgs,
+    ...
+  }: {
     nix.settings = {
       substituters = ["https://watersucks.cachix.org"];
       trusted-public-keys = [
@@ -12,11 +17,22 @@
       ];
     };
     imports = [inputs.nixos-cli.nixosModules.nixos-cli];
+    environment.systemPackages = [pkgs.nix-output-monitor];
     programs.nixos-cli = {
       enable = true;
       option-cache.exclude = ["age"];
       settings = {
-        apply.reexec_as_root = true;
+        apply = {
+          reexec_as_root = true;
+          use_nom = true;
+        };
+        confirmation = {
+          empty = "default-yes";
+        };
+        differ = {
+          tool = "command";
+          command = [(lib.getExe pkgs.nvd) "diff"];
+        };
       };
     };
   };
