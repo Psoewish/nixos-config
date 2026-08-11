@@ -1,0 +1,23 @@
+{
+  flake-file.inputs.nixos-cli = {
+    url = "github:nix-community/nixos-cli";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  flake.modules.nixos.nixos-cli = {inputs, ...}: {
+    nix.settings = {
+      substituters = ["https://watersucks.cachix.org"];
+      trusted-public-keys = [
+        "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
+      ];
+    };
+    imports = [inputs.nixos-cli.nixosModules.nixos-cli];
+    programs.nixos-cli = {
+      enable = true;
+      option-cache.exclude = ["age"];
+      settings = {
+        apply.reexec_as_root = true;
+      };
+    };
+  };
+}

@@ -22,6 +22,8 @@
       # terminal stuff
       fish
       ghostty
+      nix-direnv
+      nixos-cli
 
       # applications
       discord
