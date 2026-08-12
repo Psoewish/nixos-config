@@ -6,7 +6,6 @@
 
   flake.modules.nixos.nixos-cli = {
     inputs,
-    lib,
     pkgs,
     ...
   }: {
@@ -17,7 +16,7 @@
       ];
     };
     imports = [inputs.nixos-cli.nixosModules.nixos-cli];
-    environment.systemPackages = [pkgs.nix-output-monitor];
+    environment.systemPackages = with pkgs; [nvd nix-output-monitor];
     programs.nixos-cli = {
       enable = true;
       option-cache.exclude = ["age"];
@@ -31,7 +30,7 @@
         };
         differ = {
           tool = "command";
-          command = [(lib.getExe pkgs.nvd) "diff"];
+          command = ["nvd" "diff"];
         };
       };
     };
