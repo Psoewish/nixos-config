@@ -1,8 +1,4 @@
 {
-  flake-file.inputs = {
-    openlinkhub.url = "github:skelettor/nix-openlinkhub";
-    openlinkhub.inputs.nixpkgs.follows = "nixpkgs";
-  };
   flake.modules.nixos.openlinkhub = {inputs, ...}: {
     nixpkgs.overlays = [(inputs.openlinkhub.overlays.default or {})];
     imports = [inputs.openlinkhub.nixosModules.openlinkhub];

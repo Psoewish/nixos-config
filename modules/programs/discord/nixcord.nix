@@ -1,9 +1,4 @@
 {
-  flake-file.inputs.nixcord = {
-    url = "github:4evy/nixcord";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   flake.modules.nixos.discord = {inputs, ...}: {
     home-manager.sharedModules = [inputs.self.modules.homeManager.discord];
   };

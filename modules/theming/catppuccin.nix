@@ -1,5 +1,4 @@
 {
-  flake-file.inputs.catppuccin.url = "github:catppuccin/nix";
   flake.modules.nixos.catppuccin = {inputs, ...}: {
     imports = with inputs; [
       (catppuccin.nixosModules.catppuccin or {})

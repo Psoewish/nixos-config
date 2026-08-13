@@ -1,9 +1,4 @@
 {
-  flake-file.inputs.pear-desktop = {
-    url = "github:h-banii/pear-desktop-nix";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   flake.modules.nixos.pear-desktop = {inputs, ...}: {
     home-manager.sharedModules = [inputs.self.modules.homeManager.youtube-music];
   };

@@ -1,9 +1,4 @@
 {
-  flake-file.inputs.nixos-cli = {
-    url = "github:nix-community/nixos-cli";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   flake.modules.nixos.nixos-cli = {
     inputs,
     pkgs,

@@ -1,9 +1,4 @@
 {
-  flake-file.inputs.direnv-instant = {
-    url = "github:mic92/direnv-instant";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   flake.modules.nixos.nix-direnv = {inputs, ...}: {
     home-manager.sharedModules = [inputs.self.modules.homeManager.nix-direnv];
   };

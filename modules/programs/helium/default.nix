@@ -1,9 +1,4 @@
 {
-  flake-file.inputs.helium = {
-    url = "github:oxcl/nix-flake-helium-browser";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   flake.modules.nixos.helium = {inputs, ...}: {
     home-manager.sharedModules = [inputs.self.modules.homeManager.helium];
   };

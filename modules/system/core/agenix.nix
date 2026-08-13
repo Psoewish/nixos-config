@@ -1,15 +1,4 @@
 {inputs, ...}: {
-  flake-file.inputs = {
-    agenix = {
-      url = "github:yaxitech/ragenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    agenix-rekey = {
-      url = "github:oddlama/agenix-rekey";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
   imports = [(inputs.agenix-rekey.flakeModule or {})];
 
   flake.modules.nixos.core = {

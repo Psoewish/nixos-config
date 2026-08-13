@@ -1,9 +1,4 @@
 {
-  flake-file.inputs = {
-    nur.url = "github:nix-community/nur";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   flake.modules.nixos.firefox = {inputs, ...}: {
     imports = [inputs.nur.modules.nixos.default];
     home-manager.sharedModules = [inputs.self.modules.homeManager.firefox];

@@ -1,9 +1,4 @@
 {
-  flake-file.inputs = {
-    streamcontroller.url = "github:daaboulex/streamcontroller-nix";
-    streamcontroller.inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   flake.modules.nixos.streamcontroller = {inputs, ...}: {
     imports = [inputs.streamcontroller.nixosModules.default];
     nixpkgs.overlays = [inputs.streamcontroller.overlays.default];

@@ -1,10 +1,7 @@
 {inputs, ...}: {
-  flake-file.inputs = {
-    flake-file.url = "github:denful/flake-file";
-    systems.url = "github:nix-systems/default";
-  };
-
-  imports = [(inputs.flake-file.flakeModules.dendritic or {})];
+  imports = [
+    (inputs.flake-parts.flakeModules.modules or {})
+  ];
 
   systems = import inputs.systems;
 }
