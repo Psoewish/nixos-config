@@ -22,8 +22,10 @@
       # terminal stuff
       fish
       ghostty
+      wezterm
       nix-direnv
       nixos-cli
+      fastfetch
 
       # applications
       discord
@@ -35,7 +37,7 @@
       obs
 
       # theme
-      catppuccin
+      stylix
     ];
   };
 }

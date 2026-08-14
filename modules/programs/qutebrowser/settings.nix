@@ -14,8 +14,6 @@
           };
           preferred_color_scheme = "dark";
         };
-        fonts.default_family = "Maple Mono NF CN";
-        fonts.default_size = "12pt";
         downloads = {
           position = "bottom";
           remove_finished = 3000;
