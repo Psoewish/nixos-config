@@ -1,12 +1,17 @@
 {
-  flake.modules.homeManager.cli-tools = {
+  flake.modules.nixos.fastfetch = {inputs, ...}: {
+    home-manager.sharedModules = [inputs.self.modules.homeManager.fastfetch];
+  };
+
+  flake.modules.homeManager.fastfetch = {
     programs.fastfetch = {
       enable = true;
       settings = {
         logo = {
-          type = "builtin";
-          height = 15;
-          width = 30;
+          type = "sixel";
+          source = ./scrioblNixOS.png;
+          height = 20;
+          width = 40;
           padding = {
             top = 5;
             left = 3;
@@ -16,7 +21,7 @@
           "break"
           {
             type = "custom";
-            format = "\u001b[90m┌──────────────────────Hardware──────────────────────┐";
+            format = builtins.fromJSON ''"\u001b[90m┌───────────────────────────Hardware───────────────────────────┐"'';
           }
           {
             type = "host";
@@ -45,12 +50,12 @@
           }
           {
             type = "custom";
-            format = "\u001b[90m└────────────────────────────────────────────────────┘";
+            format = builtins.fromJSON ''"\u001b[90m└──────────────────────────────────────────────────────────────┘"'';
           }
           "break"
           {
             type = "custom";
-            format = "\u001b[90m┌──────────────────────Software──────────────────────┐";
+            format = builtins.fromJSON ''"\u001b[90m┌───────────────────────────Software───────────────────────────┐"'';
           }
           {
             type = "os";
@@ -105,12 +110,12 @@
           }
           {
             type = "custom";
-            format = "\u001b[90m└────────────────────────────────────────────────────┘";
+            format = builtins.fromJSON ''"\u001b[90m└──────────────────────────────────────────────────────────────┘"'';
           }
           "break"
           {
             type = "custom";
-            format = "\u001b[90m┌────────────────────Uptime / Age / DT────────────────────┐";
+            format = builtins.fromJSON ''"\u001b[90m┌──────────────────────Uptime / Age / DT───────────────────────┐"'';
           }
           {
             type = "command";
@@ -130,7 +135,7 @@
           }
           {
             type = "custom";
-            format = "\u001b[90m└─────────────────────────────────────────────────────────┘";
+            format = builtins.fromJSON ''"\u001b[90m└──────────────────────────────────────────────────────────────┘"'';
           }
           {
             type = "colors";
