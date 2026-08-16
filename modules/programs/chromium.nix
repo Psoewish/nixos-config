@@ -1,17 +1,15 @@
 {
   flake.modules.nixos.chromium = {pkgs, ...}: {
-    nixpkgs.overlays = [
-      (final: prev: {
-        chromium = prev.chromium.override {
-          commandLineArgs = [
-            "--enable-features=VerticalTabs"
-            "--show-avatar-button=never"
-          ];
-        };
-      })
+    environment.systemPackages = [
+      pkgs.chromium.override
+      {
+        commandLineArgs = [
+          "--enable-features=VerticalTabs"
+          "--show-avatar-button=never"
+        ];
+      }
     ];
 
-    environment.systemPackages = [pkgs.chromium];
     programs.chromium = {
       enable = true;
       defaultSearchProviderEnabled = true;
