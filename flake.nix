@@ -10,7 +10,6 @@
       url = "github:oddlama/agenix-rekey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,9 +59,5 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     systems.url = "github:nix-systems/default";
-    yazelix = {
-      url = "github:yazelix/nova/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 }

@@ -7,8 +7,6 @@
       helix
       fish
       ghostty
-      # theme
-      catppuccin
 
       docker
 
