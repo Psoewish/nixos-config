@@ -3,7 +3,7 @@
     imports = [inputs.streamcontroller.nixosModules.default];
     nixpkgs.overlays = [inputs.streamcontroller.overlays.default];
     home-manager.sharedModules = with inputs; [
-      streamcontroller.homeManagerModules.default
+      streamcontroller.homeModules.default
       self.modules.homeManager.streamcontroller
     ];
 
