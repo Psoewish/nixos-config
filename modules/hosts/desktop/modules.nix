@@ -21,8 +21,6 @@
 
       # terminal stuff
       fish
-      ghostty
-      wezterm
       nix-direnv
       nixos-cli
       fastfetch
@@ -31,8 +29,7 @@
       discord
       pear-desktop
       gaming
-      helium
-      firefox
+      chromium
       qutebrowser
       obs
 
