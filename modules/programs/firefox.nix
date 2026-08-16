@@ -34,22 +34,28 @@
         extensions = {
           force = true;
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            augmented-steam
-            bitwarden
+            # basically mandatory core extensions
             clearurls
-            frankerfacez
-            indie-wiki-buddy
             istilldontcareaboutcookies
-            lovely-forks
-            no-pdf-download
             privacy-badger
-            pronoundb
-            protondb-for-steam
-            refined-github
-            return-youtube-dislikes
-            sonarr-radarr-lidarr-search
+            adblocker-ultimate
+            indie-wiki-buddy
+
+            # Better Youtube/Twitch
             sponsorblock
-            unpaywall
+            betterttv
+            return-youtube-dislikes
+            pronoundb
+
+            # Misc QoL
+            augmented-steam
+            protondb-for-steam
+            sonarr-radarr-lidarr-search
+            refined-github
+            lovely-forks
+
+            # Password manager
+            bitwarden
           ];
         };
       };
