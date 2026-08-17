@@ -9,7 +9,6 @@
       vial
       streamcontroller
       input-remapper
-      openlinkhub
 
       # dev
       virtualisation
