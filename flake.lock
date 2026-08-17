@@ -385,27 +385,6 @@
     },
     "flake-parts_6": {
       "inputs": {
-        "nixpkgs-lib": [
-          "nur",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1733312601,
-        "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake-parts_7": {
-      "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_3"
       },
       "locked": {
@@ -422,7 +401,7 @@
         "type": "github"
       }
     },
-    "flake-parts_8": {
+    "flake-parts_7": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_4"
       },
@@ -440,7 +419,7 @@
         "type": "github"
       }
     },
-    "flake-parts_9": {
+    "flake-parts_8": {
       "inputs": {
         "nixpkgs-lib": [
           "stylix",
@@ -556,26 +535,6 @@
         "ref": "50.1",
         "repo": "gnome-shell",
         "type": "gitlab"
-      }
-    },
-    "helium": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786868845,
-        "narHash": "sha256-ktzKyht1QFdcJFu4rOFO5N4XLf2WjZn5v2wbk0LxBCo=",
-        "owner": "oxcl",
-        "repo": "nix-flake-helium-browser",
-        "rev": "5add9c88c877d1bf3bdcaf51688f75249cba27c5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxcl",
-        "repo": "nix-flake-helium-browser",
-        "type": "github"
       }
     },
     "home-manager": {
@@ -828,27 +787,6 @@
     },
     "nur": {
       "inputs": {
-        "flake-parts": "flake-parts_6",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786877282,
-        "narHash": "sha256-gpxdQKtmppwQ+byQfI8Ey+CVa4crGwbZnbax4KVyULk=",
-        "owner": "nix-community",
-        "repo": "nur",
-        "rev": "d8b88bb2788be3f42482dfa9f5dd328ad4583ae4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nur",
-        "type": "github"
-      }
-    },
-    "nur_2": {
-      "inputs": {
         "flake-parts": [
           "stylix",
           "flake-parts"
@@ -869,26 +807,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "NUR",
-        "type": "github"
-      }
-    },
-    "openlinkhub": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1784296324,
-        "narHash": "sha256-uTgPHj9oYySACwVP2/YwIqyYUqqyKQ8SIAaz+mhN8wM=",
-        "owner": "skelettor",
-        "repo": "nix-openlinkhub",
-        "rev": "afe2ae94fcadfd8b1839a384574c2bb3812c1d52",
-        "type": "github"
-      },
-      "original": {
-        "owner": "skelettor",
-        "repo": "nix-openlinkhub",
         "type": "github"
       }
     },
@@ -966,7 +884,6 @@
         "agenix-rekey": "agenix-rekey",
         "direnv-instant": "direnv-instant",
         "flake-parts": "flake-parts_3",
-        "helium": "helium",
         "home-manager": "home-manager_2",
         "import-tree": "import-tree",
         "nix-flatpak": "nix-flatpak",
@@ -974,8 +891,6 @@
         "nixos-cli": "nixos-cli",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
-        "nur": "nur",
-        "openlinkhub": "openlinkhub",
         "pear-desktop": "pear-desktop",
         "streamcontroller": "streamcontroller",
         "stylix": "stylix",
@@ -1005,7 +920,7 @@
     },
     "std": {
       "inputs": {
-        "flake-parts": "flake-parts_8",
+        "flake-parts": "flake-parts_7",
         "git-hooks": [
           "streamcontroller",
           "git-hooks"
@@ -1032,7 +947,7 @@
     },
     "streamcontroller": {
       "inputs": {
-        "flake-parts": "flake-parts_7",
+        "flake-parts": "flake-parts_6",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager_3",
         "nixpkgs": [
@@ -1061,12 +976,12 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "firefox-gnome-theme": "firefox-gnome-theme",
-        "flake-parts": "flake-parts_9",
+        "flake-parts": "flake-parts_8",
         "gnome-shell": "gnome-shell",
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nur": "nur_2",
+        "nur": "nur",
         "systems": "systems_3",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
