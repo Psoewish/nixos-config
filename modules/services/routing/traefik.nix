@@ -1,4 +1,4 @@
-{
+toplevel@{config,...}:{
   flake.modules.nixos.traefik = {
     config,
     lib,
@@ -73,16 +73,16 @@
           lib.mapAttrs (name: route: {
             inherit (route) service;
             rule = lib.concatStringsSep " || " (
-              map (sd: "Host(`${sd}.${config.global.domain}`)") ([route.service] ++ route.aliases)
+              map (sd: "Host(`${sd}.${toplevel.config.global.domain}`)") ([route.service] ++ route.aliases)
             );
             entryPoints = ["websecure"];
           })
-          config.routes;
+          toplevel.config.routes;
         services =
           lib.mapAttrs (name: route: {
             loadBalancer.servers = [{url = "http://localhost:${toString route.port}";}];
           })
-          config.routes;
+          toplevel.config.routes;
 
         middlewares = {
           secure-headers.headers = {

@@ -1,9 +1,5 @@
-{
-  flake.modules.nixos.virtualisation = {
-    pkgs,
-    config,
-    ...
-  }: {
+toplevel @ {config, ...}: {
+  flake.modules.nixos.virtualisation = {pkgs, ...}: {
     virtualisation = {
       libvirtd = {
         enable = true;
@@ -13,8 +9,8 @@
     };
 
     users.groups = {
-      libvirtd.members = [config.global.primaryUser];
-      kvm.members = [config.global.primaryUser];
+      libvirtd.members = [toplevel.config.global.primaryUser];
+      kvm.members = [toplevel.config.global.primaryUser];
     };
 
     environment.systemPackages = with pkgs; [

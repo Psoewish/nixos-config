@@ -1,5 +1,5 @@
 {lib, ...}: {
-  options.flake.hosts = lib.mkOption {
+  options.hosts = lib.mkOption {
     type = lib.types.attrsOf (lib.types.attrsOf (lib.types.submoduleWith {
       modules = [
         ({

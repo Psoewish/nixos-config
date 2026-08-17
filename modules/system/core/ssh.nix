@@ -1,9 +1,5 @@
-{
-  flake.modules.nixos.core = {
-    lib,
-    config,
-    ...
-  }: {
+toplevel @ {config, ...}: {
+  flake.modules.nixos.core = {lib, ...}: {
     services = {
       openssh = {
         enable = true;
@@ -20,11 +16,11 @@
         Host ${host.hostname}
           Hostname ${host.staticIp}
           Port 22
-          User ${config.global.primaryUser}
+          User ${toplevel.config.global.primaryUser}
       '')
-      config.hosts);
+      (lib.foldl' (acc: classHosts: acc // classHosts) {} (lib.attrValues toplevel.config.hosts)));
 
-    users.users.${config.global.primaryUser}.openssh.authorizedKeys.keys = [
+    users.users.${toplevel.config.global.primaryUser}.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh/C3Qmm+9EoNeiLUNsmpvqzGjNF6n0xNUpksIm3xUK psoewish"
     ];
   };

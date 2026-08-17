@@ -1,5 +1,5 @@
 {lib, ...}: {
-  options.flake.routes = lib.mkOption {
+  options.routes = lib.mkOption {
     type = lib.types.attrsOf (lib.types.submoduleWith {
       modules = [
         (

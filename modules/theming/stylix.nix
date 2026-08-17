@@ -2,7 +2,7 @@ toplevel @ {config, ...}: {
   flake.modules.generic.stylix = {pkgs, ...}: {
     stylix = {
       enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${toplevel.config.flake.global.theme}.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${toplevel.config.global.theme}.yaml";
 
       cursor = {
         package = pkgs.bibata-cursors;

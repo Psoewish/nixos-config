@@ -1,5 +1,5 @@
-{
-  flake.hosts.nixos.homelab = {
+toplevel @ {config, ...}: {
+  hosts.nixos.homelab = {
     system = "x86_64-linux";
     stateVersion = "26.05";
     staticIp = "192.168.1.100";
@@ -19,10 +19,10 @@
     pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOAKGYMNaCK17QYNwe4PUJ+6INU303baKyMqzYnpMS5R";
   };
 
-  flake.modules.nixos.homelab = {config, ...}: {
+  flake.modules.nixos.homelab = {
     networking.interfaces.enp94s0.ipv4.addresses = [
       {
-        address = config.hosts.homelab.staticIp;
+        address = toplevel.config.hosts.nixos.homelab.staticIp;
         prefixLength = 24;
       }
     ];

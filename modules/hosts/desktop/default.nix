@@ -1,5 +1,5 @@
-{
-  flake.hosts.nixos.desktop = {
+toplevel @ {config, ...}: {
+  hosts.nixos.desktop = {
     system = "x86_64-linux";
     stateVersion = "26.05";
     staticIp = "192.168.1.16";
@@ -16,11 +16,7 @@
     pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0Ab3o9NKMJT15F3bpwMReI2dIEUxOb0qI2PNMVx8Mg";
   };
 
-  flake.modules.nixos.desktop = {
-    pkgs,
-    config,
-    ...
-  }: {
+  flake.modules.nixos.desktop = {pkgs, ...}: {
     boot.kernelPackages = pkgs.linuxPackages_zen;
     services.scx = {
       enable = true;
@@ -30,7 +26,7 @@
 
     networking.interfaces.enp9s0.ipv4.addresses = [
       {
-        address = config.hosts.desktop.staticIp;
+        address = toplevel.config.hosts.nixos.desktop.staticIp;
         prefixLength = 24;
       }
     ];

@@ -1,5 +1,5 @@
-{
-  flake.modules.nixos.blocky = {config, ...}: {
+toplevel@{config,...}:{
+  flake.modules.nixos.blocky = {
     services.blocky = {
       enable = true;
       settings = {
@@ -17,7 +17,7 @@
           refreshPeriod = "4h";
         };
 
-        customDNS.mapping.${config.global.domain} = config.hosts.homelab.staticIp;
+        customDNS.mapping.${toplevel.config.global.domain} = toplevel.config.hosts.nixos.homelab.staticIp;
       };
     };
   };

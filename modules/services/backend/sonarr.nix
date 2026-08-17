@@ -8,7 +8,7 @@
     };
   };
 
-  flake.routes.sonarr = {
+  routes.sonarr = {
     port = 8989;
   };
 }

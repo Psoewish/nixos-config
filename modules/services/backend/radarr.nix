@@ -8,7 +8,7 @@
     };
   };
 
-  flake.routes.radarr = {
+  routes.radarr = {
     port = 7878;
   };
 }

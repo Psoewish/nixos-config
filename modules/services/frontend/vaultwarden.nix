@@ -1,4 +1,4 @@
-{
+toplevel@{config,...}:{
   flake.modules.nixos.vaultwarden = {config, ...}: {
     services.vaultwarden = {
       enable = true;
@@ -6,7 +6,7 @@
         config.age.secrets.vaultwarden_admin_token.path
         config.age.secrets.vaultwarden_smtp_password.path
       ];
-      domain = "vaultwarden.${config.global.domain}";
+      domain = "vaultwarden.${toplevel.config.global.domain}";
       config = {
         USE_SYSLOG = "true";
         EXTENDED_LOGGING = "true";
@@ -23,7 +23,7 @@
     };
   };
 
-  flake.routes.vaultwarden = {
+  routes.vaultwarden = {
     aliases = ["vault"];
     port = 8222;
     public = true;

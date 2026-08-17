@@ -1,4 +1,8 @@
-{inputs, ...}: {
+toplevel @ {
+  inputs,
+  config,
+  ...
+}: {
   imports = [(inputs.agenix-rekey.flakeModule or {})];
 
   flake.modules.nixos.core = {
@@ -15,7 +19,7 @@
     age.rekey = {
       masterIdentities = ["/home/psoewish/.ssh/id_ed25519"];
       storageMode = "derivation";
-      hostPubkey = config.hosts.${config.networking.hostName}.pubKey;
+      hostPubkey = toplevel.config.hosts.nixos.${config.networking.hostName}.pubKey;
     };
   };
 }

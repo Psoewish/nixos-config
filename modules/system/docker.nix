@@ -1,5 +1,5 @@
-{
-  flake.modules.nixos.docker = {config, ...}: {
+toplevel @ {config, ...}: {
+  flake.modules.nixos.docker = {
     virtualisation = {
       docker = {
         enable = true;
@@ -12,6 +12,6 @@
 
       oci-containers.backend = "docker";
     };
-    users.groups.docker.members = [config.global.primaryUser];
+    users.groups.docker.members = [toplevel.config.global.primaryUser];
   };
 }

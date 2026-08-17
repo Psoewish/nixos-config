@@ -1,9 +1,5 @@
-{
-  flake.modules.homeManager.qutebrowser = {
-    lib,
-    osConfig,
-    ...
-  }: {
+toplevel @ {config, ...}: {
+  flake.modules.homeManager.qutebrowser = {lib, ...}: {
     programs.qutebrowser = {
       quickmarks =
         {
@@ -15,7 +11,7 @@
           gw2wiki = "https://wiki.guildwars2.com";
           steam = "https://steampowered.com";
         }
-        // lib.genAttrs (builtins.attrNames osConfig.routes) (service: "https://${service}.${osConfig.global.domain}");
+        // lib.genAttrs (builtins.attrNames toplevel.config.routes) (service: "https://${service}.${toplevel.config.global.domain}");
     };
   };
 }

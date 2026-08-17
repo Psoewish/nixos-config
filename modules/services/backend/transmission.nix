@@ -11,7 +11,7 @@
     };
   };
 
-  flake.routes.transmission = {
+  routes.transmission = {
     port = 9091;
   };
 }

@@ -1,5 +1,5 @@
 {
-  config.flake.global = rec {
+  config.global = rec {
     theme = "soft-server";
     primaryUser = "psoewish";
     personal = {

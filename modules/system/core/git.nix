@@ -1,11 +1,11 @@
-{
+toplevel @ {config,...}:{
   flake.modules.homeManager.core = {
     programs = {
       git = {
         enable = true;
         settings.user = {
           name = "psoewish";
-          email = "personal@psoewish.com";
+          email = "${toplevel.config.global.personal.email}";
         };
       };
       gh = {

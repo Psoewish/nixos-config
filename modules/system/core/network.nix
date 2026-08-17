@@ -1,5 +1,5 @@
-{
-  flake.modules.nixos.core = {config, ...}: {
+toplevel @ {config, ...}: {
+  flake.modules.nixos.core = {
     networking = {
       networkmanager = {
         enable = true;
@@ -9,7 +9,7 @@
       dhcpcd.enable = false;
       nftables.enable = true;
       nameservers = [
-        config.hosts.homelab.staticIp
+        toplevel.config.hosts.nixos.homelab.staticIp
         "9.9.9.9"
       ];
       defaultGateway = "192.168.1.1";

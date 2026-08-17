@@ -6,7 +6,7 @@
     };
   };
 
-  flake.routes.prowlarr = {
+  routes.prowlarr = {
     port = 9696;
   };
 }

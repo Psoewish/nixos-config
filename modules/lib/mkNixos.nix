@@ -4,15 +4,10 @@
   config,
   ...
 }: {
-  config.flake.nixosConfigurations = lib.mapAttrs (hostname: hostData:
+  flake.nixosConfigurations = lib.mapAttrs (hostname: hostData:
     inputs.nixpkgs.lib.nixosSystem {
       system = hostData.system; # For legacy support
-      specialArgs = {
-        inherit inputs;
-        hosts = lib.foldl' (acc: classHosts: acc // classHosts) {} (lib.attrValues config.flake.hosts);
-        global = config.flake.global;
-        routes = config.flake.routes;
-      };
+      specialArgs = {inherit inputs;};
       modules =
         [
           {
@@ -52,5 +47,5 @@
           config.flake.modules.nixos.${hostname}
         ];
     })
-  config.flake.hosts.nixos;
+  config.hosts.nixos;
 }

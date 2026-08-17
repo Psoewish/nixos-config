@@ -1,4 +1,4 @@
-{
+toplevel @ {config, ...}: {
   flake.modules.nixos.sabnzbd = {config, ...}: {
     services.sabnzbd = {
       enable = true;
@@ -9,7 +9,7 @@
         misc = {
           download_dir = "/data/downloads/usenet/incomplete";
           complete_dir = "/data/downloads/usenet/complete";
-          host_whitelist = ["localhost" "${config.routes.sabnzbd.service}.${config.global.domain}"];
+          host_whitelist = ["localhost" "${toplevel.config.routes.sabnzbd.service}.${toplevel.config.global.domain}"];
         };
         categories = {
           movies.name = "movies";
@@ -20,11 +20,10 @@
           manual.name = "manual";
         };
       };
-      # configFile = "/var/lib/sabnzbd/sabnzbd.ini"; # Add full settings later
     };
   };
 
-  flake.routes.sabnzbd = {
+  routes.sabnzbd = {
     port = 8080;
   };
 }
