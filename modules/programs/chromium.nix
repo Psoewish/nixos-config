@@ -1,13 +1,13 @@
 {
   flake.modules.nixos.chromium = {pkgs, ...}: {
     environment.systemPackages = [
-      pkgs.chromium.override
-      {
-        commandLineArgs = [
-          "--enable-features=VerticalTabs"
-          "--show-avatar-button=never"
-        ];
-      }
+      (pkgs.chromium.override
+        {
+          commandLineArgs = [
+            "--enable-features=VerticalTabs"
+            "--show-avatar-button=never"
+          ];
+        })
     ];
 
     programs.chromium = {
