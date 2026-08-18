@@ -4,8 +4,10 @@
       (pkgs.chromium.override
         {
           commandLineArgs = [
-            "--enable-features=VerticalTabs"
             "--show-avatar-button=never"
+            "--enable-features=VerticalTabs,AcceleratedVideoEncoder"
+            "--ignore-gpu-blocklist"
+            "--enable-zero-copy"
           ];
         })
     ];
@@ -23,7 +25,7 @@
         MetricsReportingEnabled = false;
         AutofillAddressEnabled = false;
         AutofillCreditCardEnabled = false;
-        RestoreOnStartup = true;
+        RestoreOnStartup = 1;
       };
 
       # First-run preferences
