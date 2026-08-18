@@ -1,5 +1,5 @@
 toplevel @ {config, ...}: {
-  flake.modules.nixos.network = {
+  flake.modules.nixos.homelab = {
     networking = {
       interfaces.enp94s0.ipv4.addresses = [
         {
