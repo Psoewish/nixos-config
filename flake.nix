@@ -1,12 +1,6 @@
 {
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree [
-      ./devShells
-      ./hosts
-      ./lib
-      ./modules
-      ./wiring
-    ]);
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree.filterNot (inputs.nixpkgs.lib.hasInfix "flake.nix") ./.);
 
   inputs = {
     agenix = {
