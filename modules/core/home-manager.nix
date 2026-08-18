@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.core = {
+  flake.modules.nixos.home-manager = {
     inputs,
     lib,
     pkgs,
@@ -11,7 +11,6 @@
       useUserPackages = true;
       backupCommand = "${lib.getExe pkgs.trash-cli}";
       extraSpecialArgs = {inherit inputs;};
-      sharedModules = [inputs.self.modules.homeManager.core];
     };
   };
 }

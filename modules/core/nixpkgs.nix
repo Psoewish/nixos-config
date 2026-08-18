@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.core = {
+  flake.modules.nixos.nixpkgs = {
     nixpkgs.config.allowUnfree = true;
     nix = {
       gc = {

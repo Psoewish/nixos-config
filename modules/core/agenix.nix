@@ -5,7 +5,7 @@ toplevel @ {
 }: {
   imports = [(inputs.agenix-rekey.flakeModule or {})];
 
-  flake.modules.nixos.core = {
+  flake.modules.nixos.agenix = {
     inputs,
     config,
     ...

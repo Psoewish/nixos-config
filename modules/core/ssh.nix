@@ -1,5 +1,5 @@
 toplevel @ {config, ...}: {
-  flake.modules.nixos.core = {lib, ...}: {
+  flake.modules.nixos.ssh = {lib, ...}: {
     services = {
       openssh = {
         enable = true;

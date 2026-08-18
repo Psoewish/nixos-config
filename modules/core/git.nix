@@ -1,5 +1,13 @@
-toplevel @ {config,...}:{
-  flake.modules.homeManager.core = {
+toplevel @ {
+  config,
+  inputs,
+  ...
+}: {
+  flake.modules.nixos.git = {
+    home-manager.sharedModules = [inputs.self.modules.homeManager.git];
+  };
+
+  flake.modules.homeManager.git = {
     programs = {
       git = {
         enable = true;

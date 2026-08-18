@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.core = {
+  flake.modules.nixos.settings = {
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"

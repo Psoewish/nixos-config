@@ -24,7 +24,7 @@
     ];
   };
 
-  flake.modules.homeManager.core = {pkgs, ...}: {
+  flake.modules.homeManager.cli-tools = {pkgs, ...}: {
     programs = {
       bat = {
         enable = true;
