@@ -1,5 +1,9 @@
-{
-  flake.modules.nixos.nixpkgs = {
+{inputs, ...}: {
+  imports = [(inputs.flake-parts.flakeModules.modules or {})];
+
+  systems = import inputs.systems;
+
+  flake.modules.nixos.nix-settings = {
     nixpkgs.config.allowUnfree = true;
     nix = {
       gc = {
@@ -11,6 +15,10 @@
       settings = {
         auto-optimise-store = true;
         substituters = ["https://aseipp-nix-cache.global.ssl.fastly.net"];
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
       };
     };
   };

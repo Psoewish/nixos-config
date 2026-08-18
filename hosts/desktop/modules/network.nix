@@ -1,6 +1,12 @@
 toplevel @ {config, ...}: {
   flake.modules.nixos.network = {
     networking = {
+      interfaces.enp9s0.ipv4.addresses = [
+        {
+          address = toplevel.config.hosts.nixos.desktop.staticIp;
+          prefixLength = 24;
+        }
+      ];
       networkmanager = {
         enable = true;
         dns = "none";

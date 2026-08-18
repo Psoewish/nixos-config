@@ -1,4 +1,4 @@
-toplevel @ {config, ...}: {
+{
   hosts.nixos.homelab = {
     system = "x86_64-linux";
     stateVersion = "26.05";
@@ -20,21 +20,6 @@ toplevel @ {config, ...}: {
   };
 
   flake.modules.nixos.homelab = {
-    networking.interfaces.enp94s0.ipv4.addresses = [
-      {
-        address = toplevel.config.hosts.nixos.homelab.staticIp;
-        prefixLength = 24;
-      }
-    ];
-    networking.firewall = {
-      allowedTCPPorts = [
-        53
-        80
-        443
-      ];
-      allowedUDPPorts = [53];
-    };
-
     systemd.tmpfiles.settings.updateMedia = {
       "/data/media".Z = {
         user = "media";

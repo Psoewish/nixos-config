@@ -1,10 +1,6 @@
 {
   flake.modules.nixos.desktop = {inputs, ...}: {
     imports = with inputs.self.modules.nixos; [
-      # hardware
-      amdcpu
-      amdgpu
-
       # input devices
       vial
       streamcontroller
@@ -23,6 +19,8 @@
       nix-direnv
       nixos-cli
       fastfetch
+      cli-tools
+      git
 
       # applications
       discord

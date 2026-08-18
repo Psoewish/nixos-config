@@ -5,6 +5,7 @@
       ./hosts
       ./lib
       ./modules
+      ./wiring
     ]);
 
   inputs = {

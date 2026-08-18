@@ -1,18 +1,10 @@
 {
   flake.modules.nixos.core = {inputs, ...}: {
     imports = with inputs.self.modules.nixos; [
-      agenix
-      boot
-      cli-tools
-      flatpak
-      git
+      nix-settings
       home-manager
-      locale
-      network
-      nix-ld
-      nixpkgs
-      settings
-      ssh
+      agenix
+      flatpak
     ];
   };
 }
