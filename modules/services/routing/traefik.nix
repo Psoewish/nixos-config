@@ -73,16 +73,17 @@ toplevel@{config,...}:{
           lib.mapAttrs (name: route: {
             inherit (route) service;
             rule = lib.concatStringsSep " || " (
-              map (sd: "Host(`${sd}.${toplevel.config.global.domain}`)") ([route.service] ++ route.aliases)
+              map (sd: "Host(`${sd}.${toplevel.config.routing.domain}`)") ([route.service] ++ route.aliases)
             );
             entryPoints = ["websecure"];
           })
-          toplevel.config.routes;
+          toplevel.config.routing.services;
+
         services =
           lib.mapAttrs (name: route: {
             loadBalancer.servers = [{url = "http://localhost:${toString route.port}";}];
           })
-          toplevel.config.routes;
+          toplevel.config.routing.services;
 
         middlewares = {
           secure-headers.headers = {

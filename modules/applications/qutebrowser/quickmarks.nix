@@ -11,7 +11,7 @@ toplevel @ {config, ...}: {
           gw2wiki = "https://wiki.guildwars2.com";
           steam = "https://steampowered.com";
         }
-        // lib.genAttrs (builtins.attrNames toplevel.config.routes) (service: "https://${service}.${toplevel.config.global.domain}");
+        // lib.genAttrs (builtins.attrNames toplevel.config.routing.services) (service: "https://${service}.${toplevel.config.routing.domain}");
     };
   };
 }

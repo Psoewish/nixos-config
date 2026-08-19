@@ -7,7 +7,7 @@ toplevel@{config,...}:{
       environment = {
         PUID = toString toplevel.config.hosts.nixos.homelab.users.media.id;
         PGID = toString toplevel.config.hosts.nixos.homelab.users.media.id;
-        ORIGIN = "https://${toplevel.config.routes.profilarr.service}.${toplevel.config.global.domain}";
+        ORIGIN = "https://${toplevel.config.routing.services.profilarr.service}.${toplevel.config.routing.domain}";
         AUTH = "off";
         TZ = config.time.timeZone;
       };
@@ -18,7 +18,7 @@ toplevel@{config,...}:{
     };
   };
 
-  routes.profilarr = {
+  routing.services.profilarr = {
     port = 6868;
   };
 }

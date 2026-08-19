@@ -6,7 +6,7 @@
     };
   };
 
-  routes.prowlarr = {
+  routing.services.prowlarr = {
     port = 9696;
   };
 }

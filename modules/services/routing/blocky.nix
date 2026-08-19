@@ -17,7 +17,7 @@ toplevel@{config,...}:{
           refreshPeriod = "4h";
         };
 
-        customDNS.mapping.${toplevel.config.global.domain} = toplevel.config.hosts.nixos.homelab.staticIp;
+        customDNS.mapping.${toplevel.config.routing.domain} = toplevel.config.hosts.nixos.homelab.staticIp;
       };
     };
   };

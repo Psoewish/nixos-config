@@ -8,7 +8,7 @@
     };
   };
 
-  routes.sonarr = {
+  routing.services.sonarr = {
     port = 8989;
   };
 }

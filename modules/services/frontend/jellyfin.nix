@@ -7,7 +7,7 @@
     };
   };
 
-  routes.jellyfin = {
+  routing.services.jellyfin = {
     port = 8096;
     public = true;
   };

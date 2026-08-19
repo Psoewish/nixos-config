@@ -11,7 +11,7 @@
     };
   };
 
-  routes.transmission = {
+  routing.services.transmission = {
     port = 9091;
   };
 }

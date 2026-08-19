@@ -6,7 +6,7 @@
     };
   };
 
-  routes.seerr = {
+  routing.services.seerr = {
     aliases = ["jellyseerr"];
     port = 5055;
     public = true;

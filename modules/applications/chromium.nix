@@ -15,7 +15,7 @@
     programs.chromium = {
       enable = true;
       defaultSearchProviderEnabled = true;
-      defaultSearchProviderSearchURL = "https://qwant.com/?l=en&q={searchTerms}";
+      defaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
 
       # Policies
       extraOpts = {

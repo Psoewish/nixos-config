@@ -5,7 +5,7 @@
     };
   };
 
-  routes.nzbhydra2 = {
+  routing.services.nzbhydra2 = {
     aliases = ["nzbhydra"];
     port = 5076;
   };

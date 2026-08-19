@@ -6,7 +6,7 @@ toplevel@{config,...}:{
   }: {
     services.cloudflared = {
       enable = true;
-      tunnels."${toplevel.config.global.cloudflared.tunnelId}" = {
+      tunnels."${toplevel.config.routing.tunnelId}" = {
         credentialsFile = config.age.secrets.cloudflared_credentials.path;
         default = "http_status:404";
         originRequest.noTLSVerify = true;
@@ -15,7 +15,7 @@ toplevel@{config,...}:{
             name: route:
               if route.public
               then
-                lib.genAttrs (map (sd: "${sd}.${toplevel.config.global.domain}") ([route.service] ++ route.aliases))
+                lib.genAttrs (map (sd: "${sd}.${toplevel.config.routing.domain}") ([route.service] ++ route.aliases))
                 (
                   hostname: {
                     service = "https://localhost:443";
@@ -24,7 +24,7 @@ toplevel@{config,...}:{
                 )
               else {}
           )
-          toplevel.config.routes
+          toplevel.config.routing.services
         );
       };
     };

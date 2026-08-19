@@ -8,7 +8,7 @@
     };
   };
 
-  routes.radarr = {
+  routing.services.radarr = {
     port = 7878;
   };
 }

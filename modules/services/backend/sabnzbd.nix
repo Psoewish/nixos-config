@@ -9,7 +9,7 @@ toplevel @ {config, ...}: {
         misc = {
           download_dir = "/data/downloads/usenet/incomplete";
           complete_dir = "/data/downloads/usenet/complete";
-          host_whitelist = ["localhost" "${toplevel.config.routes.sabnzbd.service}.${toplevel.config.global.domain}"];
+          host_whitelist = ["localhost" "${toplevel.config.routing.services.sabnzbd.service}.${toplevel.config.routing.domain}"];
         };
         categories = {
           movies.name = "movies";
@@ -23,7 +23,7 @@ toplevel @ {config, ...}: {
     };
   };
 
-  routes.sabnzbd = {
+  routing.services.sabnzbd = {
     port = 8080;
   };
 }

@@ -4,7 +4,18 @@
   systems = import inputs.systems;
 
   flake.modules.nixos.nix-settings = {
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs = {
+      config.allowUnfree = true;
+      overlays = [
+        (final: prev: {
+          stable = import inputs.nixpkgs-stable {
+            system = final.system;
+            config.allowUnfree = true;
+          };
+        })
+      ];
+    };
+
     nix = {
       gc = {
         automatic = true;

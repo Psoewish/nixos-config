@@ -6,7 +6,7 @@ toplevel@{config,...}:{
         config.age.secrets.vaultwarden_admin_token.path
         config.age.secrets.vaultwarden_smtp_password.path
       ];
-      domain = "vaultwarden.${toplevel.config.global.domain}";
+      domain = "vaultwarden.${toplevel.config.routing.domain}";
       config = {
         USE_SYSLOG = "true";
         EXTENDED_LOGGING = "true";
@@ -17,13 +17,13 @@ toplevel@{config,...}:{
         SMTP_HOST = "smtp.fastmail.com";
         SMTP_PORT = "587";
         SMTP_USERNAME = "psoewish@fastmail.com";
-        SMTP_FROM = "vault@psoewish.com";
+        SMTP_FROM = "vault@${toplevel.config.routing.domain}";
         SMTP_FROM_NAME = "Psoewish's Vaultwarden Service";
       };
     };
   };
 
-  routes.vaultwarden = {
+  routing.services.vaultwarden = {
     aliases = ["vault"];
     port = 8222;
     public = true;
