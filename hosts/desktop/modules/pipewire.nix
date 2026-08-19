@@ -1,9 +1,18 @@
 {
-  flake.modules.nixos.desktop = {pkgs, ...}: let
+  flake.modules.nixos.desktop = {
+    inputs,
+    pkgs,
+    ...
+  }: let
     stateFile = "/home/psoewish/.audio-device-state";
     speakers = "alsa_output.pci-0000_03_00.1.hdmi-stereo";
     headphones = "alsa_output.usb-Logitech_PRO_X_2_LIGHTSPEED_0000000000000000-00.analog-stereo";
   in {
+    imports = [inputs.pipetron.nixosModules.default];
+    services.pipetron = {
+      enable = true;
+      daemon = "audio";
+    };
     security.rtkit.enable = true;
     services = {
       pipewire = {

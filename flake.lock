@@ -458,6 +458,24 @@
         "type": "github"
       }
     },
+    "flakelight": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1786971114,
+        "narHash": "sha256-0qYOspaP28PkE8m3zED/7xXL01QLzxMMszuV4rnHHdI=",
+        "owner": "nix-community",
+        "repo": "flakelight",
+        "rev": "57e75ff8032ad9aa997a1c082c18f32f30e0ee7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "flakelight",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -785,6 +803,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1786862985,
+        "narHash": "sha256-FBJRXmbGXiSUDvYEbfLYRkckayyZ6SK1UEqhCrIZ2Cs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e5bdc4a41d4c072fe1e3787eaa0320a384741d44",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -855,6 +889,24 @@
         "type": "github"
       }
     },
+    "pipetron": {
+      "inputs": {
+        "flakelight": "flakelight",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787129645,
+        "narHash": "sha256-PZrANu0Dn80HKVjfe/A9dFhYRbF38O6tMcyxbpctTSA=",
+        "path": "/home/psoewish/Projects/pipetron",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/psoewish/Projects/pipetron",
+        "type": "path"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -892,6 +944,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "pear-desktop": "pear-desktop",
+        "pipetron": "pipetron",
         "streamcontroller": "streamcontroller",
         "stylix": "stylix",
         "systems": "systems_4"

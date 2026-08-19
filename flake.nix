@@ -3,6 +3,10 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree.filterNot (inputs.nixpkgs.lib.hasInfix "flake.nix") ./.);
 
   inputs = {
+    pipetron = {
+      url = "path:/home/psoewish/Projects/pipetron";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     agenix = {
       url = "github:yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
