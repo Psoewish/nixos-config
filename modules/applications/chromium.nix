@@ -1,12 +1,21 @@
 {
-  flake.modules.nixos.chromium = {pkgs, ...}: {
+  flake.modules.nixos.chromium = {
+    pkgs,
+    lib,
+    ...
+  }: {
     environment.systemPackages = [
       (pkgs.chromium.override
         {
           commandLineArgs = [
-            "--show-avatar-button=never"
-            "--enable-features=VerticalTabs,AcceleratedVideoEncoder"
+            "--enable-features=${lib.concatStringsSep "," [
+              "VerticalTabs"
+              "WebContentsForceDark"
+            ]}"
+            "--use-gl"
+            "--use-angle=vulkan"
             "--ignore-gpu-blocklist"
+            "--enable-gpu-rasterization"
             "--enable-zero-copy"
           ];
         })
@@ -31,7 +40,6 @@
       # First-run preferences
       initialPrefs = {
         vertical_tabs.enabled = true;
-        homepage = "https://qwant.com/?l=en";
         homepage_is_newtabpage = true;
       };
       extensions = [
