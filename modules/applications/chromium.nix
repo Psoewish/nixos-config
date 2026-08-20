@@ -42,6 +42,7 @@
         vertical_tabs.enabled = true;
         homepage_is_newtabpage = true;
       };
+
       extensions = [
         # basically mandatory core extensions
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
