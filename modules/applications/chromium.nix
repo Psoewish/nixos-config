@@ -7,16 +7,12 @@
     environment.systemPackages = [
       (pkgs.chromium.override
         {
+          enableWideVine = true;
           commandLineArgs = [
             "--enable-features=${lib.concatStringsSep "," [
               "VerticalTabs"
               "WebContentsForceDark"
             ]}"
-            "--use-gl"
-            "--use-angle=vulkan"
-            "--ignore-gpu-blocklist"
-            "--enable-gpu-rasterization"
-            "--enable-zero-copy"
           ];
         })
     ];
@@ -59,7 +55,7 @@
         "fadndhdgpmmaapbmfcknlfgcflmmmieb" # FrankerFaceZ
         "nblkbiljcjfemkfjnhoobnojjgjdmknf" # PronounDB
         "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock for Youtube
-        "naipgebhooiiccifflecbffmnjbabdbh" # HyperChat
+        "ajopnjidmegmdimjlfnijceegpefgped" # BetterTTV
 
         # Games
         "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
