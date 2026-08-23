@@ -1,5 +1,10 @@
 {
   flake.modules.nixos.desktop = {
+    services.btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = ["/"];
+    };
     fileSystems."/" = {
       device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
       fsType = "btrfs";
@@ -46,6 +51,21 @@
       ];
     };
 
-    swapDevices = [];
+    fileSystems."/swap" = {
+      device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
+      fsType = "btrfs";
+      options = [
+        "subvol=swap"
+        "noatime"
+      ];
+    };
+    swapDevices = [
+      {
+        device = "/swap/swapfile";
+        size = 8 * 1024;
+      }
+    ];
+    zramSwap.enable = true;
+    systemd.oomd.enable = true;
   };
 }
