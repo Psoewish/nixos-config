@@ -1,11 +1,16 @@
-toplevel @ {config, ...}: {
+toplevel @ {
+  config,
+  inputs,
+  ...
+}: {
   flake.modules.nixos.greeter = {config, ...}: {
-    services.displayManager = {
-      autoLogin = {
-        enable = true;
-        user = toplevel.config.hosts.nixos.${config.networking.hostName}.primaryUser;
+    imports = [inputs.noctalia-greeter.nixosModules.default];
+    programs.noctalia-greeter = {
+      enable = true;
+      settings = {
+        # session.default = "";
+        user.default = toplevel.config.hosts.nixos.${config.networking.hostName}.primaryUser;
       };
-      cosmic-greeter.enable = true;
     };
   };
 }
