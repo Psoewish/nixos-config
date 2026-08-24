@@ -43,6 +43,10 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    nur = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     pear-desktop = {
       url = "github:h-banii/pear-desktop-nix";
       inputs.nixpkgs.follows = "nixpkgs";

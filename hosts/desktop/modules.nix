@@ -26,8 +26,8 @@
       discord
       pear-desktop
       gaming
-      chromium
       qutebrowser
+      firefox
       obs
 
       # theme
