@@ -1,7 +1,6 @@
 {
   flake.modules.nixos.home-manager = {
     inputs,
-    lib,
     pkgs,
     ...
   }: {
@@ -9,7 +8,7 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      backupCommand = "${lib.getExe pkgs.trash-cli}";
+      backupCommand = "${pkgs.trash-cli}/bin/trash";
       extraSpecialArgs = {inherit inputs;};
     };
   };
