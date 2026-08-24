@@ -13,11 +13,12 @@
 
       # desktop session
       cosmic
+      # umbriel
+      # ghostty
 
       # terminal stuff
       fish
       nix-direnv
-      nixos-cli
       fastfetch
       cli-tools
       git
