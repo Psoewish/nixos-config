@@ -1,6 +1,11 @@
 {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
-    boot.kernelPackages = pkgs.linuxPackages_zen;
+  flake.modules.nixos.desktop = {
+    inputs,
+    pkgs,
+    ...
+  }: {
+    nixpkgs.overlays = [inputs.cachy-kernel.overlays.pinned];
+    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     services.scx = {
       enable = true;
       scheduler = "scx_lavd";
