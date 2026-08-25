@@ -59,7 +59,6 @@
             # Git
             refined-github
             lovely-forks
-            gitako-github-file-tree
           ];
         };
       };
