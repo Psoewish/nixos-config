@@ -5,12 +5,7 @@
     ...
   }: {
     nixpkgs.overlays = [inputs.cachy-kernel.overlays.pinned];
-    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-    services.scx = {
-      enable = true;
-      scheduler = "scx_lavd";
-      extraArgs = ["--performance"];
-    };
+    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
 
     boot.kernelParams = [
       "quiet"
