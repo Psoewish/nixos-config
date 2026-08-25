@@ -1,6 +1,6 @@
 {
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree.filterNot (inputs.nixpkgs.lib.hasInfix "flake.nix") ./.);
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} (import ./outputs.nix);
 
   inputs = {
     # Base stuff
