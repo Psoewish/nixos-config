@@ -1,8 +1,10 @@
 {
-  flake.modules.generic.psoewish = {pkgs, ...}: {
-    users.groups.psoewish = {};
-    users.users.psoewish = {
-      group = "psoewish";
+  flake.modules.generic.psoewish = {pkgs, ...}: let
+    username = "psoewish";
+  in {
+    users.groups.${username} = {};
+    users.users.${username} = {
+      group = "${username}";
       isNormalUser = true;
       extraGroups = [
         "wheel"
@@ -12,10 +14,10 @@
       shell = pkgs.fish;
     };
 
-    home-manager.users.psoewish = {
+    home-manager.users.${username} = {
       home = {
-        username = "psoewish";
-        homeDirectory = "/home/psoewish";
+        username = "${username}";
+        homeDirectory = "/home/${username}";
         stateVersion = "26.05";
       };
     };
