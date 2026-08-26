@@ -1,12 +1,28 @@
 {
-  flake.modules.nixos.helix = {inputs, ...}: {
-    home-manager.sharedModules = [inputs.self.modules.homeManager.helix];
-  };
-
-  flake.modules.homeManager.helix = {
-    programs.helix = {
-      enable = true;
-      defaultEditor = true;
-    };
+  flake.modules.nixos.helix = {pkgs, ...}: {
+    environment.systemPackages = with pkgs;
+      [helix]
+      ++ # Extra Packages
+      [
+        nixd
+        nixfmt
+        alejandra
+        fish-lsp
+        bash-language-server
+        vscode-langservers-extracted
+        csharp-ls
+        ruff
+        rust-analyzer
+        lldb
+        tombi
+        yaml-language-server
+        lua-language-server
+        typescript-language-server
+        marksman
+        markdown-oxide
+        harper
+        mpls
+        prettier
+      ];
   };
 }
