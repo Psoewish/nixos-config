@@ -28,7 +28,6 @@ in {
       virtualisation
       helix
       zed
-      cosmic
       fish
       nix-direnv
       fastfetch
@@ -41,5 +40,8 @@ in {
       firefox
       obs
       stylix
+
+      cosmic
+      # umbriel
     ]);
 }
