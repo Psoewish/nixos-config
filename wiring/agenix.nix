@@ -1,8 +1,4 @@
-toplevel @ {
-  inputs,
-  config,
-  ...
-}: {
+{inputs, ...}: {
   imports = [(inputs.agenix-rekey.flakeModule or {})];
 
   flake.modules.nixos.agenix = {
@@ -19,7 +15,10 @@ toplevel @ {
     age.rekey = {
       masterIdentities = ["/home/psoewish/.ssh/id_ed25519"];
       storageMode = "derivation";
-      hostPubkey = toplevel.config.hosts.nixos.${config.networking.hostName}.pubKey;
+      hostPubkey =
+        if config.networking.hostName == "desktop"
+        then "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0Ab3o9NKMJT15F3bpwMReI2dIEUxOb0qI2PNMVx8Mg"
+        else "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOAKGYMNaCK17QYNwe4PUJ+6INU303baKyMqzYnpMS5R";
     };
   };
 }

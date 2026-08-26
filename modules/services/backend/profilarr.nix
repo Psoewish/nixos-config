@@ -1,12 +1,12 @@
-toplevel@{config,...}:{
+toplevel @ {config, ...}: {
   flake.modules.nixos.profilarr = {config, ...}: {
     virtualisation.oci-containers.containers.profilarr = {
       hostname = "profilarr";
       image = "ghcr.io/dictionarry-hub/profilarr:latest";
       pull = "always";
       environment = {
-        PUID = toString toplevel.config.hosts.nixos.homelab.users.media.id;
-        PGID = toString toplevel.config.hosts.nixos.homelab.users.media.id;
+        PUID = toString config.users.groups.media.gid;
+        PGID = toString config.users.groups.media.gid;
         ORIGIN = "https://${toplevel.config.routing.services.profilarr.service}.${toplevel.config.routing.domain}";
         AUTH = "off";
         TZ = config.time.timeZone;

@@ -1,15 +1,11 @@
-toplevel @ {
-  config,
-  inputs,
-  ...
-}: {
-  flake.modules.nixos.greeter = {config, ...}: {
+{inputs, ...}: {
+  flake.modules.nixos.greeter = {
     imports = [inputs.noctalia-greeter.nixosModules.default];
     programs.noctalia-greeter = {
       enable = true;
       settings = {
         # session.default = "";
-        user.default = toplevel.config.hosts.nixos.${config.networking.hostName}.primaryUser;
+        user.default = "psoewish";
       };
     };
   };

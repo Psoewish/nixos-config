@@ -1,4 +1,4 @@
-toplevel @ {config, ...}: {
+{
   flake.modules.nixos.homelab = {
     services = {
       openssh = {
@@ -12,7 +12,7 @@ toplevel @ {config, ...}: {
       fail2ban.enable = true;
     };
 
-    users.users.${toplevel.config.global.primaryUser}.openssh.authorizedKeys.keys = [
+    users.users."psoewish".openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh/C3Qmm+9EoNeiLUNsmpvqzGjNF6n0xNUpksIm3xUK psoewish"
     ];
   };
