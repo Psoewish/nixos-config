@@ -44,7 +44,6 @@
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia.url = "github:noctalia-dev/noctalia/cachix";
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,7 +56,7 @@
       url = "github:daaboulex/streamcontroller-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
-    # xdg-desktop-portal-umbriel.url = "github:noctalia-dev/xdg-desktop-portal-umbriel";
+    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
+    xdg-desktop-portal-umbriel.url = "github:noctalia-dev/xdg-desktop-portal-umbriel";
   };
 }
