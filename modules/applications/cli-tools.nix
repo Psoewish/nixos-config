@@ -21,6 +21,7 @@
       git
       gh
       lazygit
+      stow
     ];
   };
 
