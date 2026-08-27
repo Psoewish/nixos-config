@@ -13,13 +13,5 @@
       ];
       shell = pkgs.fish;
     };
-
-    home-manager.users.${username} = {
-      home = {
-        username = "${username}";
-        homeDirectory = "/home/${username}";
-        stateVersion = "26.05";
-      };
-    };
   };
 }
