@@ -49,23 +49,5 @@ toplevel @ {config, ...}: {
       (inputs.stylix.nixosModules.stylix or {})
       inputs.self.modules.generic.stylix
     ];
-    home-manager.sharedModules = [
-      inputs.self.modules.homeManager.stylix
-      {stylix.overlays.enable = false;}
-    ];
-    stylix.homeManagerIntegration = {
-      autoImport = false;
-      followSystem = false;
-    };
-  };
-
-  flake.modules.homeManager.stylix = {inputs, ...}: {
-    imports = [
-      (inputs.stylix.homeModules.stylix or {})
-      inputs.self.modules.generic.stylix
-    ];
-    stylix.targets = {
-      firefox.profileNames = ["default"];
-    };
   };
 }
