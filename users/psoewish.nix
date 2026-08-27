@@ -1,10 +1,8 @@
-{
-  flake.modules.generic.psoewish = {pkgs, ...}: let
-    username = "psoewish";
-  in {
-    users.groups.${username} = {};
-    users.users.${username} = {
-      group = "${username}";
+toplevel @ {config, ...}: {
+  flake.modules.generic.${toplevel.config.flake.metadata.username} = {pkgs, ...}: {
+    users.groups.${toplevel.config.flake.metadata.username} = {};
+    users.users.${toplevel.config.flake.metadata.username} = {
+      group = "${toplevel.config.flake.metadata.username}";
       isNormalUser = true;
       extraGroups = [
         "wheel"

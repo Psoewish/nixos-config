@@ -9,7 +9,7 @@ toplevel @ {config, ...}: {
         misc = {
           download_dir = "/data/downloads/usenet/incomplete";
           complete_dir = "/data/downloads/usenet/complete";
-          host_whitelist = ["localhost" "${toplevel.config.routing.services.sabnzbd.service}.${toplevel.config.routing.domain}"];
+          host_whitelist = ["localhost" "${toplevel.config.flake.routes.sabnzbd.service}.${toplevel.config.flake.metadata.domain}"];
         };
         categories = {
           movies.name = "movies";
@@ -23,7 +23,7 @@ toplevel @ {config, ...}: {
     };
   };
 
-  routing.services.sabnzbd = {
+  flake.routes.sabnzbd = {
     port = 8080;
   };
 }

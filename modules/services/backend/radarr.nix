@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.radarr = {config,...}:{
+  flake.modules.nixos.radarr = {config, ...}: {
     services.radarr = {
       enable = true;
       group = "media";
@@ -8,7 +8,7 @@
     };
   };
 
-  routing.services.radarr = {
+  flake.routes.radarr = {
     port = 7878;
   };
 }

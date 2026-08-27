@@ -12,6 +12,6 @@ toplevel @ {config, ...}: {
 
       oci-containers.backend = "docker";
     };
-    users.groups.docker.members = [toplevel.config.global.primaryUser];
+    users.groups.docker.members = [toplevel.config.flake.metadata.username];
   };
 }

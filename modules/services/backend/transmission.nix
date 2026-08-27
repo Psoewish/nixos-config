@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.transmission = {pkgs,...}:{
+  flake.modules.nixos.transmission = {pkgs, ...}: {
     services.transmission = {
       enable = true;
       group = "media";
@@ -11,7 +11,7 @@
     };
   };
 
-  routing.services.transmission = {
+  flake.routes.transmission = {
     port = 9091;
   };
 }

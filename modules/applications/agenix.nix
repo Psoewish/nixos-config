@@ -1,4 +1,8 @@
-{inputs, ...}: {
+toplevel @ {
+  inputs,
+  config,
+  ...
+}: {
   imports = [(inputs.agenix-rekey.flakeModule or {})];
 
   flake.modules.nixos.agenix = {
@@ -13,7 +17,7 @@
     ];
 
     age.rekey = {
-      masterIdentities = ["/home/psoewish/.ssh/id_ed25519"];
+      masterIdentities = ["/home/${toplevel.config.flake.metadata.username}/.ssh/id_ed25519"];
       storageMode = "derivation";
       hostPubkey =
         if config.networking.hostName == "desktop"

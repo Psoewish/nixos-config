@@ -1,5 +1,9 @@
-{
-  flake.modules.nixos.git = {pkgs, lib,...}: {
+toplevel @ {config, ...}: {
+  flake.modules.nixos.git = {
+    pkgs,
+    lib,
+    ...
+  }: {
     programs = {
       git = {
         enable = true;
@@ -8,8 +12,8 @@
             defaultBranch = "main";
           };
           user = {
-            name = "psoewish";
-            email = "personal@psoewish.com";
+            name = toplevel.config.flake.metadata.username;
+            email = toplevel.config.flake.metadata.email;
           };
           credential = {
             "https://github.com".helper = ["" "${lib.getExe pkgs.gh} auth git-credential"];

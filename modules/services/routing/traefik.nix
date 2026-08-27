@@ -1,4 +1,4 @@
-toplevel@{config,...}:{
+toplevel @ {config, ...}: {
   flake.modules.nixos.traefik = {
     config,
     lib,
@@ -32,8 +32,8 @@ toplevel@{config,...}:{
                 certResolver = "cloudflare";
                 domains = [
                   {
-                    main = "${config.global.domain}";
-                    sans = ["*.${config.global.domain}"];
+                    main = "${toplevel.config.flake.metadata.domain}";
+                    sans = ["*.${toplevel.config.flake.metadata.domain}"];
                   }
                 ];
               };
@@ -44,7 +44,7 @@ toplevel@{config,...}:{
 
         certificatesResolvers.cloudflare = {
           acme = {
-            email = config.global.admin.email;
+            email = "admin@${toplevel.config.flake.metadata.domain}";
             storage = "/var/lib/traefik/acme.json";
             dnsChallenge = {
               provider = "cloudflare";
@@ -73,17 +73,17 @@ toplevel@{config,...}:{
           lib.mapAttrs (name: route: {
             inherit (route) service;
             rule = lib.concatStringsSep " || " (
-              map (sd: "Host(`${sd}.${toplevel.config.routing.domain}`)") ([route.service] ++ route.aliases)
+              map (sd: "Host(`${sd}.${toplevel.config.flake.metadata.domain}`)") ([route.service] ++ route.aliases)
             );
             entryPoints = ["websecure"];
           })
-          toplevel.config.routing.services;
+          toplevel.config.flake.routes;
 
         services =
           lib.mapAttrs (name: route: {
             loadBalancer.servers = [{url = "http://localhost:${toString route.port}";}];
           })
-          toplevel.config.routing.services;
+          toplevel.config.flake.routes;
 
         middlewares = {
           secure-headers.headers = {

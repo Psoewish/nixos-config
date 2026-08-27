@@ -7,7 +7,7 @@ toplevel @ {config, ...}: {
       environment = {
         PUID = toString config.users.groups.media.gid;
         PGID = toString config.users.groups.media.gid;
-        ORIGIN = "https://${toplevel.config.routing.services.profilarr.service}.${toplevel.config.routing.domain}";
+        ORIGIN = "https://${toplevel.config.flake.routes.profilarr.service}.${toplevel.config.flake.metadata.domain}";
         AUTH = "off";
         TZ = config.time.timeZone;
       };
@@ -18,7 +18,7 @@ toplevel @ {config, ...}: {
     };
   };
 
-  routing.services.profilarr = {
+  flake.routes.profilarr = {
     port = 6868;
   };
 }

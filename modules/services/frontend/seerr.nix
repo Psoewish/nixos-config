@@ -6,7 +6,7 @@
     };
   };
 
-  routing.services.seerr = {
+  flake.routes.seerr = {
     aliases = ["jellyseerr"];
     port = 5055;
     public = true;

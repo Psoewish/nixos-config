@@ -7,7 +7,7 @@
     };
   };
 
-  routing.services.jellyfin = {
+  flake.routes.jellyfin = {
     port = 8096;
     public = true;
   };

@@ -1,4 +1,8 @@
-{inputs, ...}: let
+toplevel @ {
+  inputs,
+  config,
+  ...
+}: let
   hostname = "homelab";
   system = "x86_64-linux";
   stateVersion = "26.05";
@@ -12,7 +16,7 @@ in {
         system.stateVersion = stateVersion;
         nixpkgs.hostPlatform = system;
         security.sudo.wheelNeedsPassword = false;
-        nix.settings.trusted-users = ["root" "psoewish"];
+        nix.settings.trusted-users = ["root" toplevel.config.flake.metadata.username];
       }
       inputs.self.modules.nixos.${hostname}
     ];

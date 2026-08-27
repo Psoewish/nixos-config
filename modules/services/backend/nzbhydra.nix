@@ -5,7 +5,7 @@
     };
   };
 
-  routing.services.nzbhydra2 = {
+  flake.routes.nzbhydra2 = {
     aliases = ["nzbhydra"];
     port = 5076;
   };

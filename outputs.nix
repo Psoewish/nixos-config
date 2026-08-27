@@ -15,7 +15,7 @@ in {
 
   imports =
     imports
-    ++ [./global.nix ./routing.nix]
+    ++ [./metadata.nix]
     ++ (with inputs; [
       flake-parts.flakeModules.modules
     ]);

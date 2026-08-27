@@ -1,4 +1,4 @@
-toplevel@{config,...}:{
+toplevel @ {config, ...}: {
   flake.modules.nixos.blocky = {
     services.blocky = {
       enable = true;
@@ -17,7 +17,7 @@ toplevel@{config,...}:{
           refreshPeriod = "4h";
         };
 
-        customDNS.mapping.${toplevel.config.routing.domain} = "192.168.1.100";
+        customDNS.mapping.${toplevel.config.flake.metadata.domain} = "192.168.1.100";
       };
     };
   };

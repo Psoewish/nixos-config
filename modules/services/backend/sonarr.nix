@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.sonarr = {config,...}:{
+  flake.modules.nixos.sonarr = {config, ...}: {
     services.sonarr = {
       enable = true;
       group = "media";
@@ -8,7 +8,7 @@
     };
   };
 
-  routing.services.sonarr = {
+  flake.routes.sonarr = {
     port = 8989;
   };
 }
