@@ -23,6 +23,7 @@
       eza
       zoxide
       wl-clipboard-rs
+      btop
     ];
   };
 }
