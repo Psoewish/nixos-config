@@ -52,10 +52,6 @@
       url = "github:h-banii/pear-desktop-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    streamcontroller = {
-      url = "github:daaboulex/streamcontroller-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
     xdg-desktop-portal-umbriel.url = "github:noctalia-dev/xdg-desktop-portal-umbriel";
   };
