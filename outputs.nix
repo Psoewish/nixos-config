@@ -5,7 +5,7 @@
 }: let
   imports = lib.concatLists (lib.mapAttrsToList (_: tree: tree.imports) {
     devShells = inputs.import-tree ./devShells;
-    fractal = inputs.import-tree ./fractal;
+    options = inputs.import-tree ./options;
     hosts = inputs.import-tree ./hosts;
     modules = inputs.import-tree ./modules;
     users = inputs.import-tree ./users;
