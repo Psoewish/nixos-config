@@ -1,33 +1,24 @@
-toplevel @ {
-  config,
-  inputs,
-  ...
-}: {
-  flake.modules.nixos.git = {
-    home-manager.sharedModules = [inputs.self.modules.homeManager.git];
-  };
-
-  flake.modules.homeManager.git = {
+{
+  flake.modules.nixos.git = {pkgs, lib,...}: {
     programs = {
       git = {
         enable = true;
-        settings.user = {
-          name = "psoewish";
-          email = "${toplevel.config.global.personal.email}";
-        };
-      };
-      gh = {
-        enable = true;
-        settings = {
-          git_protocol = "ssh";
-          aliases = {
-            ga = "git add -A";
-            gc = "git commit -m";
-            gp = "git push";
+        config = {
+          init = {
+            defaultBranch = "main";
+          };
+          user = {
+            name = "psoewish";
+            email = "personal@psoewish.com";
+          };
+          credential = {
+            "https://github.com".helper = ["" "${lib.getExe pkgs.gh} auth git-credential"];
+            "https://gist.github.com".helper = ["" "${lib.getExe pkgs.gh} auth git-credential"];
           };
         };
       };
       lazygit.enable = true;
     };
+    environment.systemPackages = [pkgs.gh];
   };
 }
