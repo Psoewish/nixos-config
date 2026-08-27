@@ -30,7 +30,6 @@ in {
       zed
       fish
       nix-direnv
-      fastfetch
       cli-tools
       git
       discord

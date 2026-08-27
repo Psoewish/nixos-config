@@ -1,10 +1,5 @@
 {
-  flake.modules.nixos.cli-tools = {
-    inputs,
-    pkgs,
-    ...
-  }: {
-    home-manager.sharedModules = [inputs.self.modules.homeManager.cli-tools];
+  flake.modules.nixos.cli-tools = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       curl
       btop
@@ -22,37 +17,11 @@
       gh
       lazygit
       stow
+      fastfetch
+      bat
+      bat-extras.batman
+      eza
+      zoxide
     ];
-  };
-
-  flake.modules.homeManager.cli-tools = {pkgs, ...}: {
-    programs = {
-      bat = {
-        enable = true;
-        extraPackages = [pkgs.bat-extras.batman];
-        config = {
-          italic-text = "always";
-          paging = "never";
-          style = "plain";
-        };
-      };
-      eza = {
-        enable = true;
-        colors = "always";
-        icons = "always";
-        git = true;
-        extraOptions = [
-          "--all"
-          "--group-directories-first"
-        ];
-      };
-      zoxide = {
-        enable = true;
-        options = ["--cmd cd"];
-      };
-      vivid = {
-        enable = true;
-      };
-    };
   };
 }
