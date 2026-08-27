@@ -1,7 +1,7 @@
 {
   flake.modules.nixos.zed = {pkgs, ...}: {
     environment.systemPackages = with pkgs;
-      [zed-editor-fhs]
+      [zed-editor]
       ++ # Extra Packages
       [
         nixd
@@ -24,5 +24,6 @@
         mpls
         prettier
       ];
+    programs.nix-ld.enable = true;
   };
 }
