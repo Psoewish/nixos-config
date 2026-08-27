@@ -14,7 +14,6 @@ in {
         security.sudo.wheelNeedsPassword = false;
         nix.settings.trusted-users = ["root" "psoewish"];
       }
-      inputs.self.modules.nixos.core
       inputs.self.modules.nixos.${hostname}
     ];
   };
@@ -22,18 +21,24 @@ in {
     (with inputs.self.modules.generic; [psoewish media])
     ++ # Optional modules
     (with inputs.self.modules.nixos; [
-      helix
+      agenix
+
       fish
       cli-tools
       git
+      helix
+
       docker
+
       blocky
       cloudflared
       traefik
       unbound
+
       jellyfin
       jellyseerr
       vaultwarden
+
       nzbhydra
       profilarr
       prowlarr

@@ -14,7 +14,6 @@ in {
         security.sudo.wheelNeedsPassword = false;
         nix.settings.trusted-users = ["root" "psoewish"];
       }
-      inputs.self.modules.nixos.core
       inputs.self.modules.nixos.${hostname}
     ];
   };
@@ -22,25 +21,34 @@ in {
     (with inputs.self.modules.generic; [psoewish])
     ++ # Optional modules
     (with inputs.self.modules.nixos; [
-      vial
-      streamcontroller
-      input-remapper
-      virtualisation
-      helix
-      zed
-      fish
-      nix-direnv
-      cli-tools
-      git
-      discord
-      pear-desktop
-      gaming
-      qutebrowser
-      firefox
-      obs
+      cosmic
+      # gnome
+      # hyprland
+      # kde
+      # umbriel
+
       stylix
 
-      cosmic
-      # umbriel
+      cli-tools
+      fish
+      git
+      helix
+      zed
+      virtualisation
+      nix-direnv
+      flatpak
+
+      # chromium
+      firefox
+      qutebrowser
+
+      input-remapper
+      streamcontroller
+      vial
+
+      discord
+      gaming
+      obs
+      pear-desktop
     ]);
 }
