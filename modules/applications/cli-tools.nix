@@ -22,6 +22,7 @@
       bat-extras.batman
       eza
       zoxide
+      wl-clipboard-rs
     ];
   };
 }
