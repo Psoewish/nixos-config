@@ -10,10 +10,6 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     import-tree.url = "github:denful/import-tree";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
     direnv-instant = {
       url = "github:mic92/direnv-instant";
@@ -32,10 +28,6 @@
     };
 
     # Applications
-    nixcord = {
-      url = "github:4evy/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +40,5 @@
       url = "github:h-banii/pear-desktop-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
-    xdg-desktop-portal-umbriel.url = "github:noctalia-dev/xdg-desktop-portal-umbriel";
   };
 }

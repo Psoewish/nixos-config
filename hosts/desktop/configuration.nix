@@ -24,8 +24,6 @@ in {
       cosmic
       # gnome
       # hyprland
-      # kde
-      # umbriel
 
       stylix
 

@@ -505,26 +505,6 @@
         "type": "github"
       }
     },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1787797243,
-        "narHash": "sha256-8+Q7NOB7RPajRjA4pbCDLzqH+MTjnG9x6LUPLfL2joA=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "99c9ec63390f1d8c14d95d9e8b17cc29cfbd4e11",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "import-tree": {
       "locked": {
         "lastModified": 1784254960,
@@ -566,11 +546,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1787811164,
-        "narHash": "sha256-H8P0Yn9Np4A2PhHWKOYR8nX39PqEvHIjnsVHPCOUN60=",
+        "lastModified": 1787842506,
+        "narHash": "sha256-/rsTqYAsLquaFVrkr3i0nyEjsB817OvWik/A2oZbP3k=",
         "owner": "4evy",
         "repo": "nixcord",
-        "rev": "e45f0a778ee34b69cdd8db52595f1f2d59069c9f",
+        "rev": "e8c043a3b149fe87f78cd52c1497d6943f64ec46",
         "type": "github"
       },
       "original": {
@@ -778,7 +758,6 @@
         "cachy-kernel": "cachy-kernel",
         "direnv-instant": "direnv-instant",
         "flake-parts": "flake-parts_4",
-        "home-manager": "home-manager_2",
         "import-tree": "import-tree",
         "nix-flatpak": "nix-flatpak",
         "nixcord": "nixcord",
@@ -1023,11 +1002,11 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1787818198,
-        "narHash": "sha256-7d22N04P1m5baqMGrj5csQrN4vw50BtYRmJmvRE7+HE=",
+        "lastModified": 1787844186,
+        "narHash": "sha256-oGCIxC9ZD5DFfOq7VVkqJjssyrGjWhSJ4fazSWQOa0M=",
         "ref": "refs/heads/main",
-        "rev": "7327c92160fd81d6726e0115e9e614f935731779",
-        "revCount": 607,
+        "rev": "5d6d6f68098036d3bc5ed08521876ef41f409e8e",
+        "revCount": 613,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/noctalia-dev/umbriel"

@@ -9,7 +9,6 @@
     fractal = inputs.import-tree ./fractal;
     modules = inputs.import-tree ./modules;
     devShells = inputs.import-tree ./devShells;
-    wiring = inputs.import-tree ./wiring;
   });
 in {
   systems = ["x86_64-linux"];
