@@ -19,10 +19,6 @@
       url = "github:mic92/direnv-instant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     cachy-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # Secrets
