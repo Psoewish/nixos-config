@@ -1,5 +1,6 @@
 {
   flake.modules.nixos.homelab = {
+    nixpkgs.config.allowUnfree = true;
     nix = {
       gc = {
         automatic = true;

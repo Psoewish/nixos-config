@@ -21,6 +21,8 @@ in {
     (with inputs.self.modules.generic; [psoewish])
     ++ # Optional modules
     (with inputs.self.modules.nixos; [
+      agenix
+
       cosmic
       # gnome
       # hyprland
