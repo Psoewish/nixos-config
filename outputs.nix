@@ -4,12 +4,11 @@
   ...
 }: let
   imports = lib.concatLists (lib.mapAttrsToList (_: tree: tree.imports) {
-    hosts = inputs.import-tree ./hosts;
-    users = inputs.import-tree ./users;
-    fractal = inputs.import-tree ./fractal;
-    modules = inputs.import-tree ./modules;
-    apps = inputs.import-tree ./apps;
     devShells = inputs.import-tree ./devShells;
+    fractal = inputs.import-tree ./fractal;
+    hosts = inputs.import-tree ./hosts;
+    modules = inputs.import-tree ./modules;
+    users = inputs.import-tree ./users;
   });
 in {
   systems = ["x86_64-linux"];
