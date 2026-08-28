@@ -4,7 +4,7 @@
       enable = true;
       group = "media";
       dataDir = "/var/lib/sonarr";
-      environmentFiles = [config.age.secrets.sonarr_api.path];
+      environmentFiles = [config.sops.secrets."sonarr/api".path];
     };
   };
 

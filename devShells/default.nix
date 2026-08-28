@@ -1,12 +1,7 @@
 {
-  perSystem = {
-    config,
-    pkgs,
-    ...
-  }: {
+  perSystem = {pkgs, ...}: {
     devShells.default = pkgs.mkShell {
-      nativeBuildInputs = [config.agenix-rekey.package];
-      packages = [pkgs.stow];
+      packages = [pkgs.stow pkgs.sops];
     };
   };
 }

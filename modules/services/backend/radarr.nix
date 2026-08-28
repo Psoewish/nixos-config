@@ -4,7 +4,7 @@
       enable = true;
       group = "media";
       dataDir = "/var/lib/radarr";
-      environmentFiles = [config.age.secrets.radarr_api.path];
+      environmentFiles = [config.sops.secrets."radarr/api".path];
     };
   };
 

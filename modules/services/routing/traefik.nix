@@ -6,7 +6,7 @@ toplevel @ {config, ...}: {
   }: {
     services.traefik = {
       enable = true;
-      environmentFiles = [config.age.secrets.cloudflared_api.path];
+      environmentFiles = [config.sops.secrets."cloudflared/api".path];
 
       staticConfigOptions = {
         entryPoints = {

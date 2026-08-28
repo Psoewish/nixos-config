@@ -4,7 +4,7 @@ toplevel @ {config, ...}: {
       enable = true;
       group = "media";
       allowConfigWrite = true;
-      secretFiles = [config.age.secrets.sabnzbd_secrets.path];
+      secretFiles = [config.sops.secrets."sabnzbd".path];
       settings = {
         misc = {
           download_dir = "/data/downloads/usenet/incomplete";

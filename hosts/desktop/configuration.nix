@@ -6,8 +6,6 @@
   };
 
   flake.modules.nixos.desktop.imports = with inputs.self.modules.nixos; [
-    agenix
-
     cosmic
     # gnome
     # hyprland

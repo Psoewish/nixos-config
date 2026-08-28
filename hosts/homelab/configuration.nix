@@ -6,8 +6,6 @@
   };
 
   flake.modules.nixos.homelab.imports = with inputs.self.modules.nixos; [
-    agenix
-
     fish
     cli-tools
     git

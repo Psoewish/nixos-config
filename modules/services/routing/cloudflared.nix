@@ -7,7 +7,7 @@ toplevel @ {config, ...}: {
     services.cloudflared = {
       enable = true;
       tunnels."${toplevel.config.flake.metadata.tunnelId}" = {
-        credentialsFile = config.age.secrets.cloudflared_credentials.path;
+        credentialsFile = config.sops.secrets."cloudflared/credentials".path;
         default = "http_status:404";
         originRequest.noTLSVerify = true;
         ingress = lib.foldl' (acc: entries: acc // entries) {} (

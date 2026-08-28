@@ -3,8 +3,8 @@ toplevel @ {config, ...}: {
     services.vaultwarden = {
       enable = true;
       environmentFile = [
-        config.age.secrets.vaultwarden_admin_token.path
-        config.age.secrets.vaultwarden_smtp_password.path
+        config.sops.secrets."vaultwarden/admin_token".path
+        config.sops.secrets."vaultwarden/smtp_password".path
       ];
       domain = "vaultwarden.${toplevel.config.flake.metadata.domain}";
       config = {

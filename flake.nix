@@ -18,6 +18,10 @@
     cachy-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # Secrets
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     agenix = {
       url = "github:yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";

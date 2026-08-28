@@ -1,0 +1,24 @@
+keys:
+  - &desktop age17qa3tjpk8clnnuvfx4mtdyw786k98j84gltny5xem70ddj97tvmqm8ucg2
+  - &homelab age1569jvq3fylf403kdhkvv4jtqgmk2h9sv5hcwtl0kc33c9gqqxayqfdhnvw
+  - &psoewish age14x2efk2qu6gpmxausf9re2a9hpa4y9whrqz5xs2a9yp3esgrxq4qdqkdem
+
+creation_rules:
+  - path_regex: hosts/desktop/secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *desktop
+          - *psoewish
+
+  - path_regex: hosts/homelab/secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *homelab
+          - *psoewish
+
+  - path_regex: hosts/shared/secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *desktop
+          - *homelab
+          - *psoewish

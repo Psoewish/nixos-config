@@ -1,6 +1,7 @@
 status is-interactive; and begin
     set -gx fish_greeting
     set -gx sponge_purge_only_on_exit true
+    set -gx EDITOR hx
 
     alias cat 'bat --style=plain --paging=never --italic-text=always'
     alias cp 'rsync -ah --info=progress2'
