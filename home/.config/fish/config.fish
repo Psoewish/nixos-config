@@ -15,6 +15,6 @@ status is-interactive; and begin
     alias ll 'eza --long --all'
     alias lt 'eza --tree --level 3 --git-ignore'
 
-    direnv-instant hook fish | source
+    devenv hook fish | source
     zoxide init fish --cmd cd | source
 end

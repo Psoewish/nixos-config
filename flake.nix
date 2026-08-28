@@ -22,14 +22,6 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix = {
-      url = "github:yaxitech/ragenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    agenix-rekey = {
-      url = "github:oddlama/agenix-rekey";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Applications
     noctalia-greeter = {
@@ -38,10 +30,6 @@
     };
     stylix = {
       url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    pear-desktop = {
-      url = "github:h-banii/pear-desktop-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -18,8 +18,8 @@
     helix
     zed
     virtualisation
-    nix-direnv
     flatpak
+    devenv
 
     # chromium
     firefox

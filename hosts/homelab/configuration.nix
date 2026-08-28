@@ -10,6 +10,7 @@
     cli-tools
     git
     helix
+    devenv
 
     docker
 
