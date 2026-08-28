@@ -17,7 +17,7 @@ toplevel @ {
     ];
 
     age.rekey = {
-      masterIdentities = ["/home/${toplevel.config.flake.metadata.username}/.ssh/id_ed25519"];
+      masterIdentities = ["/home/${toplevel.config.flake.metadata.primaryUser.username}/.ssh/id_ed25519"];
       storageMode = "derivation";
       hostPubkey =
         if config.networking.hostName == "desktop"

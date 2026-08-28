@@ -8,7 +8,7 @@ toplevel @ {
     programs.noctalia-greeter = {
       enable = true;
       settings = {
-        user.default = toplevel.config.flake.metadata.username;
+        user.default = toplevel.config.flake.metadata.primaryUser.username;
       };
     };
   };

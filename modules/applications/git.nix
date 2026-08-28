@@ -12,8 +12,8 @@ toplevel @ {config, ...}: {
             defaultBranch = "main";
           };
           user = {
-            name = toplevel.config.flake.metadata.username;
-            email = toplevel.config.flake.metadata.email;
+            name = toplevel.config.flake.metadata.primaryUser.username;
+            email = toplevel.config.flake.metadata.primaryUser.email;
           };
           credential = {
             "https://github.com".helper = ["" "${lib.getExe pkgs.gh} auth git-credential"];
