@@ -29,8 +29,5 @@
         "sd_mod"
       ];
     };
-
-    boot.consoleLogLevel = 3;
-    boot.plymouth.enable = true;
   };
 }

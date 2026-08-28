@@ -5,10 +5,9 @@
 }: let
   imports = lib.concatLists (lib.mapAttrsToList (_: tree: tree.imports) {
     devShells = inputs.import-tree ./devShells;
-    options = inputs.import-tree ./options;
     hosts = inputs.import-tree ./hosts;
     modules = inputs.import-tree ./modules;
-    users = inputs.import-tree ./users;
+    options = inputs.import-tree ./options;
   });
 in {
   systems = ["x86_64-linux"];

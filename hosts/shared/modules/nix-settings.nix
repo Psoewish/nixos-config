@@ -1,6 +1,7 @@
-{
-  flake.modules.nixos.desktop = {
+toplevel @ {config, ...}: {
+  flake.modules.nixos.shared = {
     nixpkgs.config.allowUnfree = true;
+    security.sudo.wheelNeedsPassword = false;
     nix = {
       gc = {
         automatic = true;
@@ -9,6 +10,7 @@
       };
       optimise.automatic = true;
       settings = {
+        trusted-users = ["root" toplevel.config.flake.metadata.primaryUser.username];
         auto-optimise-store = true;
         substituters = ["https://aseipp-nix-cache.global.ssl.fastly.net"];
         experimental-features = [

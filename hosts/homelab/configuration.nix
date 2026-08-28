@@ -1,54 +1,35 @@
-toplevel @ {
-  inputs,
-  config,
-  ...
-}: let
-  hostname = "homelab";
-  system = "x86_64-linux";
-  stateVersion = "26.05";
-in {
-  flake.nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
-    inherit system;
-    specialArgs = {inherit inputs;};
-    modules = [
-      {
-        networking.hostName = hostname;
-        system.stateVersion = stateVersion;
-        nixpkgs.hostPlatform = system;
-        security.sudo.wheelNeedsPassword = false;
-        nix.settings.trusted-users = ["root" toplevel.config.flake.metadata.username];
-      }
-      inputs.self.modules.nixos.${hostname}
-    ];
+{inputs, ...}: {
+  flake.hosts.nixos.homelab = {
+    system = "x86_64-linux";
+    stateVersion = "26.05";
+    staticIp = "192.168.1.100";
   };
-  flake.modules.nixos.${hostname}.imports =
-    (with inputs.self.modules.generic; [psoewish media])
-    ++ # Optional modules
-    (with inputs.self.modules.nixos; [
-      agenix
 
-      fish
-      cli-tools
-      git
-      helix
+  flake.modules.nixos.homelab.imports = with inputs.self.modules.nixos; [
+    agenix
 
-      docker
+    fish
+    cli-tools
+    git
+    helix
 
-      blocky
-      cloudflared
-      traefik
-      unbound
+    docker
 
-      jellyfin
-      jellyseerr
-      vaultwarden
+    blocky
+    cloudflared
+    traefik
+    unbound
 
-      nzbhydra
-      profilarr
-      prowlarr
-      radarr
-      sabnzbd
-      sonarr
-      transmission
-    ]);
+    jellyfin
+    jellyseerr
+    vaultwarden
+
+    nzbhydra
+    profilarr
+    prowlarr
+    radarr
+    sabnzbd
+    sonarr
+    transmission
+  ];
 }
