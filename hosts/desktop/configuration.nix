@@ -21,6 +21,7 @@
     virtualisation
     flatpak
     devenv
+    foot
 
     # chromium
     firefox

@@ -15,11 +15,11 @@ hl.config({
         allow_tearing = false,
     },
     decoration = {
-        rounding = 10,
+        rounding = 0,
         rounding_power = 2,
         dim_inactive = false,
         shadow = {
-            enabled = true,
+            enabled = false,
             range = 4,
             render_power = 3,
             color = "rgba(1a1a1aee)",
@@ -77,3 +77,7 @@ hl.config({
 
 hl.animation({ leaf = "windows", enabled = false })
 hl.animation({ leaf = "global", enabled = false })
+
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()

@@ -1,8 +1,13 @@
 {
-  flake.modules.nixos.hyprland = {pkgs, ...}: {
+  flake.modules.nixos.hyprland = {
     programs.hyprland = {
       enable = true;
       withUWSM = true;
+    };
+
+    programs.noctalia = {
+      enable = true;
+      recommendedServices.enable = true;
     };
 
     services = {
@@ -20,7 +25,5 @@
       polkit.enable = true;
       pam.services.login.enableGnomeKeyring = true;
     };
-
-    environment.systemPackages = with pkgs; [noctalia-shell];
   };
 }
