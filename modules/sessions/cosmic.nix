@@ -1,11 +1,5 @@
 {
-  flake.modules.nixos.cosmic = {
-    inputs,
-    pkgs,
-    ...
-  }: {
-    imports = [inputs.self.modules.nixos.greeter];
-
+  flake.modules.nixos.cosmic = {pkgs, ...}: {
     services.desktopManager.cosmic.enable = true;
 
     environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;

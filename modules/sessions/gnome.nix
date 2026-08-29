@@ -1,10 +1,5 @@
 {
-  flake.modules.nixos.gnome = {
-    inputs,
-    pkgs,
-    ...
-  }: {
-    imports = [inputs.self.modules.nixos.greeter];
+  flake.modules.nixos.gnome = {pkgs, ...}: {
     services.desktopManager.gnome.enable = true;
 
     environment.systemPackages = (

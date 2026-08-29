@@ -1,8 +1,8 @@
 {
   flake.modules.nixos.cli-tools = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      curl
       btop
+      curl
       fd
       fzf
       jq
@@ -13,17 +13,14 @@
       unzip
       zip
       bind
-      git
-      gh
-      lazygit
-      stow
-      fastfetch
       bat
       bat-extras.batman
       eza
       zoxide
+      stow
+      fastfetch
       wl-clipboard-rs
-      btop
+      wl-clip-persist
     ];
   };
 }
