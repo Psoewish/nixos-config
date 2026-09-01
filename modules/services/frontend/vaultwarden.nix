@@ -14,9 +14,9 @@ toplevel @ {config, ...}: {
         WEB_VAULT_ENABLED = "true";
         ROCKET_ADDRESS = "127.0.0.1";
         ROCKET_PORT = "8222";
-        SMTP_HOST = "smtp.fastmail.com";
+        SMTP_HOST = "smtp.protonmail.ch";
         SMTP_PORT = "587";
-        SMTP_USERNAME = "psoewish@fastmail.com";
+        SMTP_USERNAME = "vault@${toplevel.config.flake.metadata.domain}";
         SMTP_FROM = "vault@${toplevel.config.flake.metadata.domain}";
         SMTP_FROM_NAME = "Psoewish's Vaultwarden Service";
       };
