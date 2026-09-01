@@ -9,7 +9,7 @@
     greeter
     cosmic
     # gnome
-    hyprland
+    # hyprland
 
     stylix
 
