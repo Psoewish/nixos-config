@@ -11,10 +11,6 @@
     };
     import-tree.url = "github:denful/import-tree";
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
-    direnv-instant = {
-      url = "github:mic92/direnv-instant";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     cachy-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # Secrets
