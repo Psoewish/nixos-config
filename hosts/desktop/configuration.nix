@@ -22,6 +22,7 @@
     flatpak
     devenv
     foot
+    wezterm
 
     # chromium
     firefox
