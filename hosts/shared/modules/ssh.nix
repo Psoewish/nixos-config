@@ -21,11 +21,11 @@ toplevel @ {
         Host ${hostname}
           Hostname ${hostdata.staticIp}
           Port 22
-          User ${toplevel.config.flake.metadata.primaryUser.username}
+          User ${toplevel.config.flake.meta.primaryUser.username}
       '')
       toplevel.config.flake.hosts.nixos);
 
-    users.users.${toplevel.config.flake.metadata.primaryUser.username}.openssh.authorizedKeys.keyFiles = [
+    users.users.${toplevel.config.flake.meta.primaryUser.username}.openssh.authorizedKeys.keyFiles = [
       (inputs.self.outPath + "/hosts/shared/secrets/personal_ssh.pub")
     ];
   };

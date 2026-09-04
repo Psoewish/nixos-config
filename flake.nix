@@ -1,6 +1,13 @@
 {
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} (import ./outputs.nix);
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
+
+      imports =
+        [(inputs.import-tree [./hosts ./modules ./options])]
+        ++ [./meta.nix]
+        ++ (with inputs; [flake-parts.flakeModules.modules]);
+    };
 
   inputs = {
     # Base stuff

@@ -10,7 +10,7 @@ toplevel @ {config, ...}: {
       };
       optimise.automatic = true;
       settings = {
-        trusted-users = ["root" toplevel.config.flake.metadata.primaryUser.username];
+        trusted-users = ["root" toplevel.config.flake.meta.primaryUser.username];
         auto-optimise-store = true;
         substituters = ["https://aseipp-nix-cache.global.ssl.fastly.net"];
         experimental-features = [

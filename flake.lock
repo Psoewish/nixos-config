@@ -245,6 +245,21 @@
         "type": "github"
       }
     },
+    "nix-maid": {
+      "locked": {
+        "lastModified": 1788344127,
+        "narHash": "sha256-8fVrR6SZPp5Mol8KY6UwqeNAoWhqIWm/X/CbBZuTh70=",
+        "ref": "refs/heads/master",
+        "rev": "cdb2642fc53479be55013f0d7728cfabc01f0d19",
+        "revCount": 133,
+        "type": "git",
+        "url": "https://codeberg.org/viperml/nix-maid"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/viperml/nix-maid"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1788329703,
@@ -364,6 +379,7 @@
         "flake-parts": "flake-parts_2",
         "import-tree": "import-tree",
         "nix-flatpak": "nix-flatpak",
+        "nix-maid": "nix-maid",
         "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
         "noctalia-greeter": "noctalia-greeter",

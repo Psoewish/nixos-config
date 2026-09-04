@@ -6,7 +6,7 @@ toplevel @ {config, ...}: {
   }: {
     services.cloudflared = {
       enable = true;
-      tunnels."${toplevel.config.flake.metadata.tunnelId}" = {
+      tunnels."${toplevel.config.flake.meta.tunnelId}" = {
         credentialsFile = config.sops.secrets."cloudflared/credentials".path;
         default = "http_status:404";
         originRequest.noTLSVerify = true;
@@ -15,7 +15,7 @@ toplevel @ {config, ...}: {
             name: route:
               if route.public
               then
-                lib.genAttrs (map (sd: "${sd}.${toplevel.config.flake.metadata.domain}") ([route.service] ++ route.aliases))
+                lib.genAttrs (map (sd: "${sd}.${toplevel.config.flake.meta.domain}") ([route.service] ++ route.aliases))
                 (
                   hostname: {
                     service = "https://localhost:443";

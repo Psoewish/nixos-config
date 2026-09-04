@@ -5,7 +5,7 @@ toplevel @ {config, ...}: {
       environmentFile = [
         config.sops.secrets."vaultwarden".path
       ];
-      domain = "vaultwarden.${toplevel.config.flake.metadata.domain}";
+      domain = "vaultwarden.${toplevel.config.flake.meta.domain}";
       config = {
         USE_SYSLOG = "true";
         EXTENDED_LOGGING = "true";
@@ -15,8 +15,8 @@ toplevel @ {config, ...}: {
         ROCKET_PORT = "8222";
         SMTP_HOST = "smtp.protonmail.ch";
         SMTP_PORT = "587";
-        SMTP_USERNAME = "vault@${toplevel.config.flake.metadata.domain}";
-        SMTP_FROM = "vault@${toplevel.config.flake.metadata.domain}";
+        SMTP_USERNAME = "vault@${toplevel.config.flake.meta.domain}";
+        SMTP_FROM = "vault@${toplevel.config.flake.meta.domain}";
         SMTP_FROM_NAME = "Psoewish's Vaultwarden Service";
       };
     };

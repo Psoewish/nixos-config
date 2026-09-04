@@ -9,7 +9,7 @@ toplevel @ {config, ...}: {
         misc = {
           download_dir = "/data/downloads/usenet/incomplete";
           complete_dir = "/data/downloads/usenet/complete";
-          host_whitelist = ["localhost" "${toplevel.config.flake.routes.sabnzbd.service}.${toplevel.config.flake.metadata.domain}"];
+          host_whitelist = ["localhost" "${toplevel.config.flake.routes.sabnzbd.service}.${toplevel.config.flake.meta.domain}"];
         };
         categories = {
           movies.name = "movies";

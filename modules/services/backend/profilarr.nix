@@ -7,7 +7,7 @@ toplevel @ {config, ...}: {
       environment = {
         PUID = toString config.users.groups.media.gid;
         PGID = toString config.users.groups.media.gid;
-        ORIGIN = "https://${toplevel.config.flake.routes.profilarr.service}.${toplevel.config.flake.metadata.domain}";
+        ORIGIN = "https://${toplevel.config.flake.routes.profilarr.service}.${toplevel.config.flake.meta.domain}";
         AUTH = "off";
         TZ = config.time.timeZone;
       };

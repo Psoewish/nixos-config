@@ -39,17 +39,17 @@
           nixpkgs.hostPlatform = hostData.system;
 
           # Primary user setup
-          users.groups.${config.flake.metadata.primaryUser.username} = {};
-          users.users.${config.flake.metadata.primaryUser.username} = {
-            group = "${config.flake.metadata.primaryUser.username}";
+          users.groups.${config.flake.meta.primaryUser.username} = {};
+          users.users.${config.flake.meta.primaryUser.username} = {
+            group = "${config.flake.meta.primaryUser.username}";
             isNormalUser = true;
             extraGroups =
               [
                 "wheel"
                 "networkmanager"
               ]
-              ++ (config.flake.metadata.primaryUser.extraGroups or []);
-            shell = inputs.nixpkgs.legacyPackages.${hostData.system}.${config.flake.metadata.primaryUser.shell};
+              ++ (config.flake.meta.primaryUser.extraGroups or []);
+            shell = inputs.nixpkgs.legacyPackages.${hostData.system}.${config.flake.meta.primaryUser.shell};
           };
         }
         config.flake.modules.nixos.${hostname}

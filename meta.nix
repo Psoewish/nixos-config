@@ -1,5 +1,5 @@
 {
-  flake.metadata = rec {
+  flake.meta = rec {
     theme = "soft-server";
 
     primaryUser = {

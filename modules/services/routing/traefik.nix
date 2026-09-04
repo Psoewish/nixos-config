@@ -32,8 +32,8 @@ toplevel @ {config, ...}: {
                 certResolver = "cloudflare";
                 domains = [
                   {
-                    main = "${toplevel.config.flake.metadata.domain}";
-                    sans = ["*.${toplevel.config.flake.metadata.domain}"];
+                    main = "${toplevel.config.flake.meta.domain}";
+                    sans = ["*.${toplevel.config.flake.meta.domain}"];
                   }
                 ];
               };
@@ -44,7 +44,7 @@ toplevel @ {config, ...}: {
 
         certificatesResolvers.cloudflare = {
           acme = {
-            email = "admin@${toplevel.config.flake.metadata.domain}";
+            email = "admin@${toplevel.config.flake.meta.domain}";
             storage = "/var/lib/traefik/acme.json";
             dnsChallenge = {
               provider = "cloudflare";
@@ -73,7 +73,7 @@ toplevel @ {config, ...}: {
           lib.mapAttrs (name: route: {
             inherit (route) service;
             rule = lib.concatStringsSep " || " (
-              map (sd: "Host(`${sd}.${toplevel.config.flake.metadata.domain}`)") ([route.service] ++ route.aliases)
+              map (sd: "Host(`${sd}.${toplevel.config.flake.meta.domain}`)") ([route.service] ++ route.aliases)
             );
             entryPoints = ["websecure"];
           })

@@ -17,7 +17,7 @@ toplevel @ {config, ...}: {
           refreshPeriod = "4h";
         };
 
-        customDNS.mapping.${toplevel.config.flake.metadata.domain} = "192.168.1.100";
+        customDNS.mapping.${toplevel.config.flake.meta.domain} = "192.168.1.100";
       };
     };
   };

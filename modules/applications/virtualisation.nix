@@ -9,8 +9,8 @@ toplevel @ {config, ...}: {
     };
 
     users.groups = {
-      libvirtd.members = [toplevel.config.flake.metadata.primaryUser.username];
-      kvm.members = [toplevel.config.flake.metadata.primaryUser.username];
+      libvirtd.members = [toplevel.config.flake.meta.primaryUser.username];
+      kvm.members = [toplevel.config.flake.meta.primaryUser.username];
     };
 
     environment.systemPackages = with pkgs; [

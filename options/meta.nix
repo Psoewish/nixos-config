@@ -1,5 +1,5 @@
 {lib, ...}: {
-  options.flake.metadata = lib.mkOption {
+  options.flake.meta = lib.mkOption {
     type = lib.types.attrsOf lib.types.unspecified;
     default = {};
   };
