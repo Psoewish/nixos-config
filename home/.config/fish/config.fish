@@ -22,9 +22,12 @@ status is-interactive; and begin
 
     # Shellhooks
     zoxide init fish --cmd cd | source
-    starship init fish | source
 
     # Allow function and completion subdirectories
     set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
     set fish_complete_path (path resolve $__fish_config_dir/completions/*/) $fish_complete_path
+
+    # Pure prompt config
+    set -gx pure_show_numbered_git_indicator true
+    set -gx pure_enable_nixdevshell true
 end
