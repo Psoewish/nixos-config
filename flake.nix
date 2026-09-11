@@ -18,7 +18,6 @@
     };
     import-tree.url = "github:denful/import-tree";
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
-    cachy-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # Secrets
     sops-nix = {
@@ -27,14 +26,6 @@
     };
 
     # Applications
-    noctalia-greeter = {
-      url = "github:noctalia-dev/noctalia-greeter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
