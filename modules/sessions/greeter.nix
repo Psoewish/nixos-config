@@ -1,14 +1,13 @@
-toplevel @ {
-  inputs,
-  config,
-  ...
-}: {
+toplevel @ {config, ...}: {
   flake.modules.nixos.greeter = {
-    imports = [inputs.noctalia-greeter.nixosModules.default];
-    programs.noctalia-greeter = {
+    services.greetd = {
       enable = true;
-      settings = {
-        user.default = toplevel.config.flake.meta.primaryUser.username;
+      settings = rec {
+        initial_session = {
+          command = "start-cosmic";
+          user = toplevel.config.flake.meta.primaryUser.username;
+        };
+        default_session = initial_session;
       };
     };
   };
