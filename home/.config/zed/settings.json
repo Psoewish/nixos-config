@@ -1,4 +1,15 @@
 {
+  "enable_language_server": true,
+  "linked_edits": true,
+  "diagnostics": {
+    "lsp_pull_diagnostics": {
+      "enabled": true
+    }
+  },
+  "completions": {
+    "lsp": true
+  },
+  "semantic_tokens": "off",
   "window_decorations": "client",
   "title_bar": {
     "button_layout": "platform_default"
@@ -53,7 +64,11 @@
   },
   "disable_ai": false,
   "helix_mode": true,
-  "icon_theme": "Catppuccin Mocha",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha"
+  },
   "languages": {
     "Nix": {
       "formatter": {
@@ -76,7 +91,11 @@
       "program": "fish"
     }
   },
-  "theme": "Noctalia Dark",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Tokyo Night"
+  },
   "buffer_font_family": "Maple Mono NF CN",
   "buffer_font_size": 14.666666666666666,
   "ui_font_family": "Inter",
