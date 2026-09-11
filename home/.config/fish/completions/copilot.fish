@@ -1,1 +1,0 @@
-../../../nixos-config/home/.config/fish/completions/copilot.fish
