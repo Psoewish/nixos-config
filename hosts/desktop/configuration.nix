@@ -14,7 +14,7 @@
     stylix
 
     cli-tools
-    shell
+    fish
     git
     helix
     zed

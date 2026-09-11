@@ -6,7 +6,7 @@
   };
 
   flake.modules.nixos.homelab.imports = with inputs.self.modules.nixos; [
-    shell
+    fish
     cli-tools
     git
     helix
