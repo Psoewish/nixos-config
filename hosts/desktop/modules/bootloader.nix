@@ -1,11 +1,6 @@
 {
-  flake.modules.nixos.desktop = {
-    inputs,
-    pkgs,
-    ...
-  }: {
-    nixpkgs.overlays = [inputs.cachy-kernel.overlays.pinned];
-    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+  flake.modules.nixos.desktop = {pkgs, ...}: {
+    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     boot.kernelParams = [
       "quiet"
