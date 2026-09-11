@@ -1,20 +1,30 @@
 status is-interactive; and begin
     set -gx fish_greeting
     set -gx sponge_purge_only_on_exit true
+    set -gx MANPAGER 'bat -l man -p'
     set -gx EDITOR hx
 
+    # Misc alternatives/defaults
     alias cat 'bat --style=plain --paging=never --italic-text=always'
     alias cp 'rsync -ah --info=progress2'
     alias mkdir 'mkdir -pv'
+
+    # Lazy aliases :)
     alias ff fastfetch
     alias lg lazygit
-    alias man batman
 
+    # Better ls
     alias eza 'eza --icons always --color always --git --group-directories-first'
-    alias ls 'eza --all'
+    alias ls eza
+    alias la 'eza --all'
     alias ll 'eza --long --all'
     alias lt 'eza --tree --level 3 --git-ignore'
 
-    devenv hook fish | source
+    # Shellhooks
     zoxide init fish --cmd cd | source
+    starship init fish | source
+
+    # Allow function and completion subdirectories
+    set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
+    set fish_complete_path (path resolve $__fish_config_dir/completions/*/) $fish_complete_path
 end
