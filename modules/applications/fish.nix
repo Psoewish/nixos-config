@@ -11,6 +11,7 @@
       sponge
       plugin-sudope
       pure
+      async-prompt
     ];
   };
 }

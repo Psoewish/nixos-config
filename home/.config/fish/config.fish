@@ -30,4 +30,8 @@ status is-interactive; and begin
     # Pure prompt config
     set -gx pure_show_numbered_git_indicator true
     set -gx pure_enable_nixdevshell true
+    set -gx fish_transient_prompt 1
+    set -gx pure_enable_single_line_prompt true
+    set -gx pure_show_prefix_root_prompt true
+    set -gx async_prompt_functions _pure_prompt_git
 end
