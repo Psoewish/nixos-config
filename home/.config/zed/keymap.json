@@ -1,8 +1,0 @@
-[
-  {
-    "bindings": {
-      "ctrl-shift-t": "workspace::NewTerminal",
-      "ctrl-t": "terminal_panel::Toggle"
-    }
-  }
-]

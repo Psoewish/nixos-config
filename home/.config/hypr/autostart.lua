@@ -1,7 +1,0 @@
-hl.on("hyprland.start", function()
-  hl.exec_cmd("noctalia")
-  hl.exec_cmd("steam -silent")
-  hl.exec_cmd("vesktop")
-  hl.exec_cmd("pear-desktop")
-  hl.exec_cmd("streamcontroller -b")
-end)
