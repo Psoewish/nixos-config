@@ -7,8 +7,8 @@
 
   flake.modules.nixos.desktop.imports = with inputs.self.modules.nixos; [
     greeter
-    cosmic
-    # gnome
+    # cosmic
+    gnome
     # hyprland
 
     stylix
