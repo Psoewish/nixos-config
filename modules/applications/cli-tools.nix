@@ -14,13 +14,12 @@
       zip
       bind
       bat
-      bat-extras.batman
       eza
-      zoxide
       stow
       fastfetch
       wl-clipboard-rs
       wl-clip-persist
+      yadm
     ];
   };
 }

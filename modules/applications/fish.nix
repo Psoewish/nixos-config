@@ -12,6 +12,9 @@
       plugin-sudope
       pure
       async-prompt
+      fzf-fish
+      z
+      colored-man-pages
     ];
   };
 }
