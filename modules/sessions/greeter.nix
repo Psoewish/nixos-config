@@ -1,9 +1,9 @@
 toplevel @ {config, ...}: {
   flake.modules.nixos.greeter = {
     services.displayManager = {
-      gdm.enable = true;
+      cosmic-greeter.enable = true;
       autoLogin = {
-        enable = true;
+        enable = false;
         user = toplevel.config.flake.meta.primaryUser.username;
       };
     };
@@ -11,11 +11,11 @@ toplevel @ {config, ...}: {
     #   enable = true;
     #   settings = rec {
     #     initial_session = {
-    #       command = "start-cosmic";
+    #       command = "gnome-session";
     #       user = toplevel.config.flake.meta.primaryUser.username;
     #     };
     #     default_session = initial_session;
-    #   };
+    # };
     # };
   };
 }

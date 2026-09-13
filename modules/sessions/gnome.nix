@@ -11,12 +11,17 @@
           dash2dock-lite
           blur-my-shell
           coverflow-alt-tab
-          user-themes
           vertical-workspaces
           rounded-window-corners
           paperwm
         ]
       )
-      ++ (with pkgs; [gnome-tweaks]);
+      # ++ (with pkgs; [gnome-tweaks]);
+      ;
+
+    programs.nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "foot";
+    };
   };
 }
