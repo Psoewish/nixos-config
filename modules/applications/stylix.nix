@@ -2,6 +2,7 @@ toplevel @ {config, ...}: {
   flake.modules.generic.stylix = {pkgs, ...}: {
     stylix = {
       enable = true;
+      autoEnable = false;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${toplevel.config.flake.meta.theme}.yaml";
 
       cursor = {
