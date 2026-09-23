@@ -1,71 +1,83 @@
 {
   flake.modules.nixos.desktop = {
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "monthly";
-    fileSystems = ["/"];
-  };
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
-    fsType = "btrfs";
-    options = [
-      "subvol=root"
-      "compress=zstd"
-    ];
-  };
+    fileSystems = {
+      # OS drive (1TB nvme)
+      "/boot" = {
+        device = "/dev/disk/by-uuid/EADD-9E4E";
+        fsType = "vfat";
+        options = ["fmask=0077" "dmask=0077"];
+      };
+      "/" = {
+        device = "/dev/disk/by-uuid/7fcf55eb-7791-47df-9990-712f2fc11a48";
+        fsType = "xfs";
+      };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
-    fsType = "btrfs";
-    options = [
-      "subvol=home"
-      "compress=zstd"
-    ];
-  };
+      # Data drive (2TB nvme)
+      "/data" = {
+        device = "/dev/disk/by-uuid/f551872a-5f92-45d1-b6d8-969ca6482b8d";
+        fsType = "xfs";
+      };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
-    fsType = "btrfs";
-    options = [
-      "subvol=nix"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
+      # Bind mounts for persistent data
+      "/home/psoewish/.local/share/Steam/steamapps" = {
+        depends = ["/data"];
+        device = "/data/games/Steam/steamapps";
+        fsType = "none";
+        options = ["bind" "x-gvfs-hide"];
+      };
 
-  fileSystems."/games" = {
-    device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
-    fsType = "btrfs";
-    options = [
-      "subvol=games"
-      "compress=zstd"
-    ];
-  };
+      "/home/psoewish/Downloads" = {
+        depends = ["/data"];
+        device = "/data/home/Downloads";
+        fsType = "none";
+        options = ["bind" "x-gvfs-hide"];
+      };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/C909-FBEB";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
-  };
+      "/home/psoewish/Documents" = {
+        depends = ["/data"];
+        device = "/data/home/Documents";
+        fsType = "none";
+        options = ["bind" "x-gvfs-hide"];
+      };
 
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/36b23ce5-8b0d-452f-b363-94e8548fe1b8";
-    fsType = "btrfs";
-    options = [
-      "subvol=swap"
-      "noatime"
-    ];
-  };
-  swapDevices = [
-    {
-      device = "/swap/swapfile";
-      size = 8 * 1024;
-    }
-  ];
-  zramSwap.enable = true;
-  systemd.oomd.enable = true;
+      "/home/psoewish/Music" = {
+        depends = ["/data"];
+        device = "/data/home/Music";
+        fsType = "none";
+        options = ["bind" "x-gvfs-hide"];
+      };
+
+      "/home/psoewish/Pictures" = {
+        depends = ["/data"];
+        device = "/data/home/Pictures";
+        fsType = "none";
+        options = ["bind" "x-gvfs-hide"];
+      };
+
+      "/home/psoewish/Projects" = {
+        depends = ["/data"];
+        device = "/data/home/Projects";
+        fsType = "none";
+        options = ["bind" "x-gvfs-hide"];
+      };
+
+      "/home/psoewish/Videos" = {
+        depends = ["/data"];
+        device = "/data/home/Videos";
+        fsType = "none";
+        options = ["bind" "x-gvfs-hide"];
+      };
+
+      "/home/psoewish/.ssh" = {
+        depends = ["/data"];
+        device = "/data/home/.ssh";
+        fsType = "none";
+        options = ["bind" "x-gvfs-hide"];
+      };
+    };
+
+    swapDevices = [];
+    zramSwap.enable = true;
+    systemd.oomd.enable = true;
   };
 }
