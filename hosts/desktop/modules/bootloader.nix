@@ -12,15 +12,7 @@
     boot.initrd = {
       systemd.enable = true;
       verbose = false;
-      availableKernelModules = [
-        "xhci_pci"
-        "thunderbolt"
-        "nvme"
-        "ahci"
-        "usbhid"
-        "usb_storage"
-        "sd_mod"
-      ];
+      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
     };
 
     boot.consoleLogLevel = 3;
