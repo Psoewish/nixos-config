@@ -8,7 +8,6 @@
   flake.modules.nixos.desktop.imports = with inputs.self.modules.nixos; [
     greeter
     cosmic
-    gnome
     # hyprland
 
     stylix
@@ -20,9 +19,7 @@
     zed
     virtualisation
     # flatpak
-    # devenv
     foot
-    # wezterm
 
     # chromium
     firefox
