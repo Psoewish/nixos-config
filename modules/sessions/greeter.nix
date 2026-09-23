@@ -1,9 +1,9 @@
 toplevel @ {config, ...}: {
   flake.modules.nixos.greeter = {
     services.displayManager = {
-      cosmic-greeter.enable = true;
+      ly.enable = true;
       autoLogin = {
-        enable = false;
+        enable = true;
         user = toplevel.config.flake.meta.primaryUser.username;
       };
     };
