@@ -76,8 +76,11 @@
       };
     };
 
-    swapDevices = [];
-    zramSwap.enable = true;
-    systemd.oomd.enable = true;
+    swapDevices = [
+      {
+        device = "/var/lib/swapfile";
+        size = 32 * 1024;
+      }
+    ];
   };
 }
