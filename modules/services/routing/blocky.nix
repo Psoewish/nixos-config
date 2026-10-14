@@ -1,9 +1,9 @@
-toplevel @ {config, ...}: {
+toplevel @ {...}: {
   flake.modules.nixos.blocky = {
     services.blocky = {
       enable = true;
       settings = {
-        ports.dns = 53;
+        ports.dns = "${toplevel.config.flake.hosts.nixos.homelab.staticIp}:53";
         ports.http = 4000;
 
         upstreams.groups.default = ["127.0.0.1:5335"];
