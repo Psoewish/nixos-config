@@ -11,6 +11,7 @@
       socat
       wget
       unzip
+      unrar
       zip
       bind
       bat
@@ -19,7 +20,6 @@
       fastfetch
       wl-clipboard-rs
       wl-clip-persist
-      yadm
     ];
   };
 }
