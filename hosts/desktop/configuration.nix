@@ -20,9 +20,7 @@
     # flatpak
     foot
 
-    # chromium
-    firefox
-    qutebrowser
+    helium
 
     input-remapper
     streamcontroller
