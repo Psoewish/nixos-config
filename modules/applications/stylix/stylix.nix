@@ -1,9 +1,10 @@
-toplevel @ {config, ...}: {
+toplevel @ {...}: {
   flake.modules.generic.stylix = {pkgs, ...}: {
     stylix = {
       enable = true;
-      autoEnable = false;
+      autoEnable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${toplevel.config.flake.meta.theme}.yaml";
+      image = ./wallpaper.png;
 
       cursor = {
         package = pkgs.bibata-cursors;
@@ -45,10 +46,23 @@ toplevel @ {config, ...}: {
     };
   };
 
-  flake.modules.nixos.stylix = {inputs, ...}: {
+  flake.modules.nixos.stylix = {
     imports = [
-      (inputs.stylix.nixosModules.stylix or {})
-      inputs.self.modules.generic.stylix
+      toplevel.inputs.stylix.nixosModules.stylix
+      toplevel.inputs.self.modules.generic.stylix
     ];
+    home-manager.sharedModules = [
+      toplevel.inputs.stylix.homeModules.stylix
+      toplevel.inputs.self.modules.homeManager.stylix
+      {stylix.overlays.enable = false;}
+    ];
+    stylix.homeManagerIntegration = {
+      autoImport = false;
+      followSystem = false;
+    };
+  };
+
+  flake.modules.homeManager.stylix = {
+    imports = [toplevel.inputs.self.modules.generic.stylix];
   };
 }
