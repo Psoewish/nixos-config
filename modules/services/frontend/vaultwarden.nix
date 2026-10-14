@@ -1,4 +1,4 @@
-toplevel @ {config, ...}: {
+toplevel @ {...}: {
   flake.modules.nixos.vaultwarden = {config, ...}: {
     services.vaultwarden = {
       enable = true;

@@ -1,4 +1,4 @@
-toplevel @ {config, ...}: {
+toplevel @ {...}: {
   flake.modules.nixos.profilarr = {config, ...}: {
     virtualisation.oci-containers.containers.profilarr = {
       hostname = "profilarr";

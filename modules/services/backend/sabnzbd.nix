@@ -1,4 +1,4 @@
-toplevel @ {config, ...}: {
+toplevel @ {...}: {
   flake.modules.nixos.sabnzbd = {config, ...}: {
     services.sabnzbd = {
       enable = true;

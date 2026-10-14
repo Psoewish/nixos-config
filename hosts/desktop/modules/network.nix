@@ -1,4 +1,4 @@
-toplevel @ {config, ...}: {
+toplevel @ {...}: {
   flake.modules.nixos.desktop = {
     networking = {
       interfaces.enp9s0.ipv4.addresses = [

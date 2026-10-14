@@ -1,4 +1,4 @@
-toplevel @ {config, ...}: {
+toplevel @ {...}: {
   flake.modules.nixos.shared = {
     nixpkgs.config.allowUnfree = true;
     security.sudo.wheelNeedsPassword = false;

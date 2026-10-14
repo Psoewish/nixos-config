@@ -1,4 +1,4 @@
-toplevel@{config,...}:{
+toplevel @ {...}: {
   flake.modules.nixos.homelab = {
     users.groups.media = {gid = 5000;};
     users.users.${toplevel.config.flake.meta.primaryUser.username}.extraGroups = ["media"];

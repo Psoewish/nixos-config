@@ -1,9 +1,4 @@
-toplevel @ {
-  inputs,
-  lib,
-  config,
-  ...
-}: {
+toplevel @ {...}: {
   flake.modules.nixos.shared = {
     services = {
       openssh = {
@@ -17,7 +12,7 @@ toplevel @ {
       fail2ban.enable = true;
     };
 
-    programs.ssh.extraConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (hostname: hostdata: ''
+    programs.ssh.extraConfig = toplevel.lib.concatStringsSep "\n" (toplevel.lib.mapAttrsToList (hostname: hostdata: ''
         Host ${hostname}
           Hostname ${hostdata.staticIp}
           Port 22
@@ -26,7 +21,7 @@ toplevel @ {
       toplevel.config.flake.hosts.nixos);
 
     users.users.${toplevel.config.flake.meta.primaryUser.username}.openssh.authorizedKeys.keyFiles = [
-      (inputs.self.outPath + "/hosts/shared/secrets/personal_ssh.pub")
+      (toplevel.inputs.self.outPath + "/hosts/shared/secrets/personal_ssh.pub")
     ];
   };
 }

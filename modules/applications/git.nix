@@ -1,4 +1,4 @@
-toplevel @ {config, ...}: {
+toplevel @ {...}: {
   flake.modules.nixos.git = {
     pkgs,
     lib,
@@ -16,8 +16,14 @@ toplevel @ {config, ...}: {
             email = toplevel.config.flake.meta.primaryUser.email;
           };
           credential = {
-            "https://github.com".helper = ["" "${lib.getExe pkgs.gh} auth git-credential"];
-            "https://gist.github.com".helper = ["" "${lib.getExe pkgs.gh} auth git-credential"];
+            "https://github.com".helper = [
+              ""
+              "${lib.getExe pkgs.gh} auth git-credential"
+            ];
+            "https://gist.github.com".helper = [
+              ""
+              "${lib.getExe pkgs.gh} auth git-credential"
+            ];
           };
         };
       };
