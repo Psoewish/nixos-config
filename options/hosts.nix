@@ -47,6 +47,8 @@
               [
                 "wheel"
                 "networkmanager"
+                "uinput"
+                "input"
               ]
               ++ (config.flake.meta.primaryUser.extraGroups or []);
             shell = inputs.nixpkgs.legacyPackages.${hostData.system}.${config.flake.meta.primaryUser.shell};
