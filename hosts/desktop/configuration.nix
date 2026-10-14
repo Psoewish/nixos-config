@@ -16,17 +16,12 @@
     git
     helix
     zed
-    virtualisation
     # flatpak
     foot
 
     helium
 
-    input-remapper
-    streamcontroller
-    vial
-
-    discord
+    vesktop
     gaming
     obs
     pear-desktop

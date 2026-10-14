@@ -11,7 +11,7 @@
     git
     helix
 
-    docker
+    podman
 
     blocky
     cloudflared
