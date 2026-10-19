@@ -1,6 +1,12 @@
 toplevel @ {...}: {
-  flake.modules.nixos.vesktop = {
+  flake.modules.nixos.vesktop = {pkgs, ...}: {
     home-manager.sharedModules = [toplevel.inputs.self.modules.homeManager.vesktop];
+    environment.systemPackages = [
+      (pkgs.discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      })
+    ];
   };
 
   flake.modules.homeManager.vesktop = {
