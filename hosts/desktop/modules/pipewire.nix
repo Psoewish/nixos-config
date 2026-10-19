@@ -1,6 +1,7 @@
 {
   flake.modules.nixos.desktop = {pkgs, ...}: {
     security.rtkit.enable = true;
+    environment.systemPackages = [pkgs.pulsemixer pkgs.pipeweaver];
     services = {
       pipewire = {
         enable = true;
@@ -9,86 +10,6 @@
         pulse.enable = true;
         jack.enable = true;
         extraConfig.pipewire = {
-          "virtual-sinks" = {
-            "context.objects" = [
-              {
-                factory = "adapter";
-                args = {
-                  "factory.name" = "support.null-audio-sink";
-                  "node.name" = "combine_sink";
-                  "node.description" = "Master Output";
-                  "media.class" = "Audio/Sink";
-                  "audio.position" = "[ FL FR ]";
-                };
-              }
-            ];
-            "context.modules" = [
-              {
-                name = "libpipewire-module-loopback";
-                args = {
-                  "capture.props" = {
-                    "node.name" = "game_sink";
-                    "node.description" = "Game";
-                    "media.class" = "Audio/Sink";
-                    "audio.position" = "[ FL FR ]";
-                    "node.passive" = true;
-                  };
-                  "playback.props" = {
-                    "target.object" = "combine_sink";
-                    "node.passive" = true;
-                  };
-                };
-              }
-              {
-                name = "libpipewire-module-loopback";
-                args = {
-                  "capture.props" = {
-                    "node.name" = "browser_sink";
-                    "node.description" = "Browser";
-                    "media.class" = "Audio/Sink";
-                    "audio.position" = "[ FL FR ]";
-                    "node.passive" = true;
-                  };
-                  "playback.props" = {
-                    "target.object" = "combine_sink";
-                    "node.passive" = true;
-                  };
-                };
-              }
-              {
-                name = "libpipewire-module-loopback";
-                args = {
-                  "capture.props" = {
-                    "node.name" = "chat_sink";
-                    "node.description" = "Chat";
-                    "media.class" = "Audio/Sink";
-                    "audio.position" = "[ FL FR ]";
-                    "node.passive" = true;
-                  };
-                  "playback.props" = {
-                    "target.object" = "combine_sink";
-                    "node.passive" = true;
-                  };
-                };
-              }
-              {
-                name = "libpipewire-module-loopback";
-                args = {
-                  "capture.props" = {
-                    "node.name" = "media_sink";
-                    "node.description" = "Media";
-                    "media.class" = "Audio/Sink";
-                    "audio.position" = "[ FL FR ]";
-                    "node.passive" = true;
-                  };
-                  "playback.props" = {
-                    "target.object" = "combine_sink";
-                    "node.passive" = true;
-                  };
-                };
-              }
-            ];
-          };
           "low-latency"."context.properties" = {
             "default.clock" = {
               "rate" = 48000;
@@ -120,7 +41,5 @@
         };
       };
     };
-
-    environment.systemPackages = [pkgs.pulsemixer];
   };
 }
