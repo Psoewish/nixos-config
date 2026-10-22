@@ -1,4 +1,4 @@
-{meta, ...}: {
+{...}: {
   services = {
     openssh = {
       enable = true;
@@ -15,6 +15,6 @@
     Host homelab
       Hostname 192.168.1.100
       Port 22
-      User ${meta.primaryUser}
+      User psoewish
   '';
 }
