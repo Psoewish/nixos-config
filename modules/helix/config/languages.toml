@@ -1,0 +1,24 @@
+[[language]]
+auto-format = true
+language-servers = ["nixd", "nil"]
+name = "nix"
+
+[language.formatter]
+command = "alejandra"
+
+[[language]]
+auto-format = true
+name = "lua"
+
+[[language]]
+auto-format = true
+language-servers = ["marksman", "markdown-oxide", "harper-ls", "mpls"]
+name = "markdown"
+
+[language.formatter]
+args = ["--parser", "--markdown", "--prose-wrap", "never"]
+command = "prettier"
+
+[[language]]
+file-types = ["ini", "conf"]
+name = "ini"
