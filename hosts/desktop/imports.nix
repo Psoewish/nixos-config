@@ -8,12 +8,11 @@
     gaming
     git
     helium
-    helix
-    lsp
     pear-desktop
     podman
-    zed
     fastfetch
+
+    editors
 
     mango
   ];
