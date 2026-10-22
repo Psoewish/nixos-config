@@ -13,10 +13,7 @@
     devshell.url = "github:numtide/devshell";
     deploy-rs.url = "github:serokell/deploy-rs";
     import-tree.url = "github:denful/import-tree";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hjem.url = "github:feel-co/hjem";
 
     # Applications
     helium.url = "github:oxcl/nix-flake-helium-browser";
