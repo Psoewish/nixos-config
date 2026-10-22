@@ -15,7 +15,8 @@
     import-tree.url = "github:denful/import-tree";
     hjem.url = "github:feel-co/hjem";
 
-    # Applications
+    mangowm.url = "github:mangowm/mango";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
     helium.url = "github:oxcl/nix-flake-helium-browser";
   };
 }
