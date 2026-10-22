@@ -24,6 +24,23 @@
     systemd.enable = true;
   };
 
+  # Add some extra packages
+  fonts.packages = with pkgs; [
+    maple-mono.NF-CN
+    inter
+  ];
+
+  environment.systemPackages = with pkgs; [
+    bibata-cursors
+    nautilus
+    loupe
+  ];
+
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "foot";
+  };
+
   # Link my dotfiles
   hjem.users.psoewish.xdg.config.files."mango/config.conf".source = lib.mkSymlink ./config/config.conf;
   hjem.users.psoewish.xdg.config.files."mango/autostart.conf".source = lib.mkSymlink ./config/autostart.conf;

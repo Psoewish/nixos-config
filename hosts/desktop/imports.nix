@@ -10,12 +10,10 @@
     helium
     helix
     lsp
-    nautilus
     pear-desktop
     podman
     zed
     fastfetch
-    style
 
     mango
   ];
