@@ -1,0 +1,60 @@
+{
+  "prettier": {
+    "allowed": true
+  },
+  "buffer_font_family": "Maple Mono NF CN",
+  "buffer_font_size": 14,
+  "cli_default_open_behavior": "existing_window",
+  "disable_ai": true,
+  "git_panel": {
+    "dock": "left"
+  },
+  "helix_mode": true,
+  "languages": {
+    "TOML": {
+      "prettier": {
+        "parser": ""
+      }
+    },
+    "Lua": {
+      "format_on_save": "on",
+      "formatter": "language_server"
+    },
+    "Nix": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "arguments": [
+            "--quiet",
+            "--"
+          ],
+          "command": "alejandra"
+        }
+      },
+      "language_servers": [
+        "nixd",
+        "nil"
+      ]
+    }
+  },
+  "lsp_document_colors": "background",
+  "project_panel": {
+    "dock": "left",
+    "hide_root": true,
+    "auto_fold_dirs": true
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "telemetry": {
+    "metrics": false
+  },
+  "terminal": {
+    "shell": {
+      "program": "fish"
+    }
+  },
+  "theme": "Noctalia Dark",
+  "ui_font_family": "Inter",
+  "ui_font_size": 14
+}
