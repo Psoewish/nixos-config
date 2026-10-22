@@ -1,4 +1,4 @@
-{meta, ...}: {
+{
   nixpkgs.config.allowUnfree = true;
   security.sudo.wheelNeedsPassword = false;
   nix = {
@@ -9,7 +9,7 @@
     };
     optimise.automatic = true;
     settings = {
-      trusted-users = ["root" meta.primaryUser];
+      trusted-users = ["root" "psoewish"];
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
     };
