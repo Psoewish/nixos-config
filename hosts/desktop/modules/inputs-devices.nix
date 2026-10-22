@@ -1,8 +1,4 @@
-{
-  pkgs,
-  meta,
-  ...
-}: {
+{pkgs, ...}: {
   # Keyboard
   hardware.keyboard.qmk.enable = true;
   environment.systemPackages = [pkgs.vial];
@@ -11,7 +7,7 @@
   programs.streamcontroller.enable = true;
 
   # Razer Tartarus
-  users.users.${meta.primaryUser}.extraGroups = ["uinput" "input"];
+  users.users.psoewish.extraGroups = ["uinput" "input"];
   services.kanata = {
     enable = true;
     package = pkgs.kanata-with-cmd;
