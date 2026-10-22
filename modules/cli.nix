@@ -15,7 +15,6 @@
     bind
     bat
     eza
-    fastfetch
     wl-clipboard-rs
     wl-clip-persist
   ];
