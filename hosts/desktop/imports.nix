@@ -5,16 +5,18 @@
     discord
     fish
     foot
-    fuzzel
     gaming
     git
     helium
     helix
-    hyprland
     lsp
     nautilus
     pear-desktop
     podman
     zed
+    fastfetch
+    style
+
+    mango
   ];
 }
