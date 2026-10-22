@@ -1,4 +1,8 @@
 {
+  "git": {
+    "path_style": "file_name_first",
+    "hunk_style": "staged_hollow"
+  },
   "prettier": {
     "allowed": true
   },
@@ -7,6 +11,14 @@
   "cli_default_open_behavior": "existing_window",
   "disable_ai": true,
   "git_panel": {
+    "show_count_badge": true,
+    "commit_editor": "expanded",
+    "entry_primary_click_action": "file_diff",
+    "folder_indicator": "both",
+    "file_icons": false,
+    "tree_view": true,
+    "collapse_untracked_diff": false,
+    "group_by": "status",
     "dock": "left"
   },
   "helix_mode": true,
