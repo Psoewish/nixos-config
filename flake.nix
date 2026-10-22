@@ -1,9 +1,5 @@
 {
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [(inputs.import-tree ./nix)];
-      _module.args.meta = import ./meta.nix;
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./nix);
 
   inputs = {
     # TODO: CONFIGURE FOLLOWS
