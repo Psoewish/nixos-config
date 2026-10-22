@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  meta,
   ...
 }: {
   programs = {
@@ -11,7 +10,10 @@
         init = {
           defaultBranch = "main";
         };
-        user = {inherit (meta.git) name email;};
+        user = {
+          name = "psoewish";
+          email = "personal@psoewish.com";
+        };
         credential = {
           "https://github.com".helper = [
             ""
