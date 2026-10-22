@@ -1,4 +1,4 @@
-{meta, ...}: {
+{
   virtualisation = {
     podman = {
       enable = true;
@@ -8,5 +8,5 @@
     };
     oci-containers.backend = "podman";
   };
-  users.groups.podman.members = [meta.primaryUser];
+  users.groups.podman.members = ["psoewish"];
 }
