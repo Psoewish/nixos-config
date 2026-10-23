@@ -21,4 +21,10 @@ if status is-interactive
     alias cat 'bat --style=plain --paging=never --italic-text=always'
     alias cp 'rsync -ah --info=progress2'
     alias mkdir 'mkdir -pv'
+
+    alias z zellij
+    alias ne 'cd ~/nixos-config && zellij --layout ~/.config/zellij/layouts/dev.kdl'
+    alias zd 'zellij --layout ~/.config/zellij/layouts/dev.kdl'
+
+    direnv-instant hook fish | source
 end

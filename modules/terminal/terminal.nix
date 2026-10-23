@@ -4,5 +4,6 @@
     fish
     foot
     cli
+    zellij
   ];
 }
