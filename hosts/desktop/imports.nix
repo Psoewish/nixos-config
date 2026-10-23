@@ -1,6 +1,6 @@
 {inputs, ...}: {
   imports = with inputs.self.modules.nixos; [
-    deploy-rs
+    # deploy-rs
     discord
     gaming
     git
@@ -10,6 +10,7 @@
 
     terminal
     editors
+    direnv
 
     mango
   ];
