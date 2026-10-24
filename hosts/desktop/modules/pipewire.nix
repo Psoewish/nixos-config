@@ -8,13 +8,15 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
-      extraConfig.pipewire."low-latency"."context.properties" = {
-        "default.clock" = {
-          "rate" = 48000;
-          "allowed-rates" = [48000];
-          "quantum" = 800;
-          "min-quantum" = 512;
-          "max-quantum" = 1024;
+      extraConfig.pipewire = {
+        low-latency.context.properties = {
+          default.clock = {
+            rate = 48000;
+            allowed-rates = [48000];
+            quantum = 800;
+            min-quantum = 512;
+            max-quantum = 1024;
+          };
         };
       };
       wireplumber = {
@@ -22,14 +24,14 @@
         extraConfig."disable-suspend"."monitor.alsa.rules" = [
           {
             matches = [
-              {"node.name" = "~alsa_input.*";}
-              {"node.name" = "~alsa_output.*";}
+              {node.name = "~alsa_input.*";}
+              {node.name = "~alsa_output.*";}
             ];
             actions.update-props = {
-              "session.suspend-timeout-seconds" = 0;
-              "node.always-process" = true;
-              "dither.method" = "wannamaker3";
-              "dither.noise" = 1;
+              session.suspend-timeout-seconds = 0;
+              node.always-process = true;
+              dither.method = "wannamaker3";
+              dither.noise = 1;
             };
           }
         ];
