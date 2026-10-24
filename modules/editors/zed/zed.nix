@@ -3,7 +3,6 @@
   lib,
   ...
 }: {
-  programs.nix-ld.enable = true;
   environment.systemPackages = [pkgs.zed-editor];
 
   hjem.users.psoewish.xdg.config.files = {

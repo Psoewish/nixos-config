@@ -7,6 +7,8 @@
     helium
     pear-desktop
     podman
+    security
+    nix-ld
 
     terminal
     editors
