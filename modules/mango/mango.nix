@@ -16,6 +16,7 @@
 
   # Enable ManngoWM
   programs.mango.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Enable Noctalia shell
   programs.noctalia = {
