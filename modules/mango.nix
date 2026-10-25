@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   pkgs,
   ...
 }: {
@@ -43,10 +42,4 @@
     enable = true;
     terminal = "foot";
   };
-
-  # Link my dotfiles
-  hjem.users.psoewish.xdg.config.files."mango/config.conf".source = lib.mkSymlink ./config/config.conf;
-  hjem.users.psoewish.xdg.config.files."mango/autostart.conf".source = lib.mkSymlink ./config/autostart.conf;
-  hjem.users.psoewish.xdg.config.files."mango/keybinds.conf".source = lib.mkSymlink ./config/keybinds.conf;
-  hjem.users.psoewish.xdg.config.files."mango/rules.conf".source = lib.mkSymlink ./config/rules.conf;
 }
