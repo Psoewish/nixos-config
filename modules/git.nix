@@ -1,9 +1,5 @@
 {
-  pkgs,
-  lib,
-  ...
-}: {
-  programs = {
+  hm.programs = {
     git = {
       enable = true;
       config = {
@@ -14,19 +10,14 @@
           name = "psoewish";
           email = "personal@psoewish.com";
         };
-        credential = {
-          "https://github.com".helper = [
-            ""
-            "${lib.getExe pkgs.gh} auth git-credential"
-          ];
-          "https://gist.github.com".helper = [
-            ""
-            "${lib.getExe pkgs.gh} auth git-credential"
-          ];
-        };
+      };
+    };
+    gh = {
+      enable = true;
+      settings = {
+        git_protocol = "ssh";
       };
     };
     lazygit.enable = true;
   };
-  environment.systemPackages = [pkgs.gh];
 }
