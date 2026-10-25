@@ -28,10 +28,4 @@
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     helium.url = "github:oxcl/nix-flake-helium-browser";
   };
-
-  # Substituters
-  nixConfig = {
-    extra-substituters = ["https://noctalia.cachix.org"];
-    extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
-  };
 }
