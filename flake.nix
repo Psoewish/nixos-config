@@ -2,9 +2,9 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./nix);
 
   inputs = {
-    # TODO: CONFIGURE FOLLOWS
-    # Core features
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    import-tree.url = "github:denful/import-tree";
+    deploy-rs.url = "github:serokell/deploy-rs";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -13,13 +13,10 @@
       url = "github:mic92/direnv-instant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    deploy-rs.url = "github:serokell/deploy-rs";
-    import-tree.url = "github:denful/import-tree";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hjem.url = "github:feel-co/hjem";
 
     mangowm = {
       url = "github:mangowm/mango";
