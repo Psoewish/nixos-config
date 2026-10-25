@@ -1,6 +1,5 @@
 {inputs, ...}: {
   imports = with inputs.self.modules.nixos; [
-    # deploy-rs
     discord
     gaming
     git
@@ -8,9 +7,11 @@
     pear-desktop
     podman
     nix-ld
-
-    terminal
-    editors
+    fish
+    foot
+    zed
+    helix
+    lsp
     direnv
 
     mango
