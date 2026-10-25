@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   username = "psoewish";
 in {
   users.groups.${username} = {};
@@ -11,4 +15,6 @@ in {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh/C3Qmm+9EoNeiLUNsmpvqzGjNF6n0xNUpksIm3xUK"
     ];
   };
+  imports = [(lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])];
+  hm.home.stateVersion = "26.11";
 }

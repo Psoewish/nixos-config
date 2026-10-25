@@ -23,6 +23,15 @@ in {
             {networking.hostName = hostname;}
             (inputs.import-tree (../hosts + "/${hostname}"))
             inputs.hjem.nixosModules.default
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {inherit inputs;};
+                overwriteBackup = true;
+              };
+            }
             {
               hjem = {
                 clobberByDefault = true;
@@ -41,9 +50,6 @@ in {
         };
       })
       inputs.self.nixosConfigurations;
-  };
-
-  perSystem = {system, ...}: {
-    checks = inputs.deploy-rs.lib.${system}.deployChecks inputs.self.deploy;
+    checks = inputs.deploy-rs.lib."x86_64-linux".deployChecks inputs.self.deploy;
   };
 }

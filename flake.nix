@@ -5,13 +5,20 @@
     # TODO: CONFIGURE FOLLOWS
     # Core features
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     direnv-instant = {
       url = "github:mic92/direnv-instant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     deploy-rs.url = "github:serokell/deploy-rs";
     import-tree.url = "github:denful/import-tree";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hjem.url = "github:feel-co/hjem";
 
     mangowm = {
