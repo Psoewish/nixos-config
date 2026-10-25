@@ -22,22 +22,15 @@ in {
           modules = [
             {networking.hostName = hostname;}
             (inputs.import-tree (../hosts + "/${hostname}"))
-            inputs.hjem.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
-            {
+            ({pkgs, ...}: {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = {inherit inputs;};
-                overwriteBackup = true;
+                backupCommand = "${pkgs.trash-cli}/bin/trash";
               };
-            }
-            {
-              hjem = {
-                clobberByDefault = true;
-                specialArgs = {inherit inputs;};
-              };
-            }
+            })
           ];
         });
 
