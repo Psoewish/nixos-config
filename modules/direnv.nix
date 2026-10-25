@@ -16,7 +16,7 @@
               path="''${PWD//[^a-zA-Z0-9]/-}"
               echo "''${XDG_CACHE_HOME}/direnv/layouts/''${hash}''${path}"
             )}"
-            }
+          }
         '';
       };
       direnv-instant.enable = true;
