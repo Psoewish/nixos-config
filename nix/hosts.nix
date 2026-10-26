@@ -14,10 +14,6 @@ in {
         inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            lib = inputs.nixpkgs.lib.extend (final: prev: let
-              checkoutRoot = "/home/psoewish/nixos-config";
-              storeRoot = toString inputs.self.outPath;
-            in {mkSymlink = path: checkoutRoot + (prev.removePrefix storeRoot (toString path));});
           };
           modules = [
             {networking.hostName = hostname;}
