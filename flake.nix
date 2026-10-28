@@ -11,5 +11,6 @@
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     helium.url = "github:oxcl/nix-flake-helium-browser";
     nix-alien.url = "github:thiagokokada/nix-alien";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 }

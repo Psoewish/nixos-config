@@ -8,7 +8,10 @@
 in {
   systems = ["x86_64-linux"];
 
-  imports = [inputs.flake-parts.flakeModules.modules];
+  imports = [
+    inputs.flake-parts.flakeModules.modules
+    inputs.treefmt-nix.flakeModule
+  ];
 
   flake.nixosConfigurations =
     genAttrs
@@ -36,4 +39,9 @@ in {
     then nameValuePair name (inputs.import-tree (./modules + "/${name}"))
     else nameValuePair (removeSuffix ".nix" name) (./modules + "/${name}"))
   (filterAttrs (name: type: !hasPrefix "_" name && (type == "directory" || hasSuffix ".nix" name)) (readDir ./modules));
+
+  perSystem.treefmt.programs = {
+    alejandra.enable = true;
+    deadnix.enable = true;
+  };
 }
