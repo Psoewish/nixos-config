@@ -1,5 +1,5 @@
 {
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./nix);
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (import ./outputs.nix);
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
