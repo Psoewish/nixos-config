@@ -1,5 +1,5 @@
-{...}: {
-  hm.programs.foot = {
+{
+  home.config.programs.foot = {
     enable = true;
     settings = {
       main = {
