@@ -1,8 +1,8 @@
 {
-  hm.programs = {
+  home.config.programs = {
     git = {
       enable = true;
-      config = {
+      settings = {
         init = {
           defaultBranch = "main";
         };
