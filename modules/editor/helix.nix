@@ -1,9 +1,8 @@
 {
-  hm.programs.helix = {
+  home.config.programs.helix = {
     enable = true;
     settings = {
       theme = "noctalia";
-
       editor = {
         bufferline = "multiple";
         color-modes = true;
@@ -32,7 +31,6 @@
           tab = "all";
         };
       };
-
       keys.normal = {
         C-s = [":w"];
         esc = [
@@ -41,15 +39,13 @@
         ];
       };
     };
-    languages = {
-      language = [
-        {
-          name = "nix";
-          auto-format = true;
-          language-servers = ["nixd" "nil"];
-          formatter.command = "alejandra";
-        }
-      ];
-    };
+    languages.language = [
+      {
+        name = "nix";
+        auto-format = true;
+        language-servers = ["nixd" "nil"];
+        formatter.command = "alejandra";
+      }
+    ];
   };
 }

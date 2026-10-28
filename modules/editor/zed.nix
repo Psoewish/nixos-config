@@ -1,5 +1,6 @@
 {
-  hm.programs.zed-editor = {
+  programs.nix-ld.enable = true;
+  home.config.programs.zed-editor = {
     enable = true;
     userSettings = {
       helix_mode = true;
