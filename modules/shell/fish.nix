@@ -8,39 +8,19 @@
     useBabelfish = true;
   };
 
-  environment.systemPackages =
-    (with pkgs.fishPlugins; [
-      autopair
-      done
-      puffer
-      sponge
-      plugin-sudope
-      pure
-      colored-man-pages
-    ])
-    ++ (with pkgs; [
-      btop
-      curl
-      fd
-      fzf
-      jq
-      ripgrep
-      killall
-      socat
-      wget
-      unzip
-      unrar
-      zip
-      bind
-      bat
-      eza
-      wl-clipboard-rs
-      wl-clip-persist
-    ]);
+  environment.systemPackages = with pkgs.fishPlugins; [
+    autopair
+    done
+    puffer
+    sponge
+    plugin-sudope
+    pure
+    colored-man-pages
+  ];
 
-  hm.programs.fish = {
+  home.config.programs.fish = {
     enable = true;
-    interactiveShellInit = lib.concatLines (lib.map (p: "set -gx " + p) [
+    interactiveShellInit = lib.concatLines (map (p: "set -gx " + p) [
       "fish_greeting"
       "sponge_purge_only_on_exit true"
       "EDITOR hx"
