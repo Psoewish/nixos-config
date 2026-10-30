@@ -18,6 +18,20 @@
         git_protocol = "ssh";
       };
     };
-    lazygit.enable = true;
+    lazygit = {
+      enable = true;
+      settings = {
+        border = "single";
+        git.diffRenderers = [
+          {
+            command = "delta --paging=never";
+          }
+        ];
+      };
+    };
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
   };
 }
