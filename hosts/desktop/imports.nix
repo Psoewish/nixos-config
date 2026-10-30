@@ -1,14 +1,16 @@
 {inputs, ...}: {
   imports = with inputs.self.modules.nixos; [
-    browser
     dev
-    social
-    terminal
-    media
-    gaming
-    shell
     editor
-
+    gaming
     mango
+    media
+
+    cli-tools
+    discord
+    fish
+    foot
+    helium
+    stylix
   ];
 }
