@@ -2,7 +2,6 @@
   home.config.programs.helix = {
     enable = true;
     settings = {
-      theme = "noctalia";
       editor = {
         bufferline = "multiple";
         color-modes = true;

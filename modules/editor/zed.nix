@@ -5,8 +5,6 @@
     userSettings = {
       helix_mode = true;
       prettier.allowed = true;
-      buffer_font_family = "Maple Mono NF CN";
-      buffer_font_size = 14;
       cli_default_open_behavior = "existing_window";
       disable_ai = true;
       git_panel = {
@@ -46,9 +44,6 @@
       session.trust_all_worktrees = true;
       telemetry.metrics = false;
       terminal.shell.program = "fish";
-      theme = "Noctalia Dark";
-      ui_font_family = "Inter";
-      ui_font_size = 14;
     };
     userKeymaps = [
       {
