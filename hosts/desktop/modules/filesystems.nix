@@ -2,12 +2,12 @@
   fileSystems = {
     # OS drive (1TB nvme)
     "/boot" = {
-      device = "/dev/disk/by-uuid/EADD-9E4E";
+      device = "/dev/disk/by-uuid/98AB-0405";
       fsType = "vfat";
       options = ["fmask=0077" "dmask=0077"];
     };
     "/" = {
-      device = "/dev/disk/by-uuid/7fcf55eb-7791-47df-9990-712f2fc11a48";
+      device = "/dev/disk/by-uuid/b250c6bd-f55b-4d7e-9fd7-d6404fb489cb";
       fsType = "xfs";
     };
 
