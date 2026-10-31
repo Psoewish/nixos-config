@@ -16,10 +16,6 @@ in {
     ];
   };
 
-  imports = [
-    (lib.mkAliasOptionModule ["home" "config"] ["home-manager" "users" username])
-    (lib.mkAliasOptionModule ["root" "config"] ["home-manager" "users" "root"])
-  ];
+  imports = [(lib.mkAliasOptionModule ["home" "config"] ["home-manager" "users" username])];
   home-manager.users.${username}.home.stateVersion = "26.11";
-  home-manager.users.root.home.stateVersion = "26.11";
 }
