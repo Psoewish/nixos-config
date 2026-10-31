@@ -14,7 +14,7 @@
       RestoreOnStartup = 1;
       ExtensionInstallForcelist = [
         # Core features
-        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+        "kloimhjdbmgfmlcjelmhkddodpglckkb" # Bitwarden
         "fihnjjcciajhdojfnbdddfaoknhalnja" # I don't care about cookies
         "fkagelmloambgokoeokbpihmgpkbgbfm" # Indie Wiki Buddy
         "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
