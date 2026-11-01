@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [inputs.stylix.nixosModules.stylix];
+  home.config.stylix.targets.rofi.enable = false; # temporary until upstream bug gets fixed
   stylix = {
     enable = true;
     base16Scheme = inputs.basix.schemeData.base16.soft-server;
@@ -40,5 +41,4 @@
     };
     opacity.terminal = 0.85;
   };
-  home.config.stylix.targets.rofi.enable = false;
 }
