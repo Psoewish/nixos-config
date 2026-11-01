@@ -20,7 +20,5 @@ in {
 
     # Games
     "/home/psoewish/.local/share/Steam/steamapps" = mkBind "/data/games/Steam/steamapps";
-
-    "/home/psoewish/test.txt" = mkBind "/home/nixos-config/test.txt";
   };
 }
