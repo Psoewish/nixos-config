@@ -43,7 +43,6 @@
       };
       session.trust_all_worktrees = true;
       telemetry.metrics = false;
-      terminal.shell.program = "fish";
     };
     userKeymaps = [
       {
