@@ -8,7 +8,7 @@
 
     import-tree.url = "github:denful/import-tree";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.nixpkgs-lib.follows = "nixpkgs";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -20,7 +20,7 @@
 
     mangowm.url = "github:mangowm/mango";
     mangowm.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia.url = "github:noctalia-dev/noctalia/cachix"; #TODO: find a bar that better suits my needs
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
     helium.url = "github:oxcl/nix-flake-helium-browser";
 
