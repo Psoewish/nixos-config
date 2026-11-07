@@ -1,17 +1,8 @@
 {
   nixpkgs.config.allowUnfree = true;
   security.sudo.wheelNeedsPassword = false;
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-    optimise.automatic = true;
-    settings = {
-      trusted-users = ["root" "@wheel"];
-      auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-    };
+  nix.settings = {
+    trusted-users = ["root" "@wheel"];
+    experimental-features = ["nix-command" "flakes"];
   };
 }
