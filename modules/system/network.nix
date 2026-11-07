@@ -10,5 +10,4 @@
     nameservers = ["192.168.1.100" "9.9.9.9"];
     defaultGateway = "192.168.1.1";
   };
-  systemd.services.NetworkManager-wait-online.enable = false;
 }
