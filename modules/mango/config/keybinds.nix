@@ -34,10 +34,10 @@
         "${mod},UP,focusdir,up"
         "${mod},RIGHT,focusdir,right"
 
-        "${mod}+SHIFT,LEFT,exchange_client,left"
-        "${mod}+SHIFT,DOWN,exchange_client,down"
-        "${mod}+SHIFT,UP,exchange_client,up"
-        "${mod}+SHIFT,RIGHT,exchange_client,right"
+        "${mod}+SHIFT,LEFT,move_client,left"
+        "${mod}+SHIFT,DOWN,move_client,down"
+        "${mod}+SHIFT,UP,move_client,up"
+        "${mod}+SHIFT,RIGHT,move_client,right"
 
         "${mod},1,viewcrossmon,1,DP-1"
         "${mod},2,viewcrossmon,2,DP-1"
