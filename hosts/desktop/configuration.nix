@@ -27,7 +27,7 @@
   system.stateVersion = "26.11";
   nixpkgs.hostPlatform.system = "x86_64-linux";
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelModules = ["kvm-amd"];
   hardware = {
     enableAllFirmware = true;
