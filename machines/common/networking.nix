@@ -1,9 +1,5 @@
 {
-  den.aspects.common.networking.nixos = {
-    host,
-    lib,
-    ...
-  }: {
+  den.aspects.common.networking.nixos = {host, ...}: {
     networking = {
       networkmanager = {
         enable = true;
@@ -24,8 +20,8 @@
         }
       ];
       firewall = {
-        allowedTCPPorts = lib.optional (host.networking ? allowedDCPPorts) host.networking.allowedTCPPorts;
-        allowedUDPPorts = lib.optional (host.networking ? allowedUDPPorts) host.networking.allowedUDPPorts;
+        allowedTCPPorts = host.networking.allowedTCPPorts or [];
+        allowedUDPPorts = host.networking.allowedUDPPorts or [];
       };
     };
   };
