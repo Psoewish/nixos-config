@@ -1,0 +1,56 @@
+{den, ...}: {
+  den.aspects.dev.editors.zed = {
+    includes = [den.aspects.dev.languages._];
+    nixos.programs.nix-ld.enable = true; # Required for extensions
+
+    homeManager = {
+      lib,
+      zed-languages,
+      zed-extensions,
+      ...
+    }: {
+      programs.zed-editor = {
+        enable = true;
+        extensions = lib.unique zed-extensions;
+        userSettings = {
+          languages = lib.mkMerge zed-languages;
+          helix_mode = true;
+          prettier.allowed = true;
+          cli_default_open_behavior = "existing_window";
+          disable_ai = true;
+          git_panel = {
+            show_count_badge = true;
+            commit_editor = "expanded";
+            entry_primary_click_action = "file_diff";
+            folder_indicator = "both";
+            file_icons = false;
+            tree_view = true;
+            collapse_untracked_diff = false;
+            group_by = "status";
+            dock = "left";
+          };
+          git = {
+            path_style = "file_name_first";
+            hunk_style = "staged_hollow";
+          };
+          lsp_document_colors = "background";
+          project_panel = {
+            dock = "left";
+            hide_root = true;
+            auto_fold_dirs = true;
+          };
+          session.trust_all_worktrees = true;
+          telemetry.metrics = false;
+        };
+        userKeymaps = [
+          {
+            bindings = {
+              ctrl-shift-t = "workspace::NewTerminal";
+              ctrl-t = "terminal_panel::Toggle";
+            };
+          }
+        ];
+      };
+    };
+  };
+}
