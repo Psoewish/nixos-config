@@ -8,11 +8,7 @@
 
         scroller_structs = 5;
         scroller_default_proportion = 0.5;
-        scroller_proportion_preset = [
-          0.666
-          0.5
-          0.333
-        ];
+        scroller_proportion_preset = [0.666 0.5 0.333];
         scroller_prefer_overspread = 0;
         scroller_default_proportion_single = 1.0;
         scroller_ignore_proportion_single = 0;
