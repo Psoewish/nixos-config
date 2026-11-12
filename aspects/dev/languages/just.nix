@@ -18,7 +18,7 @@
     };
 
     zed-languages = {
-      Nix = {
+      Just = {
         format_on_save = "on";
         language_servers = ["just-lsp"];
       };
