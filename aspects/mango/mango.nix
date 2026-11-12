@@ -13,7 +13,12 @@
     };
     homeManager = {
       imports = [inputs.mangowm.hmModules.mango];
-      wayland.windowManager.mango.enable = true;
+      wayland.windowManager.mango = {
+        enable = true;
+        extraConfig = ''
+          source=~/.config/mango/noctalia.conf
+        '';
+      };
     };
     includes = [den.aspects.mango._];
   };
