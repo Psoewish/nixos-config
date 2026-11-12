@@ -7,7 +7,7 @@
     ];
     nixos = {
       security.sudo.wheelNeedsPassword = false;
-      nix.settings.trusted-users = [user];
+      nix.settings.trusted-users = [user.name];
       users.users.${user.name}.openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh/C3Qmm+9EoNeiLUNsmpvqzGjNF6n0xNUpksIm3xUK"
       ];

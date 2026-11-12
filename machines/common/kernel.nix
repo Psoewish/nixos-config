@@ -7,7 +7,7 @@
   }: {
     boot = {
       kernelPackages = pkgs.${host.kernel.package};
-      kernelModules = lib.optional (host ? kernelModules) host.kernelModules;
+      kernelModules = lib.optionals (host.kernel ? modules) host.kernel.modules;
     };
   };
 }
