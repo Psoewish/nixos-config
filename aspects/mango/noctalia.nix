@@ -21,8 +21,8 @@
           bar.default = {
             background_opacity = 0.85;
             capsule_radius = 0;
-            margin_edge = 5;
-            margin_ends = 5;
+            margin_edge = 0;
+            margin_ends = 0;
             padding = 5;
             radius = 0;
             thickness = 28;
