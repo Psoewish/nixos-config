@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-lib.follows = "nixpkgs";
 
+    zen-kernel.url = "github:nixos/nixpkgs/7c68e22c2704fd87d2f2d1f442e0141ca6a9e60d";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     den.url = "github:denful/den";
@@ -31,6 +33,9 @@
 
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    helix-plugins.url = "github:maxschipper/helix-plugins-nix";
+    helix-plugins.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   nixConfig = {
