@@ -26,7 +26,6 @@
 
             # Youtube
             "ajopnjidmegmdimjlfnijceegpefgped" # BetterTTV
-            "ponfpcnoihfmfllpaingbgckeeldkhle" # Enhancer for YouTube
             "gebbhagfogifgggkldgodflihgfeippi" # Return Youtube Dislike
             "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock for Youtube
 
