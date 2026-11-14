@@ -22,5 +22,9 @@
     dev.editors.helix
     shell.fish
     stylix
+    sops
+    services.backend._
+    services.frontend._
+    services.routing._
   ];
 }
