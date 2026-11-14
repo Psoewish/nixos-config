@@ -12,6 +12,9 @@
     den.url = "github:denful/den";
     import-tree.url = "github:denful/import-tree";
 
+    sops-nix.url = "github:mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
