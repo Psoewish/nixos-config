@@ -11,7 +11,7 @@
           rule = "Host(`seerr.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.seerr.loadBalancer.servers = ["http://localhost:5055"];
+        services.seerr.loadBalancer.servers = [{url = "http://localhost:5055";}];
       };
       services.cloudflared.tunnels."009088b8-cd7c-41fb-b25d-2d34cd98bc6e".ingress = {
         seerr = {

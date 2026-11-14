@@ -16,7 +16,7 @@
           rule = "Host(`transmission.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.transmission.loadBalancer.servers = ["http://localhost:9091"];
+        services.transmission.loadBalancer.servers = [{url = "http://localhost:9091";}];
       };
     };
   };

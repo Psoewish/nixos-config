@@ -28,7 +28,7 @@
           rule = "Host(`sabnzbd.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.sabnzbd.loadBalancer.servers = ["http://localhost:8080"];
+        services.sabnzbd.loadBalancer.servers = [{url = "http://localhost:8080";}];
       };
     };
   };

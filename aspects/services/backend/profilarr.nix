@@ -23,7 +23,7 @@
           rule = "Host(`profilarr.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.profilarr.loadBalancer.servers = ["http://localhost:6868"];
+        services.profilarr.loadBalancer.servers = [{url = "http://localhost:6868";}];
       };
     };
   };

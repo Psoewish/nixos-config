@@ -12,7 +12,7 @@
           rule = "Host(`jellyfin.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.jellyfin.loadBalancer.servers = ["http://localhost:8096"];
+        services.jellyfin.loadBalancer.servers = [{url = "http://localhost:8096";}];
       };
       services.cloudflared.tunnels."009088b8-cd7c-41fb-b25d-2d34cd98bc6e".ingress = {
         jellyfin = {

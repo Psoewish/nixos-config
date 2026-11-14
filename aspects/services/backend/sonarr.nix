@@ -13,7 +13,7 @@
           rule = "Host(`sonarr.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.sonarr.loadBalancer.servers = ["http://localhost:8989"];
+        services.sonarr.loadBalancer.servers = [{url = "http://localhost:8989";}];
       };
     };
   };

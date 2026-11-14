@@ -13,7 +13,7 @@
           rule = "Host(`radarr.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.radarr.loadBalancer.servers = ["http://localhost:7878"];
+        services.radarr.loadBalancer.servers = [{url = "http://localhost:7878";}];
       };
     };
   };

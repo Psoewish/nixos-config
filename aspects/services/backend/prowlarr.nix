@@ -11,7 +11,7 @@
           rule = "Host(`prowlarr.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.prowlarr.loadBalancer.servers = ["http://localhost:9696"];
+        services.prowlarr.loadBalancer.servers = [{url = "http://localhost:9696";}];
       };
     };
   };

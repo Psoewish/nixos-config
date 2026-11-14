@@ -25,7 +25,7 @@
           rule = "Host(`vaultwarden.psoewish.com`) || Host(`vault.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.vaultwarden.loadBalancer.servers = ["http://localhost:8222"];
+        services.vaultwarden.loadBalancer.servers = [{url = "http://localhost:8222";}];
       };
     };
     services.cloudflared.tunnels."009088b8-cd7c-41fb-b25d-2d34cd98bc6e".ingress = {

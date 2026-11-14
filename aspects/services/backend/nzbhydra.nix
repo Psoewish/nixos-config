@@ -8,7 +8,7 @@
           rule = "Host(`nzbhydra2.psoewish.com`) || Host(`nzbhydra.psoewish.com`)";
           entryPoints = ["websecure"];
         };
-        services.nzbhydra2.loadBalancer.servers = ["http://localhost:5076"];
+        services.nzbhydra2.loadBalancer.servers = [{url = "http://localhost:5076";}];
       };
     };
   };
