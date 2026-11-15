@@ -53,6 +53,8 @@
           findcat = "fd $argv -X bat";
           copycat = "cat $argv | wl-copy";
           grepcat = "batgrep $argv --paging=never";
+
+          just = "just --justfile ~/nixos-config/justfile";
         };
       };
     };
