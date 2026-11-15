@@ -5,7 +5,7 @@
         title_message_bar_height = 0;
         drag_corner = 4;
         focus_cross_monitor = 1;
-        border_px = 1;
+        border_px = 2;
         border_radius = 0;
         gap_inner_horizontal = 5;
         gap_inner_vertical = 5;
