@@ -3,7 +3,7 @@
     homeManager = {
       wayland.windowManager.mango.settings = let
         mod = "SUPER";
-        terminal = "foot";
+        terminal = "kitty";
         browser = "helium";
       in {
         bind = [

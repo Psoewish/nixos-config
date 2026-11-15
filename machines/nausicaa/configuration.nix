@@ -23,6 +23,7 @@
     shell.fish
     discord
     foot
+    kitty
     browsers.helium
     media._
     stylix
