@@ -12,7 +12,7 @@
       boot = {
         # kernelPackages = pkgs.${host.kernel.package};
         kernelPackages =
-          if (host == "nausicaa")
+          if (host.hostName == "nausicaa")
           then pkgs-zen2.linuxPackages_zen
           else pkgs.linuxPackages;
         kernelModules = lib.optionals (host.kernel ? modules) host.kernel.modules;
