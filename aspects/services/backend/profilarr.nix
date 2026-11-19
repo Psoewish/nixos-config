@@ -16,11 +16,6 @@
         image = "ghcr.io/dictionarry-hub/profilarr:latest";
         environmentFiles = [config.security.nix-secrets.templates.profilarr.path];
         volumes = ["/var/lib/profilarr:/config"];
-        labels = {
-          "docktail.service.enable" = "true";
-          "docktail.service.name" = "profilarr";
-          "docktail.service.port" = "6868";
-        };
       };
     };
   };

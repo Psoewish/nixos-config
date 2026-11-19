@@ -20,11 +20,6 @@
           "/var/lib/qbittorrent:/config"
           "/data/downloads/torrents:/data/downloads/torrents"
         ];
-        labels = {
-          "docktail.service.enable" = "true";
-          "docktail.service.name" = "qbittorrent";
-          "docktail.service.port" = "8080";
-        };
       };
     };
   };

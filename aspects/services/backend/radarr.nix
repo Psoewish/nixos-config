@@ -21,11 +21,6 @@
           "/data/media:/data/media"
           "/data/downloads:/data/downloads"
         ];
-        labels = {
-          "docktail.service.enable" = "true";
-          "docktail.service.name" = "radarr";
-          "docktail.service.port" = "7878";
-        };
       };
     };
   };

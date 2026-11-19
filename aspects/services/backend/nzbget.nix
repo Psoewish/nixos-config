@@ -20,11 +20,6 @@
           "/var/lib/nzbget:/config"
           "/data/downloads/usenet:/data/downloads/usenet"
         ];
-        labels = {
-          "docktail.service.enable" = "true";
-          "docktail.service.name" = "nzbget";
-          "docktail.service.port" = "6789";
-        };
       };
     };
   };

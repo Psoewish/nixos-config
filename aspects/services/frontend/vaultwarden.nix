@@ -25,11 +25,6 @@
         image = "ghcr.io/dani-garcia/vaultwarden:latest";
         environmentFiles = [config.security.nix-secrets.templates.vaultwarden.path];
         volumes = ["/var/lib/vaultwarden:/data"];
-        labels = {
-          "docktail.service.enable" = "true";
-          "docktail.service.name" = "vault";
-          "docktail.service.port" = "8222";
-        };
       };
     };
   };

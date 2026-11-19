@@ -18,11 +18,6 @@
           "/var/lib/nzbhydra2:/config"
           "/data/downloads:/data/downloads"
         ];
-        labels = {
-          "docktail.service.enable" = "true";
-          "docktail.service.name" = "nzbhydra";
-          "docktail.service.port" = "5076";
-        };
       };
     };
   };

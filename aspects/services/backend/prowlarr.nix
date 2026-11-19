@@ -20,11 +20,6 @@
           "/var/lib/prowlarr:/config"
           "/data/downloads:/data/downloads"
         ];
-        labels = {
-          "docktail.service.enable" = "true";
-          "docktail.service.name" = "prowlarr";
-          "docktail.service.port" = "9696";
-        };
       };
     };
   };
