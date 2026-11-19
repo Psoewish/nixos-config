@@ -23,10 +23,23 @@
     dev.git
     dev.editors.helix
     shell.fish
-    stylix
-    sops
-    services.backend._
-    services.frontend._
-    services.routing._
+    podman
+    nix-secrets
+
+    services.backend.nzbhydra
+    services.backend.nzbget
+    services.backend.profilarr
+    services.backend.prowlarr
+    services.backend.radarr
+    services.backend.sonarr
+    services.backend.qbittorrent
+    services.backend.wud
+
+    services.frontend.vaultwarden
+
+    # services.routing.blocky
+    # services.routing.unbound
+    services.routing.netbird-proxy
+    services.routing.certbot
   ];
 }
