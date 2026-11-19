@@ -1,10 +1,10 @@
 set default-list
 
-deploy host="nausicaa":
-    @nh os switch --hostname {{ host }} --target-host {{ host }} --elevation-strategy passwordless
+switch mode="switch":
+    @nh os {{ mode }}
 
-boot host="nausicaa":
-    @nh os boot --hostname {{ host }} --target-host {{ host }} --elevation-strategy passwordless
+deploy mode="switch" host="mononoke":
+    @nh os {{ mode }} --hostname {{ host }} --target-host {{ host }} --elevation-strategy passwordless
 
 repl host="nausicaa":
     @nh os repl --hostname {{ host }}
