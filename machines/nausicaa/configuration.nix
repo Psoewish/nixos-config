@@ -28,5 +28,6 @@
     browsers.helium
     media._
     stylix
+    nix-secrets
   ];
 }
