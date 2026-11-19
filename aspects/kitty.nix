@@ -12,10 +12,10 @@
           confirm_os_window_close = 0;
         };
         keybindings = {
-          "alt+down" = "next_window";
-          "alt+right" = "next_window";
-          "alt+up" = "previous_window";
-          "alt+left" = "previous_window";
+          "alt+left" = "neighboring_window left";
+          "alt+down" = "neighboring_window down";
+          "alt+up" = "neighboring_window up";
+          "alt+right" = "neighboring_window right";
 
           "ctrl+e" = "first_window";
           "ctrl+t" = "second_window";
@@ -25,16 +25,17 @@
           "alt+3" = "goto_tab 3";
           "alt+4" = "goto_tab 4";
           "alt+5" = "goto_tab 5";
+
+          "ctrl+alt+1" = "goto_session default";
+          "ctrl+alt+2" = "goto_session nixos";
         };
       };
 
       xdg.configFile = {
         "kitty/default".text = ''
-          # Terminal
-          new_tab home
-          layout fat
-          launch --title "home"
-
+          new_tab default
+        '';
+        "kitty/nixos".text = ''
           # Editor + terminal
           new_tab nixos
           layout splits
