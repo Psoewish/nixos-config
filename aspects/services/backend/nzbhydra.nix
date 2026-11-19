@@ -1,14 +1,28 @@
 {
   den.aspects.services.backend.nzbhydra = {
     nixos = {
-      services.nzbhydra2.enable = true;
-      services.traefik.dynamicConfigOptions.http = {
-        routers.nzbhydra2 = {
-          service = "nzbhydra2";
-          rule = "Host(`nzbhydra2.psoewish.com`) || Host(`nzbhydra.psoewish.com`)";
-          entryPoints = ["websecure"];
+      config,
+      lib,
+      ...
+    }: {
+      security.nix-secrets.templates.nzbhydra.content = lib.concatLines [
+        "PUID=1000"
+        "PGID=1000"
+        "TZ=${config.time.timeZone}"
+      ];
+
+      virtualisation.oci-containers.containers.nzbhydra = {
+        image = "lscr.io/linuxserver/nzbhydra2:latest";
+        environmentFiles = [config.security.nix-secrets.templates.nzbhydra.path];
+        volumes = [
+          "/var/lib/nzbhydra2:/config"
+          "/data/downloads:/data/downloads"
+        ];
+        labels = {
+          "docktail.service.enable" = "true";
+          "docktail.service.name" = "nzbhydra";
+          "docktail.service.port" = "5076";
         };
-        services.nzbhydra2.loadBalancer.servers = [{url = "http://localhost:5076";}];
       };
     };
   };
