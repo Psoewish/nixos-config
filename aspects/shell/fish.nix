@@ -39,6 +39,7 @@
         shellAbbrs = {
           ff = "fastfetch";
           lg = "lazygit";
+          jsut = "just";
         };
         shellAliases = {
           eza = "eza --icons always --git --group-directories-first --octal-permissions --smart-group";
