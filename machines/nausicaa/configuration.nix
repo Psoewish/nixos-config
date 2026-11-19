@@ -1,6 +1,7 @@
 {den, ...}: {
   den.hosts.nausicaa = {
     system = "x86_64-linux";
+    role = "workstation";
     users.psoewish = {};
     theme = "soft-server";
     kernel = {

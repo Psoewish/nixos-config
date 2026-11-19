@@ -1,6 +1,8 @@
 {den, ...}: {
   den.hosts.mononoke = {
     system = "x86_64-linux";
+    role = "server";
+
     theme = "soft-server";
     users.psoewish = {};
 
