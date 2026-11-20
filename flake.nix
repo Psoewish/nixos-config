@@ -12,6 +12,8 @@
 
     nix-secrets.url = "github:unnamed-systems/nix-secrets";
     nix-secrets.inputs.nixpkgs.follows = "nixpkgs";
+    secrets.url = "git+ssh://git@github.com/psoewish/secrets";
+    secrets.flake = false;
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

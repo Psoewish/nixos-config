@@ -4,8 +4,8 @@
       imports = [inputs.nix-secrets.nixosModules.default];
       security.nix-secrets = {
         enable = true;
-        storage = inputs.self.outPath + "/secrets";
-        storagePath = "/home/${user.name}/nixos-config/secrets";
+        storage = inputs.secrets;
+        storagePath = "/home/${user.name}/secrets";
         identityPaths = ["/home/${user.name}/.ssh/id_ed25519"];
 
         defaultRecipients = ["psoewish"];

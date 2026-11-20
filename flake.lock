@@ -549,6 +549,7 @@
           "nixpkgs"
         ],
         "noctalia": "noctalia",
+        "secrets": "secrets",
         "stylix": "stylix"
       }
     },
@@ -573,6 +574,22 @@
         "owner": "wlrfx",
         "repo": "scenefx",
         "type": "github"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795154395,
+        "narHash": "sha256-ZwLs/Zxupz8+Iy6M+EooDSuAYNgBzryGdRCRgAra+oY=",
+        "ref": "refs/heads/main",
+        "rev": "141c11565f3e1dc7aacb97d851cdeb8ff84a88ea",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/psoewish/secrets"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/psoewish/secrets"
       }
     },
     "stylix": {
