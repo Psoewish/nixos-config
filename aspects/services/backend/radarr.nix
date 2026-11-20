@@ -21,6 +21,11 @@
           "/data/media:/data/media"
           "/data/downloads:/data/downloads"
         ];
+        ports = ["7878:7878"];
+        labels = {
+          "tsdproxy.enable" = "true";
+          "tsdproxy.domain" = "radarr.psoewish.com";
+        };
       };
     };
   };

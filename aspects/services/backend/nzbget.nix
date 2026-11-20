@@ -20,6 +20,11 @@
           "/var/lib/nzbget:/config"
           "/data/downloads/usenet:/data/downloads/usenet"
         ];
+        ports = ["6789:6789"];
+        labels = {
+          "tsdproxy.enable" = "true";
+          "tsdproxy.domain" = "nzbget.psoewish.com";
+        };
       };
     };
   };

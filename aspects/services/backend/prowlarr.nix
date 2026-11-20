@@ -20,6 +20,11 @@
           "/var/lib/prowlarr:/config"
           "/data/downloads:/data/downloads"
         ];
+        ports = ["9696:9696"];
+        labels = {
+          "tsdproxy.enable" = "true";
+          "tsdproxy.domain" = "prowlarr.psoewish.com";
+        };
       };
     };
   };

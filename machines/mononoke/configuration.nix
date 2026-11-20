@@ -36,10 +36,12 @@
     services.backend.wud
 
     services.frontend.vaultwarden
+    services.frontend.silo
 
     # services.routing.blocky
     # services.routing.unbound
-    services.routing.netbird-proxy
-    services.routing.certbot
+    # services.routing.netbird-proxy
+    # services.routing.certbot
+    services.routing.tsdproxy
   ];
 }

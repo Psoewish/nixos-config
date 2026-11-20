@@ -2,34 +2,31 @@
   den.aspects.common.networking.nixos = {
     host,
     config,
-    lib,
     ...
   }: {
     systemd.network.wait-online.enable = false;
     boot.initrd.systemd.network.wait-online.enable = false;
-    services.netbird = {
-      enable = true;
-      useRoutingFeatures = "both";
-      clients.default = {
-        login = lib.optionalAttrs (host.role == "server") {
-          enable = true;
-          setupKeyFile = "${config.security.nix-secrets.secrets."netbird/setup_key_server".path}";
+
+    systemd.services.tailscaled.serviceConfig.Environment = ["TS_DEBUG_FIREWALL_MODE=nftables"];
+    services = {
+      tailscale = {
+        enable = true;
+        useRoutingFeatures = "both";
+        extraSetFlags = [
+          "--accept-dns"
+          "--accept-routes"
+          "--ssh"
+        ];
+      };
+      resolved = {
+        enable = true;
+        settings.Resolve = {
+          DNS = ["9.9.9.9"];
+          FallbackDNS = ["192.168.1.100"];
+          DNSSEC = "allow-downgrade";
         };
-        ui.enable = host.role != "server";
-        openFirewall = true;
-        openInternalFirewall = true;
       };
     };
-
-    services.resolved = {
-      enable = true;
-      settings.Resolve = {
-        DNS = ["9.9.9.9"];
-        FallbackDNS = ["192.168.1.100"];
-        DNSSEC = "allow-downgrade";
-      };
-    };
-
     networking = {
       networkmanager.enable = true;
       useDHCP = false;
@@ -43,9 +40,9 @@
         }
       ];
       firewall = {
-        enable = true;
-        allowedTCPPorts = lib.optionals (host.networking ? allowedTCPPorts) host.networking.allowedTCPPorts;
-        allowedUDPPorts = lib.optionals (host.networking ? allowedUDPPorts) host.networking.allowedUDPPorts;
+        enable = false;
+        trustedInterfaces = [config.services.tailscale.interfaceName];
+        allowedUDPPorts = [config.services.tailscale.port];
       };
     };
   };

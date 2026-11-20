@@ -17,9 +17,6 @@
 
         secrets = {
           "cloudflare/api".recipients = ["mononoke"];
-          "cloudflared/credentials".recipients = ["mononoke"];
-          "docktail/id".recipients = ["mononoke"];
-          "docktail/secret".recipients = ["mononoke"];
           "nzbget/password".recipients = ["mononoke"];
           "prowlarr/api".recipients = ["mononoke"];
           "radarr/api".recipients = ["mononoke"];
@@ -33,6 +30,9 @@
           "wud/password".recipients = ["mononoke"];
           "netbird/proxy_token".recipients = ["mononoke"];
           "netbird/setup_key_server".recipients = ["mononoke"];
+          "silo/secret_key".recipients = ["mononoke"];
+          "tsdproxy/client_id".recipients = ["mononoke"];
+          "tsdproxy/client_secret".recipients = ["mononoke"];
         };
       };
     };

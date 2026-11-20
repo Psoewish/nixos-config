@@ -18,6 +18,11 @@
           "/var/lib/nzbhydra2:/config"
           "/data/downloads:/data/downloads"
         ];
+        ports = ["5076:5076"];
+        labels = {
+          "tsdproxy.enable" = "true";
+          "tsdproxy.domain" = "nzbhydra.psoewish.com";
+        };
       };
     };
   };

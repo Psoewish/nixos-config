@@ -20,6 +20,11 @@
           "/var/lib/qbittorrent:/config"
           "/data/downloads/torrents:/data/downloads/torrents"
         ];
+        ports = ["8181:8080"];
+        labels = {
+          "tsdproxy.enable" = "true";
+          "tsdproxy.domain" = "qbittorrent.psoewish.com";
+        };
       };
     };
   };

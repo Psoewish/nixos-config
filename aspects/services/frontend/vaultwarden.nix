@@ -25,6 +25,11 @@
         image = "ghcr.io/dani-garcia/vaultwarden:latest";
         environmentFiles = [config.security.nix-secrets.templates.vaultwarden.path];
         volumes = ["/var/lib/vaultwarden:/data"];
+        ports = ["8222:8222"];
+        labels = {
+          "tsdproxy.enable" = "true";
+          "tsdproxy.domain" = "vault.psoewish.com";
+        };
       };
     };
   };
