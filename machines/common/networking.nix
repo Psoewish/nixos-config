@@ -9,6 +9,7 @@
 
     systemd.services.tailscaled.serviceConfig.Environment = ["TS_DEBUG_FIREWALL_MODE=nftables"];
     services = {
+      resolved.enable = true;
       tailscale = {
         enable = true;
         useRoutingFeatures = "both";
@@ -17,14 +18,6 @@
           "--accept-routes"
           "--ssh"
         ];
-      };
-      resolved = {
-        enable = true;
-        settings.Resolve = {
-          DNS = ["9.9.9.9"];
-          FallbackDNS = ["192.168.1.100"];
-          DNSSEC = "allow-downgrade";
-        };
       };
     };
     networking = {
