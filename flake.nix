@@ -5,15 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-lib.follows = "nixpkgs";
 
-    zen-kernel.url = "github:nixos/nixpkgs/7c68e22c2704fd87d2f2d1f442e0141ca6a9e60d";
-
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     den.url = "github:denful/den";
     import-tree.url = "github:denful/import-tree";
 
-    sops-nix.url = "github:mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-secrets.url = "github:unnamed-systems/nix-secrets";
     nix-secrets.inputs.nixpkgs.follows = "nixpkgs";
 
