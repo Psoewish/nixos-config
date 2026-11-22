@@ -38,8 +38,7 @@
     services.frontend.vaultwarden
     services.frontend.silo
 
-    # services.routing.blocky
-    # services.routing.unbound
-    services.routing.tsdproxy
+    services.routing.technitium
+    services.routing.traefik
   ];
 }
