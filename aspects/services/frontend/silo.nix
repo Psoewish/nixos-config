@@ -32,10 +32,9 @@
           "/data/media:/mnt/media:ro"
         ];
         devices = ["/dev/dri:/dev/dri"];
-        ports = ["8888:8080"];
         labels = {
-          "tsdproxy.enable" = "true";
-          "tsdproxy.domain" = "silo.psoewish.com";
+          "traefik.enable" = "true";
+          "traefik.http.routers.silo.rule" = "Host(`silo.psoewish.com`)";
         };
       };
     };

@@ -20,10 +20,9 @@
           "/var/lib/prowlarr:/config"
           "/data/downloads:/data/downloads"
         ];
-        ports = ["9696:9696"];
         labels = {
-          "tsdproxy.enable" = "true";
-          "tsdproxy.domain" = "prowlarr.psoewish.com";
+          "traefik.enable" = "true";
+          "traefik.http.routers.prowlarr.rule" = "Host(`prowlarr.psoewish.com`)";
         };
       };
     };

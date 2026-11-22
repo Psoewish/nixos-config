@@ -20,10 +20,9 @@
           "/var/run/docker.sock:/var/run/docker.sock"
           "/var/lib/wud:/store"
         ];
-        ports = ["3000:3000"];
         labels = {
-          "tsdproxy.enable" = "true";
-          "tsdproxy.domain" = "wud.psoewish.com";
+          "traefik.enable" = "true";
+          "traefik.http.routers.wud.rule" = "Host(`wud.psoewish.com`)";
         };
       };
     };

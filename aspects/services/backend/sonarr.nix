@@ -21,10 +21,9 @@
           "/data/media:/data/media"
           "/data/downloads:/data/downloads"
         ];
-        ports = ["8989:8989"];
         labels = {
-          "tsdproxy.enable" = "true";
-          "tsdproxy.domain" = "sonarr.psoewish.com";
+          "traefik.enable" = "true";
+          "traefik.http.routers.sonarr.rule" = "Host(`sonarr.psoewish.com`)";
         };
       };
     };

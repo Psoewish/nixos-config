@@ -20,10 +20,10 @@
           "/var/lib/qbittorrent:/config"
           "/data/downloads/torrents:/data/downloads/torrents"
         ];
-        ports = ["8181:8080"];
         labels = {
-          "tsdproxy.enable" = "true";
-          "tsdproxy.domain" = "qbittorrent.psoewish.com";
+          "traefik.enable" = "true";
+          "traefik.http.routers.qbittorrent.rule" = "Host(`qbittorrent.psoewish.com`)";
+          "traefik.http.services.qbittorrent.loadbalancer.server.port" = "8080";
         };
       };
     };

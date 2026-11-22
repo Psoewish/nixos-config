@@ -12,7 +12,6 @@
         "EXTENDED_LOGGING=true"
         "SIGNUPS_ALLOWED=false"
         "WEB_VAULT_ENABLED=true"
-        "ROCKET_ADDRESS=0.0.0.0"
         "ROCKET_PORT=8222"
         "SMTP_HOST=smtp.protonmail.ch"
         "SMTP_PORT=587"
@@ -25,10 +24,10 @@
         image = "ghcr.io/dani-garcia/vaultwarden:latest";
         environmentFiles = [config.security.nix-secrets.templates.vaultwarden.path];
         volumes = ["/var/lib/vaultwarden:/data"];
-        ports = ["8222:8222"];
         labels = {
-          "tsdproxy.enable" = "true";
-          "tsdproxy.domain" = "vault.psoewish.com";
+          "traefik.enable" = "true";
+          "traefik.http.routers.vaultwarden.rule" = "Host(`vault.psoewish.com`)";
+          "traefik.http.services.vaultwarden.loadbalancer.server.port" = "8222";
         };
       };
     };

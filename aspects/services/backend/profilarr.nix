@@ -17,10 +17,9 @@
         image = "ghcr.io/dictionarry-hub/profilarr:latest";
         environmentFiles = [config.security.nix-secrets.templates.profilarr.path];
         volumes = ["/var/lib/profilarr:/config"];
-        ports = ["6868:6868"];
         labels = {
-          "tsdproxy.enable" = "true";
-          "tsdproxy.domain" = "profilarr.psoewish.com";
+          "traefik.enable" = "true";
+          "traefik.http.routers.profilarr.rule" = "Host(`profilarr.psoewish.com`)";
         };
       };
     };
