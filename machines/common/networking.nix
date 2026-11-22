@@ -9,7 +9,13 @@
 
     systemd.services.tailscaled.serviceConfig.Environment = ["TS_DEBUG_FIREWALL_MODE=nftables"];
     services = {
-      resolved.enable = true;
+      resolved = {
+        enable = true;
+        settings.Resolve = {
+          DNSStubListener = "no";
+          DNS = "127.0.0.1";
+        };
+      };
       tailscale = {
         enable = true;
         useRoutingFeatures = "both";
@@ -17,6 +23,7 @@
           "--accept-dns"
           "--accept-routes"
           "--ssh"
+          "--snat-subnet-routes=false"
         ];
       };
     };
