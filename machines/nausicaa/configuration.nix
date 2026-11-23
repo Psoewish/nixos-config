@@ -9,7 +9,7 @@
       modules = ["kvm-amd"];
     };
     networking = {
-      interface = "enp9s0";
+      interface = "enp10s0";
       address = "192.168.1.16";
     };
     includes = [den.aspects.common._];
@@ -27,7 +27,8 @@
     kitty
     browsers.helium
     media._
-    stylix
-    nix-secrets
+    # stylix
+    catppuccin
+    # nix-secrets
   ];
 }

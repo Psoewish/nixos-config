@@ -18,10 +18,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:nix-community/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
-    basix.url = "github:notashelf/basix";
-    basix.inputs.nixpkgs.follows = "nixpkgs";
+    # stylix.url = "github:nix-community/stylix";
+    # stylix.inputs.nixpkgs.follows = "nixpkgs";
+    # basix.url = "github:notashelf/basix";
+    # basix.inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.inputs.nixpkgs.follows = "nixpkgs";
 
     mangowm.url = "github:mangowm/mango";
     mangowm.inputs.nixpkgs.follows = "nixpkgs";
