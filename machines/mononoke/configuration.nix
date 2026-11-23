@@ -11,8 +11,7 @@
       modules = ["kvm-intel"];
     };
     networking = {
-      interface = "enp94s0";
-      address = "192.168.1.100";
+      address = "192.168.1.50";
       allowedTCPPorts = [53 80 443];
       allowedUDPPorts = [53];
     };
